@@ -3,16 +3,35 @@
 这个目录供“服务器没有 Codex/agent，只能手动执行命令”的情况使用。服务器必须是原生
 `x86_64`/`amd64` Linux；Dara 的 BGMN 官方二进制主要依赖 CPU，GPU 不会明显加速。
 
+DGX Spark 上运行 CrystalShift/CrystalTree、XERUS 和 Dara smoke 时，应阅读
+`fig4/benchmark/REMOTE_RUN_GUIDE_V3.md`。本文只负责在普通 x86_64 CPU 服务器上安装并运行
+Dara；两份说明使用的是同一个 Atomly-Core v3 盲测包。
+
 ## 1. 克隆并安装
 
 ```bash
-git clone git@github.com:khw23/xrd-native-benchmark-v2.git
+git clone https://github.com/khw23/xrd-native-benchmark-v2.git
 cd xrd-native-benchmark-v2
-git switch agent/atomly-core-v3-runner
+
+git log -1 --oneline
+test -f fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3.zip
+test -f fig4/benchmark/prototypes/run_dara_native_v3.py
 
 uname -m
 conda env create -f server_dara/environment.yml
 conda activate xrd-dara-v3
+```
+
+仓库已公开，因此这里使用 HTTPS 克隆，不要求服务器配置 GitHub SSH 公钥。默认分支 `main`
+已经是 Atomly-Core v3，不再需要切换到旧的临时 v3 分支；两个 `test -f` 命令均应成功。
+
+如果服务器上已经克隆过仓库，使用下面的命令更新到当前 `main`，不要重新克隆：
+
+```bash
+cd xrd-native-benchmark-v2
+git switch main
+git pull --ff-only origin main
+git log -1 --oneline
 ```
 
 `uname -m` 应输出 `x86_64`。环境固定 Dara 1.3.0 的 `strict` 依赖组，避免重复 DGX smoke
