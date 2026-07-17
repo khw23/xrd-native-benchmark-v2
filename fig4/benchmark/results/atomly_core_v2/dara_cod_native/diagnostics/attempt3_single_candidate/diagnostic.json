@@ -1,0 +1,8 @@
+{
+  "candidate": "fig4/benchmark/method_inputs/cod_native_v2/N-Nb-O-Sr-Ti/cifs/N2O5_194_(cod_2311076)-8.cif",
+  "status": "bgmn_completed_dara_rejected",
+  "bgmn_version": "4.2.23",
+  "rwp_percent": 46.09,
+  "rpb_percent": 100.0,
+  "dara_native_rejection_rule": "remote_do_refinement_no_saving returns None when RPB == 100"
+}

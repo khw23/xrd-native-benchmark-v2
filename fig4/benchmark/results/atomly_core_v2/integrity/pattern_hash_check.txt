@@ -1,0 +1,3 @@
+samples_checked=100
+hash_matches=100
+hash_mismatches=0
