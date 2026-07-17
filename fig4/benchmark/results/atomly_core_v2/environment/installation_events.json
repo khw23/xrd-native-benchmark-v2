@@ -1,0 +1,18 @@
+[
+  {
+    "component": "jenkspy 0.4.1",
+    "status": "recovered",
+    "failure_category": "installation_failure",
+    "initial_error": "Source build could not find Python.h for Python 3.12.",
+    "resolution": "Extracted the Ubuntu ARM64 libpython3.12-dev package into fig4/benchmark/method_envs/python3.12-dev-root and built inside the isolated Dara environment.",
+    "system_or_conda_base_modified": false
+  },
+  {
+    "component": "BGMN 4.2.23",
+    "status": "recovered",
+    "failure_category": "installation_failure",
+    "initial_error": "Official Linux executable returned Exec format error on the ARM64 host because it is x86-64.",
+    "resolution": "Preserved the official executables and added isolated wrappers using QEMU user-static 8.2.2 with an extracted x86-64 glibc 2.39 runtime.",
+    "system_or_conda_base_modified": false
+  }
+]

@@ -1,0 +1,8 @@
+prediction_columns_exact=True
+prediction_rows=1
+record_rows=1
+sample_ids_match=True
+max_phases=3
+candidate_count=153
+failure_category=calculation_failure
+failure_history_rows=3

@@ -1,0 +1,49 @@
+{
+  "reported_at": "2026-07-16T07:04:40-05:00",
+  "stage": "D",
+  "sample_id": "XRDV2_0001",
+  "inputs": {
+    "sample_elements": ["N", "Nb", "O", "Sr", "Ti"],
+    "pattern_sha256": "eeaf3c2f9f3f5aaedaaa29a1fd451ebe63d7b0ce9fe0d9d36b149924f13e34b8",
+    "candidate_database": "Dara COD filtered index 2024",
+    "candidate_count": 153,
+    "max_phases": 3,
+    "instrument_profile": "Rigaku-Miniflex-600-DTEXultra2-fds"
+  },
+  "result": {
+    "status": "error",
+    "failure_category": "calculation_failure",
+    "runtime_seconds": 939.9967237629999,
+    "error_type": "ZeroDivisionError",
+    "error": "division by zero",
+    "prediction_rows": 1,
+    "successful_hypotheses": 0
+  },
+  "diagnosis": {
+    "bgmn_execution_verified": true,
+    "single_candidate_bgmn_version": "4.2.23",
+    "single_candidate_rwp_percent": 46.09,
+    "single_candidate_rpb_percent": 100.0,
+    "native_dara_behavior": "Dara rejects refinements with RPB == 100; all candidate results were removed, then Dara 1.3.0 divided by a zero Rwp sum while initializing eps2.",
+    "scientific_parameters_changed": false
+  },
+  "resume_test": {
+    "command": "run_dara_native_v2.py --limit 1 --num-cpus 8 --resume",
+    "wall_seconds": 1.18,
+    "action": "recorded error; skipped",
+    "output_hashes_unchanged": true
+  },
+  "full_run_projection": {
+    "samples": 100,
+    "unique_element_systems": 83,
+    "total_sample_candidate_references": 9242,
+    "smoke_candidate_references": 153,
+    "linear_screening_lower_bound_hours": 15.77,
+    "recommended_wall_time_window_hours": [24, 36],
+    "recommended_cpu_workers": 8,
+    "recommended_memory_gib": 16,
+    "current_environment_disk_gib_approx": 1.9,
+    "recommended_additional_free_disk_gib": 20
+  },
+  "checkpoint": "Awaiting user confirmation before Dara full run."
+}
