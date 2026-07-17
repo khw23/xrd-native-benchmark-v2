@@ -6,9 +6,12 @@ __pycache__/
 .julia/
 .julia_depot/
 fig4/benchmark/method_envs/
-fig4/benchmark/method_inputs/cod_native_v2/
-fig4/benchmark/method_inputs/crystalshift_cod_v2/
+fig4/benchmark/method_inputs/cod_native_v3/
+fig4/benchmark/method_inputs/crystalshift_cod_v3/
 fig4/benchmark/results/**/work/
 fig4/benchmark/results/**/batch_logs/
 fig4/benchmark/datasets/**/internal/
-fig4/benchmark/datasets/atomly_core_v1/phase_pool/
+fig4/benchmark/datasets/**/native_blind_package_v3/
+fig4/benchmark/third_party/
+COD_2024/
+mongodb-data/

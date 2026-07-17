@@ -1,2 +1,0 @@
-sample_id,method,solution_rank,phase_rank,predicted_formula,predicted_space_group_symbol,predicted_space_group_number,predicted_database,predicted_database_id,predicted_weight_fraction,confidence_or_score,runtime_seconds,status_or_note,predicted_cif_path
-XRDV2_0001,Dara 1.3.0 + COD 2024,,,,,,COD,,,,939.9967237629999,calculation_failure: ZeroDivisionError: division by zero,

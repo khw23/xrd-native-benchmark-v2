@@ -1,0 +1,9 @@
+name: xrd-dara-v3
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - "dara-xrd[strict]==1.3.0"
+      - pandas

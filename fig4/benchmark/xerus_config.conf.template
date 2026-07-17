@@ -1,0 +1,11 @@
+[mongodb]
+host = localhost
+user =
+password =
+
+[mp]
+apikey =
+
+[gsas2]
+instr_params = inc/benchmark_v3_reference.instprm
+testxrd = inc/HoB21.ras

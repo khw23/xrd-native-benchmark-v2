@@ -1,7 +1,0 @@
-{
-  "candidate": "fig4/benchmark/method_inputs/cod_native_v2/N-Nb-O-Sr-Ti/cifs/N2O5_194_(cod_2311076)-8.cif",
-  "status": "error",
-  "error_type": "AttributeError",
-  "error": "'LstResult' object has no attribute 'EPS1'",
-  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 13, in <module>\n  File \"/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_envs/dara/lib/python3.12/site-packages/pydantic/main.py\", line 1042, in __getattr__\n    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')\nAttributeError: 'LstResult' object has no attribute 'EPS1'\n"
-}
