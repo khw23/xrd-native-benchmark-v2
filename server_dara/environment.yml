@@ -3,7 +3,11 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11
-  - pip
+  - pip>=25
+  - setuptools
+  - wheel
+  - numpy=1.26.4
+  - pandas
+  - pyarrow=20.0.0
   - pip:
       - "dara-xrd[strict]==1.3.0"
-      - pandas
