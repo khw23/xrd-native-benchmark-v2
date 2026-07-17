@@ -16,8 +16,10 @@ cd "${SLURM_SUBMIT_DIR:?Submit this job from the repository root}"
 test -f server_dara/environment.yml
 test "$(uname -m)" = "x86_64"
 
+set +u
 eval "$(conda shell.bash hook)"
 conda activate "${CONDA_ENV_NAME:-xrd-dara-v3}"
+set -u
 
 export RAY_CPUS="${RAY_CPUS:-2}"
 export BGMN_THREADS="${BGMN_THREADS:-8}"

@@ -16,8 +16,10 @@ cd "${SLURM_SUBMIT_DIR:?Submit this job from the repository root}"
 test -f server_dara/environment.yml
 test "$(uname -m)" = "x86_64"
 
+set +u
 eval "$(conda shell.bash hook)"
 conda activate "${CONDA_ENV_NAME:-xrd-dara-v3}"
+set -u
 
 python -u fig4/benchmark/prototypes/unpack_and_verify_v3.py
 bash server_dara/01_prepare_candidates.sh
