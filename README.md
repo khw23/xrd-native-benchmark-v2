@@ -1,14 +1,15 @@
 # XRD native-workflow benchmark runner v3
 
-跨设备运行 Atomly-Core v3 的私有仓库。当前只包含：
+跨设备运行 Atomly-Core v3 的公开 runner 仓库。当前只包含：
 
 - 100 条盲谱压缩包及精确样本元素并集；
 - CrystalShift + CrystalTree、XERUS、Dara 的原生/声明式数据库 runner；
-- DGX ARM64 失败诊断和 x86_64 CPU 服务器手动运行包。
+- DGX ARM64 失败诊断和 x86_64 CPU 服务器 Slurm 运行包。
 
 仓库不包含 Atomly 生成 CIF、真实相数、真实物相、相比例、难度标签或 Atomly--COD 私有判分表。
 
-开始前阅读 [REMOTE_RUN_GUIDE_V3.md](fig4/benchmark/REMOTE_RUN_GUIDE_V3.md)。
+DGX 运行前阅读 [REMOTE_RUN_GUIDE_V3.md](fig4/benchmark/REMOTE_RUN_GUIDE_V3.md)；x86_64
+Slurm 服务器运行 Dara 时阅读 [server_dara/README.md](server_dara/README.md)。
 
 ## 冻结输入
 
