@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-07-16T07:04:40-05:00",
+  "isolation": {
+    "python_environment": "fig4/benchmark/method_envs/dara",
+    "system_or_conda_base_modified": false,
+    "python_dev_headers": "fig4/benchmark/method_envs/python3.12-dev-root",
+    "qemu_user_static": "fig4/benchmark/method_envs/qemu-user-static",
+    "x86_64_runtime_root": "fig4/benchmark/method_envs/x86_64-rootfs"
+  },
+  "host": {
+    "architecture": "aarch64",
+    "logical_cpus": 20,
+    "memory_total_gib": 121,
+    "disk_available_tib": 3.3
+  },
+  "versions": {
+    "python": "3.12.3",
+    "dara-xrd": "1.3.0",
+    "bgmn": "4.2.23",
+    "qemu-x86_64": "8.2.2",
+    "ray": "2.56.0",
+    "pandas": "3.0.3",
+    "pymatgen": "2026.5.4",
+    "jenkspy": "0.4.1",
+    "numpy": "2.4.6",
+    "scipy": "1.18.0"
+  },
+  "execution_note": "Official BGMN executables are x86-64 and run through the isolated QEMU/glibc wrapper on this ARM64 host."
+}

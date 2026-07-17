@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "archive": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3.zip",
+  "archive_sha256": "dde24eb5b1553f005c5da99a4bd2adf242ba6360ced0f8e4fed42238835e6243",
+  "samples": 100,
+  "unique_element_systems": 84,
+  "blind_root": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3",
+  "leakage_check": "no CIF, truth, phase pool, or Atomly-COD map"
+}

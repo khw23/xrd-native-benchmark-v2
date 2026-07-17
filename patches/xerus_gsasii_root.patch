@@ -1,0 +1,13 @@
+diff --git a/Xerus/settings/settings.py b/Xerus/settings/settings.py
+--- a/Xerus/settings/settings.py
++++ b/Xerus/settings/settings.py
+@@ -35,6 +35,8 @@ config.read(abs_path.joinpath("config.conf"))
+ ## Get the settings entrys ##
+ INSTR_PARAMS = os.path.join(project_path, config['gsas2']['instr_params'])
+ # GSAS2_BIN = config['gsas2']['binpath']
+-GSAS2_BIN = os.path.join(project_path, 'GSASII') # bundled GSAS II
++GSAS2_BIN = os.environ.get(
++    "GSASII_ROOT", os.path.join(project_path, "GSASII")
++) # permit a current architecture-compatible GSAS-II installation
+ TEST_XRD = os.path.join(project_path,config['gsas2']['testxrd'])
+ MP_API_KEY = config['mp']['apikey']
