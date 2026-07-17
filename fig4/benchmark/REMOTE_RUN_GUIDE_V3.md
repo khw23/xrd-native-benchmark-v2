@@ -12,15 +12,33 @@
 禁止向远端复制 Atomly 生成 CIF、私有相池、真实二相/三相标签、相比例或 Atomly--COD 真值表。
 方法必须返回原生数据库 ID，最好同时保留最终入选 CIF。
 
-## 1. 更新仓库并验证盲包
+## 1. 克隆或更新仓库并验证盲包
+
+首次下载：
 
 ```bash
-git fetch origin
-git switch agent/atomly-core-v3-runner
-git pull --ff-only
+git clone https://github.com/khw23/xrd-native-benchmark-v2.git
+cd xrd-native-benchmark-v2
+git log -1 --oneline
 
 python3 fig4/benchmark/prototypes/unpack_and_verify_v3.py
 ```
+
+已经克隆过仓库：
+
+```bash
+cd xrd-native-benchmark-v2
+git switch main
+git pull --ff-only origin main
+git log -1 --oneline
+
+python3 fig4/benchmark/prototypes/unpack_and_verify_v3.py
+```
+
+默认分支 `main` 已经是 Atomly-Core v3；旧的临时 v3 分支已删除，不再需要手工切换。
+如果 DGX 已经从该临时分支启动任务，不要在任务运行中途切换分支。只要下面的盲包哈希一致，
+并且 `unpack_and_verify_v3.py` 通过，该次运行仍属于同一个 v3 benchmark；任务结束并保存结果后
+再切回并更新 `main` 即可。合并 PR 会改变提交号，但不会因此改变已经冻结的 v3 输入。
 
 预期：100 个样本、84 个唯一元素体系、`status: passed`。压缩包哈希必须为：
 
