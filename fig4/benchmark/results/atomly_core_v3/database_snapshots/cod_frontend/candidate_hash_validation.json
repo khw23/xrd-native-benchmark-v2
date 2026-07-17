@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "candidate_references_checked": 6622,
+  "unique_database_ids": 2429,
+  "missing_files": 0,
+  "hash_mismatches": 0,
+  "missing_examples": [],
+  "mismatch_examples": []
+}

@@ -1,0 +1,4 @@
+smoke_tier,sample_id,sample_elements,system_key,candidate_count
+low,XRDV3_0046,Ag;Br;Cl,Ag-Br-Cl,12
+median,XRDV3_0054,C;Si;W,C-Si-W,46
+high,XRDV3_0100,Ba;C;Ca;Mg;O,Ba-C-Ca-Mg-O,216

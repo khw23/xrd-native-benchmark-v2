@@ -1,0 +1,23 @@
+[
+  {
+    "sample_id": "XRDV3_0001",
+    "status": "ok",
+    "runtime_seconds": 8690.746994037007,
+    "sample_elements": [
+      "Fe",
+      "Li",
+      "Mn",
+      "O",
+      "P"
+    ],
+    "candidate_database": "Dara COD filtered index 2024",
+    "candidate_count": 395,
+    "max_phases": 3,
+    "ray_num_cpus": 2,
+    "bgmn_threads_per_refinement": 8,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "best_rwp_percent": 8.1,
+    "n_hypotheses": 2,
+    "pattern_sha256": "21b885f2d319097452fb86b2157c906a3527a8980edab9703635c37c1c306c46"
+  }
+]

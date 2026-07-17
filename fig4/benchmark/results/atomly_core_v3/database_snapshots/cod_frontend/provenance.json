@@ -1,0 +1,11 @@
+{
+  "input_manifest": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3/sample_manifest.csv",
+  "database_class": "dara.structure_db.CODDatabase",
+  "local_cod_root": null,
+  "selection_rule": "all database phases whose element set is a nonempty subset of sample_elements, followed by Dara COD preprocessing",
+  "private_generator_cifs_used": false,
+  "systems_recorded": 84,
+  "systems_successful": 84,
+  "resume_supported": true,
+  "download_attempts_per_cod_id": 3
+}

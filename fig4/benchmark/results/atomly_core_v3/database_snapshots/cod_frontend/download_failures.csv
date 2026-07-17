@@ -1,0 +1,4 @@
+database_id,failure_category,attempts_in_failed_request,status,final_global_cache_present,note
+1525743,database_timeout,3,transient_recovered_later,true,Failed request retained in cod_prepare_full.log; a later element-system request downloaded the CIF.
+1008201,database_ssl,3,transient_recovered_later,true,Failed request retained in cod_prepare_full.log; a later element-system request downloaded the CIF.
+1514049,database_timeout,3,transient_recovered_later,true,Failed request retained in cod_prepare_full.log; a later element-system request downloaded the CIF.

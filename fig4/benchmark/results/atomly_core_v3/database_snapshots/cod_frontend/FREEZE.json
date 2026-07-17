@@ -1,0 +1,21 @@
+{
+  "frozen_at": "2026-07-17T03:49:25-05:00",
+  "database_front_end": "Dara COD filtered index 2024",
+  "dara_version": "1.3.0",
+  "samples": 100,
+  "unique_element_systems": 84,
+  "candidate_references": 6622,
+  "unique_cod_ids": 2429,
+  "candidate_count_min": 5,
+  "candidate_count_median": 45.0,
+  "candidate_count_max": 629,
+  "private_generator_cifs_used": false,
+  "sample_manifest_sha256": "c3630f2fe2d55b61eb03308109517e32b77d56ff3602ff38a932313f8f3725bc",
+  "candidate_set_summary_sha256": "687d5eae1b5adaab6b427ceb2b67e348ef80c967a8c0bf0fa162a1676e9107a7",
+  "candidate_manifest_sha256": "432f698b8e889721b55856a611bb1874a376ebefcf005d00b35df5c730d46bba",
+  "provenance_sha256": "dcc87662c5467c4c9da8f6640c3bfe056f22ceaed449434b5e424e434f81ca49",
+  "audit_report_sha256": "08db0ba835da43011d948d764dd75fb14103bf6328e4bc358bca533b5cd848ec",
+  "smoke_samples_sha256": "7494e6c25d7546b8242ac388078027851df1b8687447b4009fd33be24796ffd9",
+  "download_failures_sha256": "895e513cac892718d6357d1a5339d34d7159891d96206ff7ba518c311ed18ae1",
+  "candidate_hash_validation_sha256": "631578125027637906b58b017034b41eb68adca74d39625509edd25598894940"
+}

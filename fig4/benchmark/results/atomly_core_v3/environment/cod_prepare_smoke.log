@@ -1,0 +1,19 @@
+2026-07-17 03:32:15,547 WARNING dara.structure_db Local copy of database not found. Attempting to download structures...
+Downloading CIFs from COD...:   0%|          | 0/15 [00:00<?, ?it/s]Downloading CIFs from COD...:   7%|▋         | 1/15 [00:02<00:30,  2.16s/it]Downloading CIFs from COD...:  20%|██        | 3/15 [00:02<00:10,  1.17it/s]Downloading CIFs from COD...:  93%|█████████▎| 14/15 [00:03<00:00,  6.82it/s]Downloading CIFs from COD...: 100%|██████████| 15/15 [00:03<00:00,  4.64it/s]
+2026-07-17 03:32:18,788 INFO dara.structure_db Saving downloaded CIFs to dara_downloaded_cifs
+2026-07-17 03:32:18,789 INFO dara.structure_db Skipping common gas: Br
+2026-07-17 03:32:18,789 INFO dara.structure_db Skipping common gas: Br
+2026-07-17 03:32:18,789 INFO dara.structure_db Skipping common gas: Br
+Successfully copied 1010328.cif to Cl2_138_(cod_1010328)-35.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 1512500.cif to Cl2_64_(cod_1512500)-0.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 9013123.cif to Cl2_64_(cod_9013123)-0.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 5900027.cif to Cl2_123_(cod_5900027)-None.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 9013045.cif to Ag_225_(cod_9013045)-2.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 1509145.cif to Ag_194_(cod_1509145)-0.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 1509194.cif to Ag_194_(cod_1509194)-0.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 9008597.cif to AgCl_225_(cod_9008597)-0.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 9011672.cif to AgCl_11_(cod_9011672)-11.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 9011678.cif to AgCl_63_(cod_9011678)-28.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 9008596.cif to AgBr_225_(cod_9008596)-0.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Successfully copied 9011687.cif to AgBr_11_(cod_9011687)-42.cif in /home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Ag-Br-Cl/cifs
+Ag-Br-Cl: 12 COD candidates (prepared, 3.2 s)

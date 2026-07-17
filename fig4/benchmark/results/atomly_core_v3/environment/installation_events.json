@@ -1,0 +1,23 @@
+[
+  {
+    "component": "jenkspy 0.4.0",
+    "failure_category": "installation_failure",
+    "status": "recovered",
+    "error": "The source distribution omitted Cython from its isolated PEP 517 build requirements.",
+    "resolution": "Installed Cython in cod-env and built the exact 0.4.0 release with --no-build-isolation."
+  },
+  {
+    "component": "jenkspy 0.4.0",
+    "failure_category": "installation_failure",
+    "status": "recovered",
+    "error": "The first local-header build omitted the multiarch include root and could not resolve aarch64-linux-gnu/python3.12/pyconfig.h.",
+    "resolution": "Added both the extracted Python include root and python3.12 include directory; no system package was installed."
+  },
+  {
+    "component": "BGMN 4.2.23",
+    "failure_category": "installation_failure",
+    "status": "recovered_for_dgx_smoke_only",
+    "error": "Official Linux BGMN executables are x86-64 and returned exit 126 / Exec format error on the ARM64 host.",
+    "resolution": "Preserved the official binaries and invoked them through isolated QEMU user-static 8.2.2 and an extracted x86-64 glibc runtime. Full Dara execution remains designated for native x86-64 if smoke fails."
+  }
+]

@@ -1,0 +1,6 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  3.7T  213G  3.3T   6% /
+
+1.6G  cod-env
+82M   fig4/benchmark/method_inputs/cod_native_v3
+2.9M  fig4/benchmark/results/atomly_core_v3

@@ -1,0 +1,40 @@
+{
+  "validated_at": "2026-07-17T06:16:28-05:00",
+  "status": "passed",
+  "predictions_file": "fig4/benchmark/results/atomly_core_v3/dara_cod_native/predictions.csv",
+  "run_records_file": "fig4/benchmark/results/atomly_core_v3/dara_cod_native/run_records.json",
+  "expected_columns": [
+    "sample_id",
+    "method",
+    "solution_rank",
+    "phase_rank",
+    "predicted_formula",
+    "predicted_space_group_symbol",
+    "predicted_space_group_number",
+    "predicted_database",
+    "predicted_database_id",
+    "predicted_weight_fraction",
+    "confidence_or_score",
+    "runtime_seconds",
+    "status_or_note",
+    "predicted_cif_path"
+  ],
+  "checks": {
+    "exact_columns": true,
+    "row_count": 4,
+    "sample_count": 1,
+    "hypothesis_count": 2,
+    "maximum_phases_in_any_hypothesis": 2,
+    "maximum_phases_allowed": 3,
+    "phase_limit_satisfied": true,
+    "database_ids_nonempty": true,
+    "candidate_ranks_present": true,
+    "fit_metrics_present": true,
+    "runtime_present": true,
+    "all_cif_paths_exist": true,
+    "solution_1_weight_sum": 1.0,
+    "solution_2_weight_sum": 1.0,
+    "weight_sums_within_tolerance": true,
+    "run_record_status": "ok"
+  }
+}

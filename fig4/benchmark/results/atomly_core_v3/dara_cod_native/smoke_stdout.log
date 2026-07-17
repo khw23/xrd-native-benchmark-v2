@@ -1,0 +1,906 @@
+2026-07-17 03:50:47,968	INFO worker.py:1852 -- Started a local Ray instance.
+2026-07-17 03:50:48,161 INFO dara.search.tree rpb_threshold automatically set to 1.24 based on pattern SNR.
+2026-07-17 03:50:48,165 INFO dara.search.tree Detecting peaks in the pattern.
+2026-07-17 03:51:12,947 INFO dara.search.tree The wmax is automatically adjusted to 52.33.
+2026-07-17 03:51:12,948 INFO dara.search.tree The intensity threshold is automatically set to 8.11 % of maximum peak intensity.
+2026-07-17 03:51:12,948 INFO dara.search.tree Creating the root node.
+2026-07-17 03:51:12,948 INFO dara.search.tree Refining all the phases in the dataset.
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+2026-07-17 05:27:48,943 INFO dara.search.tree The initial value of eps2 is automatically set to 0.000001_-0.05^0.05.
+2026-07-17 05:27:48,944 INFO dara.search.tree Finished refining 395 phases, with 204 phases removed.
+2026-07-17 05:27:48,944 INFO dara.search.tree Express mode is enabled. Grouping phases before starting.
+2026-07-17 05:27:57,485 INFO dara.search.tree Phases are grouped into 117 groups. In express mode, only the best phase in each group will be considered during the search.
+[36m(remote_do_refinement_no_saving pid=49153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49432)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49432)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49432)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49432)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49432)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49432)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49432)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49432)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49432)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49432)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49432)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49432)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38607)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=49692)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50196)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=38608)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51782)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51782)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51782)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50486)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50486)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50486)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 4x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(_remote_expand_node pid=38608)[0m 2026-07-17 05:27:57,602 INFO dara.search.tree Expanding node a9e67dda-81bc-11f1-91dc-4cbb472febe9 with current phases [], Rwp = None
+[36m(_remote_expand_node pid=38607)[0m 2026-07-17 05:29:48,557 INFO dara.search.tree Expanding node 6f83d0b6-81ca-11f1-b0db-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.72803792Fe4.27196208P3.364O16_26_(cod_4003016)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 23.52
+[36m(_remote_expand_node pid=49432)[0m 2026-07-17 05:32:14,996 INFO dara.search.tree Expanding node 6f84016d-81ca-11f1-b4c8-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.64Mn3.2Fe0.732P4O16_62_(cod_9015611)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 22.77[32m [repeated 2x across cluster][0m
+[36m(_remote_expand_node pid=49432)[0m 2026-07-17 05:34:31,834 INFO dara.search.tree Expanding node 6f8422d7-81ca-11f1-ad14-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Mn(FeO2)2_227_(cod_1010131)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 18.54
+[36m(_remote_expand_node pid=38608)[0m 2026-07-17 05:36:18,504 INFO dara.search.tree Expanding node 6f8452ca-81ca-11f1-8df7-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3(PO4)2_14_(cod_9017502)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 24.7
+[36m(_remote_expand_node pid=49692)[0m 2026-07-17 05:37:04,585 INFO dara.search.tree Expanding node bb0fb89e-81ca-11f1-b9b4-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.72803792Fe4.27196208P3.364O16_26_(cod_4003016)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3O4_51_(cod_1532796)-75.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 22.31
+[36m(_remote_expand_node pid=50196)[0m 2026-07-17 05:40:00,241 INFO dara.search.tree Expanding node 186504ab-81cb-11f1-ba44-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.64Mn3.2Fe0.732P4O16_62_(cod_9015611)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Mn(FeO2)2_227_(cod_1010131)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 8.57
+[36m(_remote_expand_node pid=38608)[0m 2026-07-17 05:42:44,523 INFO dara.search.tree Expanding node 1865cea2-81cb-11f1-af87-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.64Mn3.2Fe0.732P4O16_62_(cod_9015611)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3O4_57_(cod_3000328)-59.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 19.84
+[36m(_remote_expand_node pid=50486)[0m 2026-07-17 05:43:46,852 INFO dara.search.tree Expanding node 18663990-81cb-11f1-911e-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.64Mn3.2Fe0.732P4O16_62_(cod_9015611)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li2O2_194_(cod_1514084)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 21.02
+[36m(_remote_expand_node pid=50933)[0m 2026-07-17 05:45:11,903 INFO dara.search.tree Expanding node 18667363-81cb-11f1-afb7-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.64Mn3.2Fe0.732P4O16_62_(cod_9015611)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3PO7_160_(cod_9012186)-52.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 21.73
+[36m(_remote_expand_node pid=50933)[0m 2026-07-17 05:48:13,431 INFO dara.search.tree Expanding node 57edca58-81cb-11f1-966a-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.44Mn3.2Fe0.732P4O16_62_(cod_9014354)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Mn(FeO2)2_227_(cod_1010131)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 8.1
+[36m(_remote_expand_node pid=51153)[0m 2026-07-17 05:49:18,084 INFO dara.search.tree Expanding node 57ee1127-81cb-11f1-b626-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.44Mn3.2Fe0.732P4O16_62_(cod_9014354)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3O4_51_(cod_1532796)-75.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 18.52
+[36m(_remote_expand_node pid=50933)[0m 2026-07-17 05:50:29,057 INFO dara.search.tree Expanding node 57ee5a0c-81cb-11f1-ab70-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.44Mn3.2Fe0.732P4O16_62_(cod_9014354)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.72803792Fe4.27196208P3.364O16_26_(cod_4003016)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 18.01
+[36m(_remote_expand_node pid=51782)[0m 2026-07-17 05:52:56,830 INFO dara.search.tree Expanding node 57ee9728-81cb-11f1-9a94-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.44Mn3.2Fe0.732P4O16_62_(cod_9014354)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li2O2_194_(cod_1514084)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 17.33
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52499)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=52499)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=52499)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 6x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 6x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 6x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=52045)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53059)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53552)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53552)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53552)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=50933)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53552)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53552)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53552)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 6x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.[32m [repeated 6x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 6x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m Use math.gcd instead.[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 2x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=53717)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m /home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m Use math.gcd instead.[32m [repeated 3x across cluster][0m
+[36m(remote_do_refinement_no_saving pid=51153)[0m   factor = abs(gcd(*(int(i) for i in sym_amt.values())))[32m [repeated 3x across cluster][0m
+/home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+Use math.gcd instead.
+  factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+/home/khw/projects/xrd/xrd-native-benchmark-v2/cod-env/lib/python3.12/site-packages/pymatgen/core/composition.py:1372: FutureWarning: gcd is deprecated, and will be removed on 2028-01-01
+Use math.gcd instead.
+  factor = abs(gcd(*(int(i) for i in sym_amt.values())))
+[36m(_remote_expand_node pid=51153)[0m 2026-07-17 05:55:15,516 INFO dara.search.tree Expanding node 57ef0fdd-81cb-11f1-b86e-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.44Mn3.2Fe0.732P4O16_62_(cod_9014354)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3.644O4_225_(cod_1011163)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 17.9
+[36m(_remote_expand_node pid=52045)[0m 2026-07-17 05:55:59,367 INFO dara.search.tree Expanding node 57ef4d58-81cb-11f1-af18-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.44Mn3.2Fe0.732P4O16_62_(cod_9014354)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3O4_57_(cod_3000328)-59.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 16.08
+[36m(_remote_expand_node pid=52045)[0m 2026-07-17 05:59:06,494 INFO dara.search.tree Expanding node 57ef8cda-81cb-11f1-bff5-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.44Mn3.2Fe0.732P4O16_62_(cod_9014354)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe2P2O7_14_(cod_7703174)-20.cif'), params={'k1': '0.000000_0.0^0.01', 'b1': '0.003000_0.0^0.005'})], Rwp = 16.58
+[36m(_remote_expand_node pid=51153)[0m 2026-07-17 06:01:24,129 INFO dara.search.tree Expanding node 721e08bb-81cb-11f1-b028-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Mn(FeO2)2_227_(cod_1010131)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li3.72803792Fe4.27196208P3.364O16_26_(cod_4003016)-None.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 16.68
+[36m(_remote_expand_node pid=50933)[0m 2026-07-17 06:02:06,878 INFO dara.search.tree Expanding node 721e426c-81cb-11f1-8479-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Mn(FeO2)2_227_(cod_1010131)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3(PO4)2_14_(cod_9017502)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 16.44
+[36m(_remote_expand_node pid=50933)[0m 2026-07-17 06:05:29,435 INFO dara.search.tree Expanding node 721e7023-81cb-11f1-9bbe-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Mn(FeO2)2_227_(cod_1010131)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3O4_57_(cod_3000328)-59.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 18.22
+[36m(_remote_expand_node pid=51153)[0m 2026-07-17 06:07:02,524 INFO dara.search.tree Expanding node 3e10616d-81cc-11f1-89d7-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3(PO4)2_14_(cod_9017502)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3O4_51_(cod_1532796)-75.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 23.89
+[36m(_remote_expand_node pid=53059)[0m 2026-07-17 06:08:04,114 INFO dara.search.tree Expanding node 3e10d7e9-81cc-11f1-a493-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3(PO4)2_14_(cod_9017502)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Li2O2_194_(cod_1514084)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 23.1
+[36m(_remote_expand_node pid=50933)[0m 2026-07-17 06:09:20,296 INFO dara.search.tree Expanding node 3e1111fc-81cc-11f1-958b-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3(PO4)2_14_(cod_9017502)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3PO7_160_(cod_9012186)-52.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'})], Rwp = 23.91
+[36m(_remote_expand_node pid=53059)[0m 2026-07-17 06:12:23,231 INFO dara.search.tree Expanding node 3e11541a-81cc-11f1-aa7f-4cbb472febe9 with current phases [RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe3(PO4)2_14_(cod_9017502)-0.cif'), params={'k1': '0.010000_0.0^0.01', 'b1': '0.005000_0.0^0.005'}), RefinementPhase(path=PosixPath('/home/khw/projects/xrd/xrd-native-benchmark-v2/fig4/benchmark/method_inputs/cod_native_v3/Fe-Li-Mn-O-P/cifs/Fe2P2O7_14_(cod_7703174)-20.cif'), params={'k1': '0.000000_0.0^0.01', 'b1': '0.003000_0.0^0.005'})], Rwp = 24.1
+XRDV3_0001: 395 candidates, Rwp=8.100%, 8690.7 s

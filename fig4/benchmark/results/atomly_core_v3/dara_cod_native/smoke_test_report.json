@@ -1,0 +1,82 @@
+{
+  "reported_at": "2026-07-17T06:16:28-05:00",
+  "sample_id": "XRDV3_0001",
+  "public_inputs": {
+    "sample_elements": [
+      "Fe",
+      "Li",
+      "Mn",
+      "O",
+      "P"
+    ],
+    "element_system": "Fe-Li-Mn-O-P",
+    "pattern_sha256": "21b885f2d319097452fb86b2157c906a3527a8980edab9703635c37c1c306c46"
+  },
+  "protocol": {
+    "method": "Dara 1.3.0 + COD 2024",
+    "candidate_database": "Dara COD filtered index 2024",
+    "candidate_count": 395,
+    "max_phases": 3,
+    "manual_candidate_pruning": false,
+    "ray_num_cpus": 2,
+    "bgmn_threads_per_refinement": 8,
+    "python_version": "3.12.3",
+    "dara_version": "1.3.0",
+    "bgmn_version": "4.2.23",
+    "host_architecture": "aarch64",
+    "bgmn_execution": "official x86_64 binary through QEMU user-mode emulation"
+  },
+  "result": {
+    "status": "ok",
+    "runtime_seconds": 8690.746994037007,
+    "single_phase_candidates_total": 395,
+    "single_phase_candidates_valid": 191,
+    "single_phase_candidates_removed": 204,
+    "candidate_groups": 117,
+    "best_rwp_percent": 8.1,
+    "hypothesis_count": 2,
+    "prediction_rows": 4,
+    "calculation_failures": 0
+  },
+  "resume_check": {
+    "status": "passed",
+    "resume_wall_seconds": 1.216,
+    "behavior": "recorded ok; skipped",
+    "predictions_sha256_before_and_after": "c8f0111aae580f0eac81bc6b3939b1e0588b7c6a307aaabe1f55887ccbf79dfa",
+    "run_records_sha256_before_and_after": "706b752e836e4615e0dd7fc90e3b3e0e4676168928f57a3afb90eb1daac2c60c"
+  },
+  "selected_cifs": [
+    {
+      "database_id": "9014354",
+      "path": "fig4/benchmark/results/atomly_core_v3/dara_cod_native/selected_cifs/XRDV3_0001/solution1_phase1_COD_9014354.cif",
+      "sha256": "9b3f7ec2af059fbf0d839d5eac051c8ccbb3678ba14c1fdefd159293c1272e96"
+    },
+    {
+      "database_id": "1010131",
+      "path": "fig4/benchmark/results/atomly_core_v3/dara_cod_native/selected_cifs/XRDV3_0001/solution1_phase2_COD_1010131.cif",
+      "sha256": "12681b018771d76c055fa290f5ed1fd9f2ef00f6120ef5cb23c806b54fc82aaf"
+    },
+    {
+      "database_id": "9015611",
+      "path": "fig4/benchmark/results/atomly_core_v3/dara_cod_native/selected_cifs/XRDV3_0001/solution2_phase1_COD_9015611.cif",
+      "sha256": "449d4301088ae43a4e79d97d51022ce4c0a26d68e7bb47dd04cd8c78969bffa9"
+    },
+    {
+      "database_id": "1010131",
+      "path": "fig4/benchmark/results/atomly_core_v3/dara_cod_native/selected_cifs/XRDV3_0001/solution2_phase2_COD_1010131.cif",
+      "sha256": "12681b018771d76c055fa290f5ed1fd9f2ef00f6120ef5cb23c806b54fc82aaf"
+    }
+  ],
+  "full_run_projection": {
+    "samples": 100,
+    "candidate_references_across_samples": 8792,
+    "smoke_candidate_ratio": 22.258227848101266,
+    "linear_dgx_projection_hours": 53.73,
+    "projection_note": "Lower-bound-style linear estimate; tree-search cost varies nonlinearly with candidate grouping.",
+    "recommendation": "Do not start the full Dara run on this ARM64 DGX before confirmation; use native x86_64 as prioritized by the V3 guide."
+  },
+  "blind_evaluation": {
+    "truth_accessed": false,
+    "accuracy_computed": false
+  }
+}

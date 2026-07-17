@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "samples": 100,
+  "unique_element_systems": 84,
+  "candidate_rows_across_system_caches": 6622,
+  "candidate_count_min": 5,
+  "candidate_count_median": 45.0,
+  "candidate_count_p90": 204.40000000000003,
+  "candidate_count_max": 629,
+  "systems_at_least_500_candidates": 2,
+  "systems_at_least_2000_candidates": 0,
+  "duplicate_database_ids_within_systems": 0,
+  "duplicate_cif_hashes_within_systems": 0,
+  "scientific_note": "Large candidate counts are reported, not silently pruned. Freeze any deterministic shortlist rule before inspecting predictions."
+}
