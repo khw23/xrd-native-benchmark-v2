@@ -12,11 +12,14 @@ const INPUT_ROOT = joinpath(ROOT, "fig4", "benchmark", "method_inputs", "crystal
 const COD_ROOT = joinpath(ROOT, "fig4", "benchmark", "method_inputs", "cod_native_v3")
 const RESULT_ROOT = joinpath(ROOT, "fig4", "benchmark", "results", "atomly_core_v3", "crystaltree_cod_frontend")
 const WAVELENGTH_ANGSTROM = 1.5406
+const DEFAULT_MAXITER = 512
 
 function parse_args()
     limit = nothing
     sample_ids = String[]
     resume = false
+    rerun_selected = false
+    maxiter = DEFAULT_MAXITER
     input_root = INPUT_ROOT
     result_root = RESULT_ROOT
     i = 1
@@ -27,6 +30,10 @@ function parse_args()
             push!(sample_ids, ARGS[i + 1]); i += 2
         elseif ARGS[i] == "--resume"
             resume = true; i += 1
+        elseif ARGS[i] == "--rerun-selected"
+            rerun_selected = true; i += 1
+        elseif ARGS[i] == "--maxiter"
+            maxiter = parse(Int, ARGS[i + 1]); i += 2
         elseif ARGS[i] == "--input-root"
             input_root = abspath(ARGS[i + 1]); i += 2
         elseif ARGS[i] == "--result-root"
@@ -35,7 +42,10 @@ function parse_args()
             error("Unknown argument: $(ARGS[i])")
         end
     end
-    return limit, sample_ids, resume, input_root, result_root
+    maxiter > 0 || error("--maxiter must be positive")
+    rerun_selected && !resume && error("--rerun-selected requires --resume")
+    rerun_selected && isempty(sample_ids) && error("--rerun-selected requires explicit --sample-id values")
+    return limit, sample_ids, resume, rerun_selected, maxiter, input_root, result_root
 end
 
 function read_simple_csv(path)
@@ -83,7 +93,7 @@ function load_phases(sticks_path)
 end
 
 function main()
-    limit, requested, resume, input_root, result_root = parse_args()
+    limit, requested, resume, rerun_selected, maxiter, input_root, result_root = parse_args()
     samples = read_simple_csv(joinpath(BLIND_ROOT, "sample_manifest.csv"))
     !isempty(requested) && (samples = filter(row -> String(row["sample_id"]) in requested, samples))
     !isnothing(limit) && (samples = first(samples, min(limit, length(samples))))
@@ -101,10 +111,28 @@ function main()
     records = resume && isfile(record_path) ? JSON.parsefile(record_path) : Any[]
     completed = Set(String(row["sample_id"]) for row in records if get(row, "status", "") == "ok")
 
+    latest_ok = Dict{String, Any}()
+    for row in records
+        get(row, "status", "") == "ok" || continue
+        latest_ok[String(row["sample_id"])] = row
+    end
+    mismatched = Set(
+        sample_id for (sample_id, row) in latest_ok
+        if get(row, "maxiter", nothing) != maxiter
+    )
+    allowed_mismatches = rerun_selected ? Set(requested) : Set{String}()
+    if !issubset(mismatched, allowed_mismatches)
+        error(
+            "Existing successful samples use a different maxiter: " *
+            join(sort(collect(setdiff(mismatched, allowed_mismatches))), ", ") *
+            ". Rerun them explicitly with --resume --rerun-selected --sample-id ..."
+        )
+    end
+
     std_noise = 0.1
     mean_theta = [1.0, 0.5, 0.2]
     std_theta = [0.05, 2.0, 1.0]
-    opt_settings = OptimizationSettings{Float64}(std_noise, mean_theta, std_theta, 128)
+    opt_settings = OptimizationSettings{Float64}(std_noise, mean_theta, std_theta, maxiter)
     tree_settings = TreeSearchSettings{Float64}(3, 3, false, false, 5.0, opt_settings)
 
     prediction_columns = ["sample_id", "method", "solution_rank", "phase_rank",
@@ -118,7 +146,7 @@ function main()
 
     for sample in samples
         sample_id = String(sample["sample_id"])
-        if sample_id in completed
+        if sample_id in completed && !(rerun_selected && sample_id in requested)
             println("$(sample_id): already complete; skipped"); continue
         end
         filter!(row -> String(row["sample_id"]) != sample_id, predictions)
@@ -166,6 +194,9 @@ function main()
             activations = CrystalShift.get_fraction(best.phase_model.CPs)
             phase_order = sortperm(activations; rev=true)
             selected_root = joinpath(result_root, "selected_cifs", sample_id)
+            if rerun_selected && isdir(selected_root)
+                rm(selected_root; recursive=true)
+            end
             mkpath(selected_root)
             for (phase_rank, position) in enumerate(phase_order)
                 phase_id = best_ids[position]
@@ -209,7 +240,8 @@ function main()
                 "std_noise" => std_noise,
                 "mean_theta" => mean_theta,
                 "std_theta" => std_theta,
-                "maxiter" => 128,
+                "maxiter" => maxiter,
+                "configuration_id" => "simple_fixed_sigma_0p1_maxiter$(maxiter)",
                 "julia_threads" => Threads.nthreads(),
                 "phase_count_prior" => "global upper bound only; per-sample truth hidden",
                 "predicted_phase_count" => length(best_ids),

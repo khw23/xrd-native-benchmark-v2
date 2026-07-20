@@ -26,7 +26,10 @@ function main()
     std_noise = 0.1
     mean_theta = [1.0, 0.5, 0.2]
     std_theta = [0.05, 2.0, 1.0]
-    maxiter = 128
+    # The paper's Al-Fe-Li-O reproduction script uses 512 iterations for the
+    # multiphase search. The package constructor default (128) is only a
+    # software default and is not the benchmark setting.
+    maxiter = 512
     depth = 3
     expansion_count = 3
     settings = TreeSearchSettings{Float64}(
@@ -54,6 +57,9 @@ function main()
 
     result = Dict(
         "status" => passed ? "passed" : "failed",
+        "gate_scope" => "API and numerical compatibility only",
+        "scientific_parameter_selection" => false,
+        "limitation" => "Exact two-phase fixture is not a sensitivity or accuracy benchmark",
         "private_truth_used" => false,
         "fixture_origin" => "CrystalTree installed package data/sticks.csv",
         "fixture_package_relative_path" => "CrystalTree/data/sticks.csv",

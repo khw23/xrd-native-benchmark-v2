@@ -33,6 +33,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--result-root", type=Path, default=RESULT_ROOT)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--retry-failures", action="store_true")
+    parser.add_argument(
+        "--prepare-candidates-only",
+        action="store_true",
+        help=(
+            "Populate XERUS's native MongoDB and save the candidate manifest, "
+            "but do not simulate, correlate, or refine the pattern."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -105,6 +113,23 @@ def save_state(
     (result_root / "run_records.json").write_text(
         json.dumps(records, indent=2) + "\n", encoding="utf-8"
     )
+
+
+def save_candidate_snapshot(
+    xray, sample_id: str, result_root: Path
+) -> tuple[Path, pd.DataFrame]:
+    """Save the provider/ID snapshot actually exposed to XERUS for one sample."""
+    snapshot_root = result_root / "candidate_manifests"
+    snapshot_root.mkdir(parents=True, exist_ok=True)
+    source = getattr(xray, "cif_all", None)
+    if not isinstance(source, pd.DataFrame):
+        source = xray.cif_info
+    snapshot = source.copy()
+    if "full_path" in snapshot:
+        snapshot["full_path"] = snapshot["full_path"].map(repository_path)
+    target = snapshot_root / f"{sample_id}.csv"
+    snapshot.to_csv(target, index=False)
+    return target, snapshot
 
 
 def main() -> None:
@@ -192,6 +217,41 @@ def main() -> None:
                 use_preprocessed=True,
             )
             xray.instr_params = str(PROFILE)
+            if args.prepare_candidates_only:
+                xray.get_cifs(ignore_provider=["AFLOW"])
+                if xray.cif_info is None or xray.cif_info.empty:
+                    raise RuntimeError("XERUS native providers returned no usable candidates")
+                candidate_manifest, candidate_snapshot = save_candidate_snapshot(
+                    xray, sample.sample_id, result_root
+                )
+                elapsed = time.perf_counter() - started
+                records.append(
+                    {
+                        "sample_id": sample.sample_id,
+                        "attempt": attempt,
+                        "status": "candidates_ready",
+                        "runtime_seconds": elapsed,
+                        "sample_elements": elements,
+                        "source_pattern": str(source_pattern.relative_to(ROOT)),
+                        "source_pattern_sha256": source_pattern_sha256,
+                        "xerus_input": str(xerus_pattern.relative_to(ROOT)),
+                        "xerus_input_sha256": sha256(xerus_pattern),
+                        "candidate_database": (
+                            "XERUS native MP/COD/OQMD/ODBX cache; AFLOW ignored"
+                        ),
+                        "candidate_count": int(len(xray.cif_info)),
+                        "candidate_snapshot_count": int(len(candidate_snapshot)),
+                        "candidate_manifest": str(candidate_manifest.relative_to(ROOT)),
+                        "network_stage_only": True,
+                    }
+                )
+                print(
+                    f"{sample.sample_id}: candidate snapshot ready "
+                    f"({len(xray.cif_info)} usable candidates), {elapsed:.1f} s",
+                    flush=True,
+                )
+                save_state(result_root, predictions, records)
+                continue
             result = xray.analyze(
                 n_runs=3,
                 grabtop=3,
@@ -208,19 +268,8 @@ def main() -> None:
             )
             if result is None or result.empty:
                 raise RuntimeError("XERUS returned no phase hypothesis")
-            candidate_snapshot_root = result_root / "candidate_manifests"
-            candidate_snapshot_root.mkdir(parents=True, exist_ok=True)
-            candidate_snapshot = (
-                xray.cif_all.copy()
-                if isinstance(xray.cif_all, pd.DataFrame)
-                else xray.cif_info.copy()
-            )
-            if "full_path" in candidate_snapshot:
-                candidate_snapshot["full_path"] = candidate_snapshot[
-                    "full_path"
-                ].map(repository_path)
-            candidate_snapshot.to_csv(
-                candidate_snapshot_root / f"{sample.sample_id}.csv", index=False
+            candidate_manifest, candidate_snapshot = save_candidate_snapshot(
+                xray, sample.sample_id, result_root
             )
             best = result.iloc[0]
             ids = [str(x) for x in as_list(best.get("id"))]
@@ -298,7 +347,7 @@ def main() -> None:
                     "candidate_count_before_simulation": int(len(candidate_snapshot)),
                     "candidate_manifest": str(
                         (
-                            candidate_snapshot_root / f"{sample.sample_id}.csv"
+                            candidate_manifest
                         ).relative_to(ROOT)
                     ),
                     "max_phases": 3,
@@ -357,6 +406,7 @@ def main() -> None:
         "maxsys": "number of disclosed sample elements",
         "max_oxy": "number of disclosed sample elements",
         "private_truth_used": False,
+        "prepare_candidates_only": args.prepare_candidates_only,
     }
     (result_root / "environment.json").write_text(
         json.dumps(environment, indent=2) + "\n", encoding="utf-8"
