@@ -62,6 +62,35 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def repository_path(value: object) -> str:
+    path = Path(str(value)).resolve()
+    try:
+        return str(path.relative_to(ROOT.resolve()))
+    except ValueError:
+        return str(path)
+
+
+def prepare_xerus_xy(source: Path, sample_id: str) -> Path:
+    """Create the headerless two-column XY input required by XERUS 1.1b."""
+    adapted_root = RESULT_ROOT / "preprocessed_inputs"
+    adapted_root.mkdir(parents=True, exist_ok=True)
+    target = adapted_root / f"{sample_id}.xy"
+    data = pd.read_csv(
+        source,
+        sep=r"\s+",
+        comment="#",
+        header=None,
+        names=["theta", "intensity"],
+        dtype={"theta": float, "intensity": float},
+    )
+    if len(data) < 2 or data.isna().any().any():
+        raise ValueError(f"Invalid numeric XY input: {source}")
+    if not data["theta"].is_monotonic_increasing:
+        raise ValueError(f"Non-monotonic two-theta values: {source}")
+    data.to_csv(target, sep=" ", header=False, index=False)
+    return target
+
+
 def save_state(predictions: list[dict], records: list[dict]) -> None:
     pd.DataFrame(predictions).to_csv(RESULT_ROOT / "predictions.csv", index=False)
     (RESULT_ROOT / "run_records.json").write_text(
@@ -119,17 +148,24 @@ def main() -> None:
             print(f"{sample.sample_id}: recorded {recorded[sample.sample_id]}; skipped")
             continue
         predictions = [row for row in predictions if row.get("sample_id") != sample.sample_id]
-        records = [row for row in records if row.get("sample_id") != sample.sample_id]
+        attempt = (
+            sum(row.get("sample_id") == sample.sample_id for row in records) + 1
+        )
         work = RESULT_ROOT / "work" / sample.sample_id
         work.mkdir(parents=True, exist_ok=True)
         elements = str(sample.sample_elements).split(";")
+        source_pattern = BLIND_ROOT / "patterns" / sample.pattern_filename
+        source_pattern_sha256 = sha256(source_pattern)
         started = time.perf_counter()
         try:
+            xerus_pattern = prepare_xerus_xy(source_pattern, sample.sample_id)
+            if sha256(source_pattern) != source_pattern_sha256:
+                raise RuntimeError("Original XRD changed while preparing XERUS input")
             xray = XRay(
                 name=sample.sample_id,
                 working_folder=str(work),
                 elements=elements,
-                exp_data_file=str(BLIND_ROOT / "patterns" / sample.pattern_filename),
+                exp_data_file=str(xerus_pattern),
                 data_fmt="xy",
                 maxsys=len(elements),
                 max_oxy=len(elements),
@@ -162,6 +198,10 @@ def main() -> None:
                 if isinstance(xray.cif_all, pd.DataFrame)
                 else xray.cif_info.copy()
             )
+            if "full_path" in candidate_snapshot:
+                candidate_snapshot["full_path"] = candidate_snapshot[
+                    "full_path"
+                ].map(repository_path)
             candidate_snapshot.to_csv(
                 candidate_snapshot_root / f"{sample.sample_id}.csv", index=False
             )
@@ -227,9 +267,15 @@ def main() -> None:
             records.append(
                 {
                     "sample_id": sample.sample_id,
+                    "attempt": attempt,
                     "status": "ok",
                     "runtime_seconds": elapsed,
                     "sample_elements": elements,
+                    "source_pattern": str(source_pattern.relative_to(ROOT)),
+                    "source_pattern_sha256": source_pattern_sha256,
+                    "xerus_input": str(xerus_pattern.relative_to(ROOT)),
+                    "xerus_input_sha256": sha256(xerus_pattern),
+                    "xerus_input_transform": "numeric parse; remove comment/header lines only",
                     "candidate_database": "XERUS native MP/COD/OQMD/ODBX cache; AFLOW ignored",
                     "candidate_count_after_xerus_filter": int(len(xray.cif_info)),
                     "candidate_count_before_simulation": int(len(candidate_snapshot)),
@@ -262,9 +308,12 @@ def main() -> None:
             records.append(
                 {
                     "sample_id": sample.sample_id,
+                    "attempt": attempt,
                     "status": "error",
                     "runtime_seconds": elapsed,
                     "sample_elements": elements,
+                    "source_pattern": str(source_pattern.relative_to(ROOT)),
+                    "source_pattern_sha256": source_pattern_sha256,
                     "error_type": type(error).__name__,
                     "error": str(error),
                     "traceback": traceback.format_exc(),
@@ -278,9 +327,13 @@ def main() -> None:
         "platform": platform.platform(),
         "machine": platform.machine(),
         "xerus_version": getattr(Xerus, "__version__", "unknown"),
-        "gsasii_root": os.environ.get("GSASII_ROOT"),
+        "gsasii_root": (
+            repository_path(os.environ["GSASII_ROOT"])
+            if os.environ.get("GSASII_ROOT")
+            else None
+        ),
         "instrument_profile": str(PROFILE.relative_to(ROOT)),
-        "xerus_configured_profile": str(configured_profile),
+        "xerus_configured_profile": repository_path(configured_profile),
         "n_runs": 3,
         "ignore_provider": ["AFLOW"],
         "maxsys": "number of disclosed sample elements",

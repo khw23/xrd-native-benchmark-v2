@@ -1,0 +1,91 @@
+# generated using pymatgen
+data_9006656
+loop_
+ _publ_author_name
+  'Dubrovinsky, L. S.'
+  'Lazor, P.'
+  'Saxena, S. K.'
+  'Haggkvist, P.'
+  'Weber, H. P.'
+  'Le Bihan, T.'
+  'Hausermann, D.'
+_publ_section_title
+;
+Study of laser heated iron using third generation synchrotron  X-ray
+radiation facility with imaging plate at high pressures  Sample:
+epsilon iron phase: P = 61 GPa, T = 300 K
+;
+_journal_name_full   'Physics and Chemistry of Minerals'
+_journal_page_first   539
+_journal_page_last   545
+_journal_paper_doi   10.1007/s002690050217
+_journal_volume   26
+_journal_year   1999
+_chemical_formula_sum   Fe
+_chemical_name_mineral   Iron
+_space_group_IT_number   194
+_symmetry_space_group_name_Hall   '-P 6c 2c'
+_symmetry_space_group_name_H-M   'P 63/m m c'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   120
+_cell_length_a   2.347
+_cell_length_b   2.347
+_cell_length_c   3.797
+_cell_formula_units_Z   2
+_cell_volume   18.113
+_database_code_amcsd   0008238
+_diffrn_ambient_pressure   6.1e+07
+_diffrn_ambient_temperature   300
+_exptl_crystal_density_diffrn   10.240
+_exptl_crystal_pressure_history
+;
+heated iron using third generation synchrotron X-ray radiation
+facility with  imaging plate at high pressures Sample: epsilon iron
+phase: P = 61 GPa
+;
+_exptl_crystal_thermal_history
+;
+heated iron using third generation synchrotron X-ray radiation
+facility with  imaging plate at high pressures Sample: epsilon iron
+phase: P = 61 GPa, T =  300 K
+;
+_cod_database_code   9006656
+loop_
+ _space_group_symop_operation_xyz
+  x,y,z
+  -x,-x+y,1/2+z
+  x,x-y,1/2-z
+  -x+y,-x,1/2-z
+  x-y,x,1/2+z
+  -y,-x,z
+  y,x,-z
+  y,-x+y,-z
+  -y,x-y,z
+  x-y,-y,1/2+z
+  -x+y,y,1/2-z
+  x,y,1/2-z
+  -x,-y,1/2+z
+  x,x-y,z
+  -x,-x+y,-z
+  x-y,x,-z
+  -x+y,-x,z
+  y,x,1/2+z
+  -y,-x,1/2-z
+  -y,x-y,1/2-z
+  y,-x+y,1/2+z
+  -x+y,y,z
+  x-y,-y,-z
+  -x,-y,-z
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+  Fe  0.33333  0.66667  0.25000
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  ChemSpider  22368
+  2  AMCSD  0008238

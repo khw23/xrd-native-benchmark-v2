@@ -1,0 +1,13 @@
+sample_id,attempt,failure_category,error_type,error_message,recovered_by_later_attempt,raw_record_file
+XRDV3_0046,1,runner_compatibility_failure,MethodError,"MethodError: no method matching String(::Int64)
+The type `String` exists, but no method is defined for this combination of argument types when trying to construct it.
+
+Closest candidates are:
+  String(!Matched::String)
+   @ Core boot.jl:480
+  String(!Matched::Vector{UInt8})
+   @ Base strings/string.jl:65
+  String(!Matched::SubString{String})
+   @ Base strings/substring.jl:75
+  ...",true,run_records.json
+XRDV3_0100,1,candidate_input_parse_failure,ArgumentError,"ArgumentError: cannot parse ""triclinic"" as Float64",true,run_records.json

@@ -34,6 +34,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--converter", type=Path, default=DEFAULT_CONVERTER)
     parser.add_argument("--limit-systems", type=int, default=None)
+    parser.add_argument("--system-key", action="append", default=[])
+    parser.add_argument("--resume", action="store_true")
     return parser.parse_args()
 
 
@@ -44,6 +46,31 @@ def system_key(elements: str) -> str:
 def database_id(path: Path) -> str:
     match = re.search(r"\(cod_([^\)]+)\)", path.stem, flags=re.IGNORECASE)
     return match.group(1) if match else path.stem
+
+
+def normalize_crystalshift_block(block: str) -> str:
+    """Make the unquoted CrystalShift header safe for its comma parser."""
+    header, separator, remainder = block.partition("\n")
+    fields = header.split(",")
+    if len(fields) < 9:
+        raise ValueError(f"CrystalShift header has {len(fields)} fields; expected >= 9")
+    crystal_system_index = len(fields) - 7
+    phase_name = "_".join(fields[1:crystal_system_index])
+    crystal_system = fields[crystal_system_index]
+    if crystal_system not in {
+        "triclinic",
+        "monoclinic",
+        "orthohombic",
+        "tetragonal",
+        "trigonal",
+        "hexagonal",
+        "cubic",
+    }:
+        raise ValueError(f"Unsupported CrystalShift crystal system: {crystal_system!r}")
+    for value in fields[crystal_system_index + 1 :]:
+        float(value)
+    normalized = [fields[0], phase_name, *fields[crystal_system_index:]]
+    return ",".join(normalized) + separator + remainder
 
 
 def baseline_asls(
@@ -85,6 +112,12 @@ def main() -> None:
     manifest = pd.read_csv(BLIND_ROOT / "sample_manifest.csv")
     manifest["system_key"] = manifest["sample_elements"].map(system_key)
     systems = sorted(manifest["system_key"].unique())
+    if args.system_key:
+        requested = set(args.system_key)
+        unknown = requested.difference(systems)
+        if unknown:
+            raise ValueError(f"Unknown system keys: {sorted(unknown)}")
+        systems = [key for key in systems if key in requested]
     if args.limit_systems is not None:
         systems = systems[: args.limit_systems]
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
@@ -109,10 +142,46 @@ def main() -> None:
         cif_paths = sorted((COD_ROOT / key / "cifs").glob("*.cif"))
         if not cif_paths:
             raise FileNotFoundError(
-                f"No COD candidates for {key}; run prepare_cod_candidate_sets_v2.py first"
+                f"No COD candidates for {key}; run prepare_cod_candidate_sets_v3.py first"
             )
         system_root = OUT_ROOT / key
         system_root.mkdir(exist_ok=True)
+        sticks_path = system_root / "candidate_sticks.csv"
+        map_path = system_root / "phase_id_map.csv"
+        failure_path = system_root / "conversion_failures.csv"
+        if args.resume and sticks_path.is_file() and map_path.is_file():
+            existing_rows = pd.read_csv(map_path).to_dict("records")
+            existing_failures = (
+                pd.read_csv(failure_path).to_dict("records")
+                if failure_path.is_file() and failure_path.stat().st_size
+                else []
+            )
+            expected_names = {path.name for path in cif_paths}
+            recorded_names = {
+                str(row["candidate_cif_filename"])
+                for row in existing_rows + existing_failures
+            }
+            phase_ids = [int(row["crystalshift_phase_id"]) for row in existing_rows]
+            if (
+                existing_rows
+                and sticks_path.stat().st_size
+                and recorded_names == expected_names
+                and phase_ids == list(range(len(existing_rows)))
+            ):
+                all_failures.extend(existing_failures)
+                summaries.append(
+                    {
+                        "system_key": key,
+                        "cod_candidate_count": len(cif_paths),
+                        "converted_candidate_count": len(existing_rows),
+                        "conversion_failure_count": len(existing_failures),
+                    }
+                )
+                print(
+                    f"{key}: recorded {len(existing_rows)}/{len(cif_paths)}; skipped",
+                    flush=True,
+                )
+                continue
         blocks = []
         rows = []
         failures = []
@@ -124,7 +193,9 @@ def main() -> None:
                         converter.cif_to_input(
                             [path], str(temp_output), q_range=(7.0, 58.0), wvlen=1.5406
                         )
-                    block = temp_output.read_text(encoding="utf-8")
+                    block = normalize_crystalshift_block(
+                        temp_output.read_text(encoding="utf-8")
+                    )
                 phase_id = len(rows)
                 first, rest = block.split(",", maxsplit=1)
                 if first.strip() != "0":
@@ -158,11 +229,18 @@ def main() -> None:
         all_failures.extend(failures)
         if not rows:
             raise RuntimeError(f"No COD candidate could be converted for {key}")
-        (system_root / "candidate_sticks.csv").write_text(
-            "".join(blocks), encoding="utf-8"
-        )
-        pd.DataFrame(rows).to_csv(system_root / "phase_id_map.csv", index=False)
-        pd.DataFrame(failures).to_csv(system_root / "conversion_failures.csv", index=False)
+        sticks_path.write_text("".join(blocks), encoding="utf-8")
+        pd.DataFrame(rows).to_csv(map_path, index=False)
+        pd.DataFrame(
+            failures,
+            columns=[
+                "system_key",
+                "candidate_cif_filename",
+                "database_id",
+                "error_type",
+                "error",
+            ],
+        ).to_csv(failure_path, index=False)
         summaries.append(
             {
                 "system_key": key,
@@ -175,8 +253,25 @@ def main() -> None:
             f"{key}: {len(rows)}/{len(cif_paths)} CrystalShift candidates converted",
             flush=True,
         )
-    pd.DataFrame(summaries).to_csv(OUT_ROOT / "preparation_summary.csv", index=False)
-    pd.DataFrame(all_failures).to_csv(OUT_ROOT / "conversion_failures.csv", index=False)
+    pd.DataFrame(
+        summaries,
+        columns=[
+            "system_key",
+            "cod_candidate_count",
+            "converted_candidate_count",
+            "conversion_failure_count",
+        ],
+    ).to_csv(OUT_ROOT / "preparation_summary.csv", index=False)
+    pd.DataFrame(
+        all_failures,
+        columns=[
+            "system_key",
+            "candidate_cif_filename",
+            "database_id",
+            "error_type",
+            "error",
+        ],
+    ).to_csv(OUT_ROOT / "conversion_failures.csv", index=False)
     SNAPSHOT_ROOT.mkdir(parents=True, exist_ok=True)
     shutil.copy2(
         OUT_ROOT / "preparation_summary.csv", SNAPSHOT_ROOT / "preparation_summary.csv"

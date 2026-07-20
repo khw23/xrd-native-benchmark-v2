@@ -1,0 +1,69 @@
+# generated using pymatgen
+data_9011641
+loop_
+ _publ_author_name
+  'Schwarz, U.'
+  'Takemura, K.'
+  'Hanfland, M.'
+  'Syassen, K.'
+_publ_section_title
+;
+Crystal structure of cesium-V  Locality: synthetic  Sample: at P = 12
+GPa  Note: phase V
+;
+_journal_name_full   'Physical Review Letters'
+_journal_page_first   2711
+_journal_page_last   2714
+_journal_paper_doi   10.1103/PhysRevLett.81.2711
+_journal_volume   81
+_journal_year   1998
+_chemical_formula_sum   Cs
+_chemical_name_common   Cesium
+_space_group_IT_number   64
+_space_group_name_Hall   '-C 2ac 2'
+_space_group_name_H-M_alt   'C m c e'
+_symmetry_space_group_name_Hall   '-C 2ac 2'
+_symmetry_space_group_name_H-M   'C m c e'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   90
+_cell_length_a   11.205
+_cell_length_b   6.626
+_cell_length_c   6.595
+_cell_formula_units_Z   16
+_cell_volume   489.641
+_diffrn_ambient_pressure   1.2e+07
+_exptl_crystal_density_diffrn   7.212
+_cod_original_sg_symbol_H-M   'C m c a'
+_cod_database_code   9011641
+loop_
+ _symmetry_equiv_pos_as_xyz
+  x,y,z
+  1/2+x,1/2+y,z
+  x,1/2-y,1/2+z
+  1/2+x,-y,1/2+z
+  -x,1/2+y,1/2-z
+  1/2-x,+y,1/2-z
+  -x,y,z
+  1/2-x,1/2+y,z
+  x,-y,-z
+  1/2+x,1/2-y,-z
+  x,1/2+y,1/2-z
+  1/2+x,+y,1/2-z
+  -x,1/2-y,1/2+z
+  1/2-x,-y,1/2+z
+  -x,-y,-z
+  1/2-x,1/2-y,-z
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+  Cs1  0.00000  0.17290  0.32700
+  Cs2  0.21610  0.00000  0.00000
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  ChemSpider  4510778
+_database_code_amcsd   0015278

@@ -1,0 +1,137 @@
+# generated using pymatgen
+data_4330791
+loop_
+ _publ_author_name
+  'Tatsunori Sakaguchi'
+  'Yoji Kobayashi'
+  'Takeshi Yajima'
+  'Masatoshi Ohkura'
+  "C\'edric Tassel"
+  'Fumitaka Takeiri'
+  'Shingo Mitsuoka'
+  'Hiroshi Ohkubo'
+  'Takafumi Yamamoto'
+  'Jung eun Kim'
+  'Naruki Tsuji'
+  'Akihiko Fujihara'
+  'Yoshitaka Matsushita'
+  'James Hester'
+  'Maxim Avdeev'
+  'Kenji Ohoyama'
+  'Hiroshi Kageyama'
+_publ_contact_author_name   'Hiroshi Kageyama'
+_publ_section_title
+'Oxyhydrides of (Ca,Sr,Ba)TiO3 Perovskite Solid Solutions'
+_journal_name_full   'Inorganic Chemistry'
+_journal_page_first   11371
+_journal_page_last   11376
+_journal_paper_doi   10.1021/ic300859n
+_journal_volume   51
+_journal_year   2012
+_chemical_formula_sum   'Ba0.4 H0.29 O2.71 Sr0.6 Ti'
+_chemical_formula_weight   199.03
+_chemical_name_common   'strontium barium titanium oxyhydride'
+_chemical_name_systematic   'strontium barium titanium oxyhydride'
+_space_group_IT_number   221
+_symmetry_cell_setting   cubic
+_symmetry_Int_Tables_number   221
+_symmetry_space_group_name_Hall   '-P 4 2 3'
+_symmetry_space_group_name_H-M   'P m -3 m'
+_cell_angle_alpha   90.0
+_cell_angle_beta   90.0
+_cell_angle_gamma   90.0
+_cell_formula_units_Z   1
+_cell_length_a   3.95164(7)
+_cell_length_b   3.95164
+_cell_length_c   3.95164
+_cell_volume   61.7067(11)
+_computing_structure_refinement   GSAS
+_diffrn_ambient_temperature   300
+_diffrn_radiation_probe   neutron
+_diffrn_radiation_wavelength   1.85
+_pd_block_id   2012-03-01T16:27|S6B4-R-N-RIET1_phase1|yojii||
+_pd_phase_name   'from C:/gsas/MyWork/ATOH/S6B4-m-x/S6B4-M-X-1.EXP'
+_refine_ls_matrix_type   full
+_refine_ls_number_parameters   2
+_refine_ls_number_restraints   0
+_refine_ls_shift/su_max   0.00
+_refine_ls_shift/su_mean   0.00
+_cod_data_source_file   ic300859n_S6B4TiOH.cif
+_cod_data_source_block   S6B4-R-N-RIET1_phase_1
+_cod_original_cell_volume   61.7070(30)
+_cod_original_formula_sum   'Ba0.40 H0.29 O2.71 Sr0.60 Ti'
+_cod_database_code   4330791
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  +x,+y,+z
+  2  +z,+x,+y
+  3  +y,+z,+x
+  4  +x,+y,-z
+  5  -z,+x,+y
+  6  +y,-z,+x
+  7  -z,+x,-y
+  8  -y,-z,+x
+  9  +y,-z,-x
+  10  -x,+y,-z
+  11  -z,-x,+y
+  12  +x,-y,-z
+  13  +y,+x,+z
+  14  +z,+y,+x
+  15  +x,+z,+y
+  16  +y,+x,-z
+  17  -z,+y,+x
+  18  +x,-z,+y
+  19  -z,+y,-x
+  20  -x,-z,+y
+  21  +x,-z,-y
+  22  -y,+x,-z
+  23  -z,-y,+x
+  24  +y,-x,-z
+  -1  -x,-y,-z
+  -2  -z,-x,-y
+  -3  -y,-z,-x
+  -4  -x,-y,+z
+  -5  +z,-x,-y
+  -6  -y,+z,-x
+  -7  +z,-x,+y
+  -8  +y,+z,-x
+  -9  -y,+z,+x
+  -10  +x,-y,+z
+  -11  +z,+x,-y
+  -12  -x,+y,+z
+  -13  -y,-x,-z
+  -14  -z,-y,-x
+  -15  -x,-z,-y
+  -16  -y,-x,+z
+  -17  +z,-y,-x
+  -18  -x,+z,-y
+  -19  +z,-y,+x
+  -20  +x,+z,-y
+  -21  -x,+z,+y
+  -22  +y,-x,+z
+  -23  +z,+y,-x
+  -24  -y,+x,+z
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_thermal_displace_type
+ _atom_site_U_iso_or_equiv
+ _atom_site_symmetry_multiplicity
+  Sr  Sr1  0.0  0.0  0.0  0.6  Uiso  0.0069(9)  1
+  Ti  Ti1  0.5  0.5  0.5  1.0  Uiso  0.011(1)  1
+  O-  O1  0.0  0.5  0.5  0.902(4)  Uiso  0.0087(6)  3
+  Ba  Ba  0.0  0.0  0.0  0.4  Uiso  0.0069(9)  1
+  H  H  0.0  0.5  0.5  0.098(4)  Uiso  0.0087(6)  3
+loop_
+ _atom_type_symbol
+ _atom_type_number_in_cell
+  Sr  0.6
+  Ti  1.0
+  O-  2.707
+  Ba  0.4
+  H  0.293

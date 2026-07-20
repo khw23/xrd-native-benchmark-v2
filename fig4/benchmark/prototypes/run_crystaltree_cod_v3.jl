@@ -114,7 +114,7 @@ function main()
         end
         filter!(row -> String(row["sample_id"]) != sample_id, predictions)
         filter!(row -> String(row["sample_id"]) != sample_id, hypotheses)
-        filter!(row -> String(row["sample_id"]) != sample_id, records)
+        attempt = count(row -> String(row["sample_id"]) == sample_id, records) + 1
         started = time()
         try
             key = system_key(sample["sample_elements"])
@@ -144,7 +144,7 @@ function main()
                 push!(hypotheses, Dict(
                     "sample_id" => sample_id,
                     "hypothesis_rank" => h_rank,
-                    "predicted_database_ids" => join([String(id_to_row[id]["candidate_cif_filename"]) for id in ids], ";"),
+                    "predicted_database_ids" => join([string(id_to_row[id]["database_id"]) for id in ids], ";"),
                     "model_probability" => probabilities[node_index],
                     "n_phases" => length(ids),
                     "residual_norm" => norm(node.residual),
@@ -156,44 +156,61 @@ function main()
             best_ids = get_phase_ids(best)
             activations = CrystalShift.get_fraction(best.phase_model.CPs)
             phase_order = sortperm(activations; rev=true)
+            selected_root = joinpath(RESULT_ROOT, "selected_cifs", sample_id)
+            mkpath(selected_root)
             for (phase_rank, position) in enumerate(phase_order)
                 phase_id = best_ids[position]
                 row = id_to_row[phase_id]
                 filename = String(row["candidate_cif_filename"])
+                database_id = string(row["database_id"])
+                source_cif = joinpath(COD_ROOT, key, "cifs", filename)
+                isfile(source_cif) || error("Selected CIF does not exist: $(source_cif)")
+                selected_cif = joinpath(
+                    selected_root,
+                    "solution1_phase$(phase_rank)_COD_$(database_id).cif",
+                )
+                cp(source_cif, selected_cif; force=true)
                 push!(predictions, Dict(
                     "sample_id" => sample_id,
-                    "method" => "CrystalShift+CrystalTree with COD front-end",
+                    "method" => "CrystalShift + CrystalTree with COD front-end",
                     "solution_rank" => 1,
                     "phase_rank" => phase_rank,
                     "predicted_formula" => row["formula"],
                     "predicted_space_group_symbol" => row["space_group_symbol"],
                     "predicted_space_group_number" => row["space_group_number"],
                     "predicted_database" => "COD",
-                    "predicted_database_id" => row["database_id"],
+                    "predicted_database_id" => database_id,
                     "predicted_weight_fraction" => missing,
                     "confidence_or_score" => probabilities[best_index],
                     "runtime_seconds" => elapsed,
-                    "status_or_note" => "identification_ok; activation=$(activations[position]) is not physical QPA",
-                    "predicted_cif_path" => joinpath("fig4", "benchmark", "method_inputs", "cod_native_v3", key, "cifs", filename),
+                    "status_or_note" => "identification_ok; activation=$(activations[position]) is not physical QPA; model_probability_is_uncalibrated",
+                    "predicted_cif_path" => relpath(selected_cif, ROOT),
                 ))
             end
             push!(records, Dict(
                 "sample_id" => sample_id,
+                "attempt" => attempt,
                 "status" => "ok",
                 "runtime_seconds" => elapsed,
                 "candidate_frontend" => "Dara COD filtered index 2024",
                 "candidate_count" => length(phases),
                 "tree_depth" => 3,
+                "max_phases" => 3,
+                "julia_threads" => Threads.nthreads(),
                 "phase_count_prior" => "global upper bound only; per-sample truth hidden",
                 "predicted_phase_count" => length(best_ids),
                 "model_probability" => probabilities[best_index],
+                "model_probability_calibrated" => false,
                 "fraction_type" => "activation_not_validated_as_weight_or_mole_fraction",
             ))
             println("$(sample_id): $(length(phases)) candidates -> $(length(best_ids)) phases, $(round(elapsed, digits=1)) s")
         catch err
             elapsed = time() - started
-            push!(records, Dict("sample_id" => sample_id, "status" => "error",
+            push!(records, Dict("sample_id" => sample_id, "attempt" => attempt,
+                                "status" => "error",
                                 "runtime_seconds" => elapsed,
+                                "error_type" => string(typeof(err)),
+                                "error_message" => sprint(showerror, err),
                                 "error" => sprint(showerror, err, catch_backtrace())))
             println("$(sample_id): ERROR after $(round(elapsed, digits=1)) s: $(sprint(showerror, err))")
         end

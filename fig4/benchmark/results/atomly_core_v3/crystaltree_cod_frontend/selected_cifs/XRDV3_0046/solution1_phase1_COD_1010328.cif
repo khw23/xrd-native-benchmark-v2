@@ -1,0 +1,72 @@
+# generated using pymatgen
+data_1010328
+loop_
+ _publ_author_name
+  'Keesom, Willem Hendrik'
+  'Taconis, Krijn Wijbren'
+_publ_section_title   'On the crystal structure of chlorine'
+_journal_coden_ASTM   PYSIA7
+_journal_name_full   'Physica (The Hague) (1,1934-17,1951)'
+_journal_page_first   237
+_journal_page_last   242
+_journal_paper_doi   10.1016/S0031-8914(36)80226-2
+_journal_volume   3
+_journal_year   1936
+_chemical_formula_structural   Cl2
+_chemical_formula_sum   Cl2
+_chemical_name_systematic   Dichlorine
+_space_group_IT_number   138
+_symmetry_cell_setting   tetragonal
+_symmetry_space_group_name_Hall   'P 4n 2ab -1n'
+_symmetry_space_group_name_H-M   'P 42/n c m :1'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   90
+_cell_formula_units_Z   8
+_cell_length_a   8.56
+_cell_length_b   8.56
+_cell_length_c   6.12
+_cell_measurement_temperature   88.15
+_cell_volume   448.4
+_exptl_crystal_density_meas   2.12
+_cod_original_sg_symbol_H-M   'P 42/n c m S'
+_cod_database_code   1010328
+loop_
+ _symmetry_equiv_pos_as_xyz
+  x,y,z
+  -x,y,1/2+z
+  1/2-x,1/2+y,-z
+  1/2+x,1/2+y,1/2-z
+  -x,-y,z
+  x,-y,1/2+z
+  1/2+x,1/2-y,-z
+  1/2-x,1/2-y,1/2-z
+  -y,x,-z
+  -y,-x,1/2-z
+  1/2-y,1/2-x,z
+  1/2-y,1/2+x,1/2+z
+  y,-x,-z
+  y,x,1/2-z
+  1/2+y,1/2+x,z
+  1/2+y,1/2-x,1/2+z
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_symmetry_multiplicity
+ _atom_site_Wyckoff_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_attached_hydrogens
+ _atom_site_calc_flag
+  Cl1  Cl0  16  j  0.125  0.167  0.107  1.  0  d
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  Cl0  0.000
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  ChemSpider  22933

@@ -1,0 +1,2 @@
+28d1db85ff1fcfdee8762ad4c2974a755e99ccc10c33eaf33d3b16c9441f01ba  fig4/benchmark/results/atomly_core_v3/xerus_native/predictions.csv
+0fe50525cdd2cdaed08d244d73af924fd6e7600958bd844f3357e96b659c044c  fig4/benchmark/results/atomly_core_v3/xerus_native/run_records.json

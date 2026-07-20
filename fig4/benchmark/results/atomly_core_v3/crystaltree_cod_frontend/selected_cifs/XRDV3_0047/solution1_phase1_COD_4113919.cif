@@ -1,0 +1,68 @@
+# generated using pymatgen
+data_4113919
+loop_
+ _publ_author_name
+  'Patrick M. Woodward'
+  'Emmanuelle Suard'
+  'Pavel Karen'
+_publ_section_title
+;
+Structural Tuning of Charge, Orbital, and Spin Ordering in Double-Cell
+Perovskite Series between NdBaFe2O5 and HoBaFe2O5
+;
+_journal_name_full   'Journal of the American Chemical Society'
+_journal_page_first   8889
+_journal_page_last   8899
+_journal_paper_doi   10.1021/ja034813+
+_journal_volume   125
+_journal_year   2003
+_chemical_formula_sum   Fe
+_space_group_IT_number   51
+_symmetry_cell_setting   orthorhombic
+_symmetry_space_group_name_Hall   '-P 2a 2a'
+_symmetry_space_group_name_H-M   'P m m a'
+_cell_angle_alpha   90.0
+_cell_angle_beta   90.0
+_cell_angle_gamma   90.0
+_cell_formula_units_Z   8
+_cell_length_a   8.0314(19)
+_cell_length_b   7.672(4)
+_cell_length_c   7.5218(17)
+_cell_volume   463.5(3)
+_pd_block_id   |PHASE_2||
+_pd_phase_name   'HoBaFe2O5 Magnetic Structure (G-type)'
+_cod_data_source_file   ja0348132Bsi20030304_041321_02.cif
+_cod_data_source_block   HO_2K_phase_2
+_cod_depositor_comments
+;
+2024-06-04 Z value fixed to be consistent with given formula
+miguel
+;
+_cod_original_formula_units_Z   4
+_cod_database_code   4113919
+loop_
+ _symmetry_equiv_pos_as_xyz
+  +x,+y,+z
+  -x+1/2,+y,+z
+  +x,-y,+z
+  -x+1/2,-y,+z
+  -x,-y,-z
+  +x+1/2,-y,-z
+  -x,+y,-z
+  +x+1/2,+y,-z
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_thermal_displace_type
+ _atom_site_U_iso_or_equiv
+ _atom_site_symmetry_multiplicity
+  Fe(1a)  0.25  0.25  0.253  1.0  Uiso  0.00270(23)  4
+  Fe(2a)  0.75  0.25  0.2654  1.0  Uiso  0.00270(23)  4
+loop_
+ _atom_type_symbol
+ _atom_type_number_in_cell
+  FE  4.0
+  FE  4.0

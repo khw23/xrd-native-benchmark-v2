@@ -1,0 +1,26 @@
+{
+  "best_rwp_percent": 5.154781113611931,
+  "candidate_count_after_xerus_filter": 301,
+  "candidate_count_before_simulation": 1297,
+  "candidate_provider_counts": {
+    "COD": 713,
+    "MP": 135,
+    "ODBX": 3,
+    "OQMD": 446
+  },
+  "full_run_not_started_reason": "smoke runtime was not fast: 1848.69 seconds; projected full run is multi-day and provider-network dependent",
+  "full_run_started": false,
+  "max_phases_global": 3,
+  "method": "XERUS 1.1b native database workflow",
+  "predicted_phase_count": 3,
+  "prediction_rows": 3,
+  "prediction_samples": 1,
+  "private_truth_used": false,
+  "runtime_failure_attempts_retained": 6,
+  "runtime_failures_recovered": 6,
+  "scope": "one_sample_smoke_only",
+  "selected_cif_checksum_mismatches": 0,
+  "selected_cif_count": 3,
+  "smoke_runtime_seconds": 1848.6875645580003,
+  "successful_samples": 1
+}

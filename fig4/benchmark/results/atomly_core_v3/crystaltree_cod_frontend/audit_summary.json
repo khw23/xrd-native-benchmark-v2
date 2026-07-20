@@ -1,0 +1,46 @@
+{
+  "candidate_records_across_100_sample_runs": 8792,
+  "confidence_semantics": "uncalibrated model probability",
+  "conversion_failure_types": {
+    "KeyError": 2,
+    "NameError": 3,
+    "SymmetryUndeterminedError": 20,
+    "ValueError": 1006
+  },
+  "conversion_failures_retained": 1031,
+  "converted_candidate_records_across_100_sample_runs": 7447,
+  "converted_frozen_cod_candidates": 5591,
+  "frozen_element_systems": 84,
+  "max_phases_global": 3,
+  "method": "CrystalShift + CrystalTree with COD front-end",
+  "missing_selected_cif_count": 0,
+  "phase_count_distribution": {
+    "1": 29,
+    "2": 31,
+    "3": 40
+  },
+  "predicted_weight_fraction_semantics": "not_reported; Crystal activations are not treated as physical QPA",
+  "prediction_rows": 211,
+  "prediction_samples": 100,
+  "private_truth_used": false,
+  "raw_frozen_cod_candidates": 6622,
+  "runtime_failure_attempts_retained": 2,
+  "runtime_failures_recovered": 2,
+  "runtime_seconds_success_records": {
+    "max": 632.3512709140778,
+    "median": 20.077826023101807,
+    "min": 0.10470199584960938,
+    "sum": 6590.276748418808
+  },
+  "samples_with_conversion_failures": 77,
+  "samples_with_failure_fraction_at_least_10_percent": 26,
+  "scope": "full_100_sample_blind_prediction",
+  "selected_cif_count": 211,
+  "successful_samples": 100,
+  "systems_with_conversion_failures": 64,
+  "top_hypothesis_rows": 300,
+  "top_hypothesis_samples": 100,
+  "unique_converted_cod_ids": 1853,
+  "unique_failed_cod_ids": 576,
+  "unique_frozen_cod_ids": 2429
+}

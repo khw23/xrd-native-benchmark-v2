@@ -1,0 +1,87 @@
+# generated using pymatgen
+data_2101007
+loop_
+ _publ_author_name
+  'Pokkuluri, P. R.'
+  'Scheffer, J. R.'
+  'Trotter, J.'
+_publ_section_title
+;
+Crystal structure correlations in the photochemistry of dimethyl
+9-phenyl-9,10-dihydro-9,10-ethenoanthracene-11,12-dicarboxylate
+;
+_journal_issue   4
+_journal_name_full   'Acta Crystallographica Section B'
+_journal_page_first   754
+_journal_page_last   760
+_journal_paper_doi   10.1107/S0108768193001144
+_journal_volume   49
+_journal_year   1993
+_chemical_formula_sum   'C26 H20 O4'
+_chemical_formula_weight   396.44
+_space_group_IT_number   14
+_space_group_name_Hall   '-P 2yn'
+_space_group_name_H-M_alt   'P 1 21/n 1'
+_symmetry_cell_setting   monoclinic
+_symmetry_space_group_name_Hall   '-P 2yn'
+_symmetry_space_group_name_H-M   'P 1 21/n 1'
+_cell_angle_alpha   90.
+_cell_angle_beta   95.48(2)
+_cell_angle_gamma   90.
+_cell_formula_units_Z   4
+_cell_length_a   10.206(3)
+_cell_length_b   16.4850(10)
+_cell_length_c   11.758(4)
+_cell_volume   1969.2(9)
+_diffrn_radiation_type   Cu
+_diffrn_radiation_wavelength   1.5418
+_exptl_absorpt_coefficient_mu   0.69
+_exptl_crystal_density_diffrn   1.337
+_exptl_crystal_F_000   832
+_cod_data_source_file   hh0631.cif
+_cod_data_source_block   hh0631b
+_cod_original_cell_volume   1969.2(8)
+_cod_database_code   2101007
+loop_
+ _space_group_symop_id
+ _space_group_symop_operation_xyz
+  1  x,y,z
+  2  -x+1/2,y+1/2,-z+1/2
+  3  -x,-y,-z
+  4  x+1/2,-y+1/2,z+1/2
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_U_iso_or_equiv
+  O(1)  .49780(10)  .28867(8)  .37840(10)  3.43(5)
+  O(2)  .30430(10)  .34086(8)  .30960(10)  4.11(6)
+  O(3)  .52990(10)  .11140(10)  .44250(10)  4.21(6)
+  O(4)  .68760(10)  .13920(10)  .33120(10)  5.55(8)
+  C(1)  .3927(2)  .15900(10)  -.0643(2)  3.83(9)
+  C(2)  .3526(2)  .0977(2)  -.1407(2)  4.50(10)
+  C(3)  .3220(2)  .02110(10)  -.1032(2)  4.10(10)
+  C(4A)  .3716(2)  .06430(10)  .08920(10)  2.74(6)
+  C(4)  .3293(2)  .00390(10)  .0127(2)  3.46(8)
+  C(5)  .1314(2)  .03810(10)  .2472(2)  3.27(8)
+  C(6)  .0099(2)  .07400(10)  .2582(2)  3.63(8)
+  C(7)  -.0017(2)  .15720(10)  .2621(2)  3.40(8)
+  C(8A)  .2289(2)  .17170(10)  .24720(10)  2.52(6)
+  C(8)  .1073(2)  .20750(10)  .2562(2)  3.03(7)
+  C(9A)  .4029(2)  .14140(10)  .05190(10)  2.80(7)
+  C(9)  .4548(2)  .19420(10)  .14910(10)  2.63(6)
+  C(10)  .3783(2)  .06420(10)  .2185(2)  2.70(6)
+  C(10A)  .2402(2)  .08740(10)  .24280(10)  2.61(6)
+  C(11)  .3622(2)  .20950(10)  .24920(10)  2.52(6)
+  C(12)  .4614(2)  .14100(10)  .25360(10)  2.60(6)
+  C(13)  .3832(2)  .28670(10)  .31410(10)  2.72(6)
+  C(14)  .5271(3)  .3623(2)  .4424(2)  4.70(10)
+  C(15)  .5745(2)  .13240(10)  .3433(2)  2.92(7)
+  C(16)  .6277(3)  .1044(2)  .5391(2)  6.10(10)
+  C(17)  .5521(2)  .25790(10)  .12160(10)  2.78(7)
+  C(18)  .6797(2)  .23550(10)  .1041(2)  3.35(8)
+  C(19)  .7673(2)  .29180(10)  .0680(2)  3.83(9)
+  C(20)  .7288(2)  .37080(10)  .0484(2)  3.85(8)
+  C(21)  .6027(2)  .39370(10)  .0650(2)  4.10(10)
+  C(22)  .5142(2)  .33780(10)  .1011(2)  3.61(8)

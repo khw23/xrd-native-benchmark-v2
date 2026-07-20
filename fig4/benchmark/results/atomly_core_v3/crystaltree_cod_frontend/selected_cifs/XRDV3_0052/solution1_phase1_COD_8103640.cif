@@ -1,0 +1,56 @@
+# generated using pymatgen
+data_8103640
+loop_
+ _publ_author_name
+  'Tsay, Y.-H.'
+  'Silverton, J.V.'
+_publ_section_title
+;
+The crystal structure of magnesium paratungstate, Mg5 H2 W12 O42 (H2
+O)38
+;
+_journal_name_full
+;
+Zeitschrift fuer Kristallographie, Kristallgeometrie, Kristallphysik,
+Kristallchemie (-144,1977)
+;
+_journal_page_first   256
+_journal_page_last   279
+_journal_volume   137
+_journal_year   1973
+_chemical_formula_sum   Mg3
+_chemical_name_systematic   'Mg5 H2 W12 O42 (H2 O)38'
+_space_group_IT_number   2
+_symmetry_space_group_name_Hall   '-P 1'
+_symmetry_space_group_name_H-M   'P -1'
+_cell_angle_alpha   91.192
+_cell_angle_beta   116.651
+_cell_angle_gamma   112.011
+_cell_formula_units_Z   1
+_cell_length_a   12.5361
+_cell_length_b   13.3179
+_cell_length_c   13.6059
+_cell_volume   1832.674
+_citation_journal_id_ASTM   ZEKGAX
+_cod_data_source_file   Tsay_ZEKGAX_1973_1356.cif
+_cod_data_source_block   Mg3
+_cod_database_code   8103640
+loop_
+ _symmetry_equiv_pos_as_xyz
+  x,y,z
+  -x,-y,-z
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_U_iso_or_equiv
+  Mg2  Mg+2  0.5  0.5  0.5  1  0.0
+  Mg1  Mg+2  0.2743  -0.4741  0.0316  1  0.0
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  PubChem  139207597

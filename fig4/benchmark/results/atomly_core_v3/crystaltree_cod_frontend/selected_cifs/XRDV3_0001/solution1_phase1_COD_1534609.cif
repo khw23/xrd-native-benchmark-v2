@@ -1,0 +1,67 @@
+# generated using pymatgen
+data_1534609
+loop_
+ _publ_author_name
+  'Glaum, R.'
+  'Schmidt, A.'
+  'Thauern, H.'
+  'Gerk, M.'
+_publ_section_title
+;
+Beitraege zum Koordinationsverhalten von Oxidionen in anorganischen
+Feststoffen.III. Mn2 P2 O7, Mn2 P4 O12 und Mn2 Si (P2 O7)2 -
+Kristallzuechtung, Strukturverfeinerungen und Elektronenspektren von
+Mangan(II)-Phosphaten
+;
+_journal_name_full
+'Zeitschrift fuer Anorganische und Allgemeine Chemie'
+_journal_page_first   2800
+_journal_page_last   2808
+_journal_volume   628
+_journal_year   2002
+_chemical_formula_sum   'Mn2 O12 P4'
+_chemical_name_systematic   'Mn2 (P4 O12)'
+_space_group_IT_number   15
+_symmetry_space_group_name_Hall   '-C 2yc'
+_symmetry_space_group_name_H-M   'C 1 2/c 1'
+_cell_angle_alpha   90
+_cell_angle_beta   119.29
+_cell_angle_gamma   90
+_cell_formula_units_Z   4
+_cell_length_a   12.065
+_cell_length_b   8.4678
+_cell_length_c   10.1702
+_cell_volume   906.193
+_citation_journal_id_ASTM   ZAACAB
+_cod_data_source_file   Glaum_ZAACAB_2002_685.cif
+_cod_data_source_block   Mn2O12P4
+_cod_original_cell_volume   906.1935
+_cod_database_code   1534609
+loop_
+ _symmetry_equiv_pos_as_xyz
+  x,y,z
+  -x,y,-z+1/2
+  -x,-y,-z
+  x,-y,z-1/2
+  x+1/2,y+1/2,z
+  -x+1/2,y+1/2,-z+1/2
+  -x+1/2,-y+1/2,-z
+  x+1/2,-y+1/2,z-1/2
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_U_iso_or_equiv
+  O2  O-2  0.36519  0.62987  0.43979  1  0.0
+  O6  O-2  0.03824  0.62977  0.41234  1  0.0
+  P1  P+5  0.30676  0.50546  0.30556  1  0.0
+  O4  O-2  0.20407  0.42356  0.32236  1  0.0
+  O3  O-2  0.27326  0.57838  0.16041  1  0.0
+  O1  O-2  0.4186  0.38307  0.34371  1  0.0
+  Mn2  Mn+2  0  0.45684  0.25  1  0.0
+  P2  P+5  0.4908  0.73276  0.52294  1  0.0
+  Mn1  Mn+2  0.25  0.25  0.5  1  0.0
+  O5  O-2  0.04543  0.25785  0.41963  1  0.0

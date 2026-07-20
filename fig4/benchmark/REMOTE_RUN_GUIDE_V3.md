@@ -151,6 +151,8 @@ git -C fig4/benchmark/third_party/Xerus checkout \
   53ed38b6d8437cf61abee270672bd33de75f15a3
 git -C fig4/benchmark/third_party/Xerus apply \
   "$PWD/patches/xerus_gsasii_root.patch"
+git -C fig4/benchmark/third_party/Xerus apply \
+  "$PWD/patches/xerus_api_compat.patch"
 xerus-env/bin/python -m pip install -r fig4/benchmark/xerus_requirements_compat.txt
 xerus-env/bin/python -m pip install --no-deps -e fig4/benchmark/third_party/Xerus
 cp fig4/benchmark/xerus_config.conf.template \

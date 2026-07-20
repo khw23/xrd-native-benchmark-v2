@@ -1,0 +1,86 @@
+# generated using pymatgen
+data_9011120
+loop_
+ _publ_author_name
+  'Bosio, L.'
+  'Curien, H.'
+  'Dupont, M.'
+  'Rimsky, A.'
+_publ_section_title
+;
+Structure cristalline de Ga-gamma  Sample: at T = 220 K  Note:
+structure known as gamma phase
+;
+_journal_name_full   'Acta Crystallographica, Section B'
+_journal_page_first   1974
+_journal_page_last   1975
+_journal_paper_doi   10.1107/S0567740872005357
+_journal_volume   28
+_journal_year   1972
+_chemical_compound_source   Synthetic
+_chemical_formula_sum   Ga
+_chemical_name_mineral   Gallium
+_space_group_IT_number   63
+_symmetry_space_group_name_Hall   '-C 2c 2'
+_symmetry_space_group_name_H-M   'C m c m'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   90
+_cell_length_a   10.593
+_cell_length_b   13.523
+_cell_length_c   5.203
+_cell_formula_units_Z   40
+_cell_volume   745.325
+_database_code_amcsd   0009437
+_diffrn_ambient_temperature   220
+_exptl_crystal_density_diffrn   6.214
+_cod_database_code   9011120
+loop_
+ _space_group_symop_operation_xyz
+  x,y,z
+  1/2+x,1/2+y,z
+  x,-y,1/2+z
+  1/2+x,1/2-y,1/2+z
+  -x,y,1/2-z
+  1/2-x,1/2+y,1/2-z
+  -x,y,z
+  1/2-x,1/2+y,z
+  x,-y,-z
+  1/2+x,1/2-y,-z
+  x,y,1/2-z
+  1/2+x,1/2+y,1/2-z
+  -x,-y,1/2+z
+  1/2-x,1/2-y,1/2+z
+  -x,-y,-z
+  1/2-x,1/2-y,-z
+loop_
+ _atom_site_aniso_label
+ _atom_site_aniso_U_11
+ _atom_site_aniso_U_22
+ _atom_site_aniso_U_33
+ _atom_site_aniso_U_12
+ _atom_site_aniso_U_13
+ _atom_site_aniso_U_23
+  Ga1  0.02274  0.02594  0.00233  0.00000  0.00000  0.00000
+  Ga2  0.02160  0.02779  0.00315  0.00290  0.00000  0.00000
+  Ga3  0.04605  0.03891  0.00343  0.00000  0.00084  0.00000
+  Ga4  0.01933  0.00278  0.00288  0.00073  0.00000  0.00000
+  Ga5  0.01251  0.00371  0.00274  0.00218  0.00000  0.00000
+  Ga6  0.01364  0.01019  0.00261  0.00000  0.00000  0.00000
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+  Ga1  0.00000  0.00090  0.25000
+  Ga2  0.27940  0.05040  0.25000
+  Ga3  0.00000  0.39470  0.00000
+  Ga4  0.12560  0.20620  0.25000
+  Ga5  0.27180  0.36120  0.25000
+  Ga6  0.50000  0.28530  0.25000
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  ChemSpider  4514603
+  2  AMCSD  0009437

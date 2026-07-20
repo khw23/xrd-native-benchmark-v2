@@ -1,0 +1,12 @@
+{
+  "generated_at_utc": "2026-07-18T12:59:51Z",
+  "platform": "Linux 6.17.0-1008-nvidia #8-Ubuntu SMP PREEMPT_DYNAMIC Wed Jan 21 17:56:56 UTC 2026 aarch64 GNU/Linux",
+  "repository_revision": "0426d726229b95c50f5d957cb8d66b8082a1ab33",
+  "python": "Python 3.12.3",
+  "XERUS_revision": "53ed38b6d8437cf61abee270672bd33de75f15a3",
+  "GSASII_revision": "14dd93032174ba9b751539f3be64de69fcb33ab8",
+  "mongodb_image": "mongo:6",
+  "mp_api_configured": true,
+  "mp_api_key_recorded": false,
+  "private_truth_used": false
+}

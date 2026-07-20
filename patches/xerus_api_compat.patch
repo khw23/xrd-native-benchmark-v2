@@ -1,0 +1,130 @@
+diff --git a/Xerus/queriers/cod.py b/Xerus/queriers/cod.py
+index bbb4638..7cf87df 100644
+--- a/Xerus/queriers/cod.py
++++ b/Xerus/queriers/cod.py
+@@ -25,11 +25,30 @@ from pathlib import Path
+ from typing import List, Tuple
+ 
+ import requests
++from requests.adapters import HTTPAdapter
++from urllib3.util.retry import Retry
+ 
+ from Xerus.utils.cifutils import rename_multicif
+ from Xerus.settings.settings import REQUESTS_TIMEOUT, REQUESTS_HEADER
+ 
+ 
++_SESSION = requests.Session()
++_SESSION.mount(
++    "http://",
++    HTTPAdapter(
++        max_retries=Retry(
++            total=3,
++            connect=3,
++            read=3,
++            status=3,
++            backoff_factor=0.5,
++            status_forcelist=(429, 500, 502, 503, 504),
++            allowed_methods=frozenset({"GET"}),
++        )
++    ),
++)
++
++
+ def make_name(url: str):
+     """
+     Auxiliary function to retrieve CIF name from an URL
+@@ -90,11 +109,11 @@ class CODQuery(object):
+         else:
+             print("I am querying the following combination from COD: {}".format("-".join(element_list)))
+             print(query_url)
+-            cif_data = requests.get(query_url,  timeout=REQUESTS_TIMEOUT)
++            cif_data = _SESSION.get(query_url, timeout=REQUESTS_TIMEOUT)
+             if cif_data.status_code == 200:
+                 cif_urls = cif_data.text.split("\n")[:-1]
+                 for url in cif_urls:
+-                    cif = requests.get(url, headers=REQUESTS_HEADER, timeout=REQUESTS_TIMEOUT)
++                    cif = _SESSION.get(url, headers=REQUESTS_HEADER, timeout=REQUESTS_TIMEOUT)
+                     if cif.status_code == 200:
+                         name = make_name(url)
+                         with open(os.path.join(self.folder_path, name), "wb") as f:
+diff --git a/Xerus/queriers/mp.py b/Xerus/queriers/mp.py
+index a047d5b..533fbc1 100644
+--- a/Xerus/queriers/mp.py
++++ b/Xerus/queriers/mp.py
+@@ -75,7 +75,7 @@ def querymp(inc_eles: List[str], max_num_elem:int = 3, min_hull: float = 1e-4, w
+     -------
+     Returns a DataFrame with the queried data information with data is available for elements combination.
+     '''
+-    properties = ['formula_pretty',  'material_id',  'structure',  'energy_above_hull',  'theoretical', 'fields_not_requested']
++    properties = ['formula_pretty',  'material_id',  'structure',  'energy_above_hull',  'theoretical']
+ 
+     mpr = MPRester(api_key)     
+     datas = mpr.summary.search( chemsys=inc_eles,
+@@ -86,7 +86,14 @@ def querymp(inc_eles: List[str], max_num_elem:int = 3, min_hull: float = 1e-4, w
+     if "pytest" in sys.modules:
+         datadf = datas
+     else:
+-        datadf = [data.dict() for data in datas]
++        # Preserve pymatgen Structure objects with current pydantic/mp-api.
++        # SummaryDoc.dict() recursively converts them to plain dictionaries.
++        datadf = [
++            {field: getattr(data, field) for field in properties}
++            for data in datas
++        ]
++        for row in datadf:
++            row['material_id'] = str(row['material_id'])
+     datadf = pd.DataFrame(datadf)
+     # datadf = datadf.set_axis(properties, axis='columns')
+     if len(datadf) == 0:
+diff --git a/Xerus/queriers/optimade.py b/Xerus/queriers/optimade.py
+index 053a1bf..8b7addd 100644
+--- a/Xerus/queriers/optimade.py
++++ b/Xerus/queriers/optimade.py
+@@ -8,11 +8,29 @@ from pathlib import Path
+ from typing import List, Union
+ 
+ import requests
++from requests.adapters import HTTPAdapter
++from urllib3.util.retry import Retry
+ from Xerus.settings.settings import REQUESTS_TIMEOUT, REQUESTS_HEADER
+ 
+ from optimade.adapters import Structure
+ 
+ 
++_SESSION = requests.Session()
++_RETRY_ADAPTER = HTTPAdapter(
++    max_retries=Retry(
++        total=3,
++        connect=3,
++        read=3,
++        status=3,
++        backoff_factor=0.5,
++        status_forcelist=(429, 500, 502, 503, 504),
++        allowed_methods=frozenset({"GET"}),
++    )
++)
++_SESSION.mount("http://", _RETRY_ADAPTER)
++_SESSION.mount("https://", _RETRY_ADAPTER)
++
++
+ class OptimadeQuery:
+ 
+     def __init__(
+@@ -103,7 +121,7 @@ class OptimadeQuery:
+             query_url = f"{self.base_url}/{self.optimade_endpoint}?{self.optimade_filter}&{self.optimade_response_fields}&page_limit=10"
+ 
+         # Make the request and get the response
+-        response = requests.get(query_url, headers=self.headers, timeout=REQUESTS_TIMEOUT)
++        response = _SESSION.get(query_url, headers=self.headers, timeout=REQUESTS_TIMEOUT)
+         logging.info("Query %s returned status code %s", query_url, response.status_code)
+         next_query_url = None
+         
+@@ -119,7 +137,7 @@ class OptimadeQuery:
+             # If the query returns 501 Not Implemented, assume it is the HAS ONLY which failed and try again with an explicit filter
+             query_url = f"{self.base_url}/{self.optimade_endpoint}?{self.optimade_filter_hasall}&{self.optimade_response_fields}&page_limit=10"
+             # print(f"Retrying query with {query_url} ....")
+-            response = requests.get(query_url, headers=self.headers, timeout=REQUESTS_TIMEOUT)
++            response = _SESSION.get(query_url, headers=self.headers, timeout=REQUESTS_TIMEOUT)
+ 
+         if response.status_code == 504:
+             raise ValueError("Query returned 504, try changing query filters..")
