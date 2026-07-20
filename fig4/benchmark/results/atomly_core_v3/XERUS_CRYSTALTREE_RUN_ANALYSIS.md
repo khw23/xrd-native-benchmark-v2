@@ -1,4 +1,4 @@
-# XERUS and CrystalShift/CrystalTree run analysis
+# XERUS and CrystalShift/CrystalTree diagnostic run analysis
 
 ## Scope
 
@@ -31,13 +31,12 @@ most material for the high-loss systems. The failures are systematic CIF/parser
 compatibility failures rather than random sampling, so the surviving library may be
 biased toward CIFs that are easier for the converter to parse.
 
-The current 100-sample result is still a valid, reproducible result for the effective
-converted library, but it should not be described as evaluating every frozen COD
-candidate. Candidate selection started from the same frozen front-end; the
-CrystalShift representation adapter reduced the effective library. Without private
-truth or a deterministic repaired conversion rerun, the direction and magnitude of
-any accuracy change cannot be determined. In particular, conversion loss alone does
-not prove that any reported prediction is wrong.
+The current 100-sample output is reproducible for the reduced, converted library,
+but it is a diagnostic artifact rather than the definitive benchmark result. It must
+not be presented as a fair evaluation against the complete frozen COD candidate
+front-end. Without private truth or a deterministic repaired conversion rerun, the
+direction and magnitude of any accuracy change cannot be determined. In particular,
+conversion loss alone does not prove that any individual prediction is wrong.
 
 For a future definitive comparison, repair the conversion adapter using a uniform
 CIF normalization rule, validate structure/cell preservation, freeze the repaired
@@ -48,32 +47,27 @@ response to prediction quality.
 
 The local smoke used an ARM64 host with 20 logical CPUs, 121 GiB RAM, and
 `--n-jobs 4`. It took 1,849 seconds wall time, 515 seconds user CPU, and 42 seconds
-system CPU, with 0.75 GiB peak RSS. Average measured CPU use was therefore about
-0.30 CPU cores. The native workflow performed 25 COD/OQMD/ODBX subsystem query
-cycles, logged nine OQMD timeout retries, then simulated 1,297 patterns and refined
-candidate combinations.
+system CPU, with 0.75 GiB peak RSS. The native workflow performed 25 COD/OQMD/ODBX
+subsystem query cycles, logged nine OQMD timeout retries, then simulated 1,297
+patterns and refined candidate combinations.
 
 XERUS uses multiprocessing for pattern simulation and combination refinement, so a
-faster x86-64 server and a larger `n_jobs` can accelerate those compute stages.
+faster x86-64 server and a larger `n_jobs` may accelerate those compute stages.
 However, database requests, retry backoff, CIF download, MongoDB operations, and
-serial orchestration do not scale with core count. As a rough bound, even eliminating
-all 557 seconds of measured CPU time would reduce this smoke only from 1,849 to
-about 1,292 seconds, a 1.43x speedup. This is an approximate bound because child
-process accounting and filesystem waits are imperfect, but it shows that core count
-alone is not the dominant single-sample bottleneck.
+serial orchestration do not scale with core count. CPU time from one multiprocessing
+run cannot be subtracted from wall time to form a valid speedup bound, so this smoke
+does not support a numerical acceleration estimate.
 
 Expected consequences:
 
-- Single-sample latency is likely to improve modestly, roughly 1.1x-1.5x on the
-  same network. Faster x86-64 GSAS-II binaries may improve compute-heavy samples
-  more, but a large speedup is not supported by this smoke.
-- Full-dataset throughput can improve more by running several isolated samples at
-  once while retaining XERUS's native candidate process. A practical first server
-  test is 4 concurrent samples with 4 workers each, followed by 8 concurrent samples
-  only if provider error rates and memory remain stable.
-- A 32-core x86-64 host, 64 GiB RAM, fast NVMe storage, stable outbound networking,
-  and 50-100 GiB free space is sufficient for a controlled full run. More GPU does
-  not directly accelerate this workflow.
+- Single-sample and full-dataset speedup remain unknown until a controlled pilot is
+  run on the target machine with the same samples and provider conditions.
+- Outer sample concurrency may improve throughput, but each process must write to a
+  separate result directory because the current runner state files are not safe for
+  concurrent writers. Provider rate limits must be monitored before increasing it.
+- Stable outbound networking is required. CPU, memory, and disk requirements for a
+  full run should be projected from the three-sample pilot rather than asserted from
+  this one sample. More GPU does not directly accelerate this workflow.
 - Provider rate limits and timeouts can make aggressive concurrency slower or less
   reliable. Failed attempts must remain recorded and resumed rather than silently
   retried outside the run manifest.

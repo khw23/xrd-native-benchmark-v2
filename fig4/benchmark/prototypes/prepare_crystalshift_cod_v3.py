@@ -33,6 +33,8 @@ DEFAULT_CONVERTER = ROOT / "fig4/benchmark/third_party/crystalshift/src/cif_to_i
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--converter", type=Path, default=DEFAULT_CONVERTER)
+    parser.add_argument("--output-root", type=Path, default=OUT_ROOT)
+    parser.add_argument("--snapshot-root", type=Path, default=SNAPSHOT_ROOT)
     parser.add_argument("--limit-systems", type=int, default=None)
     parser.add_argument("--system-key", action="append", default=[])
     parser.add_argument("--resume", action="store_true")
@@ -99,6 +101,8 @@ def baseline_asls(
 
 def main() -> None:
     args = parse_args()
+    output_root = args.output_root.resolve()
+    snapshot_root = args.snapshot_root.resolve()
     if not args.converter.exists():
         raise FileNotFoundError(
             f"CrystalShift converter not found: {args.converter}. Clone CrystalShift.jl "
@@ -120,9 +124,14 @@ def main() -> None:
         systems = [key for key in systems if key in requested]
     if args.limit_systems is not None:
         systems = systems[: args.limit_systems]
-    OUT_ROOT.mkdir(parents=True, exist_ok=True)
+    if output_root.exists() and any(output_root.iterdir()) and not args.resume:
+        raise FileExistsError(
+            f"Output directory is not empty: {output_root}. Use --resume or choose "
+            "a new --output-root; existing conversion artifacts will not be overwritten."
+        )
+    output_root.mkdir(parents=True, exist_ok=True)
 
-    pattern_root = OUT_ROOT / "patterns_preprocessed"
+    pattern_root = output_root / "patterns_preprocessed"
     pattern_root.mkdir(exist_ok=True)
     for path in sorted((BLIND_ROOT / "patterns").glob("*.xy")):
         raw = np.loadtxt(path)
@@ -144,7 +153,7 @@ def main() -> None:
             raise FileNotFoundError(
                 f"No COD candidates for {key}; run prepare_cod_candidate_sets_v3.py first"
             )
-        system_root = OUT_ROOT / key
+        system_root = output_root / key
         system_root.mkdir(exist_ok=True)
         sticks_path = system_root / "candidate_sticks.csv"
         map_path = system_root / "phase_id_map.csv"
@@ -261,7 +270,7 @@ def main() -> None:
             "converted_candidate_count",
             "conversion_failure_count",
         ],
-    ).to_csv(OUT_ROOT / "preparation_summary.csv", index=False)
+    ).to_csv(output_root / "preparation_summary.csv", index=False)
     pd.DataFrame(
         all_failures,
         columns=[
@@ -271,13 +280,15 @@ def main() -> None:
             "error_type",
             "error",
         ],
-    ).to_csv(OUT_ROOT / "conversion_failures.csv", index=False)
-    SNAPSHOT_ROOT.mkdir(parents=True, exist_ok=True)
+    ).to_csv(output_root / "conversion_failures.csv", index=False)
+    snapshot_root.mkdir(parents=True, exist_ok=True)
     shutil.copy2(
-        OUT_ROOT / "preparation_summary.csv", SNAPSHOT_ROOT / "preparation_summary.csv"
+        output_root / "preparation_summary.csv",
+        snapshot_root / "preparation_summary.csv",
     )
     shutil.copy2(
-        OUT_ROOT / "conversion_failures.csv", SNAPSHOT_ROOT / "conversion_failures.csv"
+        output_root / "conversion_failures.csv",
+        snapshot_root / "conversion_failures.csv",
     )
 
 

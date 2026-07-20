@@ -17,6 +17,8 @@ function parse_args()
     limit = nothing
     sample_ids = String[]
     resume = false
+    input_root = INPUT_ROOT
+    result_root = RESULT_ROOT
     i = 1
     while i <= length(ARGS)
         if ARGS[i] == "--limit"
@@ -25,11 +27,15 @@ function parse_args()
             push!(sample_ids, ARGS[i + 1]); i += 2
         elseif ARGS[i] == "--resume"
             resume = true; i += 1
+        elseif ARGS[i] == "--input-root"
+            input_root = abspath(ARGS[i + 1]); i += 2
+        elseif ARGS[i] == "--result-root"
+            result_root = abspath(ARGS[i + 1]); i += 2
         else
             error("Unknown argument: $(ARGS[i])")
         end
     end
-    return limit, sample_ids, resume
+    return limit, sample_ids, resume, input_root, result_root
 end
 
 function read_simple_csv(path)
@@ -77,16 +83,19 @@ function load_phases(sticks_path)
 end
 
 function main()
-    limit, requested, resume = parse_args()
+    limit, requested, resume, input_root, result_root = parse_args()
     samples = read_simple_csv(joinpath(BLIND_ROOT, "sample_manifest.csv"))
     !isempty(requested) && (samples = filter(row -> String(row["sample_id"]) in requested, samples))
     !isnothing(limit) && (samples = first(samples, min(limit, length(samples))))
     isempty(samples) && error("No samples selected")
 
-    mkpath(RESULT_ROOT)
-    prediction_path = joinpath(RESULT_ROOT, "predictions.csv")
-    hypothesis_path = joinpath(RESULT_ROOT, "top_hypotheses.csv")
-    record_path = joinpath(RESULT_ROOT, "run_records.json")
+    mkpath(result_root)
+    prediction_path = joinpath(result_root, "predictions.csv")
+    hypothesis_path = joinpath(result_root, "top_hypotheses.csv")
+    record_path = joinpath(result_root, "run_records.json")
+    if !resume && any(isfile, (prediction_path, hypothesis_path, record_path))
+        error("Result files already exist in $(result_root). Use --resume or a new --result-root; existing results will not be overwritten.")
+    end
     predictions = resume && isfile(prediction_path) ? read_simple_csv(prediction_path) : Any[]
     hypotheses = resume && isfile(hypothesis_path) ? read_simple_csv(hypothesis_path) : Any[]
     records = resume && isfile(record_path) ? JSON.parsefile(record_path) : Any[]
@@ -118,14 +127,14 @@ function main()
         started = time()
         try
             key = system_key(sample["sample_elements"])
-            system_root = joinpath(INPUT_ROOT, key)
+            system_root = joinpath(input_root, key)
             mapping = read_simple_csv(joinpath(system_root, "phase_id_map.csv"))
             isempty(mapping) && error("No CrystalShift candidates for $(key)")
             phases = load_phases(joinpath(system_root, "candidate_sticks.csv"))
             length(phases) == length(mapping) || error("Candidate/map length mismatch for $(key)")
             id_to_row = Dict(Int(row["crystalshift_phase_id"]) => row for row in mapping)
 
-            xy = readdlm(joinpath(INPUT_ROOT, "patterns_preprocessed", String(sample["pattern_filename"]));
+            xy = readdlm(joinpath(input_root, "patterns_preprocessed", String(sample["pattern_filename"]));
                          comments=true, comment_char='#')
             two_theta = Float64.(xy[:, 1])
             y = Float64.(xy[:, 2]); y ./= maximum(y)
@@ -156,7 +165,7 @@ function main()
             best_ids = get_phase_ids(best)
             activations = CrystalShift.get_fraction(best.phase_model.CPs)
             phase_order = sortperm(activations; rev=true)
-            selected_root = joinpath(RESULT_ROOT, "selected_cifs", sample_id)
+            selected_root = joinpath(result_root, "selected_cifs", sample_id)
             mkpath(selected_root)
             for (phase_rank, position) in enumerate(phase_order)
                 phase_id = best_ids[position]

@@ -30,6 +30,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sample-id", action="append", default=[])
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--n-jobs", type=int, default=8)
+    parser.add_argument("--result-root", type=Path, default=RESULT_ROOT)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--retry-failures", action="store_true")
     return parser.parse_args()
@@ -70,9 +71,9 @@ def repository_path(value: object) -> str:
         return str(path)
 
 
-def prepare_xerus_xy(source: Path, sample_id: str) -> Path:
+def prepare_xerus_xy(source: Path, sample_id: str, result_root: Path) -> Path:
     """Create the headerless two-column XY input required by XERUS 1.1b."""
-    adapted_root = RESULT_ROOT / "preprocessed_inputs"
+    adapted_root = result_root / "preprocessed_inputs"
     adapted_root.mkdir(parents=True, exist_ok=True)
     target = adapted_root / f"{sample_id}.xy"
     data = pd.read_csv(
@@ -91,15 +92,18 @@ def prepare_xerus_xy(source: Path, sample_id: str) -> Path:
     return target
 
 
-def save_state(predictions: list[dict], records: list[dict]) -> None:
-    pd.DataFrame(predictions).to_csv(RESULT_ROOT / "predictions.csv", index=False)
-    (RESULT_ROOT / "run_records.json").write_text(
+def save_state(
+    result_root: Path, predictions: list[dict], records: list[dict]
+) -> None:
+    pd.DataFrame(predictions).to_csv(result_root / "predictions.csv", index=False)
+    (result_root / "run_records.json").write_text(
         json.dumps(records, indent=2) + "\n", encoding="utf-8"
     )
 
 
 def main() -> None:
     args = parse_args()
+    result_root = args.result_root.resolve()
     if not PROFILE.exists():
         raise FileNotFoundError("Run unpack_and_verify_v3.py first")
 
@@ -123,9 +127,14 @@ def main() -> None:
     if samples.empty:
         raise SystemExit("No samples selected")
 
-    RESULT_ROOT.mkdir(parents=True, exist_ok=True)
-    prediction_path = RESULT_ROOT / "predictions.csv"
-    record_path = RESULT_ROOT / "run_records.json"
+    result_root.mkdir(parents=True, exist_ok=True)
+    prediction_path = result_root / "predictions.csv"
+    record_path = result_root / "run_records.json"
+    if not args.resume and (prediction_path.exists() or record_path.exists()):
+        raise FileExistsError(
+            f"Result files already exist in {result_root}. Use --resume or choose "
+            "a new --result-root; existing results will not be overwritten."
+        )
     predictions = (
         pd.read_csv(prediction_path).to_dict("records")
         if args.resume and prediction_path.exists()
@@ -151,14 +160,16 @@ def main() -> None:
         attempt = (
             sum(row.get("sample_id") == sample.sample_id for row in records) + 1
         )
-        work = RESULT_ROOT / "work" / sample.sample_id
+        work = result_root / "work" / sample.sample_id
         work.mkdir(parents=True, exist_ok=True)
         elements = str(sample.sample_elements).split(";")
         source_pattern = BLIND_ROOT / "patterns" / sample.pattern_filename
         source_pattern_sha256 = sha256(source_pattern)
         started = time.perf_counter()
         try:
-            xerus_pattern = prepare_xerus_xy(source_pattern, sample.sample_id)
+            xerus_pattern = prepare_xerus_xy(
+                source_pattern, sample.sample_id, result_root
+            )
             if sha256(source_pattern) != source_pattern_sha256:
                 raise RuntimeError("Original XRD changed while preparing XERUS input")
             xray = XRay(
@@ -191,7 +202,7 @@ def main() -> None:
             )
             if result is None or result.empty:
                 raise RuntimeError("XERUS returned no phase hypothesis")
-            candidate_snapshot_root = RESULT_ROOT / "candidate_manifests"
+            candidate_snapshot_root = result_root / "candidate_manifests"
             candidate_snapshot_root.mkdir(parents=True, exist_ok=True)
             candidate_snapshot = (
                 xray.cif_all.copy()
@@ -226,7 +237,7 @@ def main() -> None:
                 raise RuntimeError("XERUS returned no positive phase weight")
             weights = [value / total for value in positive]
             elapsed = time.perf_counter() - started
-            selected_root = RESULT_ROOT / "selected_cifs" / sample.sample_id
+            selected_root = result_root / "selected_cifs" / sample.sample_id
             selected_root.mkdir(parents=True, exist_ok=True)
             for rank, (db_id, provider, formula, weight) in enumerate(
                 zip(ids, providers, formulas, weights, strict=True), start=1
@@ -320,7 +331,7 @@ def main() -> None:
                 }
             )
             print(f"{sample.sample_id}: ERROR after {elapsed:.1f} s: {error}", flush=True)
-        save_state(predictions, records)
+        save_state(result_root, predictions, records)
 
     environment = {
         "python": sys.version,
@@ -340,7 +351,7 @@ def main() -> None:
         "max_oxy": "number of disclosed sample elements",
         "private_truth_used": False,
     }
-    (RESULT_ROOT / "environment.json").write_text(
+    (result_root / "environment.json").write_text(
         json.dumps(environment, indent=2) + "\n", encoding="utf-8"
     )
 

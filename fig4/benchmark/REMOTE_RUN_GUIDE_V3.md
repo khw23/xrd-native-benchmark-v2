@@ -1,5 +1,8 @@
 # Atomly-Core v3 原生数据库盲测：DGX 与服务器运行指南
 
+> 当前状态（2026-07-20）：PR #8 中的 CrystalTree 100 样本输出和 XERUS 单样本输出是
+> **诊断快照，不是最终 benchmark 结果**。下一轮执行先读 `DGX_NEXT_TASK.md`。旧结果不得覆盖或删除。
+
 ## 0. 输入边界
 
 所有方法只可读取：
@@ -28,12 +31,16 @@ python3 fig4/benchmark/prototypes/unpack_and_verify_v3.py
 
 ```bash
 cd xrd-native-benchmark-v2
-git switch main
-git pull --ff-only origin main
+git status --short --branch
+git fetch origin
 git log -1 --oneline
 
 python3 fig4/benchmark/prototypes/unpack_and_verify_v3.py
 ```
+
+只有 `git status` 确认工作区干净且没有任务运行时，才可切换分支或执行 `git pull --ff-only`。
+若存在未提交结果、cache 或运行中的任务，应保留原目录，用新的 clone/worktree 做下一轮；禁止
+`git reset --hard`、`git clean -fdx` 或删除旧的 `results/`。
 
 默认分支 `main` 已经是 Atomly-Core v3；旧的临时 v3 分支已删除，不再需要手工切换。
 如果 DGX 已经从该临时分支启动任务，不要在任务运行中途切换分支。只要下面的盲包哈希一致，
@@ -99,29 +106,37 @@ git clone https://github.com/MingChiangChang/CrystalShift.jl \
   fig4/benchmark/third_party/CrystalShift.jl
 git -C fig4/benchmark/third_party/CrystalShift.jl checkout \
   37155e71c166f952dbdba2607604e36d13feb8ef
+```
 
+转换脚本逐 CIF 记录失败，不会因一个坏 CIF 丢弃整个元素体系。PR #8 的第一轮转换仅成功
+5,591/6,622 条候选记录；因此其 100 样本结果只能作为 adapter 诊断，不能作为最终方法准确率。
+先按 `DGX_NEXT_TASK.md` 用统一、与真值无关的规则修复转换器，并把新输入和新结果分别写到
+`crystalshift_cod_v3_v2/` 与 `crystaltree_cod_frontend_v2/`。不得复用旧输出目录。
+
+```bash
 crystalshift-python/bin/python \
   fig4/benchmark/prototypes/prepare_crystalshift_cod_v3.py \
-  --converter fig4/benchmark/third_party/CrystalShift.jl/src/cif_to_input_file.py
-```
+  --converter fig4/benchmark/third_party/CrystalShift.jl/src/cif_to_input_file.py \
+  --output-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 \
+  --snapshot-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/input_preparation
 
-转换脚本逐 CIF 记录失败，不会因一个坏 CIF 丢弃整个元素体系。检查
-`method_inputs/crystalshift_cod_v3/preparation_summary.csv` 后，从
-`method_inputs/cod_native_v3/smoke_samples.csv` 取低/中/高候选规模的三个样本做 smoke。
-
-```bash
-SMOKE_ID=$(sed -n '2p' fig4/benchmark/method_inputs/cod_native_v3/smoke_samples.csv | cut -d, -f2)
 julia +1.12.6 --compiled-modules=no \
   --project=fig4/benchmark/method_envs/crystalshift \
-  fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl --sample-id "$SMOKE_ID"
+  fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl \
+  --input-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 \
+  --result-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2 \
+  --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100
 ```
 
-确认生成 `predictions.csv`、`top_hypotheses.csv`、`run_records.json` 后全量续跑：
+低/中/高三档 smoke、转换完整性门和独立开发集参数门均通过后，才可全量续跑：
 
 ```bash
 julia +1.12.6 --compiled-modules=no \
   --project=fig4/benchmark/method_envs/crystalshift \
-  fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl --resume
+  fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl \
+  --input-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 \
+  --result-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2 \
+  --resume
 ```
 
 CrystalShift activation 只写入备注，不转换成摩尔或质量分数。DGX GPU 对当前 Julia 搜索实现
@@ -167,6 +182,8 @@ ARM64 上不可靠，因此安装当前架构可用的官方 GSAS-II，并把根
 ```bash
 git clone https://github.com/AdvancedPhotonSource/GSAS-II \
   fig4/benchmark/third_party/GSAS-II
+git -C fig4/benchmark/third_party/GSAS-II checkout \
+  14dd93032174ba9b751539f3be64de69fcb33ab8
 xerus-env/bin/python -m pip install -e fig4/benchmark/third_party/GSAS-II
 
 export GSASII_ROOT="$PWD/fig4/benchmark/third_party/GSAS-II"
@@ -177,20 +194,27 @@ export MPLBACKEND=Agg
 若 GSAS-II 的 ARM64 扩展安装失败，停止并记录 infrastructure failure；不要改成私有 CIF
 候选测试。此时 XERUS 也转到 x86_64 服务器更稳妥。
 
-先跑一个样本：
+先顺序跑低/中/高候选规模的三个 pilot（分档来自冻结 COD 前端，仅作负载代理）：
 
 ```bash
 xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py \
-  --sample-id XRDV3_0001 --n-jobs 4
+  --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100 \
+  --n-jobs 4 \
+  --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2
 ```
 
-smoke 必须确认：MongoDB 查询完成、候选数非零、最终数据库 ID/CIF、Rwp 和质量分数都被保存。
-随后全量：
+pilot 必须确认：MongoDB 查询完成、候选数非零、最终数据库 ID/CIF、Rwp 和质量分数都被保存，
+并记录 provider 超时、总耗时和失败恢复情况。单样本结果不能外推可靠加速比。先提交 pilot 报告；
+得到继续确认后才全量：
 
 ```bash
 xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py \
-  --n-jobs 8 --resume --retry-failures
+  --n-jobs 4 --resume --retry-failures \
+  --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_v2
 ```
+
+若测试多个外层并发进程，每个进程必须使用不同的 `--result-root`；当前 CSV/JSON 状态文件不支持
+多进程同时写同一目录。完成后再用确定性脚本合并，不能直接拼接或覆盖。
 
 XERUS 统一使用 `n_runs=3`；其结果表会在一相、二相、三相假设中按原生 Rwp 选择，不读取
 逐样本真实相数。数据库提供者冻结为 XERUS 当前 MP/COD/OQMD/ODBX 流程，AFLOW 按其默认设置忽略。
