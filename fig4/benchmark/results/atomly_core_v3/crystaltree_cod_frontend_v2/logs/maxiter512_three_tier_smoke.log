@@ -1,0 +1,33 @@
+WARNING: Constructor for type "MemoryLayout" was extended in `LazyArrays` without explicit qualification or import.
+  NOTE: Assumed "MemoryLayout" refers to `ArrayLayouts.MemoryLayout`. This behavior is deprecated and may differ in future versions.`
+  NOTE: This behavior may have differed in Julia versions prior to 1.12.
+  Hint: If you intended to create a new generic function of the same name, use `function MemoryLayout end`.
+  Hint: To silence the warning, qualify `MemoryLayout` as `ArrayLayouts.MemoryLayout` in the method signature or explicitly `import ArrayLayouts: MemoryLayout`.
+WARNING: method definition for getindex at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/method_envs/julia_depot/packages/TaylorSeries/YHybm/src/auxiliary.jl:125 declares type variable T but does not use it.
+WARNING: method definition for getindex at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/method_envs/julia_depot/packages/TaylorSeries/YHybm/src/auxiliary.jl:161 declares type variable T but does not use it.
+XRDV3_0046: 12 candidates -> 1 phases, 40.8 s
+XRDV3_0054: 46 candidates -> 2 phases, 26.8 s
+XRDV3_0100: 216 candidates -> 3 phases, 366.1 s
+	Command being timed: "fig4/benchmark/method_envs/julia-1.12.6/bin/julia --compiled-modules=no --project=fig4/benchmark/method_envs/crystalshift fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl --input-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 --result-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2 --resume --rerun-selected --maxiter 512 --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100"
+	User time (seconds): 1303.63
+	System time (seconds): 8.23
+	Percent of CPU this job got: 275%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 7:55.60
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2749664
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3969902
+	Voluntary context switches: 22375
+	Involuntary context switches: 7231
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 128
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

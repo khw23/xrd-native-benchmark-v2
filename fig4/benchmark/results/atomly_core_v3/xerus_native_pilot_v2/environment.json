@@ -3,9 +3,10 @@
   "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
   "machine": "aarch64",
   "xerus_version": "1.1b",
-  "gsasii_root": "xerus-env/lib/python3.12/site-packages",
+  "gsasii_root": "xerus-env/lib/python3.12/site-packages/GSASII",
   "instrument_profile": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3/instrument_metadata/GSASII_reference_profile.instprm",
   "xerus_configured_profile": "fig4/benchmark/third_party/Xerus/Xerus/inc/benchmark_v3_reference.instprm",
+  "xerus_configured_profile_sha256": "679a88e42c1077e9f50718346b81b33e414e0e5850e504034e57476fd7cea971",
   "n_runs": 3,
   "n_jobs": 4,
   "ignore_provider": [
@@ -13,5 +14,6 @@
   ],
   "maxsys": "number of disclosed sample elements",
   "max_oxy": "number of disclosed sample elements",
-  "private_truth_used": false
+  "private_truth_used": false,
+  "prepare_candidates_only": true
 }

@@ -23,6 +23,23 @@ BLIND_ROOT = ROOT / "fig4/benchmark/datasets/atomly_core_v3/native_blind_package
 RESULT_ROOT = ROOT / "fig4/benchmark/results/atomly_core_v3/xerus_native"
 PROFILE = BLIND_ROOT / "instrument_metadata/GSASII_reference_profile.instprm"
 METHOD_NAME = "XERUS 1.1b native database workflow"
+PREDICTION_COLUMNS = [
+    "sample_id",
+    "method",
+    "solution_rank",
+    "phase_rank",
+    "predicted_formula",
+    "predicted_space_group_symbol",
+    "predicted_space_group_number",
+    "predicted_database",
+    "predicted_database_id",
+    "predicted_weight_fraction",
+    "confidence_or_score",
+    "runtime_seconds",
+    "status_or_note",
+    "predicted_cif_path",
+    "predicted_cif_sha256",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -109,7 +126,9 @@ def prepare_xerus_xy(source: Path, sample_id: str, result_root: Path) -> Path:
 def save_state(
     result_root: Path, predictions: list[dict], records: list[dict]
 ) -> None:
-    pd.DataFrame(predictions).to_csv(result_root / "predictions.csv", index=False)
+    pd.DataFrame(predictions, columns=PREDICTION_COLUMNS).to_csv(
+        result_root / "predictions.csv", index=False
+    )
     (result_root / "run_records.json").write_text(
         json.dumps(records, indent=2) + "\n", encoding="utf-8"
     )
@@ -132,11 +151,29 @@ def save_candidate_snapshot(
     return target, snapshot
 
 
+def remove_incomplete_provider_dirs(xerus_module, sample_id: str) -> list[str]:
+    """Remove non-transactional provider downloads left by failed attempts."""
+    query_root = Path(xerus_module.__file__).resolve().parent / "queriers"
+    removed = []
+    for path in sorted(query_root.glob(f"{sample_id}_*")):
+        if path.is_dir():
+            removed.append(path.name)
+            shutil.rmtree(path)
+    return removed
+
+
 def main() -> None:
     args = parse_args()
     result_root = args.result_root.resolve()
     if not PROFILE.exists():
         raise FileNotFoundError("Run unpack_and_verify_v3.py first")
+
+    # XERUS 1.1b launches its CIF validator as `python tcif.py`. Keep that
+    # subprocess in the same isolated environment as this runner.
+    interpreter_bin = str(Path(sys.executable).absolute().parent)
+    os.environ["PATH"] = os.pathsep.join(
+        [interpreter_bin, os.environ.get("PATH", "")]
+    )
 
     # Import after the caller has set PYTHONPATH/GSASII_ROOT and patched XERUS.
     import Xerus
@@ -149,6 +186,17 @@ def main() -> None:
             "XERUS config.conf must point to a byte-identical copy of "
             "instrument_metadata/GSASII_reference_profile.instprm before import"
         )
+    logical_profile = (
+        ROOT
+        / "fig4/benchmark/third_party/Xerus/Xerus/inc"
+        / configured_profile.name
+    )
+    configured_profile_record = (
+        logical_profile
+        if logical_profile.exists()
+        and sha256(logical_profile) == sha256(configured_profile)
+        else configured_profile
+    )
 
     samples = pd.read_csv(BLIND_ROOT / "sample_manifest.csv")
     if args.sample_id:
@@ -180,6 +228,10 @@ def main() -> None:
         row["sample_id"]: row.get("status")
         for row in records
         if row.get("status") == "ok"
+        or (
+            args.prepare_candidates_only
+            and row.get("status") == "candidates_ready"
+        )
         or (row.get("status") == "error" and not args.retry_failures)
     }
 
@@ -197,7 +249,12 @@ def main() -> None:
         source_pattern = BLIND_ROOT / "patterns" / sample.pattern_filename
         source_pattern_sha256 = sha256(source_pattern)
         started = time.perf_counter()
+        removed_provider_dirs = []
         try:
+            if args.prepare_candidates_only:
+                removed_provider_dirs = remove_incomplete_provider_dirs(
+                    Xerus, sample.sample_id
+                )
             xerus_pattern = prepare_xerus_xy(
                 source_pattern, sample.sample_id, result_root
             )
@@ -243,6 +300,7 @@ def main() -> None:
                         "candidate_snapshot_count": int(len(candidate_snapshot)),
                         "candidate_manifest": str(candidate_manifest.relative_to(ROOT)),
                         "network_stage_only": True,
+                        "incomplete_provider_dirs_removed": removed_provider_dirs,
                     }
                 )
                 print(
@@ -383,6 +441,7 @@ def main() -> None:
                     "error_type": type(error).__name__,
                     "error": str(error),
                     "traceback": traceback.format_exc(),
+                    "incomplete_provider_dirs_removed": removed_provider_dirs,
                 }
             )
             print(f"{sample.sample_id}: ERROR after {elapsed:.1f} s: {error}", flush=True)
@@ -399,7 +458,8 @@ def main() -> None:
             else None
         ),
         "instrument_profile": str(PROFILE.relative_to(ROOT)),
-        "xerus_configured_profile": repository_path(configured_profile),
+        "xerus_configured_profile": repository_path(configured_profile_record),
+        "xerus_configured_profile_sha256": sha256(configured_profile),
         "n_runs": 3,
         "n_jobs": args.n_jobs,
         "ignore_provider": ["AFLOW"],

@@ -1,0 +1,36 @@
+{
+  "development_spectrum": "normalized sum of official fixture phases 0 and 1",
+  "exact_target_hypothesis_present": true,
+  "finite_residuals": true,
+  "fixture_origin": "CrystalTree installed package data/sticks.csv",
+  "fixture_package_relative_path": "CrystalTree/data/sticks.csv",
+  "fixture_sha256": "355bdbf3b9db9d43441852c9833e185935ebef9acb15f246c26ce301d6ab07af",
+  "gate_scope": "API and numerical compatibility only",
+  "limitation": "Exact two-phase fixture is not a sensitivity or accuracy benchmark",
+  "max_returned_phases": 3,
+  "parameters": {
+    "amorphous": false,
+    "background": false,
+    "background_length": 5.0,
+    "candidate_expansion_count": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  "phase_candidate_count": 15,
+  "private_truth_used": false,
+  "returned_hypothesis_count": 91,
+  "runtime_seconds": 19.25885009765625,
+  "scientific_parameter_selection": false,
+  "status": "passed"
+}

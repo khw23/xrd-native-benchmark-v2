@@ -85,5 +85,95 @@
       1.0
     ],
     "tree_depth": 3
+  },
+  {
+    "attempt": 2,
+    "candidate_count": 12,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.6772429733645953,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 40.81284284591675,
+    "sample_id": "XRDV3_0046",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 2,
+    "candidate_count": 46,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.09546264559329105,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 26.829246044158936,
+    "sample_id": "XRDV3_0054",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 2,
+    "candidate_count": 216,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.006171281406113317,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 366.0688850879669,
+    "sample_id": "XRDV3_0100",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
   }
 ]

@@ -5,3 +5,7 @@ XRDV3_0046,2,provider_failure,OQMD,19.234,RetryError,HTTP 502 after configured r
 XRDV3_0046,3,provider_failure,OQMD,17.980,RetryError,HTTP 502 after configured retries
 XRDV3_0054,1,provider_failure,OQMD,26.783,RetryError,HTTP 502 after configured retries
 XRDV3_0100,1,provider_failure,OQMD,13.602,RetryError,HTTP 502 after configured retries
+XRDV3_0046,freeze_startup,environment_path_failure,GSAS-II,0.327,ImportError,GSAS-II package directory incorrectly added as a top-level module root
+XRDV3_0046,4,candidate_validation_failure,local_subprocess,109.362,FileNotFoundError,hard-coded python command was unavailable in the non-interactive PATH
+XRDV3_0046,freeze_retry,cache_integrity_failure,local_cache,n/a,manual_interruption,repeated filename prefixes from incomplete provider directories detected before a valid freeze
+XRDV3_0046,5,provider_failure,OQMD,286.793,RetryError,Br-Cl request timed out and then returned HTTP 502 after configured retries

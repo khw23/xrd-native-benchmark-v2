@@ -1,95 +1,150 @@
-# DGX conversion repair and three-tier pilot gate
+# DGX parameter audit and three-tier pilot gate
 
 ## Scope and blind protocol
 
-This run used only the public blind XRD patterns, `sample_elements`, the disclosed
-instrument profile, and public database candidates. The global upper bound was
-three phases for every sample. No private truth, per-sample phase count, accuracy,
-or manual candidate pruning was used. Dara and the 100-sample full runs were not
-started.
+This run used only the public blind XRD patterns, `sample_elements`, disclosed
+instrument metadata, and public database candidates. Every sample retained the
+same global upper bound of three phases. No private truth, per-sample phase count,
+accuracy calculation, or manual candidate pruning was used. Dara and both
+100-sample full runs were not started.
 
-## CrystalShift conversion gate: passed
+The branch and existing result roots were reused. The task document referenced
+`AGENTS.md` and `fig4/benchmark/benchmark_plan.md`, but neither file exists in the
+current branch; the complete `REMOTE_RUN_GUIDE_V3.md`, `DGX_NEXT_TASK.md`, and
+previous gate report were read before execution.
+
+## CrystalShift conversion gate: passed previously
 
 The repaired adapter converted all 6,622 frozen COD candidate records across 84
 element-system caches. There were no final failures, structure-validation
-failures, or substantive structure changes. All 906 failed attempts remain in the
-attempt manifest: 888 direct-converter attempts and 18 symmetry-normalized
-attempts. The final strategies were 5,734 direct, 870 symmetry normalized, and 18
-P1 normalized.
+failures, or substantive structure changes. All 906 failed conversion attempts
+remain in the attempt manifest: 888 direct-converter attempts and 18
+symmetry-normalized attempts. The final strategies were 5,734 direct, 870
+symmetry normalized, and 18 P1 normalized.
 
-The audit also retains four front-end element-key mismatches for two COD IDs:
-COD 2102787 contains Nb in three system caches and COD 4505652 contains Ge in one.
-Their frozen hashes match the manifests; both were retained without modification.
-Raw XRD SHA-256 manifests before and after conversion are byte-identical.
+The audit retains four front-end element-key mismatches for two COD IDs: COD
+2102787 contains Nb in three system caches and COD 4505652 contains Ge in one.
+Their frozen hashes match the manifests and both were retained without manual
+modification. Raw XRD SHA-256 manifests before and after conversion remain
+byte-identical.
 
-The final complete conversion took 555.4 seconds wall time with 325,532 KiB peak
-RSS. The normalization rules and detailed checks are in
-`CRYSTALSHIFT_CIF_NORMALIZATION_V2.md` and the v2 input-preparation directory.
+## Superseded 128-iteration diagnostic
 
-## Independent parameter gate: passed
+The earlier exact two-phase fixture and three blind smokes used `maxiter=128`,
+which is the `OptimizationSettings` software default rather than the setting in
+the closest upstream paper reproduction. Those results remain in Git history and
+the append-only run records for audit, but are superseded diagnostics. They must
+not be treated as parameter validation or current predictions.
 
-The exact production settings were tested on a normalized sum of phases 0 and 1
-from CrystalTree's installed public `data/sticks.csv` fixture, SHA-256
-`355bdbf3b9db9d43441852c9833e185935ebef9acb15f246c26ce301d6ab07af`.
-The fixture has 15 candidates. Search returned 91 finite-residual hypotheses,
-included the constructed two-phase hypothesis, and returned no hypothesis above
-three phases.
+| Sample | COD candidates | Predicted phases at 128 | Search seconds |
+|---|---:|---:|---:|
+| XRDV3_0046 | 12 | 1 | 37.9 |
+| XRDV3_0054 | 46 | 3 | 50.4 |
+| XRDV3_0100 | 216 | 3 | 294.0 |
 
-Adopted settings:
+The earlier report's claim that the README-derived priors were independently
+validated was too strong. Its exact constructed fixture checked API and numerical
+compatibility only.
 
-- `std_noise=0.1`, `mean_theta=[1.0, 0.5, 0.2]`, and
-  `std_theta=[0.05, 2.0, 1.0]` from the upstream CrystalShift README for a
-  maximum-normalized spectrum.
-- `maxiter=128` from the upstream `OptimizationSettings` constructor default.
-- Candidate expansion count 3 from the CrystalShift tree-search README and
-  CrystalTree default settings.
-- Tree depth 3 from the benchmark-wide maximum-three-phase rule.
-- No amorphous phase or fitted background; background length remains the upstream
-  value 5.0 but is inactive.
+## 512 compatibility gate: passed
 
-The search itself took 19.1 seconds. Total cold-start wall time was 56.1 seconds
-and peak RSS was 2,126,892 KiB.
+The same constructed two-phase fixture was rerun with `maxiter=512` and the
+production runner's README-derived priors. The 15 public candidates returned 91
+finite-residual hypotheses, included the constructed exact two-phase hypothesis,
+and returned no hypothesis above three phases. Search time was 19.3 seconds;
+cold-start wall time was 58.7 seconds and peak RSS was 1,971 MiB.
 
-## CrystalShift + CrystalTree smokes: passed
+This is explicitly an API/numerical compatibility result. It is not an accuracy
+measurement or scientific parameter-selection result.
 
-| Sample | COD candidates | Predicted phases | Search seconds | Status |
+## Public paper-fixture parameter audit: passed
+
+The selection rule was fixed in code before execution: take the first four
+source-order rows with exactly one, then two, then three nonzero activations from
+the upstream public Al-Fe-Li-O `sol.csv`. This selected rows 1, 11, 21, 22; 2, 3,
+4, 5; and 31, 33, 34, 35. Public row 6 was used only to remove first-call JIT
+compilation from timings and was excluded from all metrics.
+
+The audited upstream paper configuration was LM, Simple rather than EM, least
+squares, `std_noise=0.01`, `mean_theta=[1.0, 0.5, 0.5]`,
+`std_theta=[0.1, 0.05, 0.1]`, Gaussian peak profile with initial width 0.1,
+regularization on, no amorphous phase, and background off. The paper script's
+unseeded random positive-noise augmentation was omitted so both iteration settings
+received identical public spectra.
+
+| maxiter | Success | Strict combination top-1 | Phase precision | Phase recall | Mean residual | Timed search |
+|---:|---:|---:|---:|---:|---:|---:|
+| 128 | 12/12 | 7/12 (0.5833) | 0.6667 | 0.7500 | 0.398629 | 51.5 s |
+| 512 | 12/12 | 7/12 (0.5833) | 0.7308 | 0.7917 | 0.348128 | 52.9 s |
+
+The pre-registered gate required zero failures in both settings and no reduction
+in strict top-1 accuracy at 512. It passed. Precision, recall, residual, and
+runtime were reported but did not change the gate. This small public sensitivity
+audit supports correcting `maxiter`; it does not scientifically validate the
+README-derived production priors or estimate private benchmark accuracy.
+
+## Current CrystalShift + CrystalTree smokes: passed
+
+The three selected outputs were replaced in the existing result root with
+`maxiter=512`. Their latest run records are all `ok` and all current prediction
+and top-hypothesis ranks are unique. Old 128 records remain only as superseded
+audit history.
+
+| Sample | COD candidates | Current predicted phases | Search seconds | Status |
 |---|---:|---:|---:|---|
-| XRDV3_0046 | 12 | 1 | 37.9 | ok |
-| XRDV3_0054 | 46 | 3 | 50.4 | ok |
-| XRDV3_0100 | 216 | 3 | 294.0 | ok |
+| XRDV3_0046 | 12 | 1 | 40.8 | ok |
+| XRDV3_0054 | 46 | 2 | 26.8 | ok |
+| XRDV3_0100 | 216 | 3 | 366.1 | ok |
 
-The method name is `CrystalShift + CrystalTree with COD front-end`. Predictions,
-top-three hypotheses, COD IDs, source CIF copies, checksums, model probabilities,
-and run records are saved under `crystaltree_cod_frontend_v2`. CrystalShift
-activation is reported only in notes and is not treated as mass or mole fraction.
-The resume run skipped XRDV3_0046 and did not duplicate its output.
+The complete cold-start run took 475.6 seconds and peaked at 2,685 MiB RSS.
+Current predictions, top-three hypotheses, COD IDs, selected CIFs, checksums,
+uncalibrated model probabilities, and append-only run records are under
+`crystaltree_cod_frontend_v2`. The method name remains
+`CrystalShift + CrystalTree with COD front-end`. CrystalShift activation remains
+an internal model quantity and is not reported as mass or mole fraction.
 
-## XERUS three-tier pilot: blocked at provider gate
+## XERUS candidate freeze: blocked at provider gate
 
-XERUS was frozen at `53ed38b6d8437cf61abee270672bd33de75f15a3` and
-GSAS-II at `14dd93032174ba9b751539f3be64de69fcb33ab8`, with the two repository
-patches, the disclosed instrument profile, MongoDB, and `n_jobs=4`. The
-architecture-compatible GSAS-II binary modules loaded successfully after one
-separately logged path-configuration failure.
+The OQMD health endpoint initially recovered to HTTP 200, but its minimal response
+took 21.0 seconds. A one-sample freeze smoke then exposed two local integration
+problems before a valid freeze could be produced:
 
-OQMD's public OPTIMADE endpoint returned HTTP 502 during every scientific attempt.
-The retry adapter exhausted three HTTP retries within each attempt. XRDV3_0046 was
-attempted three times (19.0, 19.2, and 18.0 seconds); XRDV3_0054 and XRDV3_0100
-were attempted once (26.8 and 13.6 seconds). A direct endpoint health check also
-returned 502. MP and COD requests succeeded before the OQMD failure, but XERUS
-aborted before candidate simulation and refinement. Therefore candidate counts,
-final IDs/CIFs, Rwp, and weight fractions are unavailable rather than silently
-omitted.
+- Adding the GSAS-II package directory itself to `PYTHONPATH` broke relative
+  imports. The corrected environment uses the installed package normally and
+  records `GSASII_ROOT` separately.
+- XERUS launches its CIF validator through a hard-coded `python tcif.py` command.
+  The runner now prepends its own isolated interpreter directory to `PATH`.
+  The prior attempt is retained as a 109.4-second `FileNotFoundError`.
 
-OQMD was not added to `ignore_provider`, because doing so would change the frozen
-native candidate protocol. All five `RetryError` records and the import failure log
-are retained under `xerus_native_pilot_v2`; the API key, downloaded cache,
-MongoDB, work directories, and method environment are excluded from the commit.
+The failed validator attempt also showed that XERUS provider download directories
+are non-transactional: retrying can repeatedly prefix old filenames and corrupt a
+database ID. Exactly one malformed Mongo document (`provider=COD`, `id=Ag`) was
+removed, changing the Ag cache from 72 to 71 documents; the other 71 had normal
+provider/ID fields. The runner now removes only sample-prefixed incomplete
+provider directories before a candidate-freeze retry. This cleanup does not alter
+provider selection or candidate filtering.
+
+On the clean retry, XERUS populated native cache entries for Ag, Br, Cl, Ag-Br,
+and Ag-Cl. OQMD then timed out for Br-Cl and ended with repeated HTTP 502 responses.
+The attempt failed after 286.8 seconds before `get_cifs` returned. Therefore:
+
+- no sample has a latest `candidates_ready` record;
+- no frozen candidate manifest is available;
+- XRDV3_0054 and XRDV3_0100 were not retried;
+- no formal XERUS pilot, simulation, correlation, or refinement was run;
+- final IDs/CIFs, Rwp, weight fractions, and formal runtime remain unavailable.
+
+Partial MongoDB/cache contents are local recovery state and are not committed.
+The provider failure, import failure, missing-interpreter failure, interrupted
+duplicate diagnostic, exact cache repair, and health check are retained and
+classified in the result logs. OQMD was not ignored because that would change the
+native candidate protocol.
 
 ## Decision
 
-The repaired CrystalShift conversion, independent parameter gate, and three
-CrystalTree smokes passed. CrystalTree is technically eligible for a separately
-confirmed full run, but no full run was started. XERUS did not pass the provider
-gate and must rerun the same three pilots with `--resume --retry-failures` after
-OQMD recovers. No accuracy was computed or inferred.
+The 512 compatibility gate, public paper-fixture sensitivity gate, and three
+current CrystalTree smokes passed. This establishes technical eligibility for a
+separately authorized resume, but no 100-sample run was launched. XERUS remains
+blocked because its native all-provider candidate stage could not be frozen
+reliably; the task's stop condition was followed without another retry. No private
+benchmark accuracy was computed or inferred.

@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-07-20T08:50:30.271979+00:00",
+  "reason": "remove one COD document whose database ID was corrupted by repeated non-transactional filename prefixes after failed candidate-download attempts",
+  "scientific_protocol_changed": false,
+  "query_without_mongodb_id": {
+    "system_type": "Ag",
+    "provider": "COD",
+    "id": "Ag",
+    "filename": "Ag_COD_Ag_COD_Ag_COD_9013051.cif"
+  },
+  "matched_documents": 1,
+  "deleted_documents": 1,
+  "ag_documents_before": 72,
+  "ag_documents_after": 71
+}
