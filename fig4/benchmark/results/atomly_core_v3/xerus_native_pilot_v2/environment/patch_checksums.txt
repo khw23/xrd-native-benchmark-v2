@@ -1,0 +1,2 @@
+44a1da429cc94a4fb31e974070f666d80c1928a1c422e85cde85d2c5c6a2483a  patches/xerus_gsasii_root.patch
+99516dc2ad8ec10b1c4aa8044afd6ce2481ee21a72e4b9d58371e8f3b621a2b7  patches/xerus_api_compat.patch

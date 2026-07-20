@@ -1,0 +1,17 @@
+{
+  "python": "3.12.3 (main, Jan  8 2026, 11:30:50) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
+  "machine": "aarch64",
+  "xerus_version": "1.1b",
+  "gsasii_root": "xerus-env/lib/python3.12/site-packages",
+  "instrument_profile": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3/instrument_metadata/GSASII_reference_profile.instprm",
+  "xerus_configured_profile": "fig4/benchmark/third_party/Xerus/Xerus/inc/benchmark_v3_reference.instprm",
+  "n_runs": 3,
+  "n_jobs": 4,
+  "ignore_provider": [
+    "AFLOW"
+  ],
+  "maxsys": "number of disclosed sample elements",
+  "max_oxy": "number of disclosed sample elements",
+  "private_truth_used": false
+}

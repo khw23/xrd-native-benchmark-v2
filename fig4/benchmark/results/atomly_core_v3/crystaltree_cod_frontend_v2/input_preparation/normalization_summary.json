@@ -1,0 +1,25 @@
+{
+  "attempt_failure_count": 906,
+  "attempt_failure_types": {
+    "KeyError": 2,
+    "NameError": 3,
+    "ValueError": 901
+  },
+  "candidate_element_system_mismatch_count": 4,
+  "candidate_records": 6622,
+  "conversion_strategy_counts": {
+    "official_converter_direct": 5734,
+    "pymatgen_p1_normalized": 18,
+    "pymatgen_symmetry_normalized": 870
+  },
+  "converted_records": 6622,
+  "converter_crystal_system_correction_count": 968,
+  "declared_computed_space_group_mismatch_count": 399,
+  "failed_records": 0,
+  "final_failure_types": {},
+  "private_truth_used": false,
+  "pymatgen_parseable_but_final_conversion_failed": 0,
+  "structure_validation_failure_count": 0,
+  "structured_placeholder_cleanup_count": 5,
+  "substantive_change_count": 0
+}

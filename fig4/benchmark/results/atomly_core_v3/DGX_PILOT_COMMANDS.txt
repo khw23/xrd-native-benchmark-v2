@@ -1,0 +1,12 @@
+# Conversion smoke, then complete frozen candidates with resume
+crystalshift-python/bin/python fig4/benchmark/prototypes/prepare_crystalshift_cod_v3.py --output-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 --snapshot-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/input_preparation --system-key Ca-O-Ti
+crystalshift-python/bin/python fig4/benchmark/prototypes/prepare_crystalshift_cod_v3.py --output-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 --snapshot-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/input_preparation --resume
+
+# Independent public-fixture parameter gate
+JULIA_NUM_THREADS=4 OPENBLAS_NUM_THREADS=1 JULIA_DEPOT_PATH=fig4/benchmark/method_envs/julia_depot fig4/benchmark/method_envs/julia-1.12.6/bin/julia --compiled-modules=no --project=fig4/benchmark/method_envs/crystalshift fig4/benchmark/prototypes/validate_crystaltree_parameter_gate.jl fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/parameter_gate/parameter_gate.json
+
+# CrystalTree low/medium/high smoke with resume
+JULIA_NUM_THREADS=4 OPENBLAS_NUM_THREADS=1 JULIA_DEPOT_PATH=fig4/benchmark/method_envs/julia_depot fig4/benchmark/method_envs/julia-1.12.6/bin/julia --compiled-modules=no --project=fig4/benchmark/method_envs/crystalshift fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl --input-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 --result-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2 --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100 --resume
+
+# XERUS low/medium/high pilot and failure resume
+env -u PYTHONPATH GSASII_ROOT=xerus-env/lib/python3.12/site-packages MPLBACKEND=Agg xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100 --n-jobs 4 --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2 --resume --retry-failures

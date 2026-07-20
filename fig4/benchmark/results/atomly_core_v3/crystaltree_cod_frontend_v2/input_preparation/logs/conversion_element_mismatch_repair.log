@@ -1,0 +1,107 @@
+Ag-Br-Cl: recorded 12/12; skipped
+Ag-Br-Cl-K: recorded 17/17; skipped
+Ag-Br-Cl-Na: recorded 19/19; skipped
+Ag-Cl-Cs: recorded 19/19; skipped
+Al-Fe: recorded 18/18; skipped
+Al-Fe-Ni: recorded 28/28; skipped
+Al-Ga-N-Zr: recorded 24/24; skipped
+Al-La-Mg-O: recorded 196/196; skipped
+Al-La-O-Sn: recorded 60/60; skipped
+Al-La-O-Zn: recorded 58/58; skipped
+Al-Mg-O: recorded 171/171; skipped
+Al-Mg-O-Zn: recorded 188/188; skipped
+Al-N-Si: recorded 16/16; skipped
+Al-N-Ti-Zr: recorded 44/44; skipped
+Al-Ni: recorded 5/5; skipped
+Al-O-Se-Zn: recorded 52/52; skipped
+As-Ga-N: recorded 11/11; skipped
+As-Ga-N-Si: recorded 23/23; skipped
+As-Ga-N-Ti: recorded 32/32; skipped
+Au-Cu: recorded 12/12; skipped
+Au-Cu-O: recorded 19/19; skipped
+B-F-Mg: recorded 18/18; skipped
+B-Mg: recorded 10/10; skipped
+B-Mg-Ti: recorded 16/16; skipped
+B-N-Ti: recorded 33/33; skipped
+B-Ti: recorded 9/9; skipped
+Ba-C-Ca-Mg-O: recorded 216/216; skipped
+Ba-C-Ca-O-S: recorded 234/234; skipped
+Ba-C-K-O-S: recorded 208/208; skipped
+Ba-Ce-O: recorded 28/28; skipped
+Ba-F-K-Na: recorded 24/24; skipped
+Ba-F-Li-Na: recorded 24/24; skipped
+Ba-F-Mg-Mn: recorded 31/31; skipped
+Ba-K-O-S: recorded 75/75; skipped
+Ba-O-Sn-Zr: recorded 59/59; skipped
+Ba-O-Sr-Ti: recorded 108/108; skipped
+C-Ca-Mg-O-Si: recorded 540/540; skipped
+C-Ca-O: recorded 134/134; skipped
+C-Si: recorded 39/39; skipped
+C-Si-W: recorded 46/46; skipped
+C-Si-W-Zr: recorded 61/61; skipped
+C-Si-Zr: recorded 50/50; skipped
+C-W-Zr: recorded 32/32; skipped
+Ca-F-K-Na: recorded 20/20; skipped
+Ca-F-Li: recorded 17/17; skipped
+Ca-F-Li-Mn: recorded 26/26; skipped
+Ca-Fe-O-Ti: 208/209 CrystalShift candidates converted
+Ca-O-Sr-Ti: 91/92 CrystalShift candidates converted
+Ca-O-Ti: 57/58 CrystalShift candidates converted
+Ce-K-Li-O-Ta: recorded 80/80; skipped
+Ce-Mn-O: recorded 49/49; skipped
+Ce-O-Sr-Ti: recorded 78/78; skipped
+Cl-Cs-K-Na: recorded 31/31; skipped
+Cl-Cs-Na: recorded 14/14; skipped
+Cl-F-K: recorded 17/17; skipped
+Co-Li-Nb-O: recorded 88/88; skipped
+Co-Li-O-Ta: recorded 89/89; skipped
+Co-Li-O-Zr: recorded 80/80; skipped
+Co-Ni-O: recorded 22/22; skipped
+Cu-O: recorded 8/8; skipped
+Cu-O-Sn-Sr: 72/72 CrystalShift candidates converted
+F-Mg: recorded 9/9; skipped
+F-Mg-Mn: recorded 15/15; skipped
+Fe-Li-Mn-O-P: recorded 395/395; skipped
+Fe-Mg-O-Si-Zr: recorded 629/629; skipped
+Fe-Na-P-S-Zn: recorded 103/103; skipped
+Fe-O: recorded 54/54; skipped
+Fe-O-Si-Zr: recorded 227/227; skipped
+Fe-O-Sn-Zr: recorded 102/102; skipped
+Fe-S: recorded 41/41; skipped
+Fe-S-Zn: recorded 63/63; skipped
+K-Li-Nb-O-Ta: recorded 119/119; skipped
+K-O-S-Ta: recorded 91/91; skipped
+Li-Mn-Nb-O: recorded 222/222; skipped
+Li-Mn-O: recorded 190/190; skipped
+Mg-Mn-O: recorded 52/52; skipped
+Mg-O: recorded 6/6; skipped
+Mn-Ni-O: recorded 57/57; skipped
+N-Si: recorded 13/13; skipped
+N-Si-Zr: recorded 25/25; skipped
+N-Ti: recorded 15/15; skipped
+Na-P-S-Zn: recorded 64/64; skipped
+Ni-O: recorded 6/6; skipped
+S-Se-Zn: recorded 55/55; skipped
+	Command being timed: "crystalshift-python/bin/python fig4/benchmark/prototypes/prepare_crystalshift_cod_v3.py --output-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 --snapshot-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/input_preparation --resume"
+	User time (seconds): 37.35
+	System time (seconds): 0.71
+	Percent of CPU this job got: 133%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:28.59
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 299644
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 542760
+	Voluntary context switches: 136
+	Involuntary context switches: 604
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 35048
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

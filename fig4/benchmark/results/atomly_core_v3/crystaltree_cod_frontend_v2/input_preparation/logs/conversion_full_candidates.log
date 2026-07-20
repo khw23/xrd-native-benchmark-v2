@@ -1,0 +1,107 @@
+Ag-Br-Cl: 12/12 CrystalShift candidates converted
+Ag-Br-Cl-K: 17/17 CrystalShift candidates converted
+Ag-Br-Cl-Na: 19/19 CrystalShift candidates converted
+Ag-Cl-Cs: 19/19 CrystalShift candidates converted
+Al-Fe: 18/18 CrystalShift candidates converted
+Al-Fe-Ni: 28/28 CrystalShift candidates converted
+Al-Ga-N-Zr: 24/24 CrystalShift candidates converted
+Al-La-Mg-O: 196/196 CrystalShift candidates converted
+Al-La-O-Sn: 60/60 CrystalShift candidates converted
+Al-La-O-Zn: 58/58 CrystalShift candidates converted
+Al-Mg-O: 171/171 CrystalShift candidates converted
+Al-Mg-O-Zn: 188/188 CrystalShift candidates converted
+Al-N-Si: 16/16 CrystalShift candidates converted
+Al-N-Ti-Zr: 44/44 CrystalShift candidates converted
+Al-Ni: 5/5 CrystalShift candidates converted
+Al-O-Se-Zn: 52/52 CrystalShift candidates converted
+As-Ga-N: 11/11 CrystalShift candidates converted
+As-Ga-N-Si: 23/23 CrystalShift candidates converted
+As-Ga-N-Ti: 32/32 CrystalShift candidates converted
+Au-Cu: 12/12 CrystalShift candidates converted
+Au-Cu-O: 19/19 CrystalShift candidates converted
+B-F-Mg: 18/18 CrystalShift candidates converted
+B-Mg: 10/10 CrystalShift candidates converted
+B-Mg-Ti: 16/16 CrystalShift candidates converted
+B-N-Ti: 33/33 CrystalShift candidates converted
+B-Ti: 9/9 CrystalShift candidates converted
+Ba-C-Ca-Mg-O: recorded 216/216; skipped
+Ba-C-Ca-O-S: 234/234 CrystalShift candidates converted
+Ba-C-K-O-S: 208/208 CrystalShift candidates converted
+Ba-Ce-O: 28/28 CrystalShift candidates converted
+Ba-F-K-Na: 24/24 CrystalShift candidates converted
+Ba-F-Li-Na: 24/24 CrystalShift candidates converted
+Ba-F-Mg-Mn: 31/31 CrystalShift candidates converted
+Ba-K-O-S: 75/75 CrystalShift candidates converted
+Ba-O-Sn-Zr: 59/59 CrystalShift candidates converted
+Ba-O-Sr-Ti: 108/108 CrystalShift candidates converted
+C-Ca-Mg-O-Si: 540/540 CrystalShift candidates converted
+C-Ca-O: 134/134 CrystalShift candidates converted
+C-Si: 39/39 CrystalShift candidates converted
+C-Si-W: 46/46 CrystalShift candidates converted
+C-Si-W-Zr: 61/61 CrystalShift candidates converted
+C-Si-Zr: 50/50 CrystalShift candidates converted
+C-W-Zr: 32/32 CrystalShift candidates converted
+Ca-F-K-Na: 20/20 CrystalShift candidates converted
+Ca-F-Li: 17/17 CrystalShift candidates converted
+Ca-F-Li-Mn: 26/26 CrystalShift candidates converted
+Ca-Fe-O-Ti: 208/209 CrystalShift candidates converted
+Ca-O-Sr-Ti: 91/92 CrystalShift candidates converted
+Ca-O-Ti: 57/58 CrystalShift candidates converted
+Ce-K-Li-O-Ta: 80/80 CrystalShift candidates converted
+Ce-Mn-O: 49/49 CrystalShift candidates converted
+Ce-O-Sr-Ti: 78/78 CrystalShift candidates converted
+Cl-Cs-K-Na: 31/31 CrystalShift candidates converted
+Cl-Cs-Na: 14/14 CrystalShift candidates converted
+Cl-F-K: 17/17 CrystalShift candidates converted
+Co-Li-Nb-O: 88/88 CrystalShift candidates converted
+Co-Li-O-Ta: 89/89 CrystalShift candidates converted
+Co-Li-O-Zr: 80/80 CrystalShift candidates converted
+Co-Ni-O: 22/22 CrystalShift candidates converted
+Cu-O: 8/8 CrystalShift candidates converted
+Cu-O-Sn-Sr: 71/72 CrystalShift candidates converted
+F-Mg: 9/9 CrystalShift candidates converted
+F-Mg-Mn: 15/15 CrystalShift candidates converted
+Fe-Li-Mn-O-P: 395/395 CrystalShift candidates converted
+Fe-Mg-O-Si-Zr: 629/629 CrystalShift candidates converted
+Fe-Na-P-S-Zn: 103/103 CrystalShift candidates converted
+Fe-O: 54/54 CrystalShift candidates converted
+Fe-O-Si-Zr: 227/227 CrystalShift candidates converted
+Fe-O-Sn-Zr: 102/102 CrystalShift candidates converted
+Fe-S: 41/41 CrystalShift candidates converted
+Fe-S-Zn: 63/63 CrystalShift candidates converted
+K-Li-Nb-O-Ta: 119/119 CrystalShift candidates converted
+K-O-S-Ta: 91/91 CrystalShift candidates converted
+Li-Mn-Nb-O: 222/222 CrystalShift candidates converted
+Li-Mn-O: 190/190 CrystalShift candidates converted
+Mg-Mn-O: 52/52 CrystalShift candidates converted
+Mg-O: 6/6 CrystalShift candidates converted
+Mn-Ni-O: 57/57 CrystalShift candidates converted
+N-Si: 13/13 CrystalShift candidates converted
+N-Si-Zr: 25/25 CrystalShift candidates converted
+N-Ti: 15/15 CrystalShift candidates converted
+Na-P-S-Zn: 64/64 CrystalShift candidates converted
+Ni-O: 6/6 CrystalShift candidates converted
+S-Se-Zn: 55/55 CrystalShift candidates converted
+	Command being timed: "crystalshift-python/bin/python fig4/benchmark/prototypes/prepare_crystalshift_cod_v3.py --output-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 --snapshot-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/input_preparation --resume"
+	User time (seconds): 890.24
+	System time (seconds): 1.97
+	Percent of CPU this job got: 166%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 8:56.59
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 325576
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 652629
+	Voluntary context switches: 3920
+	Involuntary context switches: 7088
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 254928
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

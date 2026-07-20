@@ -1,0 +1,27 @@
+{
+  "candidate_element_mismatch_rule": "retain every frozen candidate without changing its CIF; record when parsed CIF elements are not a subset of the front-end system key",
+  "converter_order": [
+    "official converter on frozen CIF",
+    "pymatgen symmetry-normalized CIF after strict round-trip validation",
+    "pymatgen P1 explicit-site CIF after strict round-trip validation"
+  ],
+  "normalized_cif_serialization": "pymatgen CifWriter at 8 significant figures with max_len=2048 so each atom-site loop record remains on one line for xrayutilities",
+  "private_truth_used": false,
+  "q_range_nm_inverse": [
+    7.0,
+    58.0
+  ],
+  "round_trip_requirements": {
+    "cell_max_abs_delta": 1e-05,
+    "composition": "rtol=1e-6, atol=1e-6",
+    "elements": "exact",
+    "per_site_occupancy_signature": "exact after 8-decimal rounding",
+    "site_count": "exact",
+    "structure_matcher": "must pass without scaling or supercells"
+  },
+  "selection_dependence": "none; identical rules for every frozen candidate",
+  "source_parse_fallback": "structured removal of atom-loop rows without species/coordinates and invalid attached-hydrogen metadata only",
+  "space_group_rule": "use valid source-declared IT number; otherwise computed number at symprec=0.1 angstrom and angle_tolerance=5 degrees",
+  "version": "crystalshift_cod_v3_v2",
+  "wavelength_angstrom": 1.5406
+}

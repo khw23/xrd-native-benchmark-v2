@@ -1,0 +1,1 @@
+Linux spark-ebe9 6.17.0-1008-nvidia #8-Ubuntu SMP PREEMPT_DYNAMIC Wed Jan 21 17:56:56 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux

@@ -64,7 +64,13 @@ def sha256(path: Path) -> str:
 
 
 def repository_path(value: object) -> str:
-    path = Path(str(value)).resolve()
+    path = Path(str(value))
+    absolute = path if path.is_absolute() else ROOT / path
+    try:
+        return str(absolute.absolute().relative_to(ROOT.absolute()))
+    except ValueError:
+        pass
+    path = path.resolve()
     try:
         return str(path.relative_to(ROOT.resolve()))
     except ValueError:
@@ -346,6 +352,7 @@ def main() -> None:
         "instrument_profile": str(PROFILE.relative_to(ROOT)),
         "xerus_configured_profile": repository_path(configured_profile),
         "n_runs": 3,
+        "n_jobs": args.n_jobs,
         "ignore_provider": ["AFLOW"],
         "maxsys": "number of disclosed sample elements",
         "max_oxy": "number of disclosed sample elements",

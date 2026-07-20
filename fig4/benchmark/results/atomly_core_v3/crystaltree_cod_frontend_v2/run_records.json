@@ -1,0 +1,89 @@
+[
+  {
+    "attempt": 1,
+    "candidate_count": 12,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 128,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.564366792915024,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 37.94358515739441,
+    "sample_id": "XRDV3_0046",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 46,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 128,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.13218275947296407,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 50.43155097961426,
+    "sample_id": "XRDV3_0054",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 216,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 128,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.009029047603221499,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 293.9636890888214,
+    "sample_id": "XRDV3_0100",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  }
+]

@@ -101,11 +101,11 @@ function main()
     records = resume && isfile(record_path) ? JSON.parsefile(record_path) : Any[]
     completed = Set(String(row["sample_id"]) for row in records if get(row, "status", "") == "ok")
 
-    std_noise = 0.02
+    std_noise = 0.1
     mean_theta = [1.0, 0.5, 0.2]
     std_theta = [0.05, 2.0, 1.0]
-    opt_settings = OptimizationSettings{Float64}(std_noise, mean_theta, std_theta, 32)
-    tree_settings = TreeSearchSettings{Float64}(3, 5, false, false, 5.0, opt_settings)
+    opt_settings = OptimizationSettings{Float64}(std_noise, mean_theta, std_theta, 128)
+    tree_settings = TreeSearchSettings{Float64}(3, 3, false, false, 5.0, opt_settings)
 
     prediction_columns = ["sample_id", "method", "solution_rank", "phase_rank",
                           "predicted_formula", "predicted_space_group_symbol",
@@ -204,7 +204,12 @@ function main()
                 "candidate_frontend" => "Dara COD filtered index 2024",
                 "candidate_count" => length(phases),
                 "tree_depth" => 3,
+                "candidate_expansion_count" => 3,
                 "max_phases" => 3,
+                "std_noise" => std_noise,
+                "mean_theta" => mean_theta,
+                "std_theta" => std_theta,
+                "maxiter" => 128,
                 "julia_threads" => Threads.nthreads(),
                 "phase_count_prior" => "global upper bound only; per-sample truth hidden",
                 "predicted_phase_count" => length(best_ids),

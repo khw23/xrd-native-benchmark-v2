@@ -1,0 +1,7 @@
+sample_id,attempt,category,provider,runtime_seconds,error_type,record
+XRDV3_0046,1,provider_failure,OQMD,19.005,RetryError,HTTP 502 after configured retries
+XRDV3_0046,startup,environment_path_failure,GSAS-II,0.42,ImportError,package subdirectory used instead of site-packages compatibility root
+XRDV3_0046,2,provider_failure,OQMD,19.234,RetryError,HTTP 502 after configured retries
+XRDV3_0046,3,provider_failure,OQMD,17.980,RetryError,HTTP 502 after configured retries
+XRDV3_0054,1,provider_failure,OQMD,26.783,RetryError,HTTP 502 after configured retries
+XRDV3_0100,1,provider_failure,OQMD,13.602,RetryError,HTTP 502 after configured retries
