@@ -117,5 +117,58 @@
       "XRDV3_0046_Br_MP",
       "XRDV3_0046_Br_OQMD"
     ]
+  },
+  {
+    "sample_id": "XRDV3_0046",
+    "attempt": 6,
+    "status": "candidates_ready",
+    "runtime_seconds": 95.34171576501103,
+    "sample_elements": [
+      "Ag",
+      "Br",
+      "Cl"
+    ],
+    "source_pattern": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3/patterns/XRDV3_0046.xy",
+    "source_pattern_sha256": "d506abbf52e3597eca9c9789053e5610b1295f63eedbf8e3d5782662274ac47a",
+    "xerus_input": "fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/preprocessed_inputs/XRDV3_0046.xy",
+    "xerus_input_sha256": "b1277df51d9907bafcb97c604d9549b3a8efbe2f5a921589088d895574cf21ce",
+    "candidate_database": "XERUS native MP/COD/OQMD/ODBX cache; AFLOW ignored",
+    "oqmd_source": "frozen_local_optimade_cache",
+    "oqmd_cache_manifest_sha256": "d0a3ac2c04547bd7f49ac6fff75a2a4320148c7b3879b114b9b3ffe1c23c0f5e",
+    "candidate_count": 226,
+    "candidate_snapshot_count": 226,
+    "candidate_manifest": "fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/candidate_manifests/XRDV3_0046.csv",
+    "network_stage_only": true,
+    "incomplete_provider_dirs_removed": [
+      "XRDV3_0046_Br-Cl_COD",
+      "XRDV3_0046_Br-Cl_MP",
+      "XRDV3_0046_Br-Cl_OQMD"
+    ]
+  },
+  {
+    "sample_id": "XRDV3_0046",
+    "attempt": 7,
+    "status": "ok",
+    "runtime_seconds": 27.39883339701919,
+    "sample_elements": [
+      "Ag",
+      "Br",
+      "Cl"
+    ],
+    "source_pattern": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3/patterns/XRDV3_0046.xy",
+    "source_pattern_sha256": "d506abbf52e3597eca9c9789053e5610b1295f63eedbf8e3d5782662274ac47a",
+    "xerus_input": "fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/preprocessed_inputs/XRDV3_0046.xy",
+    "xerus_input_sha256": "b1277df51d9907bafcb97c604d9549b3a8efbe2f5a921589088d895574cf21ce",
+    "xerus_input_transform": "numeric parse; remove comment/header lines only",
+    "candidate_database": "XERUS native MP/COD/OQMD/ODBX cache; AFLOW ignored",
+    "oqmd_source": "frozen_local_optimade_cache",
+    "oqmd_cache_manifest_sha256": "d0a3ac2c04547bd7f49ac6fff75a2a4320148c7b3879b114b9b3ffe1c23c0f5e",
+    "candidate_count_after_xerus_filter": 63,
+    "candidate_count_before_simulation": 226,
+    "candidate_manifest": "fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/candidate_manifests/XRDV3_0046.csv",
+    "max_phases": 3,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "best_rwp_percent": 7.024164804652769
   }
 ]

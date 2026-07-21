@@ -1,0 +1,105 @@
+# generated using pymatgen
+data_1200012
+loop_
+ _publ_author_name
+  'Ojima, K.'
+  'Nishihata, Y.'
+  'Sawada, A.'
+_publ_section_title
+'Structure of potassium sulfate at temperatures from 296 K down to 15 K'
+_journal_coden_ASTM   ASBSDK
+_journal_issue   3
+_journal_name_full
+'Acta Crystallographica, Section B: Structural Science'
+_journal_page_first   287
+_journal_page_last   293
+_journal_paper_doi   10.1107/S0108768194013327
+_journal_volume   51
+_journal_year   1995
+_chemical_formula_moiety   '(K 1+)2, O4 S 2-'
+_chemical_formula_structural   'K2 (S O4)'
+_chemical_formula_sum   'K2 O4 S'
+_chemical_formula_weight   158
+_chemical_name_systematic   'Dipotassium sulfate'
+_space_group_crystal_system   orthorhombic
+_space_group_IT_number   62
+_space_group_name_Hall   '-P 2n 2a'
+_space_group_name_H-M_alt   'P m c n'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   90
+_cell_formula_units_Z   4
+_cell_length_a   5.7704(3)
+_cell_length_b   10.0712(9)
+_cell_length_c   7.4776(4)
+_cell_measurement_temperature   296
+_cell_volume   434.6
+_diffrn_ambient_temperature   296
+_diffrn_radiation_type   Mo
+_diffrn_radiation_wavelength   0.70926
+_exptl_absorpt_coefficient_mu   2.49
+_exptl_crystal_density_diffrn   2.66
+_refine_ls_number_parameters   41
+_refine_ls_number_reflns   1429
+_refine_ls_R_factor_all   0.036
+_cod_duplicate_entry   2101318
+_cod_depositor_comments
+;
+Adding the moiety chemical formula and updating the systematic
+chemical name.  Antanas Vaitkus,  2018-08-13  Updating space group
+information.  Antanas Vaitkus,  2018-08-13
+;
+_cod_database_code   1200012
+loop_
+ _space_group_symop_id
+ _space_group_symop_operation_xyz
+  1  x,y,z
+  2  -x+1/2,-y+1/2,z+1/2
+  3  x+1/2,-y,-z
+  4  -x,y+1/2,-z+1/2
+  5  -x,-y,-z
+  6  x+1/2,y+1/2,-z+1/2
+  7  -x+1/2,y,z
+  8  x,-y+1/2,z+1/2
+loop_
+ _atom_site_aniso_label
+ _atom_site_aniso_U_11
+ _atom_site_aniso_U_22
+ _atom_site_aniso_U_33
+ _atom_site_aniso_U_12
+ _atom_site_aniso_U_13
+ _atom_site_aniso_U_23
+  K1  0.0169(2)  0.0197(2)  0.0164(2)  0  0  0.0006(2)
+  K2  0.0185(2)  0.0150(1)  0.0132(1)  0  0  -0.0005(1)
+  S1  0.0101(1)  0.0095(1)  0.0101(1)  0  0  -0.0005(1)
+  O1  0.0382(11)  0.0318(10)  0.0089(5)  0  0  -0.0019(7)
+  O2  0.0254(8)  0.0120(6)  0.0210(7)  0  0  -0.0044(5)
+  O3  0.0140(4)  0.0227(5)  0.0298(6)  -0.0063(4)  0.0032(5)
+  0.0052(5)
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_symmetry_multiplicity
+ _atom_site_Wyckoff_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_calc_flag
+  K1  K1+  4  c  0.25  0.08935(6)  0.17398(7)  1  d
+  K2  K1+  4  c  0.25  0.79550(5)  0.48915(7)  1  d
+  S1  S6+  4  c  0.25  0.41985(5)  0.23295(7)  1  d
+  O1  O2-  4  c  0.25  0.4162(3)  0.0368(3)  1  d
+  O2  O2-  4  c  0.25  0.5585(2)  0.2976(3)  1  d
+  O3  O2-  8  d  0.0412(3)  0.3522(2)  0.3017(2)  1  d
+loop_
+ _atom_type_symbol
+ _atom_type_oxidation_number
+  K1+  1
+  S6+  6
+  O2-  -2
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  AMCSD  0018288

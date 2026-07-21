@@ -1,0 +1,65 @@
+# generated using pymatgen
+data_9012692
+loop_
+ _publ_author_name
+  'Greaves, C.'
+_publ_section_title
+;
+A powder neutron diffraction investigation of vacancy ordering and
+covalence  in gamma-Fe2O3 Locality: synthetic Sample: T = 4 K
+;
+_journal_name_full   'Journal of Solid State Chemistry'
+_journal_page_first   325
+_journal_page_last   333
+_journal_paper_doi   10.1016/S0022-4596(83)80010-3
+_journal_volume   49
+_journal_year   1983
+_chemical_compound_source   Synthetic
+_chemical_formula_sum   'Fe2 O3'
+_chemical_name_mineral   Maghemite
+_space_group_IT_number   96
+_symmetry_space_group_name_Hall   'P 4nw 2abw'
+_symmetry_space_group_name_H-M   'P 43 21 2'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   90
+_cell_length_a   8.3396
+_cell_length_b   8.3396
+_cell_length_c   8.3220
+_cell_formula_units_Z   10
+_cell_volume   578.786
+_database_code_amcsd   0013508
+_diffrn_ambient_temperature   4
+_exptl_crystal_density_diffrn   4.887
+_cod_database_code   9012692
+loop_
+ _space_group_symop_operation_xyz
+  x,y,z
+  y,x,-z
+  1/2-y,1/2+x,3/4+z
+  1/2-x,1/2+y,3/4-z
+  -x,-y,1/2+z
+  -y,-x,1/2-z
+  1/2+y,1/2-x,1/4+z
+  1/2+x,1/2-y,1/4-z
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_U_iso_or_equiv
+  Fe1  0.74400  0.99600  0.12000  1.00000  0.00127
+  Fe2  0.62000  0.62000  0.00000  1.00000  0.00127
+  Fe3  0.36400  0.86700  -0.01600  1.00000  0.00127
+  Fe4  0.14000  0.14000  0.00000  0.33300  0.00127
+  O1  0.61500  0.86900  -0.01400  1.00000  0.00127
+  O2  0.11900  0.37700  -0.00500  1.00000  0.00127
+  O3  0.13700  0.86100  0.00700  1.00000  0.00127
+  O4  0.38300  0.63100  -0.00300  1.00000  0.00127
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  ChemSpider  14147
+  2  AMCSD  0013508

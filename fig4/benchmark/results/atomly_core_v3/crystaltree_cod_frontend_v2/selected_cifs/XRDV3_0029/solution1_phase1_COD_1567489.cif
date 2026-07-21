@@ -1,0 +1,86 @@
+# generated using pymatgen
+data_1567489
+loop_
+ _publ_author_name
+  'Ali, R.'
+  'Yashima, M.'
+_publ_section_title
+;
+Space group and crystal structure of the perovskite CaTiO3 from 296 to
+1720 K : tetragonal phase at 1598 K
+;
+_journal_name_full   'Journal of Solid State Chemistry'
+_journal_page_first   2867
+_journal_page_last   2872
+_journal_paper_doi   10.1016/j.jssc.2005.06.027
+_journal_volume   178
+_journal_year   2005
+_chemical_formula_sum   'Ca O3 Ti'
+_chemical_name_common   CaTiO3
+_chemical_name_mineral   'perovskite at 1598 K'
+_space_group_IT_number   140
+_space_group_name_Hall   '-I 4 2c'
+_space_group_name_H-M_alt   'I 4/m c m'
+_cell_angle_alpha   90.000000
+_cell_angle_beta   90.000000
+_cell_angle_gamma   90.000000
+_cell_formula_units_Z   4
+_cell_length_a   5.4984(4)
+_cell_length_b   5.4984(4)
+_cell_length_c   7.7828(8)
+_cell_volume   235.29(3)
+_diffrn_ambient_pressure   100
+_diffrn_ambient_temperature   298
+_cod_data_source_file   CaTiO3-tetragonal.cif
+_cod_data_source_block   CaTiO3-tetragonal
+_cod_original_cell_volume   235.293
+_cod_original_formula_sum   'Ca Ti O3'
+_cod_database_code   1567489
+loop_
+ _space_group_symop_id
+ _space_group_symop_operation_xyz
+  1  x,y,z
+  2  -x,-y,-z
+  3  -x,-y,z
+  4  x,y,-z
+  5  -y,x,z
+  6  y,-x,-z
+  7  y,-x,z
+  8  -y,x,-z
+  9  -x,y,-z+1/2
+  10  x,-y,z+1/2
+  11  x,-y,-z+1/2
+  12  -x,y,z+1/2
+  13  y,x,-z+1/2
+  14  -y,-x,z+1/2
+  15  -y,-x,-z+1/2
+  16  y,x,z+1/2
+  17  x+1/2,y+1/2,z+1/2
+  18  -x+1/2,-y+1/2,-z+1/2
+  19  -x+1/2,-y+1/2,z+1/2
+  20  x+1/2,y+1/2,-z+1/2
+  21  -y+1/2,x+1/2,z+1/2
+  22  y+1/2,-x+1/2,-z+1/2
+  23  y+1/2,-x+1/2,z+1/2
+  24  -y+1/2,x+1/2,-z+1/2
+  25  -x+1/2,y+1/2,-z
+  26  x+1/2,-y+1/2,z
+  27  x+1/2,-y+1/2,-z
+  28  -x+1/2,y+1/2,z
+  29  y+1/2,x+1/2,-z
+  30  -y+1/2,-x+1/2,z
+  31  -y+1/2,-x+1/2,-z
+  32  y+1/2,x+1/2,z
+loop_
+ _atom_site_label
+ _atom_site_occupancy
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_adp_type
+ _atom_site_B_iso_or_equiv
+ _atom_site_type_symbol
+  Ca  1.0  0.000000  0.500000  0.250000  Biso  3.80(7)  Ca
+  Ti  1.0  0.000000  0.000000  0.000000  Biso  1.9(1)  Ti
+  O1  1.0  0.000000  0.000000  0.250000  Biso  7.99  O
+  O2  1.0  0.2284(4)  0.7284(4)  0.000000  Biso  3.91  O

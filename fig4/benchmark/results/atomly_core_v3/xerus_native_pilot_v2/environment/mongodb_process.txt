@@ -1,1 +1,8 @@
-  63220 Ssl   2-19:00:44 mongod --bind_ip_all
+container=xerus-mongo-oqmd-pilot
+image=mongo:6
+mongodb_version=6.0.28
+status=running
+host_port=27018
+container_port=27017
+data_volume=xerus-mongo-oqmd-pilot
+legacy_host_port_27017_used_for_this_pilot=false

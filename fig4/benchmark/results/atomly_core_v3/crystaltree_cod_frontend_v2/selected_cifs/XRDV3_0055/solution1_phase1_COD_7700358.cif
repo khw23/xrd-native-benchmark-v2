@@ -1,0 +1,495 @@
+# generated using pymatgen
+data_7700358
+loop_
+ _publ_author_name
+  'Zu\~niga-Puelles, E'
+  'Cardoso-Gil, R'
+  'Bobnar, M.'
+  'Veremchuk, I.'
+  'Himcinschi, C.'
+  'Hennig, C.'
+  'Kortus, J.'
+  'Heide, G.'
+  'Gumeniuk, R.'
+_publ_section_title
+;
+Structural stability and thermoelectric performance of high quality
+synthetic and natural pyrites (FeS<sub>2</sub>).
+;
+_journal_issue   28
+_journal_name_full
+'Dalton transactions (Cambridge, England : 2003)'
+_journal_page_first   10703
+_journal_page_last   10713
+_journal_paper_doi   10.1039/c9dt01902b
+_journal_volume   48
+_journal_year   2019
+_chemical_formula_analytical   'Fe1 S2'
+_chemical_formula_sum   'Fe S2'
+_chemical_formula_weight   119.98
+_space_group_IT_number   205
+_space_group_name_Hall   '-P 2ac 2ab 3'
+_space_group_name_H-M_alt   'P a -3'
+_symmetry_cell_setting   cubic
+_symmetry_space_group_name_Hall   '-P 2ac 2ab 3'
+_symmetry_space_group_name_H-M   'P a -3'
+_audit_creation_method   'WinCSD program'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   90
+_cell_formula_units_Z   4
+_cell_length_a   5.4178(2)
+_cell_length_b   5.4178(2)
+_cell_length_c   5.4178(2)
+_cell_measurement_reflns_used   1587
+_cell_measurement_temperature   295.0
+_cell_measurement_theta_max   42.7
+_cell_measurement_theta_min   8.4
+_cell_volume   159.026(10)
+_computing_cell_refinement   WinCSD
+_computing_data_reduction   WinCSD
+_computing_publication_material   'WinCSD (Akselrud et al, 1993)'
+_computing_structure_refinement   WinCSD
+_computing_structure_solution   WinCSD
+_diffrn_ambient_temperature   295.0
+_diffrn_detector_area_resol_mean   28.5714
+_diffrn_measured_fraction_theta_full   1.0
+_diffrn_measured_fraction_theta_max   1.0
+_diffrn_measurement_details
+;
+scan:     Number of images: 360                Slice: 10.0000 -
+190.0000          Image width: 0.5000             Exp time: 25.0000
+Rotation axis: Phi                Omega: 0.0000                  Chi:
+0.0000                  Phi: 0.0000                  XTD: 42.1300
+2theta: -10.0000
+;
+_diffrn_measurement_device   'Rigaku Saturn724+ (2x2 bin mode)'
+_diffrn_measurement_device_details   'AFC7: Eulerian 3-circle'
+_diffrn_measurement_method   'profile data from \f-scans'
+_diffrn_orient_matrix_type   d*Trek
+_diffrn_orient_matrix_UB_11   0.090752
+_diffrn_orient_matrix_UB_12   0.128718
+_diffrn_orient_matrix_UB_13   0.096173
+_diffrn_orient_matrix_UB_21   0.046346
+_diffrn_orient_matrix_UB_22   -0.126728
+_diffrn_orient_matrix_UB_23   0.125879
+_diffrn_orient_matrix_UB_31   0.153850
+_diffrn_orient_matrix_UB_32   -0.037752
+_diffrn_orient_matrix_UB_33   -0.094650
+_diffrn_radiation_detector   CCD
+_diffrn_radiation_monochromator   'Graphite Monochromator'
+_diffrn_radiation_source   'Sealed Tube'
+_diffrn_radiation_type   MoK\a
+_diffrn_radiation_wavelength   0.710730
+_diffrn_reflns_av_R_equivalents   0.0106
+_diffrn_reflns_av_sigmaI/netI   0.0110
+_diffrn_reflns_limit_h_max   7
+_diffrn_reflns_limit_h_min   -9
+_diffrn_reflns_limit_k_max   8
+_diffrn_reflns_limit_k_min   -9
+_diffrn_reflns_limit_l_max   4
+_diffrn_reflns_limit_l_min   -9
+_diffrn_reflns_number   145
+_diffrn_reflns_reduction_process   'Lp corrections applied'
+_diffrn_reflns_theta_full   37.7
+_diffrn_reflns_theta_max   74.930
+_diffrn_reflns_theta_min   6.523
+_diffrn_source_current   38.0
+_diffrn_source_power   1.9
+_diffrn_source_voltage   50.0
+_exptl_absorpt_coefficient_mu   11.53
+_exptl_absorpt_correction_T_max   1
+_exptl_absorpt_correction_T_min   0.670
+_exptl_absorpt_correction_type   multi-scan
+_exptl_absorpt_process_details
+'Blessing, R. H. (1995) Acta Cryst. A51, 33-38'
+_exptl_crystal_colour   'pale yellow'
+_exptl_crystal_density_diffrn   5.0112
+_exptl_crystal_description   prism
+_exptl_crystal_F_000   232
+_exptl_crystal_size_max   0.80
+_exptl_crystal_size_mid   0.70
+_exptl_crystal_size_min   0.60
+_refine_diff_density_max   0.31423
+_refine_diff_density_min   -0.26125
+_refine_ls_extinction_coef   0.052(5)
+_refine_ls_extinction_method   Sheldrick
+_refine_ls_goodness_of_fit_ref   1.02
+_refine_ls_matrix_type   fullcycle
+_refine_ls_number_parameters   0
+_refine_ls_number_reflns   145
+_refine_ls_restrained_S_all   1.025
+_refine_ls_restrained_S_obs   1.025
+_refine_ls_R_factor_all   0.015
+_refine_ls_R_factor_gt   0.0151
+_refine_ls_shift/su_max   0.006602
+_refine_ls_shift/su_mean   0.001499
+_refine_ls_structure_factor_coef   Inet
+_refine_ls_weighting_details   66.0775Log(F~o~)^4^
+_refine_ls_weighting_scheme   calc
+_refine_ls_wR_factor_all   0.015
+_refine_ls_wR_factor_ref   0.0176
+_reflns_number_gt   140
+_reflns_number_total   140
+_reflns_threshold_expression   'F~o~ > 4\s(F~o~)'
+_cod_data_source_file   c9dt01902b1.cif
+_cod_data_source_block   FeS2
+_cod_depositor_comments   'Adding full bibliography for 7700358.cif.'
+_cod_original_cell_volume   159.02(2)
+_cod_original_formula_sum   'Fe1 S2'
+_cod_database_code   7700358
+_publcif_info_exptl_table_max_cols   4
+_publcif_info_exptl_table_use_headnotes   n
+_publcif_funding_html   ""
+loop_
+ _symmetry_equiv_pos_as_xyz
+  'x, y, z'
+  'z, x, y'
+  'y, z, x'
+  '1/2+x, y, 1/2-z'
+  '1/2+z, x, 1/2-y'
+  '1/2+y, z, 1/2-x'
+  '1/2-x, 1/2+y, z'
+  '1/2-z, 1/2+x, y'
+  '1/2-y, 1/2+z, x'
+  '-x, 1/2+y, 1/2-z'
+  '-z, 1/2+x, 1/2-y'
+  '-y, 1/2+z, 1/2-x'
+  '-x, -y, -z'
+  '-z, -x, -y'
+  '-y, -z, -x'
+  '1/2-x, -y, 1/2+z'
+  '1/2-z, -x, 1/2+y'
+  '1/2-y, -z, 1/2+x'
+  '1/2+x, 1/2-y, -z'
+  '1/2+z, 1/2-x, -y'
+  '1/2+y, 1/2-z, -x'
+  'x, 1/2-y, 1/2+z'
+  'z, 1/2-x, 1/2+y'
+  'y, 1/2-z, 1/2+x'
+loop_
+ _atom_site_aniso_label
+ _atom_site_aniso_U_11
+ _atom_site_aniso_U_22
+ _atom_site_aniso_U_33
+ _atom_site_aniso_U_12
+ _atom_site_aniso_U_13
+ _atom_site_aniso_U_23
+  Fe1  0.0044(1)  0.0044(1)  0.0044(1)  0.00007(6)  0.00007(6)
+  0.00007(6)
+  S1  0.0052(1)  0.0052(1)  0.0052(1)  0.00014(8)  0.00014(8)
+  0.00014(8)
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_thermal_displace_type
+ _atom_site_U_iso_or_equiv
+ _atom_site_symmetry_multiplicity
+ _atom_site_occupancy
+  Fe1  FE  0  0  0  Uani  0.00438(8)  4  1.0
+  S1  S  0.38482(6)  0.38482  0.38482  Uani  0.00524(9)  8  1.0
+loop_
+ _atom_type_symbol
+ _atom_type_description
+ _atom_type_number_in_cell
+ _atom_type_scat_dispersion_real
+ _atom_type_scat_dispersion_imag
+ _atom_type_scat_source
+  FE  Fe  4.00  .346  .844  International_Tables_Vol_IV_Table_2.3.1
+  S  S  8.00  .125  .123  International_Tables_Vol_IV_Table_2.3.1
+loop_
+ _geom_angle_atom_site_label_1
+ _geom_angle_atom_site_label_2
+ _geom_angle_atom_site_label_3
+ _geom_angle
+ _geom_angle_site_symmetry_1
+ _geom_angle_site_symmetry_3
+ _geom_angle_publ_flag
+  S1  Fe1  S1  94.36(2)  4_455  7_545  yes
+  S1  Fe1  S1  85.64(2)  4_455  10_545  yes
+  S1  Fe1  S1  180.00(2)  4_455  16_554  yes
+  S1  Fe1  S1  85.64(2)  4_455  19_455  yes
+  S1  Fe1  S1  94.36(2)  4_455  22_554  yes
+  S1  Fe1  S1  142.23(2)  4_455  4_445  yes
+  S1  Fe1  S1  118.88(2)  4_455  7_544  yes
+  S1  Fe1  S1  112.53(2)  4_455  10_645  yes
+  S1  Fe1  S1  37.77(1)  4_455  16_564  yes
+  S1  Fe1  S1  61.12(2)  4_455  19_456  yes
+  S1  Fe1  S1  67.47(2)  4_455  22_454  yes
+  S1  Fe1  S1  85.64(2)  7_545  10_545  yes
+  S1  Fe1  S1  85.64(2)  7_545  16_554  yes
+  S1  Fe1  S1  180.00(2)  7_545  19_455  yes
+  S1  Fe1  S1  94.36(2)  7_545  22_554  yes
+  S1  Fe1  S1  67.47(2)  7_545  4_445  yes
+  S1  Fe1  S1  142.23(2)  7_545  7_544  yes
+  S1  Fe1  S1  61.12(2)  7_545  10_645  yes
+  S1  Fe1  S1  112.53(2)  7_545  16_564  yes
+  S1  Fe1  S1  37.77(1)  7_545  19_456  yes
+  S1  Fe1  S1  118.88(2)  7_545  22_454  yes
+  S1  Fe1  S1  94.36(2)  10_545  16_554  yes
+  S1  Fe1  S1  94.36(2)  10_545  19_455  yes
+  S1  Fe1  S1  180.00(2)  10_545  22_554  yes
+  S1  Fe1  S1  61.12(2)  10_545  4_445  yes
+  S1  Fe1  S1  112.53(2)  10_545  7_544  yes
+  S1  Fe1  S1  142.23(2)  10_545  10_645  yes
+  S1  Fe1  S1  118.88(2)  10_545  16_564  yes
+  S1  Fe1  S1  67.47(2)  10_545  19_456  yes
+  S1  Fe1  S1  37.77(1)  10_545  22_454  yes
+  S1  Fe1  S1  94.36(2)  16_554  19_455  yes
+  S1  Fe1  S1  85.64(2)  16_554  22_554  yes
+  S1  Fe1  S1  37.77(1)  16_554  4_445  yes
+  S1  Fe1  S1  61.12(2)  16_554  7_544  yes
+  S1  Fe1  S1  67.47(2)  16_554  10_645  yes
+  S1  Fe1  S1  142.23(2)  16_554  16_564  yes
+  S1  Fe1  S1  118.88(2)  16_554  19_456  yes
+  S1  Fe1  S1  112.53(2)  16_554  22_454  yes
+  S1  Fe1  S1  85.64(2)  19_455  22_554  yes
+  S1  Fe1  S1  112.53(2)  19_455  4_445  yes
+  S1  Fe1  S1  37.77(1)  19_455  7_544  yes
+  S1  Fe1  S1  118.88(2)  19_455  10_645  yes
+  S1  Fe1  S1  67.47(2)  19_455  16_564  yes
+  S1  Fe1  S1  142.23(2)  19_455  19_456  yes
+  S1  Fe1  S1  61.12(2)  19_455  22_454  yes
+  S1  Fe1  S1  118.88(2)  22_554  4_445  yes
+  S1  Fe1  S1  67.47(2)  22_554  7_544  yes
+  S1  Fe1  S1  37.77(1)  22_554  10_645  yes
+  S1  Fe1  S1  61.12(2)  22_554  16_564  yes
+  S1  Fe1  S1  112.53(2)  22_554  19_456  yes
+  S1  Fe1  S1  142.23(2)  22_554  22_454  yes
+  S1  Fe1  S1  91.88(1)  4_445  7_544  yes
+  S1  Fe1  S1  88.12(1)  4_445  10_645  yes
+  S1  Fe1  S1  180.00(1)  4_445  16_564  yes
+  S1  Fe1  S1  88.12(1)  4_445  19_456  yes
+  S1  Fe1  S1  91.88(1)  4_445  22_454  yes
+  S1  Fe1  S1  88.12(1)  7_544  10_645  yes
+  S1  Fe1  S1  88.12(1)  7_544  16_564  yes
+  S1  Fe1  S1  180.00(1)  7_544  19_456  yes
+  S1  Fe1  S1  91.88(1)  7_544  22_454  yes
+  S1  Fe1  S1  91.88(1)  10_645  16_564  yes
+  S1  Fe1  S1  91.88(1)  10_645  19_456  yes
+  S1  Fe1  S1  180.00(1)  10_645  22_454  yes
+  S1  Fe1  S1  91.88(1)  16_564  19_456  yes
+  S1  Fe1  S1  88.12(1)  16_564  22_454  yes
+  S1  Fe1  S1  88.12(1)  19_456  22_454  yes
+  S1  S1  Fe1  102.32(2)  13_666  4_555  yes
+  S1  S1  Fe1  102.32(2)  13_666  7_555  yes
+  S1  S1  Fe1  102.32(2)  13_666  10_555  yes
+  S1  S1  S1  76.46(2)  13_666  4_555  yes
+  S1  S1  S1  141.46(2)  13_666  4_455  yes
+  S1  S1  S1  76.46(2)  13_666  7_555  yes
+  S1  S1  S1  141.46(2)  13_666  7_545  yes
+  S1  S1  S1  76.46(2)  13_666  22_555  yes
+  S1  S1  S1  141.46(2)  13_666  22_554  yes
+  S1  S1  S1  64.28(2)  13_666  10_655  yes
+  S1  S1  S1  120.53(2)  13_666  10_645  yes
+  S1  S1  S1  64.28(2)  13_666  16_565  yes
+  S1  S1  S1  120.53(2)  13_666  16_564  yes
+  S1  S1  S1  64.28(2)  13_666  19_556  yes
+  S1  S1  S1  120.53(2)  13_666  19_456  yes
+  S1  S1  Fe1  39.91(2)  13_666  4_565  yes
+  S1  S1  Fe1  39.91(2)  13_666  7_556  yes
+  S1  S1  Fe1  39.91(2)  13_666  10_655  yes
+  Fe1  S1  Fe1  115.57(2)  4_555  7_555  yes
+  Fe1  S1  Fe1  115.57(2)  4_555  10_555  yes
+  Fe1  S1  S1  83.58(2)  4_555  4_555  yes
+  Fe1  S1  S1  111.93(2)  4_555  4_455  yes
+  Fe1  S1  S1  160.28(2)  4_555  7_555  yes
+  Fe1  S1  S1  47.18(1)  4_555  7_545  yes
+  Fe1  S1  S1  47.18(1)  4_555  22_555  yes
+  Fe1  S1  S1  78.78(2)  4_555  22_554  yes
+  Fe1  S1  S1  140.25(2)  4_555  10_655  yes
+  Fe1  S1  S1  42.82(1)  4_555  10_645  yes
+  Fe1  S1  S1  104.03(2)  4_555  16_565  yes
+  Fe1  S1  S1  133.80(2)  4_555  16_564  yes
+  Fe1  S1  S1  42.82(1)  4_555  19_556  yes
+  Fe1  S1  S1  73.51(2)  4_555  19_456  yes
+  Fe1  S1  Fe1  142.23(2)  4_555  4_565  yes
+  Fe1  S1  Fe1  81.39(2)  4_555  7_556  yes
+  Fe1  S1  Fe1  81.39(2)  4_555  10_655  yes
+  Fe1  S1  Fe1  115.57(2)  7_555  10_555  yes
+  Fe1  S1  S1  47.18(1)  7_555  4_555  yes
+  Fe1  S1  S1  78.78(2)  7_555  4_455  yes
+  Fe1  S1  S1  83.58(2)  7_555  7_555  yes
+  Fe1  S1  S1  111.93(2)  7_555  7_545  yes
+  Fe1  S1  S1  160.28(2)  7_555  22_555  yes
+  Fe1  S1  S1  47.18(1)  7_555  22_554  yes
+  Fe1  S1  S1  42.82(1)  7_555  10_655  yes
+  Fe1  S1  S1  73.51(2)  7_555  10_645  yes
+  Fe1  S1  S1  140.25(2)  7_555  16_565  yes
+  Fe1  S1  S1  42.82(1)  7_555  16_564  yes
+  Fe1  S1  S1  104.03(2)  7_555  19_556  yes
+  Fe1  S1  S1  133.80(2)  7_555  19_456  yes
+  Fe1  S1  Fe1  81.39(2)  7_555  4_565  yes
+  Fe1  S1  Fe1  142.23(2)  7_555  7_556  yes
+  Fe1  S1  Fe1  81.39(2)  7_555  10_655  yes
+  Fe1  S1  S1  160.28(2)  10_555  4_555  yes
+  Fe1  S1  S1  47.18(1)  10_555  4_455  yes
+  Fe1  S1  S1  47.18(1)  10_555  7_555  yes
+  Fe1  S1  S1  78.78(2)  10_555  7_545  yes
+  Fe1  S1  S1  83.58(2)  10_555  22_555  yes
+  Fe1  S1  S1  111.93(2)  10_555  22_554  yes
+  Fe1  S1  S1  104.03(2)  10_555  10_655  yes
+  Fe1  S1  S1  133.80(2)  10_555  10_645  yes
+  Fe1  S1  S1  42.82(1)  10_555  16_565  yes
+  Fe1  S1  S1  73.51(2)  10_555  16_564  yes
+  Fe1  S1  S1  140.25(2)  10_555  19_556  yes
+  Fe1  S1  S1  42.82(1)  10_555  19_456  yes
+  Fe1  S1  Fe1  81.39(2)  10_555  4_565  yes
+  Fe1  S1  Fe1  81.39(2)  10_555  7_556  yes
+  Fe1  S1  Fe1  142.23(2)  10_555  10_655  yes
+  S1  S1  S1  123.32(2)  4_555  4_455  yes
+  S1  S1  S1  114.70(2)  4_555  7_555  yes
+  S1  S1  S1  114.70(2)  4_555  7_545  yes
+  S1  S1  S1  114.70(2)  4_555  22_555  yes
+  S1  S1  S1  65.30(2)  4_555  22_554  yes
+  S1  S1  S1  57.35(1)  4_555  10_655  yes
+  S1  S1  S1  57.35(1)  4_555  10_645  yes
+  S1  S1  S1  140.75(2)  4_555  16_565  yes
+  S1  S1  S1  90.00(2)  4_555  16_564  yes
+  S1  S1  S1  57.35(1)  4_555  19_556  yes
+  S1  S1  S1  153.67(2)  4_555  19_456  yes
+  S1  S1  Fe1  85.79(2)  4_555  4_565  yes
+  S1  S1  Fe1  107.43(2)  4_555  7_556  yes
+  S1  S1  Fe1  40.10(1)  4_555  10_655  yes
+  S1  S1  S1  65.30(2)  4_455  7_555  yes
+  S1  S1  S1  65.30(2)  4_455  7_545  yes
+  S1  S1  S1  114.70(2)  4_455  22_555  yes
+  S1  S1  S1  65.30(2)  4_455  22_554  yes
+  S1  S1  S1  97.00(2)  4_455  10_655  yes
+  S1  S1  S1  97.00(2)  4_455  10_645  yes
+  S1  S1  S1  90.00(2)  4_455  16_565  yes
+  S1  S1  S1  39.25(1)  4_455  16_564  yes
+  S1  S1  S1  153.67(2)  4_455  19_556  yes
+  S1  S1  S1  57.35(1)  4_455  19_456  yes
+  S1  S1  Fe1  104.19(2)  4_455  4_565  yes
+  S1  S1  Fe1  128.18(2)  4_455  7_556  yes
+  S1  S1  Fe1  159.51(2)  4_455  10_655  yes
+  S1  S1  S1  123.32(2)  7_555  7_545  yes
+  S1  S1  S1  114.70(2)  7_555  22_555  yes
+  S1  S1  S1  114.70(2)  7_555  22_554  yes
+  S1  S1  S1  57.35(1)  7_555  10_655  yes
+  S1  S1  S1  153.67(2)  7_555  10_645  yes
+  S1  S1  S1  57.35(1)  7_555  16_565  yes
+  S1  S1  S1  57.35(1)  7_555  16_564  yes
+  S1  S1  S1  140.75(2)  7_555  19_556  yes
+  S1  S1  S1  90.00(2)  7_555  19_456  yes
+  S1  S1  Fe1  40.10(1)  7_555  4_565  yes
+  S1  S1  Fe1  85.79(2)  7_555  7_556  yes
+  S1  S1  Fe1  107.43(2)  7_555  10_655  yes
+  S1  S1  S1  65.30(2)  7_545  22_555  yes
+  S1  S1  S1  65.30(2)  7_545  22_554  yes
+  S1  S1  S1  153.67(2)  7_545  10_655  yes
+  S1  S1  S1  57.35(1)  7_545  10_645  yes
+  S1  S1  S1  97.00(2)  7_545  16_565  yes
+  S1  S1  S1  97.00(2)  7_545  16_564  yes
+  S1  S1  S1  90.00(2)  7_545  19_556  yes
+  S1  S1  S1  39.25(1)  7_545  19_456  yes
+  S1  S1  Fe1  159.51(2)  7_545  4_565  yes
+  S1  S1  Fe1  104.19(2)  7_545  7_556  yes
+  S1  S1  Fe1  128.18(2)  7_545  10_655  yes
+  S1  S1  S1  123.32(2)  22_555  22_554  yes
+  S1  S1  S1  140.75(2)  22_555  10_655  yes
+  S1  S1  S1  90.00(2)  22_555  10_645  yes
+  S1  S1  S1  57.35(1)  22_555  16_565  yes
+  S1  S1  S1  153.67(2)  22_555  16_564  yes
+  S1  S1  S1  57.35(1)  22_555  19_556  yes
+  S1  S1  S1  57.35(1)  22_555  19_456  yes
+  S1  S1  Fe1  107.43(2)  22_555  4_565  yes
+  S1  S1  Fe1  40.10(1)  22_555  7_556  yes
+  S1  S1  Fe1  85.79(2)  22_555  10_655  yes
+  S1  S1  S1  90.00(2)  22_554  10_655  yes
+  S1  S1  S1  39.25(1)  22_554  10_645  yes
+  S1  S1  S1  153.67(2)  22_554  16_565  yes
+  S1  S1  S1  57.35(1)  22_554  16_564  yes
+  S1  S1  S1  97.00(2)  22_554  19_556  yes
+  S1  S1  S1  97.00(2)  22_554  19_456  yes
+  S1  S1  Fe1  128.18(2)  22_554  4_565  yes
+  S1  S1  Fe1  159.51(2)  22_554  7_556  yes
+  S1  S1  Fe1  104.19(2)  22_554  10_655  yes
+  S1  S1  S1  109.30(2)  10_655  10_645  yes
+  S1  S1  S1  102.57(2)  10_655  16_565  yes
+  S1  S1  S1  60.00(1)  10_655  16_564  yes
+  S1  S1  S1  102.57(2)  10_655  19_556  yes
+  S1  S1  S1  146.16(2)  10_655  19_456  yes
+  S1  S1  Fe1  39.02(1)  10_655  4_565  yes
+  S1  S1  Fe1  102.10(2)  10_655  7_556  yes
+  S1  S1  Fe1  64.45(1)  10_655  10_655  yes
+  S1  S1  S1  146.16(2)  10_645  16_565  yes
+  S1  S1  S1  96.49(2)  10_645  16_564  yes
+  S1  S1  S1  60.00(1)  10_645  19_556  yes
+  S1  S1  S1  96.49(2)  10_645  19_456  yes
+  S1  S1  Fe1  143.14(2)  10_645  4_565  yes
+  S1  S1  Fe1  120.32(2)  10_645  7_556  yes
+  S1  S1  Fe1  82.18(1)  10_645  10_655  yes
+  S1  S1  S1  109.30(2)  16_565  16_564  yes
+  S1  S1  S1  102.57(2)  16_565  19_556  yes
+  S1  S1  S1  60.00(1)  16_565  19_456  yes
+  S1  S1  Fe1  64.45(1)  16_565  4_565  yes
+  S1  S1  Fe1  39.02(1)  16_565  7_556  yes
+  S1  S1  Fe1  102.10(2)  16_565  10_655  yes
+  S1  S1  S1  146.16(2)  16_564  19_556  yes
+  S1  S1  S1  96.49(2)  16_564  19_456  yes
+  S1  S1  Fe1  82.18(1)  16_564  4_565  yes
+  S1  S1  Fe1  143.14(2)  16_564  7_556  yes
+  S1  S1  Fe1  120.32(2)  16_564  10_655  yes
+  S1  S1  S1  109.30(2)  19_556  19_456  yes
+  S1  S1  Fe1  102.10(2)  19_556  4_565  yes
+  S1  S1  Fe1  64.45(1)  19_556  7_556  yes
+  S1  S1  Fe1  39.02(1)  19_556  10_655  yes
+  S1  S1  Fe1  120.32(2)  19_456  4_565  yes
+  S1  S1  Fe1  82.18(1)  19_456  7_556  yes
+  S1  S1  Fe1  143.14(2)  19_456  10_655  yes
+  Fe1  S1  Fe1  67.50(1)  4_565  7_556  yes
+  Fe1  S1  Fe1  67.50(1)  4_565  10_655  yes
+  Fe1  S1  Fe1  67.50(1)  7_556  10_655  yes
+loop_
+ _geom_bond_atom_site_label_1
+ _geom_bond_atom_site_label_2
+ _geom_bond_distance
+ _geom_bond_site_symmetry_2
+ _geom_bond_publ_flag
+  Fe1  S1  2.2640(4)  4_455  yes
+  Fe1  S1  2.2640(4)  7_545  yes
+  Fe1  S1  2.2640(4)  10_545  yes
+  Fe1  S1  2.2640(4)  16_554  yes
+  Fe1  S1  2.2640(4)  19_455  yes
+  Fe1  S1  2.2640(4)  22_554  yes
+  Fe1  S1  3.4477(4)  4_445  yes
+  Fe1  S1  3.4477(4)  7_544  yes
+  Fe1  S1  3.4477(4)  10_645  yes
+  Fe1  S1  3.4477(4)  16_564  yes
+  Fe1  S1  3.4477(4)  19_456  yes
+  Fe1  S1  3.4477(4)  22_454  yes
+  S1  S1  2.1615(5)  13_666  yes
+  S1  S1  3.0777(5)  4_555  yes
+  S1  S1  3.0777(5)  4_455  yes
+  S1  S1  3.0777(5)  7_555  yes
+  S1  S1  3.0777(5)  7_545  yes
+  S1  S1  3.0777(5)  22_555  yes
+  S1  S1  3.0777(5)  22_554  yes
+  S1  S1  3.3211(5)  10_655  yes
+  S1  S1  3.3211(5)  10_645  yes
+  S1  S1  3.3211(5)  16_565  yes
+  S1  S1  3.3211(5)  16_564  yes
+  S1  S1  3.3211(5)  19_556  yes
+  S1  S1  3.3211(5)  19_456  yes
+loop_
+ _publcif_info_datablock.id
+ _publcif_info_datablock.publ_exptl
+ _publcif_info_datablock.publ_geom
+ _publcif_info_datablock.structure
+  {dfd7f556-eef7-429a-9241-1d06e65ba28b}  y  y  y
+loop_
+ _publcif_info_exptl_table_extra_item
+  sin_theta_over_lambda_max
+loop_
+ _publcif_info_tables.block_id
+ _publcif_info_tables.reference_item
+  {dfd7f556-eef7-429a-9241-1d06e65ba28b}
+  '_publcif_info_datablock.publ_exptl'
+loop_
+ _publcif_info_cif.paper_type
+  EX

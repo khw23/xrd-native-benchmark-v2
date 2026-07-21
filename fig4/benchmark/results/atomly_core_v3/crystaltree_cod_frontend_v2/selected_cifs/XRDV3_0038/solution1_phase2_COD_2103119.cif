@@ -1,0 +1,308 @@
+# generated using pymatgen
+data_2103119
+loop_
+ _publ_author_name
+  'Bevan, D. J. M.'
+  'Rossmanith, Elisabeth'
+  'Mylrea, Darren K.'
+  'Ness, Sharon E.'
+  'Taylor, Max R.'
+  'Cuff, Chris'
+_publ_section_title
+'On the structure of aragonite -- Lawrence Bragg revisited'
+_journal_coden_ASTM   ASBSDK
+_journal_issue   3
+_journal_name_full
+'Acta Crystallographica, Section B: Structural Science'
+_journal_page_first   448
+_journal_page_last   456
+_journal_paper_doi   10.1107/S0108768102003294
+_journal_volume   58
+_journal_year   2002
+_chemical_formula_moiety   'Ca1 C1 O3'
+_chemical_formula_structural   'Ca (C O3)'
+_chemical_formula_sum   'C Ca O3'
+_chemical_formula_weight   100.08
+_chemical_name_common   aragonite
+_chemical_name_systematic   'calcium carbonate'
+_space_group_IT_number   2
+_space_group_name_Hall   '-P 1'
+_space_group_name_H-M_alt   'P -1'
+_symmetry_cell_setting   triclinic
+_symmetry_space_group_name_Hall   '-P 1'
+_symmetry_space_group_name_H-M   'P -1'
+_cell_angle_alpha   89.999(4)
+_cell_angle_beta   90.012(5)
+_cell_angle_gamma   89.996(4)
+_cell_formula_units_Z   4
+_cell_length_a   5.7394(4)
+_cell_length_b   4.9616(2)
+_cell_length_c   7.9700(5)
+_cell_measurement_reflns_used   25
+_cell_measurement_temperature   293
+_cell_measurement_theta_max   39.1
+_cell_measurement_theta_min   22.4
+_cell_volume   226.96(2)
+_computing_data_reduction   'xtal DIFDAT ABSORB ADDREF SORTRF'
+_computing_molecular_graphics   'xtal PIG ORTEP'
+_computing_publication_material   'xtal BONDLA CIFIO'
+_computing_structure_refinement   'xtal LSLS'
+_diffrn_measurement_device_type   CAD4
+_diffrn_measurement_method   \q/2\q
+_diffrn_radiation_type   'Mo K\a'
+_diffrn_radiation_wavelength   .71073
+_diffrn_reflns_av_R_equivalents   .02
+_diffrn_reflns_limit_h_max   10
+_diffrn_reflns_limit_h_min   -10
+_diffrn_reflns_limit_k_max   8
+_diffrn_reflns_limit_k_min   -8
+_diffrn_reflns_limit_l_max   14
+_diffrn_reflns_limit_l_min   -14
+_diffrn_reflns_number   5690
+_diffrn_reflns_theta_max   39.92
+_diffrn_standards_decay_%   0
+_diffrn_standards_interval_time   120
+_diffrn_standards_number   3
+_exptl_absorpt_coefficient_mu   2.468
+_exptl_absorpt_correction_T_max   0.730
+_exptl_absorpt_correction_T_min   0.675
+_exptl_absorpt_correction_type   gaussian
+_exptl_absorpt_process_details   '(Davenport et al., 1995)'
+_exptl_crystal_colour   colourless
+_exptl_crystal_density_diffrn   2.929
+_exptl_crystal_density_meas   ?
+_exptl_crystal_description   'hexagonal prism'
+_exptl_crystal_size_max   0.54
+_exptl_crystal_size_mid   0.15
+_exptl_crystal_size_min   0.13
+_refine_diff_density_max   2.14
+_refine_diff_density_min   -1.89
+_refine_ls_abs_structure_details   none
+_refine_ls_extinction_coef   87E1(6)
+_refine_ls_extinction_method   '(Becker & Coppens, 1975)'
+_refine_ls_goodness_of_fit_ref   1.81
+_refine_ls_matrix_type   'Full matrix'
+_refine_ls_number_parameters   32
+_refine_ls_number_reflns   2750
+_refine_ls_R_factor_gt   0.026
+_refine_ls_shift/su_max   .0007
+_refine_ls_structure_factor_coef   Fsqd
+_refine_ls_weighting_details
+'w = 1/[\s^2^(F~o~^2^) + (0.04F~o~^2^)^2^]^1/2^'
+_refine_ls_weighting_scheme   calc
+_refine_ls_wR_factor_ref   0.056
+_reflns_number_gt   2750
+_reflns_number_total   2794
+_reflns_threshold_expression   'Fsqd > 0'
+_cod_data_source_file   br0111.cif
+_cod_depositor_comments
+;
+The following automatic conversions were performed:
+'_exptl_absorpt_correction_type' value 'Gaussian' changed to
+'gaussian' according to '/home/saulius/struct/CIF-
+dictionaries/cif_core.dic' dictionary named 'cif_core.dic' version
+2.4.1 from 2010-06-29. Automatic conversion script Id: cif_fix_enum
+1527 2010-12-29 10:47:43Z saulius
+;
+_cod_original_formula_sum   'C1 Ca1 O3'
+_cod_database_code   2103119
+loop_
+ _symmetry_equiv_pos_as_xyz
+  +x,+y,+z
+  -x,-y,-z
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_U_iso_or_equiv
+ _atom_site_adp_type
+ _atom_site_occupancy
+  Ca1  .74101(3)  .24923(5)  .58465(2)  .008421(18)  Uani  1.00000
+  Ca2  .23969(3)  .24995(5)  .91478(2)  .007976(18)  Uani  1.00000
+  C1  .41592(16)  .7540(2)  .76281(10)  .00583(8)  Uani  1.00000
+  C2  .91378(16)  .7482(2)  .73876(10)  .01006(9)  Uani  1.00000
+  O1  .40398(12)  .7519(2)  .92178(8)  .01237(8)  Uani  1.00000
+  O2  .90486(12)  .7500(2)  .57719(8)  .01184(8)  Uani  1.00000
+  O3  .4128(2)  .52529(17)  .68209(10)  .01140(8)  Uani  1.00000
+  O4  .9109(2)  .97523(17)  .81800(10)  .01231(9)  Uani  1.00000
+  O5  .41298(18)  .97498(16)  .68004(10)  .00951(8)  Uani  1.00000
+  O6  .91495(18)  .52853(15)  .82219(9)  .01270(9)  Uani  1.00000
+loop_
+ _atom_site_aniso_label
+ _atom_site_aniso_U_11
+ _atom_site_aniso_U_22
+ _atom_site_aniso_U_33
+ _atom_site_aniso_U_12
+ _atom_site_aniso_U_13
+ _atom_site_aniso_U_23
+  Ca1  .00775  .00883  .00823  .00018  -.00042  .00001
+  Ca2  .00770  .00886  .00827  .00014  -.00089  .00002
+  C1  .00562  .00814  .00955  .00012  -.00066  -.00024
+  C2  .00561  .00815  .00979  .00005  -.00069  .00008
+  O1  .01227  .01702  .00786  .00011  -.00115  -.00024
+  O2  .01222  .01733  .00781  .00013  -.00003  .00024
+  O3  .01243  .00842  .01373  .00026  .00033  -.00260
+  O4  .01265  .00818  .01348  -.00007  -.00187  -.00296
+  O5  .01254  .00848  .01406  .00004  .00055  .00294
+  O6  .01262  .00799  .01371  .00034  -.00178  .00269
+loop_
+ _atom_type_symbol
+ _atom_type_scat_dispersion_real
+ _atom_type_scat_dispersion_imag
+ _atom_type_scat_source
+  Ca  .203  .306  'Int. Tables Vol IV Tables 2.2B and 2.3.1'
+  C  .002  .002  'Int. Tables Vol IV Tables 2.2B and 2.3.1'
+  O  .008  .006  'Int. Tables Vol IV Tables 2.2B and 2.3.1'
+loop_
+ _geom_angle_atom_site_label_1
+ _geom_angle_atom_site_label_2
+ _geom_angle_atom_site_label_3
+ _geom_angle_site_symmetry_1
+ _geom_angle_site_symmetry_3
+ _geom_angle
+ _geom_angle_publ_flag
+  O2  Ca1  O3  .  .  75.94(3)  ?
+  O2  Ca1  O6  .  .  50.94(2)  ?
+  O2  Ca1  O2  .  '1 545'  138.40(3)  ?
+  O2  Ca1  O4  .  '1 545'  112.76(3)  ?
+  O2  Ca1  O5  .  '1 545'  143.14(3)  ?
+  O2  Ca1  O3  .  '2 666'  72.22(3)  ?
+  O2  Ca1  O5  .  '2 666'  120.89(2)  ?
+  O2  Ca1  O2  .  '2 766'  71.79(3)  ?
+  O3  Ca1  O6  .  .  76.25(3)  ?
+  O3  Ca1  O2  .  '1 545'  143.20(3)  ?
+  O3  Ca1  O4  .  '1 545'  111.53(3)  ?
+  O3  Ca1  O5  .  '1 545'  67.73(3)  ?
+  O3  Ca1  O3  .  '2 666'  75.78(3)  ?
+  O3  Ca1  O5  .  '2 666'  103.88(3)  ?
+  O3  Ca1  O2  .  '2 766'  144.73(3)  ?
+  O6  Ca1  O2  .  '1 545'  112.70(3)  ?
+  O6  Ca1  O4  .  '1 545'  65.85(3)  ?
+  O6  Ca1  O5  .  '1 545'  111.91(3)  ?
+  O6  Ca1  O3  .  '2 666'  120.94(3)  ?
+  O6  Ca1  O5  .  '2 666'  171.74(3)  ?
+  O6  Ca1  O2  .  '2 766'  93.81(3)  ?
+  O2  Ca1  O4  '1 545'  '1 545'  50.98(2)  ?
+  O2  Ca1  O5  '1 545'  '1 545'  76.11(3)  ?
+  O2  Ca1  O3  '1 545'  '2 666'  120.81(2)  ?
+  O2  Ca1  O5  '1 545'  '2 666'  72.29(3)  ?
+  O2  Ca1  O2  '1 545'  '2 766'  71.94(3)  ?
+  O4  Ca1  O5  '1 545'  '1 545'  76.48(3)  ?
+  O4  Ca1  O3  '1 545'  '2 666'  171.70(3)  ?
+  O4  Ca1  O5  '1 545'  '2 666'  120.95(3)  ?
+  O4  Ca1  O2  '1 545'  '2 766'  94.03(3)  ?
+  O5  Ca1  O3  '1 545'  '2 666'  103.66(3)  ?
+  O5  Ca1  O5  '1 545'  '2 666'  75.34(3)  ?
+  O5  Ca1  O2  '1 545'  '2 766'  144.88(3)  ?
+  O3  Ca1  O5  '2 666'  '2 666'  51.86(3)  ?
+  O3  Ca1  O2  '2 666'  '2 766'  81.10(3)  ?
+  O5  Ca1  O2  '2 666'  '2 766'  81.35(3)  ?
+  O1  Ca2  O3  .  .  50.66(2)  ?
+  O1  Ca2  O4  .  '1 445'  143.01(3)  ?
+  O1  Ca2  O6  .  '1 455'  75.32(3)  ?
+  O1  Ca2  O1  .  '1 545'  138.31(2)  ?
+  O1  Ca2  O5  .  '1 545'  112.46(3)  ?
+  O1  Ca2  O1  .  '2 667'  72.16(3)  ?
+  O1  Ca2  O4  .  '2 667'  120.73(2)  ?
+  O1  Ca2  O6  .  '2 667'  72.57(2)  ?
+  O3  Ca2  O4  .  '1 445'  112.03(3)  ?
+  O3  Ca2  O6  .  '1 455'  76.70(3)  ?
+  O3  Ca2  O1  .  '1 545'  112.53(3)  ?
+  O3  Ca2  O5  .  '1 545'  65.77(3)  ?
+  O3  Ca2  O1  .  '2 667'  93.73(3)  ?
+  O3  Ca2  O4  .  '2 667'  171.16(3)  ?
+  O3  Ca2  O6  .  '2 667'  121.02(3)  ?
+  O4  Ca2  O6  '1 445'  '1 455'  68.36(3)  ?
+  O4  Ca2  O1  '1 445'  '1 545'  76.21(3)  ?
+  O4  Ca2  O5  '1 445'  '1 545'  76.67(3)  ?
+  O4  Ca2  O1  '1 445'  '2 667'  144.67(3)  ?
+  O4  Ca2  O4  '1 445'  '2 667'  76.04(3)  ?
+  O4  Ca2  O6  '1 445'  '2 667'  103.43(3)  ?
+  O6  Ca2  O1  '1 455'  '1 545'  144.04(3)  ?
+  O6  Ca2  O5  '1 455'  '1 545'  112.61(3)  ?
+  O6  Ca2  O1  '1 455'  '2 667'  144.15(3)  ?
+  O6  Ca2  O4  '1 455'  '2 667'  103.99(3)  ?
+  O6  Ca2  O6  '1 455'  '2 667'  74.67(3)  ?
+  O1  Ca2  O5  '1 545'  '1 545'  50.90(2)  ?
+  O1  Ca2  O1  '1 545'  '2 667'  71.61(3)  ?
+  O1  Ca2  O4  '1 545'  '2 667'  72.22(3)  ?
+  O1  Ca2  O6  '1 545'  '2 667'  120.92(2)  ?
+  O5  Ca2  O1  '1 545'  '2 667'  93.66(3)  ?
+  O5  Ca2  O4  '1 545'  '2 667'  121.03(3)  ?
+  O5  Ca2  O6  '1 545'  '2 667'  171.73(3)  ?
+  O1  Ca2  O4  '2 667'  '2 667'  80.56(3)  ?
+  O1  Ca2  O6  '2 667'  '2 667'  81.51(3)  ?
+  O4  Ca2  O6  '2 667'  '2 667'  51.70(3)  ?
+  O1  C1  O3  .  .  119.00(10)  yes
+  O1  C1  O5  .  .  121.38(10)  yes
+  O3  C1  O5  .  .  119.40(8)  yes
+  O2  C2  O4  .  .  118.82(10)  yes
+  O2  C2  O6  .  .  121.77(10)  yes
+  O4  C2  O6  .  .  119.34(8)  yes
+  Ca2  O1  C1  .  .  90.33(7)  ?
+  Ca2  O1  Ca2  .  '1 565'  138.31(3)  ?
+  Ca2  O1  Ca2  .  '2 667'  107.84(4)  ?
+  C1  O1  Ca2  .  '1 565'  89.47(7)  ?
+  C1  O1  Ca2  .  '2 667'  119.39(6)  ?
+  Ca2  O1  Ca2  '1 565'  '2 667'  108.39(4)  ?
+  Ca1  O2  C2  .  .  89.15(7)  ?
+  Ca1  O2  Ca1  .  '1 565'  138.40(3)  ?
+  Ca1  O2  Ca1  .  '2 766'  108.21(4)  ?
+  C2  O2  Ca1  .  '1 565'  89.89(7)  ?
+  C2  O2  Ca1  .  '2 766'  120.13(6)  ?
+  Ca1  O2  Ca1  '1 565'  '2 766'  108.06(4)  ?
+  Ca1  O3  Ca2  .  .  103.53(3)  ?
+  Ca1  O3  C1  .  .  129.10(8)  ?
+  Ca1  O3  Ca1  .  '2 666'  104.22(3)  ?
+  Ca2  O3  C1  .  .  96.58(6)  ?
+  Ca2  O3  Ca1  .  '2 666'  135.69(5)  ?
+  C1  O3  Ca1  .  '2 666'  91.96(6)  ?
+  C2  O4  Ca1  .  '1 565'  96.64(6)  ?
+  C2  O4  Ca2  .  '1 665'  128.95(8)  ?
+  C2  O4  Ca2  .  '2 667'  91.75(6)  ?
+  Ca1  O4  Ca2  '1 565'  '1 665'  103.39(3)  ?
+  Ca1  O4  Ca2  '1 565'  '2 667'  136.50(5)  ?
+  Ca2  O4  Ca2  '1 665'  '2 667'  103.96(3)  ?
+  C1  O5  Ca1  .  '1 565'  128.85(8)  ?
+  C1  O5  Ca2  .  '1 565'  94.96(6)  ?
+  C1  O5  Ca1  .  '2 666'  93.28(6)  ?
+  Ca1  O5  Ca2  '1 565'  '1 565'  103.51(3)  ?
+  Ca1  O5  Ca1  '1 565'  '2 666'  104.66(3)  ?
+  Ca2  O5  Ca1  '1 565'  '2 666'  135.68(4)  ?
+  Ca1  O6  C2  .  .  94.31(6)  ?
+  Ca1  O6  Ca2  .  '1 655'  102.48(3)  ?
+  Ca1  O6  Ca2  .  '2 667'  135.61(4)  ?
+  C2  O6  Ca2  .  '1 655'  130.27(8)  ?
+  C2  O6  Ca2  .  '2 667'  93.38(6)  ?
+  Ca2  O6  Ca2  '1 655'  '2 667'  105.33(3)  ?
+loop_
+ _geom_bond_atom_site_label_1
+ _geom_bond_atom_site_label_2
+ _geom_bond_site_symmetry_2
+ _geom_bond_distance
+ _geom_bond_publ_flag
+  Ca1  O2  .  2.6572(11)  yes
+  Ca1  O3  .  2.4553(10)  yes
+  Ca1  O6  .  2.5496(8)  yes
+  Ca1  O2  '1 545'  2.6503(11)  yes
+  Ca1  O4  '1 545'  2.5013(9)  yes
+  Ca1  O5  '1 545'  2.4444(10)  yes
+  Ca1  O3  '2 666'  2.5592(9)  yes
+  Ca1  O5  '2 666'  2.5433(9)  yes
+  Ca1  O2  '2 766'  2.4074(7)  yes
+  Ca2  O1  .  2.6638(11)  yes
+  Ca2  O3  .  2.5086(9)  yes
+  Ca2  O4  '1 445'  2.4524(10)  yes
+  Ca2  O6  '1 455'  2.4347(10)  yes
+  Ca2  O1  '1 545'  2.6453(11)  yes
+  Ca2  O5  '1 545'  2.5202(9)  yes
+  Ca2  O1  '2 667'  2.4245(7)  yes
+  Ca2  O4  '2 667'  2.5557(9)  yes
+  Ca2  O6  '2 667'  2.5281(8)  yes
+  C1  O1  .  1.2690(10)  yes
+  C1  O3  .  1.3044(13)  yes
+  C1  O5  .  1.2798(13)  yes
+  C2  O2  .  1.2888(10)  yes
+  C2  O4  .  1.2917(14)  yes
+  C2  O6  .  1.2766(13)  yes

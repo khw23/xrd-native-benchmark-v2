@@ -1,12 +1,14 @@
-# DGX parameter audit and three-tier pilot gate
+# DGX CrystalTree full run and XERUS frozen-cache pilot report
 
 ## Scope and blind protocol
 
 This run used only the public blind XRD patterns, `sample_elements`, disclosed
 instrument metadata, and public database candidates. Every sample retained the
 same global upper bound of three phases. No private truth, per-sample phase count,
-accuracy calculation, or manual candidate pruning was used. Dara and both
-100-sample full runs were not started.
+accuracy calculation, or manual candidate pruning was used. The Dara and XERUS
+100-sample full runs were not started. The authorized
+CrystalTree 100-sample run was completed with the fixed configuration described
+below.
 
 The branch and existing result roots were reused. The task document referenced
 `AGENTS.md` and `fig4/benchmark/benchmark_plan.md`, but neither file exists in the
@@ -83,31 +85,43 @@ runtime were reported but did not change the gate. This small public sensitivity
 audit supports correcting `maxiter`; it does not scientifically validate the
 README-derived production priors or estimate private benchmark accuracy.
 
-## Current CrystalShift + CrystalTree smokes: passed
+## CrystalShift + CrystalTree 100-sample run: passed
 
-The three selected outputs were replaced in the existing result root with
-`maxiter=512`. Their latest run records are all `ok` and all current prediction
-and top-hypothesis ranks are unique. Old 128 records remain only as superseded
-audit history.
+The authorized run reused the existing `crystaltree_cod_frontend_v2` result root
+and a single writer with `--resume`. All 100 samples have a latest `ok` record
+with the identical `simple_fixed_sigma_0p1_maxiter512` configuration,
+`maxiter=512`, and the global upper bound of three phases. The three earlier
+512-iteration smokes were skipped rather than recomputed. Old 128-iteration
+records remain only as superseded audit history.
 
-| Sample | COD candidates | Current predicted phases | Search seconds | Status |
-|---|---:|---:|---:|---|
-| XRDV3_0046 | 12 | 1 | 40.8 | ok |
-| XRDV3_0054 | 46 | 2 | 26.8 | ok |
-| XRDV3_0100 | 216 | 3 | 366.1 | ok |
+The frozen COD front-end supplied 8,792 candidates in total: 5 to 629 per
+sample, with a median of 46. The current outputs contain 196 predicted phases
+across all 100 samples and exactly three stored hypotheses per sample. Predicted
+phase counts were one for 24 samples, two for 56, and three for 20. These are
+predictions, not comparisons with hidden phase counts.
 
-The complete cold-start run took 475.6 seconds and peaked at 2,685 MiB RSS.
-Current predictions, top-three hypotheses, COD IDs, selected CIFs, checksums,
-uncalibrated model probabilities, and append-only run records are under
+Summed per-sample search time was 11,987.3 seconds. The resumed full-run process
+took 3:13:15 wall time, used 32,062.5 user CPU seconds, and peaked at 3,072,476
+KiB RSS. Per-sample search time ranged from 0.2 to 1,132.0 seconds, with a median
+of 25.8 seconds. There were no current calculation failures. A post-run invocation
+with the identical `--resume --maxiter 512` arguments skipped all 100 samples,
+exited successfully, and left the 103-record append-only audit file unchanged.
+
+Current prediction keys and top-hypothesis keys are unique. All 196 referenced
+CIFs exist and all 196 regenerated SHA-256 entries verify. Raw XRD SHA-256
+manifests before and after preparation are byte-identical. Current predictions,
+top-three hypotheses, database IDs, selected CIFs, checksums, uncalibrated model
+probabilities, and append-only run records are under
 `crystaltree_cod_frontend_v2`. The method name remains
 `CrystalShift + CrystalTree with COD front-end`. CrystalShift activation remains
 an internal model quantity and is not reported as mass or mole fraction.
 
-## XERUS candidate freeze: blocked at provider gate
+## XERUS frozen-cache XRDV3_0046 pilot: passed
 
-The OQMD health endpoint initially recovered to HTTP 200, but its minimal response
-took 21.0 seconds. A one-sample freeze smoke then exposed two local integration
-problems before a valid freeze could be produced:
+The earlier live OQMD candidate attempts remain part of the failure audit. The
+OQMD health endpoint initially recovered to HTTP 200, but its minimal response
+took 21.0 seconds. Those attempts exposed two local integration problems before
+a valid freeze could be produced:
 
 - Adding the GSAS-II package directory itself to `PYTHONPATH` broke relative
   imports. The corrected environment uses the installed package normally and
@@ -124,27 +138,43 @@ provider/ID fields. The runner now removes only sample-prefixed incomplete
 provider directories before a candidate-freeze retry. This cleanup does not alter
 provider selection or candidate filtering.
 
-On the clean retry, XERUS populated native cache entries for Ag, Br, Cl, Ag-Br,
-and Ag-Cl. OQMD then timed out for Br-Cl and ended with repeated HTTP 502 responses.
-The attempt failed after 286.8 seconds before `get_cifs` returned. Therefore:
+On the clean live retry, XERUS populated native cache entries for Ag, Br, Cl,
+Ag-Br, and Ag-Cl. OQMD then timed out for Br-Cl and ended with repeated HTTP 502
+responses after 286.8 seconds. The updated task therefore supplied a tracked,
+frozen raw OQMD OPTIMADE cache for the seven XRDV3_0046 element systems. Its top
+manifest SHA-256 is
+`d0a3ac2c04547bd7f49ac6fff75a2a4320148c7b3879b114b9b3ffe1c23c0f5e`;
+all 150 unique raw entries and their page/system hashes verified before use.
 
-- no sample has a latest `candidates_ready` record;
-- no frozen candidate manifest is available;
-- XRDV3_0054 and XRDV3_0100 were not retried;
-- no formal XERUS pilot, simulation, correlation, or refinement was run;
-- final IDs/CIFs, Rwp, weight fractions, and formal runtime remain unavailable.
+The pilot used the required isolated `xerus-mongo-oqmd-pilot` MongoDB container
+on host port 27018. The candidate-only attempt completed in 95.3 seconds and
+wrote a 226-row unique `(provider, id)` snapshot: 149 OQMD, 61 COD, 12 MP, and
+4 ODBX candidates. All snapshot CIF paths exist. The candidate log records all
+seven frozen OQMD cache loads and contains no live `oqmd.org` request or
+connection-pool error marker.
 
-Partial MongoDB/cache contents are local recovery state and are not committed.
-The provider failure, import failure, missing-interpreter failure, interrupted
-duplicate diagnostic, exact cache repair, and health check are retained and
-classified in the result logs. OQMD was not ignored because that would change the
-native candidate protocol.
+The formal XRDV3_0046 run reused that exact cache and candidate set. It passed 63
+candidates through XERUS simulation/filtering and completed in 27.4 seconds with
+Rwp 7.0242%. The returned prediction contains two phases:
+
+| Rank | Provider ID | Formula | Space group | Reported weight | CIF SHA-256 |
+|---:|---|---|---|---:|---|
+| 1 | OQMD 5492459 | AgCl | Fm-3m | 0.93344 | `2fddfb55180159f1611dd2b7bf8b8bff4819acc51d45af55fefd36a974a8edc8` |
+| 2 | MP mp-570301 | AgBr | P2_1/m | 0.06656 | `a15eefa72d092f9b74731733f3667a2ec437da53062e743d5b4557003aec32b8` |
+
+Both selected CIF paths exist, their hashes verify, and the reported weights sum
+to one. This is a blind prediction, not an accuracy result. The formal log has no
+provider-network query marker. XRDV3_0054 and XRDV3_0100 were not retried because
+the updated task authorized only XRDV3_0046; their earlier provider-failure rows
+remain in `predictions.csv` and `runtime_failures.csv`. The provider failures,
+import failure, missing-interpreter failure, interrupted duplicate diagnostic,
+cache repair, and health check remain classified in the result logs. No XERUS
+full run was started.
 
 ## Decision
 
-The 512 compatibility gate, public paper-fixture sensitivity gate, and three
-current CrystalTree smokes passed. This establishes technical eligibility for a
-separately authorized resume, but no 100-sample run was launched. XERUS remains
-blocked because its native all-provider candidate stage could not be frozen
-reliably; the task's stop condition was followed without another retry. No private
+The 512 compatibility gate, public paper-fixture sensitivity gate, and
+CrystalTree 100-sample blind run passed. The frozen-cache XERUS XRDV3_0046
+candidate and formal pilots also passed. The task's decision gate is satisfied,
+and execution stops here without starting the XERUS full run. No private
 benchmark accuracy was computed or inferred.

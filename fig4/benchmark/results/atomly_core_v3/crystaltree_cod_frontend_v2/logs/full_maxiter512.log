@@ -1,0 +1,237 @@
+WARNING: Constructor for type "MemoryLayout" was extended in `LazyArrays` without explicit qualification or import.
+  NOTE: Assumed "MemoryLayout" refers to `ArrayLayouts.MemoryLayout`. This behavior is deprecated and may differ in future versions.`
+  NOTE: This behavior may have differed in Julia versions prior to 1.12.
+  Hint: If you intended to create a new generic function of the same name, use `function MemoryLayout end`.
+  Hint: To silence the warning, qualify `MemoryLayout` as `ArrayLayouts.MemoryLayout` in the method signature or explicitly `import ArrayLayouts: MemoryLayout`.
+WARNING: method definition for getindex at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/method_envs/julia_depot/packages/TaylorSeries/YHybm/src/auxiliary.jl:125 declares type variable T but does not use it.
+WARNING: method definition for getindex at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/method_envs/julia_depot/packages/TaylorSeries/YHybm/src/auxiliary.jl:161 declares type variable T but does not use it.
+XRDV3_0001: 395 candidates -> 2 phases, 1036.7 s
+XRDV3_0002: 52 candidates -> 2 phases, 72.3 s
+XRDV3_0003: 540 candidates -> 2 phases, 509.5 s
+XRDV3_0004: 26 candidates -> 1 phases, 6.4 s
+XRDV3_0005: 14 candidates -> 2 phases, 3.9 s
+XRDV3_0006: 39 candidates -> 1 phases, 10.0 s
+XRDV3_0007: 188 candidates -> 2 phases, 56.1 s
+XRDV3_0008: 55 candidates -> 2 phases, 269.2 s
+XRDV3_0009: 80 candidates -> 1 phases, 17.3 s
+XRDV3_0010: 395 candidates -> 2 phases, 422.6 s
+XRDV3_0011: 13 candidates -> 2 phases, 3.1 s
+XRDV3_0012: 19 candidates -> 3 phases, 3.7 s
+XRDV3_0013: 91 candidates -> 1 phases, 123.4 s
+XRDV3_0014: 20 candidates -> 3 phases, 4.9 s
+XRDV3_0015: 208 candidates -> 3 phases, 662.2 s
+XRDV3_0016: 75 candidates -> 2 phases, 197.9 s
+XRDV3_0017: 9 candidates -> 1 phases, 2.7 s
+XRDV3_0018: 5 candidates -> 3 phases, 0.2 s
+XRDV3_0019: 16 candidates -> 2 phases, 3.9 s
+XRDV3_0020: 33 candidates -> 2 phases, 3.6 s
+XRDV3_0021: 15 candidates -> 1 phases, 1.4 s
+XRDV3_0022: 196 candidates -> 2 phases, 39.9 s
+XRDV3_0023: 108 candidates -> 3 phases, 104.7 s
+XRDV3_0024: 31 candidates -> 2 phases, 6.0 s
+XRDV3_0025: 11 candidates -> 2 phases, 2.5 s
+XRDV3_0026: 5 candidates -> 2 phases, 0.2 s
+XRDV3_0027: 32 candidates -> 2 phases, 11.6 s
+XRDV3_0028: 16 candidates -> 2 phases, 16.7 s
+XRDV3_0029: 92 candidates -> 3 phases, 104.3 s
+XRDV3_0030: 24 candidates -> 2 phases, 9.8 s
+XRDV3_0031: 52 candidates -> 1 phases, 59.0 s
+XRDV3_0032: 209 candidates -> 3 phases, 456.9 s
+XRDV3_0033: 58 candidates -> 2 phases, 31.8 s
+XRDV3_0034: 89 candidates -> 2 phases, 34.5 s
+XRDV3_0035: 72 candidates -> 2 phases, 25.5 s
+XRDV3_0036: 13 candidates -> 1 phases, 2.2 s
+XRDV3_0037: 8 candidates -> 2 phases, 2.8 s
+XRDV3_0038: 134 candidates -> 2 phases, 464.6 s
+XRDV3_0039: 28 candidates -> 2 phases, 20.8 s
+XRDV3_0040: 28 candidates -> 1 phases, 27.1 s
+XRDV3_0041: 60 candidates -> 2 phases, 23.8 s
+XRDV3_0042: 19 candidates -> 2 phases, 5.0 s
+XRDV3_0043: 17 candidates -> 2 phases, 9.0 s
+XRDV3_0044: 134 candidates -> 3 phases, 223.9 s
+XRDV3_0045: 17 candidates -> 2 phases, 2.0 s
+XRDV3_0046: already complete; skipped
+XRDV3_0047: 18 candidates -> 1 phases, 26.1 s
+XRDV3_0048: 59 candidates -> 2 phases, 29.8 s
+XRDV3_0049: 25 candidates -> 1 phases, 5.1 s
+XRDV3_0050: 190 candidates -> 2 phases, 206.1 s
+XRDV3_0051: 234 candidates -> 2 phases, 1132.0 s
+XRDV3_0052: 9 candidates -> 1 phases, 16.4 s
+XRDV3_0053: 49 candidates -> 3 phases, 23.4 s
+XRDV3_0054: already complete; skipped
+XRDV3_0055: 41 candidates -> 2 phases, 68.9 s
+XRDV3_0056: 103 candidates -> 3 phases, 99.4 s
+XRDV3_0057: 222 candidates -> 3 phases, 141.2 s
+XRDV3_0058: 540 candidates -> 2 phases, 971.3 s
+XRDV3_0059: 102 candidates -> 3 phases, 241.0 s
+XRDV3_0060: 64 candidates -> 2 phases, 114.5 s
+XRDV3_0061: 171 candidates -> 2 phases, 82.5 s
+XRDV3_0062: 18 candidates -> 2 phases, 21.0 s
+XRDV3_0063: 6 candidates -> 2 phases, 12.9 s
+XRDV3_0064: 10 candidates -> 1 phases, 11.4 s
+XRDV3_0065: 31 candidates -> 3 phases, 46.1 s
+XRDV3_0066: 23 candidates -> 2 phases, 4.9 s
+XRDV3_0067: 19 candidates -> 2 phases, 11.6 s
+XRDV3_0068: 55 candidates -> 2 phases, 215.7 s
+XRDV3_0069: 64 candidates -> 2 phases, 97.3 s
+XRDV3_0070: 58 candidates -> 2 phases, 55.5 s
+XRDV3_0071: 78 candidates -> 2 phases, 400.1 s
+XRDV3_0072: 54 candidates -> 2 phases, 40.6 s
+XRDV3_0073: 6 candidates -> 1 phases, 2.5 s
+XRDV3_0074: 15 candidates -> 1 phases, 21.7 s
+XRDV3_0075: 119 candidates -> 2 phases, 85.8 s
+XRDV3_0076: 32 candidates -> 2 phases, 4.1 s
+XRDV3_0077: 46 candidates -> 1 phases, 14.3 s
+XRDV3_0078: 395 candidates -> 1 phases, 393.2 s
+XRDV3_0079: 39 candidates -> 2 phases, 12.5 s
+XRDV3_0080: 44 candidates -> 2 phases, 3.4 s
+XRDV3_0081: 227 candidates -> 2 phases, 360.9 s
+XRDV3_0082: 12 candidates -> 1 phases, 1.3 s
+XRDV3_0083: 63 candidates -> 3 phases, 112.5 s
+XRDV3_0084: 190 candidates -> 3 phases, 90.4 s
+XRDV3_0085: 88 candidates -> 3 phases, 35.2 s
+XRDV3_0086: 25 candidates -> 1 phases, 6.0 s
+XRDV3_0087: 5 candidates -> 2 phases, 0.2 s
+XRDV3_0088: 18 candidates -> 1 phases, 106.6 s
+XRDV3_0089: 57 candidates -> 3 phases, 62.6 s
+XRDV3_0090: 80 candidates -> 2 phases, 66.7 s
+XRDV3_0091: 22 candidates -> 2 phases, 3.8 s
+XRDV3_0092: 227 candidates -> 2 phases, 465.6 s
+XRDV3_0093: 24 candidates -> 3 phases, 5.8 s
+XRDV3_0094: 19 candidates -> 2 phases, 3.5 s
+XRDV3_0095: 50 candidates -> 1 phases, 16.4 s
+XRDV3_0096: 24 candidates -> 1 phases, 11.0 s
+XRDV3_0097: 61 candidates -> 2 phases, 12.5 s
+XRDV3_0098: 17 candidates -> 3 phases, 4.4 s
+XRDV3_0099: 629 candidates -> 1 phases, 480.8 s
+XRDV3_0100: already complete; skipped
+	Command being timed: "fig4/benchmark/method_envs/julia-1.12.6/bin/julia --compiled-modules=no --project=fig4/benchmark/method_envs/crystalshift fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl --input-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 --result-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2 --resume --maxiter 512"
+	User time (seconds): 32062.54
+	System time (seconds): 185.01
+	Percent of CPU this job got: 278%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:13:15
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3072476
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 88412468
+	Voluntary context switches: 152393
+	Involuntary context switches: 172228
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 23312
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+WARNING: Constructor for type "MemoryLayout" was extended in `LazyArrays` without explicit qualification or import.
+  NOTE: Assumed "MemoryLayout" refers to `ArrayLayouts.MemoryLayout`. This behavior is deprecated and may differ in future versions.`
+  NOTE: This behavior may have differed in Julia versions prior to 1.12.
+  Hint: If you intended to create a new generic function of the same name, use `function MemoryLayout end`.
+  Hint: To silence the warning, qualify `MemoryLayout` as `ArrayLayouts.MemoryLayout` in the method signature or explicitly `import ArrayLayouts: MemoryLayout`.
+WARNING: method definition for getindex at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/method_envs/julia_depot/packages/TaylorSeries/YHybm/src/auxiliary.jl:125 declares type variable T but does not use it.
+WARNING: method definition for getindex at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/method_envs/julia_depot/packages/TaylorSeries/YHybm/src/auxiliary.jl:161 declares type variable T but does not use it.
+XRDV3_0001: already complete; skipped
+XRDV3_0002: already complete; skipped
+XRDV3_0003: already complete; skipped
+XRDV3_0004: already complete; skipped
+XRDV3_0005: already complete; skipped
+XRDV3_0006: already complete; skipped
+XRDV3_0007: already complete; skipped
+XRDV3_0008: already complete; skipped
+XRDV3_0009: already complete; skipped
+XRDV3_0010: already complete; skipped
+XRDV3_0011: already complete; skipped
+XRDV3_0012: already complete; skipped
+XRDV3_0013: already complete; skipped
+XRDV3_0014: already complete; skipped
+XRDV3_0015: already complete; skipped
+XRDV3_0016: already complete; skipped
+XRDV3_0017: already complete; skipped
+XRDV3_0018: already complete; skipped
+XRDV3_0019: already complete; skipped
+XRDV3_0020: already complete; skipped
+XRDV3_0021: already complete; skipped
+XRDV3_0022: already complete; skipped
+XRDV3_0023: already complete; skipped
+XRDV3_0024: already complete; skipped
+XRDV3_0025: already complete; skipped
+XRDV3_0026: already complete; skipped
+XRDV3_0027: already complete; skipped
+XRDV3_0028: already complete; skipped
+XRDV3_0029: already complete; skipped
+XRDV3_0030: already complete; skipped
+XRDV3_0031: already complete; skipped
+XRDV3_0032: already complete; skipped
+XRDV3_0033: already complete; skipped
+XRDV3_0034: already complete; skipped
+XRDV3_0035: already complete; skipped
+XRDV3_0036: already complete; skipped
+XRDV3_0037: already complete; skipped
+XRDV3_0038: already complete; skipped
+XRDV3_0039: already complete; skipped
+XRDV3_0040: already complete; skipped
+XRDV3_0041: already complete; skipped
+XRDV3_0042: already complete; skipped
+XRDV3_0043: already complete; skipped
+XRDV3_0044: already complete; skipped
+XRDV3_0045: already complete; skipped
+XRDV3_0046: already complete; skipped
+XRDV3_0047: already complete; skipped
+XRDV3_0048: already complete; skipped
+XRDV3_0049: already complete; skipped
+XRDV3_0050: already complete; skipped
+XRDV3_0051: already complete; skipped
+XRDV3_0052: already complete; skipped
+XRDV3_0053: already complete; skipped
+XRDV3_0054: already complete; skipped
+XRDV3_0055: already complete; skipped
+XRDV3_0056: already complete; skipped
+XRDV3_0057: already complete; skipped
+XRDV3_0058: already complete; skipped
+XRDV3_0059: already complete; skipped
+XRDV3_0060: already complete; skipped
+XRDV3_0061: already complete; skipped
+XRDV3_0062: already complete; skipped
+XRDV3_0063: already complete; skipped
+XRDV3_0064: already complete; skipped
+XRDV3_0065: already complete; skipped
+XRDV3_0066: already complete; skipped
+XRDV3_0067: already complete; skipped
+XRDV3_0068: already complete; skipped
+XRDV3_0069: already complete; skipped
+XRDV3_0070: already complete; skipped
+XRDV3_0071: already complete; skipped
+XRDV3_0072: already complete; skipped
+XRDV3_0073: already complete; skipped
+XRDV3_0074: already complete; skipped
+XRDV3_0075: already complete; skipped
+XRDV3_0076: already complete; skipped
+XRDV3_0077: already complete; skipped
+XRDV3_0078: already complete; skipped
+XRDV3_0079: already complete; skipped
+XRDV3_0080: already complete; skipped
+XRDV3_0081: already complete; skipped
+XRDV3_0082: already complete; skipped
+XRDV3_0083: already complete; skipped
+XRDV3_0084: already complete; skipped
+XRDV3_0085: already complete; skipped
+XRDV3_0086: already complete; skipped
+XRDV3_0087: already complete; skipped
+XRDV3_0088: already complete; skipped
+XRDV3_0089: already complete; skipped
+XRDV3_0090: already complete; skipped
+XRDV3_0091: already complete; skipped
+XRDV3_0092: already complete; skipped
+XRDV3_0093: already complete; skipped
+XRDV3_0094: already complete; skipped
+XRDV3_0095: already complete; skipped
+XRDV3_0096: already complete; skipped
+XRDV3_0097: already complete; skipped
+XRDV3_0098: already complete; skipped
+XRDV3_0099: already complete; skipped
+XRDV3_0100: already complete; skipped

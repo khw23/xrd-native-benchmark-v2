@@ -1,0 +1,270 @@
+# generated using pymatgen
+data_4300180
+loop_
+ _publ_author_name
+  'Barbara J\"urgens'
+  'Elisabeth Irran'
+  'Julius Schneider'
+  'Wolfgang Schnick'
+_publ_contact_author
+;
+Wolfgang Schnick  Department Chemie  Ludwig-Maximilians-Universitaet
+Muenchen  Butenandtstr. 5-13 (Haus D)  D-81377 Munich, Germany
+;
+_publ_contact_author_email   wsc@cup.uni-muenchen.de
+_publ_contact_author_fax   +49/89/2180-7440
+_publ_contact_author_phone   +49/89/2180-7439
+_publ_section_title
+;
+Trimerization of NaC2N3 to Na3C6N9 in the Solid: Ab Initio Crystal
+Structure Determination of Two Polymorphs of NaC2N3 and of Na3C6N9
+from X-ray Powder Diffractometry
+;
+_journal_name_full   'Inorganic Chemistry'
+_journal_page_first   665
+_journal_page_last   670
+_journal_paper_doi   10.1021/ic991044f
+_journal_volume   39
+_journal_year   2000
+_chemical_formula_sum   'Cl Na'
+_space_group_IT_number   225
+_symmetry_cell_setting   cubic
+_symmetry_space_group_name_Hall   '-F 4 2 3'
+_symmetry_space_group_name_H-M   'F m -3 m'
+_cell_angle_alpha   90.0
+_cell_angle_beta   90.0
+_cell_angle_gamma   90.0
+_cell_formula_units_Z   4
+_cell_length_a   5.6393(7)
+_cell_length_b   5.6393
+_cell_length_c   5.6393
+_cell_volume   179.34(2)
+_computing_structure_refinement   GSAS
+_diffrn_ambient_temperature   295(2)
+_pd_block_id   PHASE_2
+_pd_meas_info_author_name   'Elisabeth Irran'
+_pd_phase_name   NaCl
+_refine_ls_goodness_of_fit_all   1.11
+_refine_ls_number_parameters   31
+_cod_original_sg_symbol_H-M   'F m 3 m'
+_cod_database_code   4300180
+_cod_database_fobs_code   4300180
+loop_
+ _symmetry_equiv_pos_as_xyz
+  +x,+y,+z
+  +z,+x,+y
+  +y,+z,+x
+  +x,+y,-z
+  -z,+x,+y
+  +y,-z,+x
+  -z,+x,-y
+  -y,-z,+x
+  +y,-z,-x
+  -x,+y,-z
+  -z,-x,+y
+  +x,-y,-z
+  +y,+x,+z
+  +z,+y,+x
+  +x,+z,+y
+  +y,+x,-z
+  -z,+y,+x
+  +x,-z,+y
+  -z,+y,-x
+  -x,-z,+y
+  +x,-z,-y
+  -y,+x,-z
+  -z,-y,+x
+  +y,-x,-z
+  -x,-y,-z
+  -z,-x,-y
+  -y,-z,-x
+  -x,-y,+z
+  +z,-x,-y
+  -y,+z,-x
+  +z,-x,+y
+  +y,+z,-x
+  -y,+z,+x
+  +x,-y,+z
+  +z,+x,-y
+  -x,+y,+z
+  -y,-x,-z
+  -z,-y,-x
+  -x,-z,-y
+  -y,-x,+z
+  +z,-y,-x
+  -x,+z,-y
+  +z,-y,+x
+  +x,+z,-y
+  -x,+z,+y
+  +y,-x,+z
+  +z,+y,-x
+  -y,+x,+z
+  +x,+y+1/2,+z+1/2
+  +z,+x+1/2,+y+1/2
+  +y,+z+1/2,+x+1/2
+  +x,+y+1/2,-z+1/2
+  -z,+x+1/2,+y+1/2
+  +y,-z+1/2,+x+1/2
+  -z,+x+1/2,-y+1/2
+  -y,-z+1/2,+x+1/2
+  +y,-z+1/2,-x+1/2
+  -x,+y+1/2,-z+1/2
+  -z,-x+1/2,+y+1/2
+  +x,-y+1/2,-z+1/2
+  +y,+x+1/2,+z+1/2
+  +z,+y+1/2,+x+1/2
+  +x,+z+1/2,+y+1/2
+  +y,+x+1/2,-z+1/2
+  -z,+y+1/2,+x+1/2
+  +x,-z+1/2,+y+1/2
+  -z,+y+1/2,-x+1/2
+  -x,-z+1/2,+y+1/2
+  +x,-z+1/2,-y+1/2
+  -y,+x+1/2,-z+1/2
+  -z,-y+1/2,+x+1/2
+  +y,-x+1/2,-z+1/2
+  -x,-y+1/2,-z+1/2
+  -z,-x+1/2,-y+1/2
+  -y,-z+1/2,-x+1/2
+  -x,-y+1/2,+z+1/2
+  +z,-x+1/2,-y+1/2
+  -y,+z+1/2,-x+1/2
+  +z,-x+1/2,+y+1/2
+  +y,+z+1/2,-x+1/2
+  -y,+z+1/2,+x+1/2
+  +x,-y+1/2,+z+1/2
+  +z,+x+1/2,-y+1/2
+  -x,+y+1/2,+z+1/2
+  -y,-x+1/2,-z+1/2
+  -z,-y+1/2,-x+1/2
+  -x,-z+1/2,-y+1/2
+  -y,-x+1/2,+z+1/2
+  +z,-y+1/2,-x+1/2
+  -x,+z+1/2,-y+1/2
+  +z,-y+1/2,+x+1/2
+  +x,+z+1/2,-y+1/2
+  -x,+z+1/2,+y+1/2
+  +y,-x+1/2,+z+1/2
+  +z,+y+1/2,-x+1/2
+  -y,+x+1/2,+z+1/2
+  +x+1/2,+y,+z+1/2
+  +z+1/2,+x,+y+1/2
+  +y+1/2,+z,+x+1/2
+  +x+1/2,+y,-z+1/2
+  -z+1/2,+x,+y+1/2
+  +y+1/2,-z,+x+1/2
+  -z+1/2,+x,-y+1/2
+  -y+1/2,-z,+x+1/2
+  +y+1/2,-z,-x+1/2
+  -x+1/2,+y,-z+1/2
+  -z+1/2,-x,+y+1/2
+  +x+1/2,-y,-z+1/2
+  +y+1/2,+x,+z+1/2
+  +z+1/2,+y,+x+1/2
+  +x+1/2,+z,+y+1/2
+  +y+1/2,+x,-z+1/2
+  -z+1/2,+y,+x+1/2
+  +x+1/2,-z,+y+1/2
+  -z+1/2,+y,-x+1/2
+  -x+1/2,-z,+y+1/2
+  +x+1/2,-z,-y+1/2
+  -y+1/2,+x,-z+1/2
+  -z+1/2,-y,+x+1/2
+  +y+1/2,-x,-z+1/2
+  -x+1/2,-y,-z+1/2
+  -z+1/2,-x,-y+1/2
+  -y+1/2,-z,-x+1/2
+  -x+1/2,-y,+z+1/2
+  +z+1/2,-x,-y+1/2
+  -y+1/2,+z,-x+1/2
+  +z+1/2,-x,+y+1/2
+  +y+1/2,+z,-x+1/2
+  -y+1/2,+z,+x+1/2
+  +x+1/2,-y,+z+1/2
+  +z+1/2,+x,-y+1/2
+  -x+1/2,+y,+z+1/2
+  -y+1/2,-x,-z+1/2
+  -z+1/2,-y,-x+1/2
+  -x+1/2,-z,-y+1/2
+  -y+1/2,-x,+z+1/2
+  +z+1/2,-y,-x+1/2
+  -x+1/2,+z,-y+1/2
+  +z+1/2,-y,+x+1/2
+  +x+1/2,+z,-y+1/2
+  -x+1/2,+z,+y+1/2
+  +y+1/2,-x,+z+1/2
+  +z+1/2,+y,-x+1/2
+  -y+1/2,+x,+z+1/2
+  +x+1/2,+y+1/2,+z
+  +z+1/2,+x+1/2,+y
+  +y+1/2,+z+1/2,+x
+  +x+1/2,+y+1/2,-z
+  -z+1/2,+x+1/2,+y
+  +y+1/2,-z+1/2,+x
+  -z+1/2,+x+1/2,-y
+  -y+1/2,-z+1/2,+x
+  +y+1/2,-z+1/2,-x
+  -x+1/2,+y+1/2,-z
+  -z+1/2,-x+1/2,+y
+  +x+1/2,-y+1/2,-z
+  +y+1/2,+x+1/2,+z
+  +z+1/2,+y+1/2,+x
+  +x+1/2,+z+1/2,+y
+  +y+1/2,+x+1/2,-z
+  -z+1/2,+y+1/2,+x
+  +x+1/2,-z+1/2,+y
+  -z+1/2,+y+1/2,-x
+  -x+1/2,-z+1/2,+y
+  +x+1/2,-z+1/2,-y
+  -y+1/2,+x+1/2,-z
+  -z+1/2,-y+1/2,+x
+  +y+1/2,-x+1/2,-z
+  -x+1/2,-y+1/2,-z
+  -z+1/2,-x+1/2,-y
+  -y+1/2,-z+1/2,-x
+  -x+1/2,-y+1/2,+z
+  +z+1/2,-x+1/2,-y
+  -y+1/2,+z+1/2,-x
+  +z+1/2,-x+1/2,+y
+  +y+1/2,+z+1/2,-x
+  -y+1/2,+z+1/2,+x
+  +x+1/2,-y+1/2,+z
+  +z+1/2,+x+1/2,-y
+  -x+1/2,+y+1/2,+z
+  -y+1/2,-x+1/2,-z
+  -z+1/2,-y+1/2,-x
+  -x+1/2,-z+1/2,-y
+  -y+1/2,-x+1/2,+z
+  +z+1/2,-y+1/2,-x
+  -x+1/2,+z+1/2,-y
+  +z+1/2,-y+1/2,+x
+  +x+1/2,+z+1/2,-y
+  -x+1/2,+z+1/2,+y
+  +y+1/2,-x+1/2,+z
+  +z+1/2,+y+1/2,-x
+  -y+1/2,+x+1/2,+z
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_thermal_displace_type
+ _atom_site_U_iso_or_equiv
+ _atom_site_symmetry_multiplicity
+  NA1  .0  .0  .0  1.0  Uiso  .025  4
+  CL2  .0  .5  .0  1.0  Uiso  .025  4
+loop_
+ _atom_type_symbol
+ _atom_type_number_in_cell
+  NA  4.0
+  CL  4.0
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  MPOD  1000130
+  2  MPOD  1000140
+  3  MPOD  1000142
+  4  MPOD  1000151
+  5  PubChem  5234

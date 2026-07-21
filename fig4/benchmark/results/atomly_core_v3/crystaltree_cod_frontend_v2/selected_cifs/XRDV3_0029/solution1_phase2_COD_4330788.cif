@@ -1,0 +1,101 @@
+# generated using pymatgen
+data_4330788
+loop_
+ _publ_author_name
+  'Tatsunori Sakaguchi'
+  'Yoji Kobayashi'
+  'Takeshi Yajima'
+  'Masatoshi Ohkura'
+  "C\'edric Tassel"
+  'Fumitaka Takeiri'
+  'Shingo Mitsuoka'
+  'Hiroshi Ohkubo'
+  'Takafumi Yamamoto'
+  'Jung eun Kim'
+  'Naruki Tsuji'
+  'Akihiko Fujihara'
+  'Yoshitaka Matsushita'
+  'James Hester'
+  'Maxim Avdeev'
+  'Kenji Ohoyama'
+  'Hiroshi Kageyama'
+_publ_contact_author_name   'Hiroshi Kageyama'
+_publ_section_title
+'Oxyhydrides of (Ca,Sr,Ba)TiO3 Perovskite Solid Solutions'
+_journal_name_full   'Inorganic Chemistry'
+_journal_page_first   11371
+_journal_page_last   11376
+_journal_paper_doi   10.1021/ic300859n
+_journal_volume   51
+_journal_year   2012
+_chemical_formula_sum   'Ca0.8 H0.22 O2.78 Sr0.2 Ti'
+_chemical_formula_weight   142.18
+_chemical_name_common   'calcium strontium titanium oxyhydride'
+_chemical_name_systematic   'calcium strontium titanium oxyhydride'
+_space_group_IT_number   62
+_symmetry_cell_setting   orthorhombic
+_symmetry_Int_Tables_number   62
+_symmetry_space_group_name_Hall   '-P 2c 2ab'
+_symmetry_space_group_name_H-M   'P b n m'
+_cell_angle_alpha   90.0
+_cell_angle_beta   90.0
+_cell_angle_gamma   90.0
+_cell_formula_units_Z   4
+_cell_length_a   5.42792(5)
+_cell_length_b   5.45549(5)
+_cell_length_c   7.69587(9)
+_cell_volume   227.890(4)
+_computing_structure_refinement   GSAS
+_diffrn_ambient_temperature   300
+_diffrn_radiation_probe   neutron
+_diffrn_radiation_wavelength   1.85
+_pd_block_id   2012-03-01T17:51|C8S2-R-N-RIET1ERROR_phase1|yoji||
+_pd_phase_name   'from C:/gsas/MyWork/ATOH/CTO-r-n/CTO-R-N-RIET1.cif'
+_refine_ls_matrix_type   full
+_refine_ls_number_parameters   2
+_refine_ls_number_restraints   0
+_refine_ls_shift/su_max   0.00
+_refine_ls_shift/su_mean   0.00
+_cod_data_source_file   ic300859n_C8S2TiOH.cif
+_cod_data_source_block   C8S2-R-N-RIET1ERROR_phase_1
+_cod_original_cell_volume   227.889
+_cod_original_formula_sum   'Ca0.80 H0.22 O2.78 Sr0.20 Ti'
+_cod_database_code   4330788
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  +x,+y,+z
+  2  -x+1/2,+y+1/2,+z
+  3  +x+1/2,-y+1/2,+z+1/2
+  4  -x,-y,+z+1/2
+  -1  -x,-y,-z
+  -2  +x+1/2,-y+1/2,-z
+  -3  -x+1/2,+y+1/2,-z+1/2
+  -4  +x,+y,-z+1/2
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_thermal_displace_type
+ _atom_site_U_iso_or_equiv
+ _atom_site_symmetry_multiplicity
+  Ca  Ca1  -0.007(2)  0.0252(8)  0.25  0.8  Uiso  0.0137(7)  4
+  Ti  Ti1  0.0  0.5  0.0  1.0  Uiso  0.0032(8)  4
+  O  O1  0.064(1)  0.4866(8)  0.25  0.927(3)  Uiso  0.0068(5)  4
+  O  O2  0.7152(5)  0.2847(5)  0.0309(4)  0.927(3)  Uiso  0.0068(5)
+  8
+  H  H1  0.064(1)  0.4866(8)  0.25  0.073(3)  Uiso  0.0068(5)  4
+  H  H2  0.7152(5)  0.2847(5)  0.0309(4)  0.073(3)  Uiso  0.0068(5)
+  8
+  Sr  Sr  -0.007(2)  0.0252(8)  0.25  0.2  Uiso  0.0137(7)  4
+loop_
+ _atom_type_symbol
+ _atom_type_number_in_cell
+  Ca  3.2
+  Ti  4.0
+  O  11.124
+  H  0.876
+  Sr  0.8

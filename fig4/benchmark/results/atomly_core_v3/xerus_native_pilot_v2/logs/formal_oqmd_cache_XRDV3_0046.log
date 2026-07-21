@@ -1,0 +1,98 @@
+/home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/engine/gsas2utils.py:31: UserWarning: Importing GSASIIscriptable as a top level module is deprecated, please import it as a sub-module of GSASII
+  import GSASIIscriptable as G2sc  # Ignore Warning
+GSAS-II binaries co-located with GSAS-II: /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/xerus-env/lib/python3.12/site-packages/GSASII
+5 values read from /home/khw/.GSASII/config.ini
+Sucessfuly read datafile /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/preprocessed_inputs/XRDV3_0046.xy
+Standarizing intensity to [0,1]..
+Exported new datafile at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0046/XRDV3_0046_preprocessed.csv
+Removing background using polynomial degree: 8
+Using preprocessed data /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0046/XRDV3_0046_preprocessed.csv. New datafmt is: csv
+Sucessfuly connected to the database
+Checking the following combination:Ag
+Checking the following combination:Br
+Checking the following combination:Cl
+Checking the following combination:Ag-Br
+Checking the following combination:Ag-Cl
+Checking the following combination:Br-Cl
+Checking the following combination:Ag-Br-Cl
+Ag
+Br
+Cl
+Ag-Br
+Ag-Cl
+Br-Cl
+Ag-Br-Cl
+Modified Query for given 3 to : ['Ag', 'Br', 'Cl', 'Ag-Br', 'Ag-Cl', 'Br-Cl', 'Ag-Br-Cl']
+Simulating 226 patterns
+Done. Cleaning up GSASII files.
+Highest Correlated pattern is AgCl, with Cij: 0.8362869414397394
+XRDV3_0046.xy_Top30.html
+Sucessfuly read datafile /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0046/XRDV3_0046_preprocessed.csv
+Refining 3 highest correlated patterns and determining main phase (n=0)...
+Phase detected AgCl_OQMD_5492459.cif with rwp 15.605355298703055
+Removing 1 patterns that maximum intensity dropped below 10%.
+Phase detected AgBr_MP_mp-570301.cif
+Removing 2 patterns that maximum intensity dropped below 10%.
+Phase detected AgCl2_OQMD_6033825.cif
+/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0046/XRDV3_0046All_N_Runs.html
+0
+585
+2594
+0
+585
+2594
+Filtering combinations..
+Initial # of combs: 28
+Final # of combs: 19, # removed: 9
+Removed 0 repeated combinations.
+Phase: AgCl-Fm-3m_AgBr2-Fmm2, Rwp: 17.253249982418428
+Phase: AgCl-Fm-3m_Ag3Cl4-Cmce_Br-Cmce, Rwp: 17.508699078367044
+Phase: AgCl-Fm-3m_AgBr-P2_1-m_Ag-R-3m, Rwp: 7.104428178715261
+Phase: AgCl-Fm-3m_AgBr-P2_1-m_AgBr2-Fmm2, Rwp: 14.128732010023812
+Phase: AgCl-Fm-3m_Ag-R-3m_AgCl3-R-3m, Rwp: 15.530858850523597
+Phase: AgCl-Fm-3m_AgBr2-Fmm2_AgCl2-P2_1-c, Rwp: 17.281331350822953
+Phase: AgCl-Fm-3m_Ag3Cl4-Cmce_AgBr-P2_1-m, Rwp: 14.413958848710639
+Phase: AgCl-Fm-3m_Ag3Cl4-Cmce_Ag-R-3m, Rwp: 20.797942230782645
+Phase: AgCl-Fm-3m_AgBr-P2_1-m_AgCl2-P2_1-c, Rwp: 12.706166793860863
+Phase: AgCl-Fm-3m_AgBr-P2_1-m_Ag3(BrCl)2-P-1, Rwp: 12.514023569884008
+Phase: AgCl-Fm-3m_AgBr-P2_1-m, Rwp: 7.024164804652769
+Phase: AgCl-Fm-3m_Ag-R-3m, Rwp: 15.541053944891312
+Phase: AgCl-Fm-3m_Br-Cmce_Ag-R-3m, Rwp: 15.531812381911275
+Phase: AgCl-Fm-3m_Br-Cmce_AgBr2-Fmm2, Rwp: 15.603373720261049
+Phase: AgCl-Fm-3m_AgBr-P2_1-m_AgCl3-R-3m, Rwp: 13.538956349315354
+Phase: AgCl-Fm-3m_Ag-R-3m_AgBr2-Fmm2, Rwp: 15.528599070566
+Phase: AgCl-Fm-3m_AgBr2-Fmm2_Ag3(BrCl)2-P-1, Rwp: 17.231654458127725
+Phase: AgCl-Fm-3m_AgBr2-Fmm2_AgCl3-R-3m, Rwp: 15.576928420315264
+Phase: AgCl-Fm-3m_Ag3Cl4-Cmce, Rwp: 17.469683370948687
+Phase: AgCl-Fm-3m_Br-Cmce, Rwp: 15.578620901869161
+Phase: AgCl-Fm-3m_Ag3Cl4-Cmce_AgBr2-Fmm2, Rwp: 18.116495859090044
+Phase: AgCl-Fm-3m_Br-Cmce_AgBr-P2_1-m, Rwp: 12.866525606765194
+Phase: AgCl-Fm-3m_Ag-R-3m_AgCl2-P2_1-c, Rwp: 18.895571711680233
+Phase: AgCl-Fm-3m_Ag-R-3m_Ag3(BrCl)2-P-1, Rwp: 18.940199268556967
+Analysis complete
+Best combination: AgCl_OQMD_5492459.cif_AgBr_MP_mp-570301.cif, Rwp: 7.024164804652769%
+Returning data to original format xy
+XRDV3_0046: 63 candidates -> 2 phases, Rwp=7.024%, 27.4 s
+	Command being timed: "xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py --sample-id XRDV3_0046 --resume --retry-failures --n-jobs 4 --oqmd-cache-root fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2"
+	User time (seconds): 78.68
+	System time (seconds): 5.28
+	Percent of CPU this job got: 292%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:28.70
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 594824
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2
+	Minor (reclaiming a frame) page faults: 2555652
+	Voluntary context switches: 2658
+	Involuntary context switches: 1165
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 639720
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
