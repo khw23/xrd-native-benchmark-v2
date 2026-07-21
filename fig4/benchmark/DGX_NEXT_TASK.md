@@ -28,13 +28,49 @@ git pull --ff-only origin results/dgx-conversion-xerus-pilots
 Git 历史保存旧诊断；当前 CSV/JSON 只保留每个样本最新的正式输出。环境、cache、MongoDB、整库 CIF、
 API key 和私有真值不得提交。
 
-## 1. CrystalShift/CrystalTree：先纠正 128 iterations
+## 当前立即执行：CrystalTree 100 条全量
+
+提交 `e570ff2` 已完成并通过以下门：6,622 条 COD 候选完整转换、512-iteration
+API/数值兼容门、公开 Al-Fe-Li-O paper-fixture maxiter 敏感性门，以及低/中/高候选规模的
+三个 512-iteration smoke。用户已批准启动 CrystalTree 100 条全量。
+
+正式配置冻结为 `simple_fixed_sigma_0p1_maxiter512`。不得读取私有真值，不得根据全量预测结果
+修改先验、噪声、tree depth、候选扩展数或 phase-count 设置。只启动一个写入该结果目录的进程；
+开始前先确认没有已有 `run_crystaltree_cod_v3.jl` 任务。
+
+```bash
+mkdir -p fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/logs
+
+julia +1.12.6 --compiled-modules=no \
+  --project=fig4/benchmark/method_envs/crystalshift \
+  fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl \
+  --input-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 \
+  --result-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2 \
+  --resume --maxiter 512 \
+  2>&1 | tee fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/logs/full_maxiter512.log
+```
+
+这是可续跑命令：中断后使用完全相同的命令，不删除 CSV/JSON 或 selected CIF。重点观察大候选样本
+`XRDV3_0099`（629）、`XRDV3_0003`/`XRDV3_0058`（540）和
+`XRDV3_0001`/`XRDV3_0010`/`XRDV3_0078`（395）；运行时间长本身不是失败，先检查 CPU、日志和
+`run_records.json` 是否继续更新。不要并发启动第二个写同一结果目录的任务。
+
+完成后必须检查：100 个样本各有最新 `status=ok`、最新成功记录均为 `maxiter=512` 和同一
+`configuration_id`、`predictions.csv`/`top_hypotheses.csv` 无重复当前输出、selected CIF 路径存在，
+并重新生成 checksums。随后更新 `DGX_PILOT_GATE_REPORT.md` 为 full-run report，提交结果并推回
+同一 `results/dgx-conversion-xerus-pilots` 分支。CrystalShift activation 仍不得解释为质量分数或
+摩尔分数。
+
+## 1. CrystalShift/CrystalTree：已完成的门控记录
+
+本节只保留参数决定和审计 provenance；DGX 不要重复执行本节的 gate/smoke 命令，当前任务以
+文档顶部“当前立即执行：CrystalTree 100 条全量”为准。
 
 论文正文没有规定唯一的 `maxiter`，但官方论文复现源码
 `third_party/CrystalShift.jl/paper/AlFeLiO.jl` 对最接近本 benchmark 的 1--3 相合成任务使用
 `maxiter=512`；`128` 只是 `OptimizationSettings` 的软件默认值。因此正式 runner 已改为默认 512。
 
-先把原来的精确两相 fixture 作为 API/数值兼容门重跑；它不是准确率或参数优选证据：
+原来的精确两相 fixture 已作为 API/数值兼容门重跑；它不是准确率或参数优选证据：
 
 ```bash
 mkdir -p fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/parameter_gate
@@ -44,7 +80,7 @@ julia +1.12.6 --compiled-modules=no \
   fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2/parameter_gate/maxiter512_compatibility_gate.json
 ```
 
-随后只用上游公开的 Al-Fe-Li-O paper fixture 做参数敏感性审计，不得读取 100 条私有真值：
+随后已只用上游公开的 Al-Fe-Li-O paper fixture 做参数敏感性审计，没有读取 100 条私有真值：
 
 1. 新建一个精简的 `validate_crystaltree_paper_fixture.jl`。
 2. 从上游 `paper/data/AlFeLiO/` 按固定规则选择最前面的 4 个单相、4 个二相、4 个三相样本；
@@ -55,7 +91,7 @@ julia +1.12.6 --compiled-modules=no \
    现有 `std_noise=0.1` + Simple + background off 只来自 README 示例，不能再称为已经科学验证。
 5. 将比较写入同一 `parameter_gate/` 下的一个 JSON 和一个 Markdown；不要生成新的结果根目录。
 
-在完成上述公开开发集审计前不要跑 100 条全量。可以先用修正后的 512 在原目录定点替换三个 smoke：
+上述公开开发集审计和三个 512 smoke 均已完成；以下命令仅作 provenance，不要重复执行：
 
 ```bash
 julia +1.12.6 --compiled-modules=no \
@@ -72,7 +108,7 @@ julia +1.12.6 --compiled-modules=no \
 `top_hypotheses.csv` 每个样本没有重复旧输出。旧 128 记录可留在 `run_records.json` 作为审计轨迹，
 但报告中须标记为 superseded diagnostic。
 
-只有公开开发集参数审计通过、三个 512 smoke 正常，才可在同一目录续跑剩余样本：
+公开开发集参数审计和三个 512 smoke 已通过；当前全量运行使用文档顶部已批准的命令：
 
 ```bash
 julia +1.12.6 --compiled-modules=no \
