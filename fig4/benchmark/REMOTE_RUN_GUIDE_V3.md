@@ -144,8 +144,10 @@ CrystalShift activation 只写入备注，不转换成摩尔或质量分数。DG
 
 ## 4. DGX：XERUS 原生数据库流程
 
-XERUS 需要 MongoDB、Materials Project API key、在线 COD/OQMD/ODBX 请求和 GSAS-II。
-账号和 API key 只写在 DGX 本地，不提交仓库。
+XERUS 需要 MongoDB、Materials Project API key、COD/ODBX 网络访问和 GSAS-II。OQMD 网络曾持续
+502，因此当前 pilot 通过 `--oqmd-cache-root` 使用仓库内经过校验的原始 OPTIMADE 响应；它不改变
+OQMD 筛选条件或 XERUS 的结构转换。账号和 API key 只写在 DGX 本地，不提交仓库。当前应执行的
+冻结命令以 `fig4/benchmark/DGX_NEXT_TASK.md` 为准。
 
 先启动 MongoDB，例如：
 
@@ -194,18 +196,21 @@ export MPLBACKEND=Agg
 若 GSAS-II 的 ARM64 扩展安装失败，停止并记录 infrastructure failure；不要改成私有 CIF
 候选测试。此时 XERUS 也转到 x86_64 服务器更稳妥。
 
-先顺序跑低/中/高候选规模的三个 pilot（分档来自冻结 COD 前端，仅作负载代理）：
+通用环境配置完成后，不要直接按旧方案跑三个 pilot。当前先用独立 MongoDB 和冻结 OQMD cache
+完成 `XRDV3_0046` 的单样本候选门；完整命令和检查项见 `DGX_NEXT_TASK.md`：
 
 ```bash
 xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py \
-  --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100 \
-  --n-jobs 4 \
+  --sample-id XRDV3_0046 --prepare-candidates-only \
+  --resume --retry-failures --n-jobs 4 \
+  --oqmd-cache-root fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot \
   --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2
 ```
 
-pilot 必须确认：MongoDB 查询完成、候选数非零、最终数据库 ID/CIF、Rwp 和质量分数都被保存，
-并记录 provider 超时、总耗时和失败恢复情况。单样本结果不能外推可靠加速比。先提交 pilot 报告；
-得到继续确认后才全量：
+候选门必须确认：MongoDB 查询完成、候选数非零、候选 manifest 和 OQMD cache SHA-256 已记录，
+且没有新的 OQMD HTTP 请求。随后按 `DGX_NEXT_TASK.md` 去掉 `--prepare-candidates-only` 运行同一
+样本，确认最终数据库 ID/CIF、Rwp 和质量分数都被保存。单样本结果不能外推可靠加速比；当前不得
+继续三个样本或全量。完整 OQMD cache 尚未冻结，以下全量命令仅保留为后续模板，不得现在执行：
 
 ```bash
 xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py \

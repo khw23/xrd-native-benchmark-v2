@@ -121,40 +121,67 @@ julia +1.12.6 --compiled-modules=no \
 
 CrystalShift activation 仍是模型内部量，不得解释为摩尔分数或质量分数。
 
-## 2. XERUS：为什么这次失败，以及正确续跑方式
+## 2. XERUS：冻结 OQMD 传输后的单样本 pilot
 
-之前 `XRDV3_0001` 不是一次无故障成功：它先后留下 MP API 兼容、COD 断连和 OQMD timeout 等
-6 次失败，第 7 次才完成。此次三个 pilot 中 MP/COD 成功后，OQMD OPTIMADE 对每次请求持续返回
-HTTP 502；XERUS 原生 `multiquery` 串行调用 MP、COD、OQMD、ODBX，任一 provider 抛异常就不会把
-该元素子系统写入 MongoDB，所以整个分析在模拟/精修前终止。这是外部 provider gate，不是谱线
-扰动导致的识别失败。
+之前的失败发生在候选下载阶段：MP/COD 成功后，OQMD OPTIMADE 持续返回 HTTP 502。它不是谱线
+扰动导致的识别失败。不要忽略 OQMD；本仓库现已冻结 `XRDV3_0046` 所需的 7 个 OQMD 元素子系统
+原始 OPTIMADE 响应，共 150 条结构记录：
 
-不要把 OQMD 加入忽略列表：那会改变候选协议，而且 XERUS 的 `ignore_provider` 本来也是下载后过滤，
-不能修复下载阶段异常。先做 OQMD health check；只有接口恢复为 200 才继续。
+- cache：`fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot/`
+- 元素子系统：`Ag`、`Br`、`Cl`、`Ag-Br`、`Ag-Cl`、`Br-Cl`、`Ag-Br-Cl`
+- 顶层 manifest 必须为 `complete=true`，且所有分页 SHA-256 通过。
 
-接口恢复后，先用新增的 `--prepare-candidates-only` 在同一个 MongoDB 和同一个结果目录冻结候选。
-先重试三档 pilot：
+这个 cache 只替代 OQMD 的不稳定网络传输；过滤条件仍是 XERUS 1.1b 原生使用的
+`elements HAS ONLY ... AND _oqmd_stability<0.05`，OPTIMADE 到 pymatgen/CIF 的转换仍由 DGX 上的
+XERUS/optimade-adapters 执行。MP、COD、ODBX 仍走 XERUS 原生数据库流程，不能用 Atomly CIF
+代替候选库。
+
+为防止旧的部分 MongoDB 状态让 pilot 被误判为完整，使用一个固定的独立 MongoDB 容器和 volume；
+不要再创建更多临时数据库目录：
+
+```bash
+docker run -d --name xerus-mongo-oqmd-pilot -p 27018:27017 \
+  -e MONGO_INITDB_ROOT_USERNAME=xerus \
+  -e MONGO_INITDB_ROOT_PASSWORD=xerus_pilot_v3 \
+  -v xerus-mongo-oqmd-pilot:/data/db mongo:6
+```
+
+若这个固定容器已经由同一 pilot 创建，使用 `docker start xerus-mongo-oqmd-pilot` 续用，不要再建
+第二个。将 DGX 本地（不得提交）的 XERUS `config.conf` 中 `[mongodb]` 改为：
+
+```ini
+host = localhost:27018
+user = xerus
+password = xerus_pilot_v3
+```
+
+保留现有 MP API key 和 GSAS-II profile 设置。先只准备 `XRDV3_0046` 的候选；这一步可与
+CrystalTree 全量并行，但不要再启动第二个 CrystalTree writer：
 
 ```bash
 xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py \
-  --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100 \
+  --sample-id XRDV3_0046 \
   --prepare-candidates-only --resume --retry-failures --n-jobs 4 \
+  --oqmd-cache-root fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot \
   --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2
 ```
 
-确认三条最新记录均为 `candidates_ready`，候选数非零，`candidate_manifests/` 含 provider、数据库 ID
-和路径记录，并确认运行时没有新的联网请求后，再在同目录运行正式三个 pilot：
+先检查 `XRDV3_0046` 最新记录为 `candidates_ready`、候选数非零，`candidate_manifests/` 含 provider、
+数据库 ID 和 CIF 路径，并记录 `oqmd_source=frozen_local_optimade_cache`、cache manifest SHA-256。
+日志中不应出现对 `oqmd.org` 的 HTTP 请求；MP/COD/ODBX 联网仍属预期。随后在同一 cache、MongoDB
+和结果目录运行这一个正式 pilot：
 
 ```bash
 xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py \
-  --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100 \
+  --sample-id XRDV3_0046 \
   --resume --retry-failures --n-jobs 4 \
+  --oqmd-cache-root fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot \
   --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2
 ```
 
-三个 pilot 必须都有最终 ID/CIF、Rwp、质量分数、候选清单和运行时间。随后先提交报告；不要直接跑
-100 条。下一阶段应先按同样方式预取全部 100 条涉及的元素子系统，使正式识别阶段只读冻结的
-MongoDB，再决定 1 路或 2 路计算。若 OQMD 仍不稳定，只报告 blocked，不重复消耗计算资源。
+这一个 pilot 必须得到最终数据库 ID/CIF、Rwp、XERUS 报告的质量分数、候选清单和运行时间。
+只在 `XRDV3_0046` 的候选门及正式运行都通过后报告结果；不要继续另外两条或 100 条。下一阶段再用
+同一个下载器和固定 cache 根目录扩展全部 benchmark 所需元素子系统，并重新冻结完整候选快照。
 
 ## 3. 回传与提交
 
@@ -165,6 +192,9 @@ MongoDB，再决定 1 路或 2 路计算。若 OQMD 仍不稳定，只报告 blo
 git status --short
 git diff --check
 git add fig4/benchmark/DGX_NEXT_TASK.md \
+  fig4/benchmark/REMOTE_RUN_GUIDE_V3.md \
+  fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot \
+  fig4/benchmark/prototypes/download_oqmd_optimade_cache_v3.py \
   fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl \
   fig4/benchmark/prototypes/validate_crystaltree_parameter_gate.jl \
   fig4/benchmark/prototypes/run_xerus_native_v3.py \

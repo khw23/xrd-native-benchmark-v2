@@ -58,6 +58,15 @@ def parse_args() -> argparse.Namespace:
             "but do not simulate, correlate, or refine the pattern."
         ),
     )
+    parser.add_argument(
+        "--oqmd-cache-root",
+        type=Path,
+        default=None,
+        help=(
+            "Use a complete checksummed local OQMD OPTIMADE cache instead of "
+            "live OQMD requests."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -162,6 +171,94 @@ def remove_incomplete_provider_dirs(xerus_module, sample_id: str) -> list[str]:
     return removed
 
 
+def install_oqmd_cache(cache_root: Path) -> dict:
+    """Route only OQMD OptimadeQuery calls through frozen raw OPTIMADE pages."""
+    from optimade.adapters import Structure
+    from Xerus.queriers.optimade import OptimadeQuery
+
+    cache_root = cache_root.resolve()
+    cache_manifest_path = cache_root / "cache_manifest.json"
+    if not cache_manifest_path.exists():
+        raise FileNotFoundError(f"Missing OQMD cache manifest: {cache_manifest_path}")
+    cache_manifest = json.loads(cache_manifest_path.read_text(encoding="utf-8"))
+    if cache_manifest.get("complete") is not True:
+        raise RuntimeError(f"OQMD cache is not complete: {cache_manifest_path}")
+    system_index = {}
+    for item in cache_manifest.get("systems", []):
+        system = item.get("system")
+        manifest_path = cache_root / str(item.get("manifest", ""))
+        if not system or not manifest_path.exists():
+            raise RuntimeError(f"Invalid OQMD cache system entry: {item}")
+        if sha256(manifest_path) != item.get("manifest_sha256"):
+            raise RuntimeError(f"Frozen OQMD manifest checksum failed: {manifest_path}")
+        system_index[system] = item
+    if len(system_index) != int(cache_manifest.get("complete_system_count", -1)):
+        raise RuntimeError("Frozen OQMD cache system count mismatch")
+    original_query = OptimadeQuery.query
+
+    def cached_query(self, query_url=None):
+        if "oqmd.org" not in self.base_url.lower():
+            return original_query(self, query_url)
+        system = "-".join(sorted(self.elements))
+        if system not in system_index:
+            raise FileNotFoundError(
+                f"Frozen OQMD cache does not contain required system {system}"
+            )
+        system_root = cache_root / "systems" / system
+        manifest_path = system_root / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if manifest.get("complete") is not True:
+            raise RuntimeError(f"Frozen OQMD cache is incomplete for {system}")
+        if sorted(manifest.get("elements", [])) != sorted(self.elements):
+            raise RuntimeError(f"Frozen OQMD element mismatch for {system}")
+
+        written = 0
+        seen_ids = set()
+        for page in manifest.get("pages", []):
+            page_path = system_root / page["file"]
+            if not page_path.exists() or sha256(page_path) != page["sha256"]:
+                raise RuntimeError(f"Frozen OQMD page checksum failed: {page_path}")
+            data = json.loads(page_path.read_text(encoding="utf-8"))
+            meta = data["meta"]
+            for entry in data["data"]:
+                entry_id = str(entry["id"])
+                if entry_id in seen_ids:
+                    raise RuntimeError(f"Duplicate OQMD ID {entry_id} in {system}")
+                seen_ids.add(entry_id)
+                try:
+                    structure = Structure(entry)
+                    suffix = self.make_suffix(
+                        entry=structure.entry.dict(), meta=meta
+                    )
+                    pymatgen_structure = structure.convert("pymatgen")
+                    formula = pymatgen_structure.composition.reduced_formula
+                    filename = f"{formula}_{suffix}"
+                    target = self.folder_path / filename
+                    pymatgen_structure.to(
+                        fmt="cif", filename=target, symprec=self.symprec
+                    )
+                    written += 1
+                except (ValueError, TypeError):
+                    print(f"Failed to convert cached OQMD entry {entry_id}")
+        if len(seen_ids) != int(manifest.get("entry_count", -1)):
+            raise RuntimeError(f"Frozen OQMD entry count mismatch for {system}")
+        if len(seen_ids) != int(system_index[system].get("entry_count", -1)):
+            raise RuntimeError(f"Frozen OQMD top-level count mismatch for {system}")
+        print(
+            f"Loaded frozen OQMD cache for {system}: "
+            f"{len(seen_ids)} entries, {written} CIFs written"
+        )
+
+    OptimadeQuery.query = cached_query
+    return {
+        "cache_root": repository_path(cache_root),
+        "cache_manifest": repository_path(cache_manifest_path),
+        "cache_manifest_sha256": sha256(cache_manifest_path),
+        "cache_complete": cache_manifest.get("complete"),
+        "cache_system_count": cache_manifest.get("complete_system_count"),
+    }
+
+
 def main() -> None:
     args = parse_args()
     result_root = args.result_root.resolve()
@@ -179,6 +276,13 @@ def main() -> None:
     import Xerus
     from Xerus import XRay
     from Xerus.settings.settings import INSTR_PARAMS as XERUS_PROFILE
+
+    oqmd_cache = (
+        install_oqmd_cache(args.oqmd_cache_root)
+        if args.oqmd_cache_root is not None
+        else None
+    )
+    oqmd_source = "frozen_local_optimade_cache" if oqmd_cache else "live_optimade"
 
     configured_profile = Path(XERUS_PROFILE)
     if not configured_profile.exists() or sha256(configured_profile) != sha256(PROFILE):
@@ -296,6 +400,10 @@ def main() -> None:
                         "candidate_database": (
                             "XERUS native MP/COD/OQMD/ODBX cache; AFLOW ignored"
                         ),
+                        "oqmd_source": oqmd_source,
+                        "oqmd_cache_manifest_sha256": (
+                            oqmd_cache["cache_manifest_sha256"] if oqmd_cache else None
+                        ),
                         "candidate_count": int(len(xray.cif_info)),
                         "candidate_snapshot_count": int(len(candidate_snapshot)),
                         "candidate_manifest": str(candidate_manifest.relative_to(ROOT)),
@@ -401,6 +509,10 @@ def main() -> None:
                     "xerus_input_sha256": sha256(xerus_pattern),
                     "xerus_input_transform": "numeric parse; remove comment/header lines only",
                     "candidate_database": "XERUS native MP/COD/OQMD/ODBX cache; AFLOW ignored",
+                    "oqmd_source": oqmd_source,
+                    "oqmd_cache_manifest_sha256": (
+                        oqmd_cache["cache_manifest_sha256"] if oqmd_cache else None
+                    ),
                     "candidate_count_after_xerus_filter": int(len(xray.cif_info)),
                     "candidate_count_before_simulation": int(len(candidate_snapshot)),
                     "candidate_manifest": str(
@@ -442,6 +554,10 @@ def main() -> None:
                     "error": str(error),
                     "traceback": traceback.format_exc(),
                     "incomplete_provider_dirs_removed": removed_provider_dirs,
+                    "oqmd_source": oqmd_source,
+                    "oqmd_cache_manifest_sha256": (
+                        oqmd_cache["cache_manifest_sha256"] if oqmd_cache else None
+                    ),
                 }
             )
             print(f"{sample.sample_id}: ERROR after {elapsed:.1f} s: {error}", flush=True)
@@ -467,6 +583,8 @@ def main() -> None:
         "max_oxy": "number of disclosed sample elements",
         "private_truth_used": False,
         "prepare_candidates_only": args.prepare_candidates_only,
+        "oqmd_source": oqmd_source,
+        "oqmd_cache": oqmd_cache,
     }
     (result_root / "environment.json").write_text(
         json.dumps(environment, indent=2) + "\n", encoding="utf-8"
