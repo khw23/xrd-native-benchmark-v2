@@ -1,0 +1,11 @@
+{
+  "audit_timepoint": "before_seed_copy_and_download",
+  "input_manifest": "fig4/benchmark/datasets/literature_external_v1/blind_package/sample_manifest.csv",
+  "input_manifest_sha256": "c3bf12a4746497f3a9ca78d25e5a4673be10035a2824241c93b1ab07604de1d9",
+  "database_index": "Dara bundled COD index 2024",
+  "selection_rule": "all non-gas COD phases in every nonempty subset of disclosed sample_elements with e_hull <= 0.1 eV/atom when available",
+  "required_unique_cod_cifs": 2122,
+  "already_present": 0,
+  "reusable_from_seed": 665,
+  "missing_after_seed": 1457
+}

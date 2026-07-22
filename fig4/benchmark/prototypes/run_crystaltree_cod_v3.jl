@@ -1,6 +1,7 @@
 using DelimitedFiles
 using JSON
 using LinearAlgebra
+using SHA
 using CrystalShift
 using CrystalShift: CrystalPhase, FixedPseudoVoigt, OptimizationSettings
 using CrystalTree
@@ -17,10 +18,13 @@ const DEFAULT_MAXITER = 512
 function parse_args()
     limit = nothing
     sample_ids = String[]
+    dataset_families = String[]
     resume = false
     rerun_selected = false
     maxiter = DEFAULT_MAXITER
+    blind_root = BLIND_ROOT
     input_root = INPUT_ROOT
+    cod_root = COD_ROOT
     result_root = RESULT_ROOT
     i = 1
     while i <= length(ARGS)
@@ -28,14 +32,20 @@ function parse_args()
             limit = parse(Int, ARGS[i + 1]); i += 2
         elseif ARGS[i] == "--sample-id"
             push!(sample_ids, ARGS[i + 1]); i += 2
+        elseif ARGS[i] == "--dataset-family"
+            push!(dataset_families, ARGS[i + 1]); i += 2
         elseif ARGS[i] == "--resume"
             resume = true; i += 1
         elseif ARGS[i] == "--rerun-selected"
             rerun_selected = true; i += 1
         elseif ARGS[i] == "--maxiter"
             maxiter = parse(Int, ARGS[i + 1]); i += 2
+        elseif ARGS[i] == "--blind-root"
+            blind_root = abspath(ARGS[i + 1]); i += 2
         elseif ARGS[i] == "--input-root"
             input_root = abspath(ARGS[i + 1]); i += 2
+        elseif ARGS[i] == "--cod-root"
+            cod_root = abspath(ARGS[i + 1]); i += 2
         elseif ARGS[i] == "--result-root"
             result_root = abspath(ARGS[i + 1]); i += 2
         else
@@ -45,7 +55,7 @@ function parse_args()
     maxiter > 0 || error("--maxiter must be positive")
     rerun_selected && !resume && error("--rerun-selected requires --resume")
     rerun_selected && isempty(sample_ids) && error("--rerun-selected requires explicit --sample-id values")
-    return limit, sample_ids, resume, rerun_selected, maxiter, input_root, result_root
+    return limit, sample_ids, dataset_families, resume, rerun_selected, maxiter, blind_root, input_root, cod_root, result_root
 end
 
 function read_simple_csv(path)
@@ -93,8 +103,10 @@ function load_phases(sticks_path)
 end
 
 function main()
-    limit, requested, resume, rerun_selected, maxiter, input_root, result_root = parse_args()
-    samples = read_simple_csv(joinpath(BLIND_ROOT, "sample_manifest.csv"))
+    limit, requested, requested_families, resume, rerun_selected, maxiter, blind_root, input_root, cod_root, result_root = parse_args()
+    manifest_path = joinpath(blind_root, "sample_manifest.csv")
+    samples = read_simple_csv(manifest_path)
+    !isempty(requested_families) && (samples = filter(row -> String(row["dataset_family"]) in requested_families, samples))
     !isempty(requested) && (samples = filter(row -> String(row["sample_id"]) in requested, samples))
     !isnothing(limit) && (samples = first(samples, min(limit, length(samples))))
     isempty(samples) && error("No samples selected")
@@ -103,8 +115,32 @@ function main()
     prediction_path = joinpath(result_root, "predictions.csv")
     hypothesis_path = joinpath(result_root, "top_hypotheses.csv")
     record_path = joinpath(result_root, "run_records.json")
-    if !resume && any(isfile, (prediction_path, hypothesis_path, record_path))
+    environment_path = joinpath(result_root, "environment.json")
+    if !resume && any(isfile, (prediction_path, hypothesis_path, record_path, environment_path))
         error("Result files already exist in $(result_root). Use --resume or a new --result-root; existing results will not be overwritten.")
+    end
+    environment = Dict(
+        "method" => "CrystalShift + CrystalTree with COD front-end",
+        "julia_version" => string(VERSION),
+        "machine" => Sys.MACHINE,
+        "julia_threads" => Threads.nthreads(),
+        "blind_manifest" => manifest_path,
+        "blind_manifest_sha256" => bytes2hex(sha256(read(manifest_path))),
+        "input_root" => input_root,
+        "cod_root" => cod_root,
+        "result_root" => result_root,
+        "wavelength_angstrom" => WAVELENGTH_ANGSTROM,
+        "tree_depth" => 3,
+        "candidate_expansion_count" => 3,
+        "max_phases" => 3,
+        "private_truth_used" => false,
+    )
+    if resume && isfile(environment_path)
+        previous_environment = JSON.parsefile(environment_path)
+        for key in ("blind_manifest_sha256", "input_root", "cod_root")
+            get(previous_environment, key, nothing) == environment[key] ||
+                error("Existing environment differs for $(key); choose a new --result-root")
+        end
     end
     predictions = resume && isfile(prediction_path) ? read_simple_csv(prediction_path) : Any[]
     hypotheses = resume && isfile(hypothesis_path) ? read_simple_csv(hypothesis_path) : Any[]
@@ -128,6 +164,7 @@ function main()
             ". Rerun them explicitly with --resume --rerun-selected --sample-id ..."
         )
     end
+    write_json(environment_path, environment)
 
     std_noise = 0.1
     mean_theta = [1.0, 0.5, 0.2]
@@ -203,7 +240,7 @@ function main()
                 row = id_to_row[phase_id]
                 filename = String(row["candidate_cif_filename"])
                 database_id = string(row["database_id"])
-                source_cif = joinpath(COD_ROOT, key, "cifs", filename)
+                source_cif = joinpath(cod_root, key, "cifs", filename)
                 isfile(source_cif) || error("Selected CIF does not exist: $(source_cif)")
                 selected_cif = joinpath(
                     selected_root,

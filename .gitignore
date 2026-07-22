@@ -8,6 +8,11 @@ __pycache__/
 fig4/benchmark/method_envs/
 fig4/benchmark/method_inputs/cod_native_v3/
 fig4/benchmark/method_inputs/crystalshift_cod_v3/
+fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_full/
+fig4/benchmark/method_inputs/cod_sparse_literature_external_v1/
+fig4/benchmark/method_inputs/cod_native_literature_external_v1/
+fig4/benchmark/method_inputs/crystalshift_cod_literature_external_v1/
+fig4/benchmark/method_inputs/oqmd_optimade_cache_literature_external_v1/
 fig4/benchmark/results/**/work/
 fig4/benchmark/results/**/batch_logs/
 fig4/benchmark/datasets/**/internal/

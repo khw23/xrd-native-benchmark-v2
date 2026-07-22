@@ -1,0 +1,5 @@
+dataset_family,instrument_profile,match_status,rationale
+autoxrd_xerus_10,Rigaku-Miniflex-600-DTEXultra2-fds,native_method_surrogate,"The distributed patterns and AutoXRD paper specify Cu Kalpha but do not provide a calibrant-derived instrument profile; freeze Dara's bundled Rigaku MiniFlex profile without sample-wise tuning."
+iucr_qpa_1a_1h,pw1800-fds,closest_bundled_surrogate,"Dara's bundled PW1800 profile matches the 173 mm Philips geometry, Cu Kalpha, proportional point detector and diffracted-beam graphite monochromator; slit details are not exact."
+dara_precursor_20x2,Aeris-fds-Pixcel1d-Medipix3,source_matched,"The source XRDML records a 145 mm Aeris with PIXcel1D-Medipix3; this is Dara's bundled default profile."
+dara_reaction_20,Aeris-fds-Pixcel1d-Medipix3,source_matched,"The source XRDML records a 145 mm Aeris with PIXcel1D-Medipix3; this is Dara's bundled default profile."

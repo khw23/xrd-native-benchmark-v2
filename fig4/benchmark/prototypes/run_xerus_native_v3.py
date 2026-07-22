@@ -44,7 +44,10 @@ PREDICTION_COLUMNS = [
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--blind-root", type=Path, default=BLIND_ROOT)
+    parser.add_argument("--instrument-profile", type=Path, default=PROFILE)
     parser.add_argument("--sample-id", action="append", default=[])
+    parser.add_argument("--dataset-family", action="append", default=[])
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--n-jobs", type=int, default=8)
     parser.add_argument("--result-root", type=Path, default=RESULT_ROOT)
@@ -261,9 +264,11 @@ def install_oqmd_cache(cache_root: Path) -> dict:
 
 def main() -> None:
     args = parse_args()
+    blind_root = args.blind_root.resolve()
+    profile = args.instrument_profile.resolve()
     result_root = args.result_root.resolve()
-    if not PROFILE.exists():
-        raise FileNotFoundError("Run unpack_and_verify_v3.py first")
+    if not profile.exists():
+        raise FileNotFoundError(f"Instrument profile does not exist: {profile}")
 
     # XERUS 1.1b launches its CIF validator as `python tcif.py`. Keep that
     # subprocess in the same isolated environment as this runner.
@@ -285,10 +290,10 @@ def main() -> None:
     oqmd_source = "frozen_local_optimade_cache" if oqmd_cache else "live_optimade"
 
     configured_profile = Path(XERUS_PROFILE)
-    if not configured_profile.exists() or sha256(configured_profile) != sha256(PROFILE):
+    if not configured_profile.exists() or sha256(configured_profile) != sha256(profile):
         raise RuntimeError(
             "XERUS config.conf must point to a byte-identical copy of "
-            "instrument_metadata/GSASII_reference_profile.instprm before import"
+            f"the requested instrument profile before import: {profile}"
         )
     logical_profile = (
         ROOT
@@ -302,7 +307,10 @@ def main() -> None:
         else configured_profile
     )
 
-    samples = pd.read_csv(BLIND_ROOT / "sample_manifest.csv")
+    manifest_path = blind_root / "sample_manifest.csv"
+    samples = pd.read_csv(manifest_path)
+    if args.dataset_family:
+        samples = samples[samples["dataset_family"].isin(args.dataset_family)]
     if args.sample_id:
         samples = samples[samples["sample_id"].isin(args.sample_id)]
     if args.limit is not None:
@@ -350,7 +358,7 @@ def main() -> None:
         work = result_root / "work" / sample.sample_id
         work.mkdir(parents=True, exist_ok=True)
         elements = str(sample.sample_elements).split(";")
-        source_pattern = BLIND_ROOT / "patterns" / sample.pattern_filename
+        source_pattern = blind_root / "patterns" / sample.pattern_filename
         source_pattern_sha256 = sha256(source_pattern)
         started = time.perf_counter()
         removed_provider_dirs = []
@@ -377,7 +385,7 @@ def main() -> None:
                 standarize_int=True,
                 use_preprocessed=True,
             )
-            xray.instr_params = str(PROFILE)
+            xray.instr_params = str(profile)
             if args.prepare_candidates_only:
                 xray.get_cifs(ignore_provider=["AFLOW"])
                 if xray.cif_info is None or xray.cif_info.empty:
@@ -573,7 +581,10 @@ def main() -> None:
             if os.environ.get("GSASII_ROOT")
             else None
         ),
-        "instrument_profile": str(PROFILE.relative_to(ROOT)),
+        "blind_manifest": repository_path(manifest_path),
+        "blind_manifest_sha256": sha256(manifest_path),
+        "instrument_profile": repository_path(profile),
+        "instrument_profile_sha256": sha256(profile),
         "xerus_configured_profile": repository_path(configured_profile_record),
         "xerus_configured_profile_sha256": sha256(configured_profile),
         "n_runs": 3,

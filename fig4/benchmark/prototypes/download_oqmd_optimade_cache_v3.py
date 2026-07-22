@@ -5,26 +5,23 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
-import io
 import json
 import os
 import random
+import shutil
 import ssl
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
-import zipfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
-from itertools import combinations
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
-BLIND_ZIP = (
-    ROOT
-    / "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3.zip"
+BLIND_ROOT = (
+    ROOT / "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3"
 )
 DEFAULT_OUTPUT = ROOT / "fig4/benchmark/server_transfer/xerus_oqmd_cache_v3"
 BASE_URL = "https://oqmd.org/optimade/v1/structures"
@@ -38,10 +35,27 @@ RESPONSE_FIELDS = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--blind-root",
+        type=Path,
+        default=BLIND_ROOT,
+        help="Unpacked directory containing sample_manifest.csv.",
+    )
     parser.add_argument("--sample-id", action="append", default=[])
     parser.add_argument("--system", action="append", default=[])
     parser.add_argument("--all-samples", action="store_true")
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--seed-root",
+        type=Path,
+        default=None,
+        help="Optional complete cache whose matching system folders may be reused.",
+    )
+    parser.add_argument(
+        "--audit-only",
+        action="store_true",
+        help="Write required-system coverage without copying or downloading pages.",
+    )
     parser.add_argument("--page-limit", type=int, default=10)
     parser.add_argument("--timeout", type=float, default=120.0)
     parser.add_argument("--attempts", type=int, default=12)
@@ -72,6 +86,15 @@ def sha256_path(path: Path) -> str:
     return digest.hexdigest()
 
 
+def provenance_path(path: Path) -> str:
+    """Keep repository inputs portable while retaining external absolute paths."""
+    resolved = path.resolve()
+    try:
+        return str(resolved.relative_to(ROOT.resolve()))
+    except ValueError:
+        return str(resolved)
+
+
 def write_json_atomic(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode()
@@ -80,29 +103,36 @@ def write_json_atomic(path: Path, value: object) -> None:
     os.replace(temporary, path)
 
 
-def read_samples() -> list[dict[str, str]]:
-    with zipfile.ZipFile(BLIND_ZIP) as archive:
-        names = [name for name in archive.namelist() if name.endswith("sample_manifest.csv")]
-        if len(names) != 1:
-            raise RuntimeError("Expected one sample_manifest.csv in blind package")
-        with archive.open(names[0]) as raw:
-            return list(csv.DictReader(io.TextIOWrapper(raw, encoding="utf-8")))
+def manifest_path(blind_root: Path) -> Path:
+    if blind_root.is_dir():
+        path = blind_root / "sample_manifest.csv"
+        if not path.exists():
+            raise FileNotFoundError(f"Missing sample manifest: {path}")
+        return path
+    raise ValueError(
+        "--blind-root must be an unpacked directory containing sample_manifest.csv"
+    )
 
 
-def xerus_systems(elements: list[str]) -> set[str]:
-    """Reproduce XERUS subset systems, excluding its O and C-O special cases."""
-    systems = set()
-    ordered = sorted(elements)
-    for size in range(1, len(ordered) + 1):
-        for subset in combinations(ordered, size):
-            key = "-".join(subset)
-            if key not in {"O", "C-O"}:
-                systems.add(key)
-    return systems
+def read_samples(blind_root: Path) -> list[dict[str, str]]:
+    with manifest_path(blind_root).open(encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def xerus_system(elements: list[str]) -> str:
+    """Return the one full element system passed to XERUS OptimadeQuery.
+
+    XERUS ``multiquery`` constructs exactly one OQMD ``OptimadeQuery`` from
+    the disclosed sample element list. OQMD translates its ``HAS ONLY`` query
+    to containment of every listed element plus ``ntypes=len(elements)``.
+    Therefore subset expansion here would not reproduce the native method and
+    would create redundant API traffic.
+    """
+    return "-".join(sorted(set(elements)))
 
 
 def selected_systems(args: argparse.Namespace) -> tuple[list[str], list[str]]:
-    samples = read_samples()
+    samples = read_samples(args.blind_root.resolve())
     requested = set(args.sample_id)
     known = {row["sample_id"] for row in samples}
     unknown = requested - known
@@ -113,7 +143,7 @@ def selected_systems(args: argparse.Namespace) -> tuple[list[str], list[str]]:
     ]
     systems = {"-".join(sorted(system.split("-"))) for system in args.system}
     for row in selected:
-        systems.update(xerus_systems(row["sample_elements"].split(";")))
+        systems.add(xerus_system(row["sample_elements"].split(";")))
     if not systems:
         raise ValueError("Select --sample-id, --system, or --all-samples")
     return sorted(systems), sorted(row["sample_id"] for row in selected)
@@ -306,8 +336,72 @@ def main() -> None:
     ):
         raise ValueError("page-limit, attempts, timeout, and workers must be positive")
     output_root = args.output_root.resolve()
+    blind_root = args.blind_root.resolve()
+    input_manifest = manifest_path(blind_root)
     output_root.mkdir(parents=True, exist_ok=True)
     systems, sample_ids = selected_systems(args)
+    seed_root = args.seed_root.resolve() if args.seed_root is not None else None
+    audit_rows = []
+    for system in systems:
+        destination_manifest = output_root / "systems" / system / "manifest.json"
+        seed_manifest = (
+            seed_root / "systems" / system / "manifest.json" if seed_root else None
+        )
+        destination_valid = False
+        seed_valid = False
+        if destination_manifest.exists():
+            try:
+                value = json.loads(destination_manifest.read_text(encoding="utf-8"))
+                destination_valid = value.get("complete") is True and complete_manifest_valid(
+                    destination_manifest.parent, value, system
+                )
+            except (OSError, ValueError, json.JSONDecodeError):
+                destination_valid = False
+        if seed_manifest is not None and seed_manifest.exists():
+            try:
+                value = json.loads(seed_manifest.read_text(encoding="utf-8"))
+                seed_valid = value.get("complete") is True and complete_manifest_valid(
+                    seed_manifest.parent, value, system
+                )
+            except (OSError, ValueError, json.JSONDecodeError):
+                seed_valid = False
+        audit_rows.append(
+            {
+                "system": system,
+                "destination_complete": destination_valid,
+                "seed_complete": seed_valid,
+                "requires_download": not destination_valid and not seed_valid,
+            }
+        )
+    with (output_root / "required_systems_audit.csv").open(
+        "w", encoding="utf-8", newline=""
+    ) as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(audit_rows[0]))
+        writer.writeheader()
+        writer.writerows(audit_rows)
+    coverage = {
+        "audit_timepoint": "before_seed_copy_and_download",
+        "input_manifest": provenance_path(input_manifest),
+        "input_manifest_sha256": sha256_path(input_manifest),
+        "required_system_count": len(systems),
+        "already_complete": sum(row["destination_complete"] for row in audit_rows),
+        "reusable_from_seed": sum(row["seed_complete"] for row in audit_rows),
+        "requires_download": sum(row["requires_download"] for row in audit_rows),
+    }
+    write_json_atomic(output_root / "coverage_audit.json", coverage)
+    print(json.dumps(coverage, indent=2), flush=True)
+    if args.audit_only:
+        return
+
+    if seed_root is not None:
+        for row in audit_rows:
+            if row["destination_complete"] or not row["seed_complete"]:
+                continue
+            source = seed_root / "systems" / row["system"]
+            destination = output_root / "systems" / row["system"]
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copytree(source, destination)
+            print(f"{row['system']}: copied from seed cache", flush=True)
     failures = []
     manifests = []
 
@@ -315,8 +409,9 @@ def main() -> None:
         cache_manifest = {
             "schema_version": 1,
             "created_or_updated_at_utc": utc_now(),
-            "blind_package": str(BLIND_ZIP.relative_to(ROOT)),
-            "blind_package_sha256": sha256_path(BLIND_ZIP),
+            "blind_root": provenance_path(blind_root),
+            "input_manifest": provenance_path(input_manifest),
+            "input_manifest_sha256": sha256_path(input_manifest),
             "selected_sample_ids": sample_ids,
             "requested_system_count": len(systems),
             "complete_system_count": len(manifests),

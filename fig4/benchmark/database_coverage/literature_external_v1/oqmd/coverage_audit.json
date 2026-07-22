@@ -1,0 +1,9 @@
+{
+  "audit_timepoint": "before_seed_copy_and_download",
+  "input_manifest": "fig4/benchmark/datasets/literature_external_v1/blind_package/sample_manifest.csv",
+  "input_manifest_sha256": "c3bf12a4746497f3a9ca78d25e5a4673be10035a2824241c93b1ab07604de1d9",
+  "required_system_count": 46,
+  "already_complete": 0,
+  "reusable_from_seed": 2,
+  "requires_download": 44
+}
