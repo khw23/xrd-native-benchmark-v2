@@ -40,7 +40,8 @@ pgrep -af 'run_xerus_native_v3.py|run_xerus_full_background_v3.sh' || true
 
 ## 2. 接收并校验完整 OQMD cache
 
-用户会把以下文件传到 DGX：
+用户会把以下文件传到 DGX 仓库内固定接收目录
+`fig4/benchmark/server_transfer/`：
 
 ```text
 xerus_oqmd_cache_v3_full_20260722.tar.gz
@@ -62,7 +63,7 @@ xerus_oqmd_cache_v3_full_20260722.tar.gz.sha256
 在仓库根目录执行：
 
 ```bash
-CACHE_ARCHIVE=/path/to/xerus_oqmd_cache_v3_full_20260722.tar.gz
+CACHE_ARCHIVE=fig4/benchmark/server_transfer/xerus_oqmd_cache_v3_full_20260722.tar.gz
 (cd "$(dirname "$CACHE_ARCHIVE")" && \
   sha256sum -c "$(basename "$CACHE_ARCHIVE").sha256")
 mkdir -p fig4/benchmark/method_inputs

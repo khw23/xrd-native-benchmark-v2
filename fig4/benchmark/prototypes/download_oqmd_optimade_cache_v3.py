@@ -200,29 +200,15 @@ def fetch_page(url: str, args: argparse.Namespace, system: str) -> tuple[bytes, 
     raise RuntimeError(f"{system}: exhausted retries for {url}: {last_error}")
 
 
-def cached_page(path: Path, system: str) -> tuple[bytes, dict] | None:
-    if not path.exists():
-        return None
-    payload = path.read_bytes()
-    try:
-        return payload, validate_page(payload, system)
-    except (ValueError, json.JSONDecodeError):
-        path.rename(path.with_suffix(path.suffix + ".invalid"))
-        return None
-
-
 def complete_manifest_valid(system_root: Path, manifest: dict, system: str) -> bool:
     ids = []
     for page in manifest.get("pages", []):
         path = system_root / page["file"]
         if not path.exists() or sha256_path(path) != page.get("sha256"):
-            if path.exists():
-                path.rename(path.with_suffix(path.suffix + ".invalid"))
             return False
         try:
             data = validate_page(path.read_bytes(), system)
         except (ValueError, json.JSONDecodeError):
-            path.rename(path.with_suffix(path.suffix + ".invalid"))
             return False
         ids.extend(str(entry["id"]) for entry in data["data"])
     return (
@@ -231,17 +217,32 @@ def complete_manifest_valid(system_root: Path, manifest: dict, system: str) -> b
     )
 
 
+def quarantine_system_cache(system_root: Path, output_root: Path) -> Path:
+    quarantine_root = output_root.parent / f"{output_root.name}_quarantine"
+    quarantine_root.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    target = quarantine_root / f"{system_root.name}_{timestamp}"
+    os.replace(system_root, target)
+    print(f"{system_root.name}: quarantined stale system cache at {target}", flush=True)
+    return target
+
+
 def download_system(system: str, output_root: Path, args: argparse.Namespace) -> dict:
     system_root = output_root / "systems" / system
     manifest_path = system_root / "manifest.json"
     if manifest_path.exists():
-        previous = json.loads(manifest_path.read_text())
-        if previous.get("complete") is True and complete_manifest_valid(
-            system_root, previous, system
-        ):
-            print(f"{system}: complete cache exists; skipped", flush=True)
-            return previous
-        manifest_path.rename(manifest_path.with_suffix(".json.invalid"))
+        try:
+            previous = json.loads(manifest_path.read_text())
+        except (OSError, json.JSONDecodeError):
+            previous = {}
+        if previous.get("complete") is True:
+            if complete_manifest_valid(system_root, previous, system):
+                print(f"{system}: complete cache exists; skipped", flush=True)
+                return previous
+    if system_root.exists():
+        # Never mix pages from different runs or page limits. A system without a
+        # valid complete manifest is rebuilt atomically at system granularity.
+        quarantine_system_cache(system_root, output_root)
 
     pages = []
     ids = []
@@ -250,16 +251,11 @@ def download_system(system: str, output_root: Path, args: argparse.Namespace) ->
     while url:
         relative = Path("pages") / f"page_{page_index:04d}.json"
         page_path = system_root / relative
-        cached = cached_page(page_path, system)
-        if cached is None:
-            payload, data, attempts = fetch_page(url, args, system)
-            page_path.parent.mkdir(parents=True, exist_ok=True)
-            temporary = page_path.with_suffix(".json.partial")
-            temporary.write_bytes(payload)
-            os.replace(temporary, page_path)
-        else:
-            payload, data = cached
-            attempts = 0
+        payload, data, attempts = fetch_page(url, args, system)
+        page_path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = page_path.with_suffix(".json.partial")
+        temporary.write_bytes(payload)
+        os.replace(temporary, page_path)
         page_ids = [str(entry["id"]) for entry in data["data"]]
         ids.extend(page_ids)
         pages.append(
@@ -274,7 +270,7 @@ def download_system(system: str, output_root: Path, args: argparse.Namespace) ->
         )
         print(
             f"{system}: page {page_index + 1}, {len(page_ids)} entries, "
-            f"{attempts or 'cached'} attempt(s)",
+            f"{attempts} attempt(s)",
             flush=True,
         )
         url = normalize_next_url(data.get("links", {}).get("next"))
