@@ -38,6 +38,7 @@ jobs:
 
       - name: Validate and package
         run: |
+          python -m pip install --disable-pip-version-check pandas
           python fig4/benchmark/prototypes/validate_literature_external_runtime_v1.py \
             --oqmd-root /tmp/oqmd_optimade_cache_literature_external_v1
           cd /tmp
