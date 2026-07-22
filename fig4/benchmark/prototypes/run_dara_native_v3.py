@@ -29,6 +29,17 @@ METHOD_NAME = "Dara 1.3.0 + COD 2024"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--blind-root", type=Path, default=BLIND_ROOT)
+    parser.add_argument("--cod-root", type=Path, default=COD_ROOT)
+    parser.add_argument("--result-root", type=Path, default=RESULT_ROOT)
+    parser.add_argument("--instrument-profile", default=PROFILE)
+    parser.add_argument(
+        "--instrument-profile-map",
+        type=Path,
+        default=None,
+        help="Optional CSV with dataset_family,instrument_profile columns.",
+    )
+    parser.add_argument("--dataset-family", action="append", default=[])
     parser.add_argument("--sample-id", action="append", default=[])
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--num-cpus", type=int, default=8)
@@ -108,7 +119,13 @@ def load_rows(path: Path, resume: bool) -> list[dict]:
 
 def main() -> None:
     args = parse_args()
-    samples = pd.read_csv(BLIND_ROOT / "sample_manifest.csv")
+    blind_root = args.blind_root.resolve()
+    cod_root = args.cod_root.resolve()
+    result_root = args.result_root.resolve()
+    manifest_path = blind_root / "sample_manifest.csv"
+    samples = pd.read_csv(manifest_path)
+    if args.dataset_family:
+        samples = samples[samples["dataset_family"].isin(args.dataset_family)]
     if args.sample_id:
         samples = samples[samples["sample_id"].isin(args.sample_id)]
     if args.limit is not None:
@@ -116,12 +133,41 @@ def main() -> None:
     if samples.empty:
         raise SystemExit("No samples selected")
 
-    RESULT_ROOT.mkdir(parents=True, exist_ok=True)
-    work_root = RESULT_ROOT / "work"
+    profile_map = {}
+    if args.instrument_profile_map is not None:
+        profile_map_path = args.instrument_profile_map.resolve()
+        profile_frame = pd.read_csv(profile_map_path, dtype=str)
+        required = {"dataset_family", "instrument_profile"}
+        if not required.issubset(profile_frame.columns):
+            raise ValueError(
+                "Instrument profile map requires dataset_family,instrument_profile"
+            )
+        if profile_frame["dataset_family"].duplicated().any():
+            raise ValueError("Instrument profile map contains duplicate families")
+        profile_map = dict(
+            zip(
+                profile_frame["dataset_family"],
+                profile_frame["instrument_profile"],
+                strict=True,
+            )
+        )
+        missing = sorted(set(samples["dataset_family"]) - set(profile_map))
+        if missing:
+            raise ValueError(f"Instrument profile map lacks families: {missing}")
+    else:
+        profile_map_path = None
+
+    result_root.mkdir(parents=True, exist_ok=True)
+    work_root = result_root / "work"
     work_root.mkdir(exist_ok=True)
-    prediction_path = RESULT_ROOT / "predictions.csv"
-    record_path = RESULT_ROOT / "run_records.json"
-    failure_history_path = RESULT_ROOT / "failure_history.jsonl"
+    prediction_path = result_root / "predictions.csv"
+    record_path = result_root / "run_records.json"
+    failure_history_path = result_root / "failure_history.jsonl"
+    if not args.resume and (prediction_path.exists() or record_path.exists()):
+        raise FileExistsError(
+            f"Result files already exist in {result_root}. Use --resume or choose "
+            "a new --result-root; existing results will not be overwritten."
+        )
     predictions = load_rows(prediction_path, args.resume)
     records = (
         json.loads(record_path.read_text(encoding="utf-8"))
@@ -147,8 +193,11 @@ def main() -> None:
         records = [row for row in records if row.get("sample_id") != sample.sample_id]
         started = time.perf_counter()
         try:
+            instrument_profile = profile_map.get(
+                str(getattr(sample, "dataset_family", "")), args.instrument_profile
+            )
             key = system_key(sample.sample_elements)
-            cif_paths = sorted((COD_ROOT / key / "cifs").glob("*.cif"))
+            cif_paths = sorted((cod_root / key / "cifs").glob("*.cif"))
             if not cif_paths:
                 raise FileNotFoundError(
                     f"No COD candidates for {key}; run prepare_cod_candidate_sets_v3.py first"
@@ -160,11 +209,11 @@ def main() -> None:
             os.chdir(sample_work)
             try:
                 results = search_phases(
-                    BLIND_ROOT / "patterns" / sample.pattern_filename,
+                    blind_root / "patterns" / sample.pattern_filename,
                     cif_paths,
                     max_phases=3,
                     wavelength="Cu",
-                    instrument_profile=PROFILE,
+                    instrument_profile=instrument_profile,
                     express_mode=True,
                     enable_angular_cut=True,
                     refinement_params={"n_threads": args.bgmn_threads},
@@ -185,7 +234,7 @@ def main() -> None:
                         raise KeyError(f"Unmapped Dara phase name: {raw_name} -> {alias}")
                     path = aliases[alias]
                     info = structure_metadata(path)
-                    selected_root = RESULT_ROOT / "selected_cifs" / sample.sample_id
+                    selected_root = result_root / "selected_cifs" / sample.sample_id
                     selected_root.mkdir(parents=True, exist_ok=True)
                     selected_path = selected_root / (
                         f"solution{solution_rank}_phase{phase_rank}_COD_{info['database_id']}.cif"
@@ -222,10 +271,11 @@ def main() -> None:
                     "ray_num_cpus": args.num_cpus,
                     "bgmn_threads_per_refinement": args.bgmn_threads,
                     "phase_count_prior": "global upper bound only; per-sample truth hidden",
+                    "instrument_profile": instrument_profile,
                     "best_rwp_percent": float(best.refinement_result.lst_data.rwp),
                     "n_hypotheses": len(results),
                     "pattern_sha256": sha256(
-                        BLIND_ROOT / "patterns" / sample.pattern_filename
+                        blind_root / "patterns" / sample.pattern_filename
                     ),
                 }
             )
@@ -238,7 +288,10 @@ def main() -> None:
             elapsed = time.perf_counter() - started
             category = failure_category(error)
             key = system_key(sample.sample_elements)
-            cif_paths = sorted((COD_ROOT / key / "cifs").glob("*.cif"))
+            instrument_profile = profile_map.get(
+                str(getattr(sample, "dataset_family", "")), args.instrument_profile
+            )
+            cif_paths = sorted((cod_root / key / "cifs").glob("*.cif"))
             predictions.append(
                 {
                     "sample_id": sample.sample_id,
@@ -269,11 +322,12 @@ def main() -> None:
                 "ray_num_cpus": args.num_cpus,
                 "bgmn_threads_per_refinement": args.bgmn_threads,
                 "phase_count_prior": "global upper bound only; per-sample truth hidden",
+                "instrument_profile": instrument_profile,
                 "error_type": type(error).__name__,
                 "error": str(error),
                 "traceback": traceback.format_exc(),
                 "pattern_sha256": sha256(
-                    BLIND_ROOT / "patterns" / sample.pattern_filename
+                    blind_root / "patterns" / sample.pattern_filename
                 ),
             }
             records.append(failure_record)
@@ -282,6 +336,30 @@ def main() -> None:
             print(f"{sample.sample_id}: ERROR after {elapsed:.1f} s: {error}", flush=True)
         pd.DataFrame(predictions).to_csv(prediction_path, index=False)
         record_path.write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
+
+    (result_root / "environment.json").write_text(
+        json.dumps(
+            {
+                "method": METHOD_NAME,
+                "blind_manifest": str(manifest_path),
+                "blind_manifest_sha256": sha256(manifest_path),
+                "cod_root": str(cod_root),
+                "instrument_profile": args.instrument_profile,
+                "instrument_profile_map": (
+                    str(profile_map_path) if profile_map_path is not None else None
+                ),
+                "instrument_profile_map_sha256": (
+                    sha256(profile_map_path) if profile_map_path is not None else None
+                ),
+                "num_cpus": args.num_cpus,
+                "bgmn_threads_per_refinement": args.bgmn_threads,
+                "private_truth_used": False,
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
 
 
 if __name__ == "__main__":

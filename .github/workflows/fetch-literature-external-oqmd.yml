@@ -1,0 +1,57 @@
+name: Fetch Literature-External OQMD cache
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - prep/literature-external-v1
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Unpack reusable Atomly OQMD cache
+        run: |
+          mkdir -p /tmp/oqmd-seed
+          tar -xzf fig4/benchmark/server_transfer/xerus_oqmd_cache_v3_full_20260722.tar.gz \
+            -C /tmp/oqmd-seed
+
+      - name: Download XERUS-native full-element queries
+        run: |
+          python fig4/benchmark/prototypes/download_oqmd_optimade_cache_v3.py \
+            --blind-root fig4/benchmark/datasets/literature_external_v1/blind_package \
+            --all-samples \
+            --output-root /tmp/oqmd_optimade_cache_literature_external_v1 \
+            --seed-root /tmp/oqmd-seed/oqmd_optimade_cache_v3_full \
+            --page-limit 100 \
+            --workers 1 \
+            --timeout 180 \
+            --attempts 12 \
+            --base-delay 15 \
+            --max-delay 120
+
+      - name: Validate and package
+        run: |
+          python fig4/benchmark/prototypes/validate_literature_external_runtime_v1.py \
+            --oqmd-root /tmp/oqmd_optimade_cache_literature_external_v1
+          cd /tmp
+          tar -czf oqmd_optimade_cache_literature_external_v1_20260722.tar.gz \
+            oqmd_optimade_cache_literature_external_v1
+          sha256sum oqmd_optimade_cache_literature_external_v1_20260722.tar.gz \
+            > oqmd_optimade_cache_literature_external_v1_20260722.tar.gz.sha256
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oqmd-optimade-cache-literature-external-v1
+          path: |
+            /tmp/oqmd_optimade_cache_literature_external_v1_20260722.tar.gz
+            /tmp/oqmd_optimade_cache_literature_external_v1_20260722.tar.gz.sha256
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7

@@ -29,6 +29,8 @@ ORIGINAL_COD_DOWNLOAD = CODDatabase._download_cod
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--blind-root", type=Path, default=BLIND_ROOT)
+    parser.add_argument("--output-root", type=Path, default=OUT_ROOT)
     parser.add_argument(
         "--cod-root",
         type=Path,
@@ -58,9 +60,9 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def write_records(records: dict[str, dict]) -> None:
+def write_records(records: dict[str, dict], output_root: Path) -> None:
     frame = pd.DataFrame(sorted(records.values(), key=lambda row: row["system_key"]))
-    frame.to_csv(OUT_ROOT / "candidate_set_summary.csv", index=False)
+    frame.to_csv(output_root / "candidate_set_summary.csv", index=False)
 
 
 def write_candidate_manifest(system_root: Path, cif_paths: list[Path]) -> list[dict]:
@@ -100,24 +102,27 @@ def failure_category(error: Exception) -> str:
     return "candidate_preparation_failure"
 
 
-def append_failure(record: dict) -> None:
-    with (OUT_ROOT / "failure_history.jsonl").open("a", encoding="utf-8") as handle:
+def append_failure(record: dict, output_root: Path) -> None:
+    with (output_root / "failure_history.jsonl").open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(record, ensure_ascii=True) + "\n")
 
 
 def main() -> None:
     args = parse_args()
-    manifest = pd.read_csv(BLIND_ROOT / "sample_manifest.csv")
+    blind_root = args.blind_root.resolve()
+    output_root = args.output_root.resolve()
+    manifest_path = blind_root / "sample_manifest.csv"
+    manifest = pd.read_csv(manifest_path)
     manifest["system_key"] = manifest["sample_elements"].map(system_key)
     systems = manifest[["system_key", "sample_elements"]].drop_duplicates()
     systems.sort_values("system_key", inplace=True)
     if args.limit_systems is not None:
         systems = systems.head(args.limit_systems)
 
-    OUT_ROOT.mkdir(parents=True, exist_ok=True)
+    output_root.mkdir(parents=True, exist_ok=True)
     CODDatabase._download_cod = staticmethod(download_with_retries)
     database = CODDatabase(path_to_cifs=args.cod_root)
-    summary_path = OUT_ROOT / "candidate_set_summary.csv"
+    summary_path = output_root / "candidate_set_summary.csv"
     if args.resume and summary_path.exists():
         records = {
             row["system_key"]: row
@@ -126,7 +131,7 @@ def main() -> None:
     else:
         records = {}
     for row in systems.itertuples(index=False):
-        system_root = OUT_ROOT / row.system_key
+        system_root = output_root / row.system_key
         cif_root = system_root / "cifs"
         success_path = system_root / "_SUCCESS.json"
         started = time.perf_counter()
@@ -136,7 +141,7 @@ def main() -> None:
             if args.force or not (args.resume and success_path.exists() and existing):
                 cif_root.mkdir(parents=True, exist_ok=True)
                 previous_cwd = Path.cwd()
-                os.chdir(OUT_ROOT)
+                os.chdir(output_root)
                 try:
                     database.get_cifs_by_chemsys(
                         str(row.sample_elements).split(";"),
@@ -203,25 +208,27 @@ def main() -> None:
                 {
                     "timestamp_utc": datetime.now(UTC).isoformat(),
                     **record,
-                }
+                },
+                output_root,
             )
             print(
                 f"{row.system_key}: ERROR after {elapsed:.1f} s: {error}", flush=True
             )
         records[row.system_key] = record
-        write_records(records)
+        write_records(records, output_root)
 
     manifests = []
-    for path in sorted(OUT_ROOT.glob("*/candidate_manifest.csv")):
+    for path in sorted(output_root.glob("*/candidate_manifest.csv")):
         frame = pd.read_csv(path)
         frame.insert(0, "system_key", path.parent.name)
         manifests.append(frame)
     if manifests:
         pd.concat(manifests, ignore_index=True).to_csv(
-            OUT_ROOT / "candidate_manifest.csv", index=False
+            output_root / "candidate_manifest.csv", index=False
         )
     provenance = {
-        "input_manifest": str((BLIND_ROOT / "sample_manifest.csv").relative_to(ROOT)),
+        "input_manifest": str(manifest_path.relative_to(ROOT)),
+        "input_manifest_sha256": sha256(manifest_path),
         "database_class": "dara.structure_db.CODDatabase",
         "local_cod_root": str(args.cod_root) if args.cod_root else None,
         "selection_rule": "all database phases whose element set is a nonempty subset of sample_elements, followed by Dara COD preprocessing",
@@ -233,7 +240,7 @@ def main() -> None:
         "resume_supported": True,
         "download_attempts_per_cod_id": 3,
     }
-    (OUT_ROOT / "provenance.json").write_text(
+    (output_root / "provenance.json").write_text(
         json.dumps(provenance, indent=2) + "\n", encoding="utf-8"
     )
 

@@ -1,0 +1,22 @@
+{
+  "dataset_id": "literature_external_v1",
+  "n_acquisitions": 78,
+  "n_physical_samples": 58,
+  "acquisition_counts_by_family": {
+    "autoxrd_xerus_10": 10,
+    "iucr_qpa_1a_1h": 8,
+    "dara_precursor_20x2": 40,
+    "dara_reaction_20": 20
+  },
+  "physical_sample_counts_by_family": {
+    "autoxrd_xerus_10": 10,
+    "iucr_qpa_1a_1h": 8,
+    "dara_precursor_20x2": 20,
+    "dara_reaction_20": 20
+  },
+  "n_experimental_acquisitions": 78,
+  "atomly_core_relation": "Atomly-Core-100 is intentionally kept as a separate package and is not included here.",
+  "reporting_rule": "May run as one external package; preserve dataset_family and report each family separately. Do not publish one pooled headline accuracy.",
+  "dara_precursor_independence_rule": "2min and 8min are paired acquisitions of the same 20 physical mixtures.",
+  "dara_reaction_reference_rule": "Expert-reference consistency only; 16 fully indexed and 4 partially indexed samples."
+}

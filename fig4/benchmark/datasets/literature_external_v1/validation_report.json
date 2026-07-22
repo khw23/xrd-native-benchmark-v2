@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "n_acquisitions": 78,
+  "n_physical_samples": 58,
+  "family_counts": {
+    "autoxrd_xerus_10": 10,
+    "iucr_qpa_1a_1h": 8,
+    "dara_precursor_20x2": 40,
+    "dara_reaction_20": 20
+  },
+  "public_filename_leakage_check": "PASS",
+  "pattern_hash_check": "PASS",
+  "paired_acquisition_check": "PASS",
+  "private_scoring_present": false,
+  "phase_count_disclosed": false
+}

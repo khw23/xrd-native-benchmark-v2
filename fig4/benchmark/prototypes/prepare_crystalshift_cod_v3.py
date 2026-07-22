@@ -40,6 +40,8 @@ DEFAULT_CONVERTER = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--blind-root", type=Path, default=BLIND_ROOT)
+    parser.add_argument("--cod-root", type=Path, default=COD_ROOT)
     parser.add_argument("--converter", type=Path, default=DEFAULT_CONVERTER)
     parser.add_argument("--output-root", type=Path, default=OUT_ROOT)
     parser.add_argument("--snapshot-root", type=Path, default=SNAPSHOT_ROOT)
@@ -428,6 +430,8 @@ def baseline_asls(
 
 def main() -> None:
     args = parse_args()
+    blind_root = args.blind_root.resolve()
+    cod_root = args.cod_root.resolve()
     output_root = args.output_root.resolve()
     snapshot_root = args.snapshot_root.resolve()
     if not args.converter.exists():
@@ -440,7 +444,7 @@ def main() -> None:
     assert spec.loader is not None
     spec.loader.exec_module(converter)
 
-    manifest = pd.read_csv(BLIND_ROOT / "sample_manifest.csv")
+    manifest = pd.read_csv(blind_root / "sample_manifest.csv")
     manifest["system_key"] = manifest["sample_elements"].map(system_key)
     systems = sorted(manifest["system_key"].unique())
     if args.system_key:
@@ -460,24 +464,60 @@ def main() -> None:
 
     pattern_root = output_root / "patterns_preprocessed"
     pattern_root.mkdir(exist_ok=True)
-    for path in sorted((BLIND_ROOT / "patterns").glob("*.xy")):
+    pattern_rows = []
+    for path in sorted((blind_root / "patterns").glob("*.xy")):
         raw = np.loadtxt(path)
-        corrected = np.clip(raw[:, 1] - baseline_asls(raw[:, 1]), 0.0, None)
+        q_nm_inverse = (
+            10.0
+            * 4.0
+            * np.pi
+            * np.sin(np.deg2rad(raw[:, 0] / 2.0))
+            / 1.5406
+        )
+        in_model_range = (q_nm_inverse >= 7.0) & (q_nm_inverse <= 58.0)
+        cropped = raw[in_model_range]
+        if len(cropped) < 2:
+            raise ValueError(
+                f"{path.name}: fewer than two points in CrystalShift q range"
+            )
+        corrected = np.clip(
+            cropped[:, 1] - baseline_asls(cropped[:, 1]), 0.0, None
+        )
         corrected /= max(float(corrected.max()), np.finfo(float).tiny)
-        selected = np.arange(0, len(raw), 4)
+        selected = np.arange(0, len(cropped), 4)
+        target = pattern_root / path.name
         np.savetxt(
-            pattern_root / path.name,
-            np.column_stack([raw[selected, 0], corrected[selected]]),
+            target,
+            np.column_stack([cropped[selected, 0], corrected[selected]]),
             fmt=["%.5f", "%.10g"],
             header="2theta_deg baseline_corrected_normalized_intensity; CrystalShift adapter",
         )
+        pattern_rows.append(
+            {
+                "sample_id": path.stem,
+                "adapter_version": "q7_58_crop_before_asls_v1",
+                "source_pattern_sha256": sha256(path),
+                "source_points": len(raw),
+                "source_two_theta_min_deg": raw[0, 0],
+                "source_two_theta_max_deg": raw[-1, 0],
+                "cropped_points_before_stride": len(cropped),
+                "cropped_two_theta_min_deg": cropped[0, 0],
+                "cropped_two_theta_max_deg": cropped[-1, 0],
+                "stride": 4,
+                "output_points": len(selected),
+                "output_pattern_sha256": sha256(target),
+            }
+        )
+    pd.DataFrame(pattern_rows).to_csv(
+        output_root / "pattern_preprocessing_manifest.csv", index=False
+    )
 
     summaries: list[dict[str, object]] = []
     all_failures: list[dict[str, object]] = []
     all_attempts: list[dict[str, object]] = []
     all_audits: list[dict[str, object]] = []
     for key in systems:
-        cif_paths = sorted((COD_ROOT / key / "cifs").glob("*.cif"))
+        cif_paths = sorted((cod_root / key / "cifs").glob("*.cif"))
         if not cif_paths:
             raise FileNotFoundError(
                 f"No COD candidates for {key}; run prepare_cod_candidate_sets_v3.py first"
@@ -547,7 +587,7 @@ def main() -> None:
         attempts = []
         audits = []
         candidate_manifest = pd.read_csv(
-            COD_ROOT / key / "candidate_manifest.csv", dtype=str
+            cod_root / key / "candidate_manifest.csv", dtype=str
         )
         manifest_by_name = {
             Path(row["cif_path"]).name: row
@@ -898,6 +938,11 @@ def main() -> None:
         ),
         "q_range_nm_inverse": [7.0, 58.0],
         "wavelength_angstrom": 1.5406,
+        "pattern_range_rule": (
+            "crop every experimental pattern to q=7.0..58.0 nm^-1 before "
+            "baseline subtraction, normalization, and stride-4 downsampling"
+        ),
+        "pattern_adapter_version": "q7_58_crop_before_asls_v1",
         "private_truth_used": False,
     }
     (output_root / "normalization_rules.json").write_text(
@@ -911,6 +956,7 @@ def main() -> None:
         "structure_preservation_audit.csv",
         "normalization_summary.json",
         "normalization_rules.json",
+        "pattern_preprocessing_manifest.csv",
     ):
         shutil.copy2(output_root / name, snapshot_root / name)
 
