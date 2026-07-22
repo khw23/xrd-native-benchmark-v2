@@ -1,86 +1,68 @@
-# XERUS and CrystalShift/CrystalTree diagnostic run analysis
+# XERUS 与 CrystalShift/CrystalTree 当前运行状态
 
-## Scope
+## 范围
 
-This report analyzes only blind inputs, candidate manifests, runtime records, and
-method outputs. It does not use private truth and does not estimate accuracy.
+本记录只使用盲输入、候选 manifest、运行记录和方法输出，不读取私有真值，也不在 DGX 上计算
+benchmark 准确率。
 
-## CrystalShift conversion loss
+## CrystalShift 候选转换：最终完整
 
-The frozen COD front-end contains 6,622 candidate records across 84 element-system
-caches. These records represent 2,429 distinct COD IDs; repeated IDs occur when a
-structure is compatible with more than one disclosed element system. Conversion to
-CrystalShift input succeeded for 5,591 records (1,853 distinct COD IDs) and failed
-for 1,031 records (576 distinct COD IDs), giving an 84.4% record-level conversion
-rate.
+旧版本曾只有 5,591/6,622 条候选完成转换，因此旧诊断文字中的 84.4% 转换率已经失效。统一修复后：
 
-The loss is not uniform:
+- 冻结 COD 候选记录：6,622；
+- 最终成功转换：6,622；
+- 最终转换失败：0；
+- 转换策略：5,734 条官方直接转换、870 条对称性标准化、18 条 P1 标准化；
+- 结构验证失败：0；
+- 实质结构改变：0；
+- 原始 XRD 在转换前后 SHA-256 完全一致。
 
-- 64 of 84 element systems and 77 of 100 samples lose at least one candidate.
-- 55 samples lose at least 5% of their candidate records.
-- 26 samples lose at least 10%, 10 lose at least 20%, and 2 lose at least 30%.
-- The largest losses are XRDV3_0099 at 49.1%, XRDV3_0032 at 33.0%, and
-  XRDV3_0003/XRDV3_0058 at 28.9%.
-- Of the 1,031 failure records, 877 are invalid or unsupported atom-label errors,
-  129 are other `ValueError` parse failures, 20 are symmetry-determination
-  failures, 3 are converter `NameError` failures, and 2 lack a required CIF field.
+906 条失败的中间尝试仍保留在 attempt manifest 中，用于审计解析器兼容问题；它们不能再解释为
+最终候选丢失。四条候选元素键与 CIF 实际元素不一致的记录也继续保留并报告，没有根据预测结果
+手工删除。
 
-This can affect the final predictions because CrystalTree cannot select a structure
-that failed conversion. The effect is a potential loss of candidate recall and is
-most material for the high-loss systems. The failures are systematic CIF/parser
-compatibility failures rather than random sampling, so the surviving library may be
-biased toward CIFs that are easier for the converter to parse.
+## CrystalTree 100 条正式运行：完成
 
-The current 100-sample output is reproducible for the reduced, converted library,
-but it is a diagnostic artifact rather than the definitive benchmark result. It must
-not be presented as a fair evaluation against the complete frozen COD candidate
-front-end. Without private truth or a deterministic repaired conversion rerun, the
-direction and magnitude of any accuracy change cannot be determined. In particular,
-conversion loss alone does not prove that any individual prediction is wrong.
+正式结果位于 `crystaltree_cod_frontend_v2/`：
 
-For a future definitive comparison, repair the conversion adapter using a uniform
-CIF normalization rule, validate structure/cell preservation, freeze the repaired
-conversion manifest, and rerun all samples. Do not repair or exclude candidates in
-response to prediction quality.
+- 100/100 个样品各有最新 `status=ok`；
+- 全部使用 `maxiter=512` 和统一配置 `simple_fixed_sigma_0p1_maxiter512`；
+- 100 个样品均保存 top-3 hypothesis，共 300 行；
+- top-1 共输出 196 个预测相，196 个入选 CIF 全部存在且 SHA-256 通过；
+- 累计单样品搜索时间 11,987.3 s，中位数 25.8 s，最大值 1,132.0 s；
+- 单 writer 的 resumed full run wall time 为 3:13:15；
+- 再次使用同一 `--resume --maxiter 512` 命令会跳过全部 100 条。
 
-## XERUS server scaling
+这是一套冻结的 README-prior baseline。CrystalShift activation 是模型内部量，不能解释为质量分数
+或摩尔分数。准确率只允许在本地使用私有真值另行计算。
 
-The local smoke used an ARM64 host with 20 logical CPUs, 121 GiB RAM, and
-`--n-jobs 4`. It took 1,849 seconds wall time, 515 seconds user CPU, and 42 seconds
-system CPU, with 0.75 GiB peak RSS. The native workflow performed 25 COD/OQMD/ODBX
-subsystem query cycles, logged nine OQMD timeout retries, then simulated 1,297
-patterns and refined candidate combinations.
+## XERUS 完整候选 pilot：通过
 
-XERUS uses multiprocessing for pattern simulation and combination refinement, so a
-faster x86-64 server and a larger `n_jobs` may accelerate those compute stages.
-However, database requests, retry backoff, CIF download, MongoDB operations, and
-serial orchestration do not scale with core count. CPU time from one multiprocessing
-run cannot be subtracted from wall time to form a valid speedup bound, so this smoke
-does not support a numerical acceleration estimate.
+`XRDV3_0046` 使用 7 个元素子体系的冻结 OQMD OPTIMADE cache：
 
-Expected consequences:
+- OQMD 原始记录：150；
+- XERUS 原生候选快照：226，其中 OQMD 149、COD 61、MP 12、ODBX 4；
+- 候选准备时间：95.3 s；
+- 进入 XERUS 模拟/筛选的候选：63；
+- 正式分析时间：27.4 s；
+- 最终 Rwp：7.0242%；
+- 返回 AgCl 与 AgBr 两相、数据库 ID、CIF 和 XERUS 质量分数；
+- OQMD 全部来自冻结 cache，正式日志没有实时 `oqmd.org` 请求。
 
-- Single-sample and full-dataset speedup remain unknown until a controlled pilot is
-  run on the target machine with the same samples and provider conditions.
-- Outer sample concurrency may improve throughput, but each process must write to a
-  separate result directory because the current runner state files are not safe for
-  concurrent writers. Provider rate limits must be monitored before increasing it.
-- Stable outbound networking is required. CPU, memory, and disk requirements for a
-  full run should be projected from the three-sample pilot rather than asserted from
-  this one sample. More GPU does not directly accelerate this workflow.
-- Provider rate limits and timeouts can make aggressive concurrency slower or less
-  reliable. Failed attempts must remain recorded and resumed rather than silently
-  retried outside the run manifest.
+该样品证明离线 OQMD 路径、MongoDB、GSAS-II、CIF validator 和正式 refinement 可以端到端运行。
+它不能单独证明 100 条的运行时间；XERUS 的耗时仍随候选模拟和组合精修规模变化。
 
-The one-sample result is insufficient for a precise scaling curve. Before committing
-to the full 100 samples, benchmark three disclosed element systems with low, median,
-and high native candidate counts on the target server and record query, simulation,
-and refinement stage times separately.
+## 下一步：不再做三档 smoke
 
-## Published artifact scope
+用户已批准跳过额外三档 smoke。下一步固定为：
 
-The repository includes normalized predictions, selected predicted CIFs, candidate
-IDs, audit summaries, failure manifests, conversion-impact tables, environment
-versions, and resumability hashes. It excludes method environments, MongoDB data,
-downloaded candidate caches, XERUS work products, API keys, and verbose transient
-logs.
+1. 在本机下载并校验 Atomly-Core-100 所需的 470 个唯一 OQMD 元素子体系；
+2. 将完整 cache 传到 DGX 的
+   `fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_full/`；
+3. 在固定 MongoDB 中对 100 条执行一次 `prepare-candidates-only`；
+4. 候选准备无错误后，使用同一 cache/MongoDB/profile 直接执行 100 条正式 XERUS；
+5. 整个流程由 `run_xerus_full_background_v3.sh` 作为一个 `nohup` 后台任务运行；DGX Codex 只检查
+   启动状态和初始日志，然后退出，不持续轮询。
+
+完整 cache、MongoDB、环境和所有候选 CIF 不提交 GitHub。只提交候选 manifest、预测、最终入选 CIF、
+校验和、环境记录及必要日志。私有真值不得上传 DGX。

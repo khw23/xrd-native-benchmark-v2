@@ -1,7 +1,8 @@
 # Atomly-Core v3 原生数据库盲测：DGX 与服务器运行指南
 
-> 当前状态（2026-07-20）：PR #8 中的 CrystalTree 100 样本输出和 XERUS 单样本输出是
-> **诊断快照，不是最终 benchmark 结果**。下一轮执行先读 `DGX_NEXT_TASK.md`。旧结果不得覆盖或删除。
+> 当前状态（2026-07-22）：CrystalTree 100 条 `maxiter=512` baseline 和 XERUS 离线 OQMD 单样本
+> pilot 已通过。下一轮不再做三档 smoke；按 `DGX_NEXT_TASK.md` 接收完整 470 子体系 OQMD cache，
+> 然后提交一个脱离 Codex 的后台 XERUS 100 条任务。旧结果不得覆盖或删除。
 
 ## 0. 输入边界
 
@@ -108,10 +109,10 @@ git -C fig4/benchmark/third_party/CrystalShift.jl checkout \
   37155e71c166f952dbdba2607604e36d13feb8ef
 ```
 
-转换脚本逐 CIF 记录失败，不会因一个坏 CIF 丢弃整个元素体系。PR #8 的第一轮转换仅成功
-5,591/6,622 条候选记录；因此其 100 样本结果只能作为 adapter 诊断，不能作为最终方法准确率。
-先按 `DGX_NEXT_TASK.md` 用统一、与真值无关的规则修复转换器，并把新输入和新结果分别写到
-`crystalshift_cod_v3_v2/` 与 `crystaltree_cod_frontend_v2/`。不得复用旧输出目录。
+转换脚本逐 CIF 记录失败，不会因一个坏 CIF 丢弃整个元素体系。旧版本曾只成功 5,591/6,622 条；
+统一、与真值无关的修复已经使 6,622/6,622 条候选全部完成最终转换，结构验证失败和最终失败均为
+0。正式输入和结果分别冻结在 `crystalshift_cod_v3_v2/` 与
+`crystaltree_cod_frontend_v2/`。
 
 ```bash
 crystalshift-python/bin/python \
@@ -128,7 +129,7 @@ julia +1.12.6 --compiled-modules=no \
   --sample-id XRDV3_0046 --sample-id XRDV3_0054 --sample-id XRDV3_0100
 ```
 
-低/中/高三档 smoke、转换完整性门和独立开发集参数门均通过后，才可全量续跑：
+以下命令已经完成 100 条 `maxiter=512` baseline，只保留作 provenance，不再重复执行：
 
 ```bash
 julia +1.12.6 --compiled-modules=no \
@@ -136,7 +137,7 @@ julia +1.12.6 --compiled-modules=no \
   fig4/benchmark/prototypes/run_crystaltree_cod_v3.jl \
   --input-root fig4/benchmark/method_inputs/crystalshift_cod_v3_v2 \
   --result-root fig4/benchmark/results/atomly_core_v3/crystaltree_cod_frontend_v2 \
-  --resume
+  --resume --maxiter 512
 ```
 
 CrystalShift activation 只写入备注，不转换成摩尔或质量分数。DGX GPU 对当前 Julia 搜索实现
@@ -196,27 +197,20 @@ export MPLBACKEND=Agg
 若 GSAS-II 的 ARM64 扩展安装失败，停止并记录 infrastructure failure；不要改成私有 CIF
 候选测试。此时 XERUS 也转到 x86_64 服务器更稳妥。
 
-通用环境配置完成后，不要直接按旧方案跑三个 pilot。当前先用独立 MongoDB 和冻结 OQMD cache
-完成 `XRDV3_0046` 的单样本候选门；完整命令和检查项见 `DGX_NEXT_TASK.md`：
+通用环境配置和 `XRDV3_0046` 离线 cache pilot 已完成。当前不再跑三个 pilot；把完整 OQMD cache
+解压到 `fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_full/` 后，按
+`DGX_NEXT_TASK.md` 提交后台全量任务：
 
 ```bash
-xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py \
-  --sample-id XRDV3_0046 --prepare-candidates-only \
-  --resume --retry-failures --n-jobs 4 \
-  --oqmd-cache-root fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot \
-  --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2
+mkdir -p fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/logs
+nohup bash fig4/benchmark/prototypes/run_xerus_full_background_v3.sh \
+  > fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/logs/full_background_launcher.log \
+  2>&1 < /dev/null &
 ```
 
-候选门必须确认：MongoDB 查询完成、候选数非零、候选 manifest 和 OQMD cache SHA-256 已记录，
-且没有新的 OQMD HTTP 请求。随后按 `DGX_NEXT_TASK.md` 去掉 `--prepare-candidates-only` 运行同一
-样本，确认最终数据库 ID/CIF、Rwp 和质量分数都被保存。单样本结果不能外推可靠加速比；当前不得
-继续三个样本或全量。完整 OQMD cache 尚未冻结，以下全量命令仅保留为后续模板，不得现在执行：
-
-```bash
-xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py \
-  --n-jobs 4 --resume --retry-failures \
-  --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_v2
-```
+后台脚本先对 100 条执行 candidate preparation，再执行正式分析，并统一使用 `--resume
+--retry-failures --n-jobs 4`。Codex 启动后只检查 PID 和初始日志，不持续等待。中断时确认旧进程已
+退出，再重新提交同一脚本续跑。
 
 若测试多个外层并发进程，每个进程必须使用不同的 `--result-root`；当前 CSV/JSON 状态文件不支持
 多进程同时写同一目录。完成后再用确定性脚本合并，不能直接拼接或覆盖。
