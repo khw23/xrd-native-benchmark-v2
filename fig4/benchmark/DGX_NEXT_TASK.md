@@ -40,12 +40,18 @@ pgrep -af 'run_xerus_native_v3.py|run_xerus_full_background_v3.sh' || true
 
 ## 2. 接收并校验完整 OQMD cache
 
-用户会把以下文件传到 DGX 仓库内固定接收目录
-`fig4/benchmark/server_transfer/`：
+以下文件已经提交到本分支；完成 `git pull` 后应直接位于
+`fig4/benchmark/server_transfer/`，不得再要求用户手动传输：
 
 ```text
 xerus_oqmd_cache_v3_full_20260722.tar.gz
 xerus_oqmd_cache_v3_full_20260722.tar.gz.sha256
+```
+
+压缩包 SHA-256 固定为：
+
+```text
+77797b9d064fe8812d57ccf67f5cd17a3541c079b8d4809c71e4215b986e4fb8
 ```
 
 缓存必须解压到唯一固定位置：
@@ -83,7 +89,8 @@ print('OQMD_FULL_CACHE_OK', manifest['complete_system_count'])
 PY
 ```
 
-完整 cache 不提交 GitHub。GitHub 只保存运行产生的候选 manifest、预测、入选 CIF、环境信息和日志。
+GitHub 只跟踪上述已校验压缩归档，不跟踪解压后的 cache 目录。运行结果仍只保存候选 manifest、预测、
+最终入选 CIF、环境信息和必要日志。
 
 ## 3. 固定环境与 MongoDB
 
@@ -185,5 +192,6 @@ fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/logs/XERUS_FULL_COMP
 - 日志中 OQMD 是否全部来自 `frozen_local_optimade_cache`，不得出现新的 `oqmd.org` 请求；
 - 不得读取私有真值或在 DGX 计算准确率。
 
-只提交 runner、结果 manifest、预测、最终入选 CIF、校验和、环境记录与必要日志。不得提交完整 OQMD
-cache、MongoDB、所有候选 CIF、API key 或私有答案。继续推回同一分支和 Draft PR #9。
+只提交 runner、结果 manifest、预测、最终入选 CIF、校验和、环境记录与必要日志。不要再次提交解压后的
+OQMD cache、MongoDB、所有候选 CIF、API key 或私有答案；已跟踪的压缩归档保持不变。继续推回同一
+分支和 Draft PR #9。
