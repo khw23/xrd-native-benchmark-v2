@@ -22,7 +22,17 @@ jobs:
           tar -xzf fig4/benchmark/server_transfer/xerus_oqmd_cache_v3_full_20260722.tar.gz \
             -C /tmp/oqmd-seed
 
+      - name: Restore partial Literature-External cache
+        uses: actions/cache/restore@v4
+        with:
+          path: /tmp/oqmd_optimade_cache_literature_external_v1
+          key: oqmd-lit-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            oqmd-lit-v1-
+
       - name: Download XERUS-native full-element queries
+        id: fetch
+        continue-on-error: true
         run: |
           python fig4/benchmark/prototypes/download_oqmd_optimade_cache_v3.py \
             --blind-root fig4/benchmark/datasets/literature_external_v1/blind_package \
@@ -31,12 +41,20 @@ jobs:
             --seed-root /tmp/oqmd-seed/oqmd_optimade_cache_v3_full \
             --page-limit 100 \
             --workers 1 \
-            --timeout 180 \
-            --attempts 12 \
-            --base-delay 15 \
-            --max-delay 120
+            --timeout 20 \
+            --attempts 2 \
+            --base-delay 5 \
+            --max-delay 10
+
+      - name: Save resumable partial cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: /tmp/oqmd_optimade_cache_literature_external_v1
+          key: oqmd-lit-v1-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Validate and package
+        if: steps.fetch.outcome == 'success'
         run: |
           python -m pip install --disable-pip-version-check pandas
           python fig4/benchmark/prototypes/validate_literature_external_runtime_v1.py \
@@ -48,6 +66,7 @@ jobs:
             > oqmd_optimade_cache_literature_external_v1_20260722.tar.gz.sha256
 
       - uses: actions/upload-artifact@v4
+        if: steps.fetch.outcome == 'success'
         with:
           name: oqmd-optimade-cache-literature-external-v1
           path: |
@@ -56,3 +75,9 @@ jobs:
           if-no-files-found: error
           compression-level: 0
           retention-days: 7
+
+      - name: Mark incomplete sweep as failed
+        if: steps.fetch.outcome != 'success'
+        run: |
+          echo "OQMD sweep incomplete; partial cache was saved for rerun."
+          exit 1
