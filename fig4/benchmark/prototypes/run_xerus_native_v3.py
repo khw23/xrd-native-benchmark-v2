@@ -389,6 +389,36 @@ def main() -> None:
     result_root.mkdir(parents=True, exist_ok=True)
     prediction_path = result_root / "predictions.csv"
     record_path = result_root / "run_records.json"
+    environment_path = result_root / "environment.json"
+    stable_environment = {
+        "blind_manifest_sha256": sha256(manifest_path),
+        "instrument_profile_sha256": sha256(profile),
+        "xerus_configured_profile_sha256": sha256(configured_profile),
+        "oqmd_source": oqmd_source,
+        "oqmd_cache_manifest_sha256": (
+            oqmd_cache["cache_manifest_sha256"] if oqmd_cache else None
+        ),
+    }
+    if args.resume and environment_path.exists():
+        previous_environment = json.loads(
+            environment_path.read_text(encoding="utf-8")
+        )
+        previous_stable = {
+            **previous_environment,
+            "oqmd_cache_manifest_sha256": (
+                previous_environment.get("oqmd_cache") or {}
+            ).get("cache_manifest_sha256"),
+        }
+        mismatches = [
+            key
+            for key, value in stable_environment.items()
+            if previous_stable.get(key) != value
+        ]
+        if mismatches:
+            raise RuntimeError(
+                "Existing XERUS result environment differs for "
+                f"{mismatches}; choose a new --result-root"
+            )
     if not args.resume and (prediction_path.exists() or record_path.exists()):
         raise FileExistsError(
             f"Result files already exist in {result_root}. Use --resume or choose "
@@ -673,7 +703,7 @@ def main() -> None:
             ),
         },
     }
-    (result_root / "environment.json").write_text(
+    environment_path.write_text(
         json.dumps(environment, indent=2) + "\n", encoding="utf-8"
     )
 

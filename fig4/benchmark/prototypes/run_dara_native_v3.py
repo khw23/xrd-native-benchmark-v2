@@ -163,6 +163,29 @@ def main() -> None:
     prediction_path = result_root / "predictions.csv"
     record_path = result_root / "run_records.json"
     failure_history_path = result_root / "failure_history.jsonl"
+    environment_path = result_root / "environment.json"
+    stable_environment = {
+        "blind_manifest_sha256": sha256(manifest_path),
+        "cod_root": str(cod_root),
+        "instrument_profile": args.instrument_profile,
+        "instrument_profile_map_sha256": (
+            sha256(profile_map_path) if profile_map_path is not None else None
+        ),
+    }
+    if args.resume and environment_path.exists():
+        previous_environment = json.loads(
+            environment_path.read_text(encoding="utf-8")
+        )
+        mismatches = [
+            key
+            for key, value in stable_environment.items()
+            if previous_environment.get(key) != value
+        ]
+        if mismatches:
+            raise RuntimeError(
+                "Existing Dara result environment differs for "
+                f"{mismatches}; choose a new --result-root"
+            )
     if not args.resume and (prediction_path.exists() or record_path.exists()):
         raise FileExistsError(
             f"Result files already exist in {result_root}. Use --resume or choose "
@@ -337,19 +360,14 @@ def main() -> None:
         pd.DataFrame(predictions).to_csv(prediction_path, index=False)
         record_path.write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
 
-    (result_root / "environment.json").write_text(
+    environment_path.write_text(
         json.dumps(
             {
                 "method": METHOD_NAME,
                 "blind_manifest": str(manifest_path),
-                "blind_manifest_sha256": sha256(manifest_path),
-                "cod_root": str(cod_root),
-                "instrument_profile": args.instrument_profile,
+                **stable_environment,
                 "instrument_profile_map": (
                     str(profile_map_path) if profile_map_path is not None else None
-                ),
-                "instrument_profile_map_sha256": (
-                    sha256(profile_map_path) if profile_map_path is not None else None
                 ),
                 "num_cpus": args.num_cpus,
                 "bgmn_threads_per_refinement": args.bgmn_threads,
