@@ -15,6 +15,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import zipfile
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from itertools import combinations
 from pathlib import Path
@@ -46,6 +47,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--attempts", type=int, default=12)
     parser.add_argument("--base-delay", type=float, default=8.0)
     parser.add_argument("--max-delay", type=float, default=120.0)
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=1,
+        help="Number of element systems to download concurrently.",
+    )
     return parser.parse_args()
 
 
@@ -295,8 +302,13 @@ def download_system(system: str, output_root: Path, args: argparse.Namespace) ->
 
 def main() -> None:
     args = parse_args()
-    if args.page_limit <= 0 or args.attempts <= 0 or args.timeout <= 0:
-        raise ValueError("page-limit, attempts, and timeout must be positive")
+    if (
+        args.page_limit <= 0
+        or args.attempts <= 0
+        or args.timeout <= 0
+        or args.workers <= 0
+    ):
+        raise ValueError("page-limit, attempts, timeout, and workers must be positive")
     output_root = args.output_root.resolve()
     output_root.mkdir(parents=True, exist_ok=True)
     systems, sample_ids = selected_systems(args)
@@ -324,23 +336,41 @@ def main() -> None:
                         / f"systems/{manifest['system']}/manifest.json"
                     ),
                 }
-                for manifest in manifests
+                for manifest in sorted(manifests, key=lambda item: item["system"])
             ],
-            "failures": failures,
+            "failures": sorted(failures, key=lambda item: item["system"]),
         }
         write_json_atomic(output_root / "cache_manifest.json", cache_manifest)
 
     # Mark the cache incomplete before adding systems so an interrupted build
     # can never be mistaken for a frozen input snapshot.
     save_cache_manifest(False)
-    for index, system in enumerate(systems, start=1):
+    def run_one(index: int, system: str) -> dict:
         print(f"[{index}/{len(systems)}] {system}", flush=True)
-        try:
-            manifests.append(download_system(system, output_root, args))
-        except Exception as error:  # keep other systems resumable
-            failures.append({"system": system, "error": str(error)})
-            print(f"{system}: FAILED: {error}", flush=True)
-        save_cache_manifest(False)
+        return download_system(system, output_root, args)
+
+    if args.workers == 1:
+        for index, system in enumerate(systems, start=1):
+            try:
+                manifests.append(run_one(index, system))
+            except Exception as error:  # keep other systems resumable
+                failures.append({"system": system, "error": str(error)})
+                print(f"{system}: FAILED: {error}", flush=True)
+            save_cache_manifest(False)
+    else:
+        with ThreadPoolExecutor(max_workers=args.workers) as executor:
+            pending = {
+                executor.submit(run_one, index, system): system
+                for index, system in enumerate(systems, start=1)
+            }
+            for future in as_completed(pending):
+                system = pending[future]
+                try:
+                    manifests.append(future.result())
+                except Exception as error:  # keep other systems resumable
+                    failures.append({"system": system, "error": str(error)})
+                    print(f"{system}: FAILED: {error}", flush=True)
+                save_cache_manifest(False)
     complete = not failures and len(manifests) == len(systems)
     save_cache_manifest(complete)
     print(
