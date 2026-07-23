@@ -36,33 +36,27 @@ benchmark 准确率。
 这是一套冻结的 README-prior baseline。CrystalShift activation 是模型内部量，不能解释为质量分数
 或摩尔分数。准确率只允许在本地使用私有真值另行计算。
 
-## XERUS 完整候选 pilot：通过
+## XERUS 100 条正式运行：完成
 
-`XRDV3_0046` 使用 7 个元素子体系的冻结 OQMD OPTIMADE cache：
+正式结果位于 `xerus_native_pilot_v2/`；目录名沿用早期 pilot，但当前内容已经是冻结的 100 条全量结果：
 
-- OQMD 原始记录：150；
-- XERUS 原生候选快照：226，其中 OQMD 149、COD 61、MP 12、ODBX 4；
-- 候选准备时间：95.3 s；
-- 进入 XERUS 模拟/筛选的候选：63；
-- 正式分析时间：27.4 s；
-- 最终 Rwp：7.0242%；
-- 返回 AgCl 与 AgBr 两相、数据库 ID、CIF 和 XERUS 质量分数；
-- OQMD 全部来自冻结 cache，正式日志没有实时 `oqmd.org` 请求。
+- 100/100 个样品各有最新 `status=ok`；
+- OQMD 仅使用校验后的冻结 OPTIMADE cache，正式日志没有实时 `oqmd.org` 请求；
+- 100 个候选 manifest 共 46,947 条样品内唯一候选：COD 23,663、OQMD 18,440、
+  MP 4,612、ODBX 232；
+- 当前输出共 286 个预测相：2 个样品返回 1 相、10 个返回 2 相、88 个返回 3 相；
+- 当前累计正式分析时间 7,018.0 s，中位数 44.0 s，最大值 376.8 s；
+- 286 个入选 CIF 全部存在，输出内 SHA-256 和汇总校验文件均通过；
+- 每个样品报告的 XERUS 质量分数之和为 1。
 
-该样品证明离线 OQMD 路径、MongoDB、GSAS-II、CIF validator 和正式 refinement 可以端到端运行。
-它不能单独证明 100 条的运行时间；XERUS 的耗时仍随候选模拟和组合精修规模变化。
+首轮 21 个样品级错误保留在 append-only 审计中：20 个组合精修的
+`no reflections in data range`，以及 1 个不参与最终结果的空诊断图错误。恢复补丁只把这一种
+无反射组合赋予 XERUS 已有的无效拟合哨兵值，并跳过空诊断图；候选、`n_runs=3`、`n_jobs=4`、
+仪器 profile、求解设置和全局最多三相均未改变。修复 smoke 通过后重跑失败样品，最终
+latest-state gate 为 100/100。
 
-## 下一步：不再做三档 smoke
+## 当前状态
 
-用户已批准跳过额外三档 smoke。下一步固定为：
-
-1. 在本机下载并校验 Atomly-Core-100 所需的 470 个唯一 OQMD 元素子体系；
-2. 将完整 cache 传到 DGX 的
-   `fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_full/`；
-3. 在固定 MongoDB 中对 100 条执行一次 `prepare-candidates-only`；
-4. 候选准备无错误后，使用同一 cache/MongoDB/profile 直接执行 100 条正式 XERUS；
-5. 整个流程由 `run_xerus_full_background_v3.sh` 作为一个 `nohup` 后台任务运行；DGX Codex 只检查
-   启动状态和初始日志，然后退出，不持续轮询。
-
-完整 cache、MongoDB、环境和所有候选 CIF 不提交 GitHub。只提交候选 manifest、预测、最终入选 CIF、
-校验和、环境记录及必要日志。私有真值不得上传 DGX。
+CrystalShift + CrystalTree 和 XERUS 的 Atomly-Core-100 盲测输出已经冻结。DGX 分支不得加入
+私有真值或准确率。下一步是在本地用预注册 Atomly--COD 等价 ID 和 StructureMatcher 规则揭盲，
+分别报告 unconditional、coverage-conditioned、相级和样品级指标。
