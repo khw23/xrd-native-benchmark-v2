@@ -3,6 +3,11 @@
 本指南只负责外部文献实验集。Atomly-Core-100 保持独立，不把两者混成一个 headline
 accuracy。78 条可在程序上一次遍历，但输出必须保留 `dataset_family`，最终分别报告四个家族。
 
+DGX 和服务器并行时分别使用
+`run/literature-external-dgx-v1` 与
+`run/literature-external-server-v1`。两台设备的目录所有权和回传边界见
+`LITERATURE_EXTERNAL_PARALLEL_BRANCHES_V1.md`。
+
 ## 1. 公共输入与校验
 
 公开 runner 只读取：
