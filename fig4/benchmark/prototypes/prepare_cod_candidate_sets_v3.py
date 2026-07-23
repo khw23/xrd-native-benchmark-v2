@@ -111,6 +111,9 @@ def main() -> None:
     args = parse_args()
     blind_root = args.blind_root.resolve()
     output_root = args.output_root.resolve()
+    cod_root = args.cod_root.resolve() if args.cod_root is not None else None
+    if cod_root is not None and not cod_root.is_dir():
+        raise FileNotFoundError(f"Local COD mirror not found: {cod_root}")
     manifest_path = blind_root / "sample_manifest.csv"
     manifest = pd.read_csv(manifest_path)
     manifest["system_key"] = manifest["sample_elements"].map(system_key)
@@ -121,7 +124,7 @@ def main() -> None:
 
     output_root.mkdir(parents=True, exist_ok=True)
     CODDatabase._download_cod = staticmethod(download_with_retries)
-    database = CODDatabase(path_to_cifs=args.cod_root)
+    database = CODDatabase(path_to_cifs=cod_root)
     summary_path = output_root / "candidate_set_summary.csv"
     if args.resume and summary_path.exists():
         records = {
@@ -226,23 +229,35 @@ def main() -> None:
         pd.concat(manifests, ignore_index=True).to_csv(
             output_root / "candidate_manifest.csv", index=False
         )
+    systems_successful = sum(
+        row.get("status") in {"prepared", "cached"} for row in records.values()
+    )
     provenance = {
         "input_manifest": str(manifest_path.relative_to(ROOT)),
         "input_manifest_sha256": sha256(manifest_path),
         "database_class": "dara.structure_db.CODDatabase",
-        "local_cod_root": str(args.cod_root) if args.cod_root else None,
+        "local_cod_root": str(cod_root) if cod_root else None,
         "selection_rule": "all database phases whose element set is a nonempty subset of sample_elements, followed by Dara COD preprocessing",
         "private_generator_cifs_used": False,
         "systems_recorded": len(records),
-        "systems_successful": sum(
-            row.get("status") in {"prepared", "cached"} for row in records.values()
-        ),
+        "systems_successful": systems_successful,
         "resume_supported": True,
         "download_attempts_per_cod_id": 3,
     }
     (output_root / "provenance.json").write_text(
         json.dumps(provenance, indent=2) + "\n", encoding="utf-8"
     )
+    print(
+        "COD_CANDIDATE_PREPARATION_SUMMARY "
+        f"{systems_successful}/{len(records)} systems successful",
+        flush=True,
+    )
+    if systems_successful != len(records):
+        raise RuntimeError(
+            "COD candidate preparation incomplete: "
+            f"{systems_successful}/{len(records)} systems successful"
+        )
+    print("COD_CANDIDATE_PREPARATION_OK", flush=True)
 
 
 if __name__ == "__main__":
