@@ -1,0 +1,105 @@
+#------------------------------------------------------------------------------
+#$Date: 2016-02-13 21:28:24 +0200 (Sat, 13 Feb 2016) $
+#$Revision: 176429 $
+#$URL: file:///home/coder/svn-repositories/_RELOADED_COD/cod-reloaded/cif/2/31/08/2310815.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/. The original data for this entry
+# were provided by IUCr Journals, http://journals.iucr.org/.
+#
+# The file may be used within the scientific community so long as
+# proper attribution is given to the journal article from which the
+# data were obtained.
+#
+data_2310815
+loop_
+_publ_author_name
+'Mardix, S.'
+'Alexander, E.'
+'Steinberger, I.T.'
+'Brafman, O.'
+_publ_section_title
+;
+ Polytype families in zinc sulfide crystals
+;
+_journal_name_full               'Acta Crystallographica (1,1948-23,1967)'
+_journal_page_first              808
+_journal_page_last               812
+_journal_volume                  22
+_journal_year                    1967
+_chemical_formula_sum            'S Zn'
+_chemical_name_systematic        'Zn S'
+_space_group_IT_number           156
+_symmetry_space_group_name_Hall  'P 3 -2"'
+_symmetry_space_group_name_H-M   'P 3 m 1'
+_cell_angle_alpha                90
+_cell_angle_beta                 90
+_cell_angle_gamma                120
+_cell_formula_units_Z            20
+_cell_length_a                   3.82
+_cell_length_b                   3.82
+_cell_length_c                   62.59999
+_cell_volume                     791.100
+_citation_journal_id_ASTM        ACCRA9
+_cod_data_source_file            Mardix_ACCRA9_1967_382.cif
+_cod_data_source_block           S1Zn1
+_cod_original_cell_volume        791.1004
+_cod_original_formula_sum        'S1 Zn1'
+_cod_database_code               2310815
+loop_
+_symmetry_equiv_pos_as_xyz
+x,y,z
+-y,x-y,z
+-x+y,-x,z
+-y,-x,z
+x,x-y,z
+-x+y,y,z
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+_atom_site_U_iso_or_equiv
+S2 S-2 0.3333 0.6667 0.0875 1 0.0
+S16 S-2 0.3333 0.6667 0.7875 1 0.0
+Zn10 Zn+2 0 0 0.45 1 0.0
+S13 S-2 0.3333 0.6667 0.6375 1 0.0
+Zn8 Zn+2 0 0 0.35 1 0.0
+S14 S-2 0 0 0.6875 1 0.0
+Zn19 Zn+2 0.6667 0.3333 0.9 1 0.0
+S7 S-2 0.3333 0.6667 0.3375 1 0.0
+Zn6 Zn+2 0.6667 0.3333 0.25 1 0.0
+Zn18 Zn+2 0 0 0.85 1 0.0
+Zn3 Zn+2 0.6667 0.3333 0.1 1 0.0
+Zn5 Zn+2 0.3333 0.6667 0.2 1 0.0
+S20 S-2 0.3333 0.6667 0.9875 1 0.0
+S19 S-2 0.6667 0.3333 0.9375 1 0.0
+S15 S-2 0.6667 0.3333 0.7375 1 0.0
+Zn13 Zn+2 0.3333 0.6667 0.6 1 0.0
+S18 S-2 0 0 0.8875 1 0.0
+Zn17 Zn+2 0.6667 0.3333 0.8 1 0.0
+Zn14 Zn+2 0 0 0.65 1 0.0
+Zn7 Zn+2 0.3333 0.6667 0.3 1 0.0
+S10 S-2 0 0 0.4875 1 0.0
+S1 S-2 0 0 0.0375 1 0.0
+Zn2 Zn+2 0.3333 0.6667 0.05 1 0.0
+S8 S-2 0 0 0.3875 1 0.0
+S9 S-2 0.6667 0.3333 0.4375 1 0.0
+S6 S-2 0.6667 0.3333 0.2875 1 0.0
+S4 S-2 0 0 0.1875 1 0.0
+Zn11 Zn+2 0.3333 0.6667 0.5 1 0.0
+Zn16 Zn+2 0.3333 0.6667 0.75 1 0.0
+Zn15 Zn+2 0.6667 0.3333 0.7 1 0.0
+Zn20 Zn+2 0.3333 0.6667 0.95 1 0.0
+Zn9 Zn+2 0.6667 0.3333 0.4 1 0.0
+Zn1 Zn+2 0 0 0 1 0.0
+S11 S-2 0.3333 0.6667 0.5375 1 0.0
+S17 S-2 0.6667 0.3333 0.8375 1 0.0
+S3 S-2 0.6667 0.3333 0.1375 1 0.0
+Zn12 Zn+2 0.6667 0.3333 0.55 1 0.0
+S12 S-2 0.6667 0.3333 0.5875 1 0.0
+S5 S-2 0.3333 0.6667 0.2375 1 0.0
+Zn4 Zn+2 0 0 0.15 1 0.0

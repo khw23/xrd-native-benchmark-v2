@@ -1,0 +1,70 @@
+# generated using pymatgen
+data_2100086
+loop_
+ _publ_author_name
+  'Richard E. Marsh'
+_publ_section_title   'Space group <i>P</i>1: an update'
+_journal_issue   3
+_journal_name_full   'Acta Crystallographica Section B'
+_journal_page_first   359
+_journal_page_last   359
+_journal_paper_doi   10.1107/S0108768105009651
+_journal_volume   61
+_journal_year   2005
+_chemical_formula_moiety   'C13 H24 O10, 0.5(H2 O)'
+_chemical_formula_sum   'C13 H25 O10.5'
+_space_group_crystal_system   monoclinic
+_symmetry_space_group_name_H-M   'C 1 2 1'
+_audit_creation_method   CRYM
+_cell_angle_alpha   90
+_cell_angle_beta   123.50
+_cell_angle_gamma   90
+_cell_formula_units_Z   4
+_cell_length_a   21.7350
+_cell_length_b   4.9300
+_cell_length_c   17.3860
+_cell_volume   1553.506
+_cod_data_source_file   bk0148.cif
+_cod_data_source_block   TIYYOP
+_cod_depositor_comments
+;
+Added moiety chemical formula and Z value from Marsh (2005) paper.
+The summary chemical formula is calculated from moiety formula using
+AdHocParser   (svn://www.crystallography.net/cod-
+tools/trunk/Formulae/AdHocParser.yp,   revision 1441.)   Andrius
+Merkys   2013-11-11
+;
+_cod_original_sg_symbol_H-M   'C 2'
+_cod_original_formula_sum   'not given'
+_cod_database_code   2100086
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_type_symbol
+  C1  0.29322  -0.50327  0.30305  C
+  O1  0.33117  -0.74553  0.32055  O
+  C2  0.38565  -0.78555  0.41625  C
+  C3  0.25163  -0.43797  0.20015  C
+  O2  0.29920  -0.33190  0.17355  O
+  C4  0.19575  -0.21245  0.17385  C
+  O3  0.14975  -0.19230  0.07530  O
+  C5  0.14867  -0.25148  0.21270  C
+  O4  0.09775  -0.47270  0.16815  O
+  C6  0.20022  -0.30303  0.31610  C
+  O5  0.24310  -0.54180  0.33025  O
+  C7  0.16205  -0.34650  0.36580  C
+  O6  0.21332  -0.34482  0.46385  O
+  C8  0.35403  -0.50902  0.18270  C
+  C9  0.36485  -0.44680  0.10455  C
+  O7  0.29550  -0.47005  0.01735  O
+  C10  0.39873  -0.17018  0.11470  C
+  O8  0.41600  -0.13990  0.04635  O
+  C11  0.46875  -0.14085  0.21150  C
+  O9  0.52478  -0.31848  0.22190  O
+  C12  0.45195  -0.21020  0.28385  C
+  O10  0.42150  -0.48020  0.26870  O
+  C13  0.51950  -0.20695  0.38140  C
+  O21  0.00000  0.02540  0.00000  O
+  O22  0.00000  -0.15900  0.00000  O

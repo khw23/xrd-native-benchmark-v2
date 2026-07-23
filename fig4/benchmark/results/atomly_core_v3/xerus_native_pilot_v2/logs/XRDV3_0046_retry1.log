@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/prototypes/run_xerus_native_v3.py", line 360, in <module>
+    main()
+  File "/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/prototypes/run_xerus_native_v3.py", line 111, in main
+    import Xerus
+  File "/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/third_party/Xerus/Xerus/__init__.py", line 35, in <module>
+    from Xerus.engine.gsas2riet import refine_comb, simulate_spectra
+  File "/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/third_party/Xerus/Xerus/engine/gsas2riet.py", line 27, in <module>
+    from Xerus.engine.gsas2utils import get_wtfract, parse_reflections_array
+  File "/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/third_party/Xerus/Xerus/engine/gsas2utils.py", line 31, in <module>
+    import GSASIIscriptable as G2sc  # Ignore Warning
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/xerus-env/lib/python3.12/site-packages/GSASII/GSASIIscriptable.py", line 44, in <module>
+    from . import GSASIIpath
+ImportError: attempted relative import with no known parent package
+Command exited with non-zero status 1
+	Command being timed: "xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py --sample-id XRDV3_0046 --n-jobs 4 --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2 --resume --retry-failures"
+	User time (seconds): 2.90
+	System time (seconds): 0.06
+	Percent of CPU this job got: 700%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.42
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 160780
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 27531
+	Voluntary context switches: 44
+	Involuntary context switches: 241
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

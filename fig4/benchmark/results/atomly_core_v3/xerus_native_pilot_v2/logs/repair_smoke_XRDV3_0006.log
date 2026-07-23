@@ -1,0 +1,61 @@
+/home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/engine/gsas2utils.py:31: UserWarning: Importing GSASIIscriptable as a top level module is deprecated, please import it as a sub-module of GSASII
+  import GSASIIscriptable as G2sc  # Ignore Warning
+GSAS-II binaries co-located with GSAS-II: /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/xerus-env/lib/python3.12/site-packages/GSASII
+5 values read from /home/khw/.GSASII/config.ini
+Sucessfuly read datafile /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/preprocessed_inputs/XRDV3_0006.xy
+Standarizing intensity to [0,1]..
+Exported new datafile at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0006/XRDV3_0006_preprocessed.csv
+Removing background using polynomial degree: 8
+Using preprocessed data /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0006/XRDV3_0006_preprocessed.csv. New datafmt is: csv
+Sucessfuly connected to the database
+Checking the following combination:C
+Checking the following combination:Si
+Checking the following combination:Si-C
+C
+Si
+Si-C
+Modified Query for given 2 to : ['C', 'Si', 'Si-C']
+Simulating 186 patterns
+Done. Cleaning up GSASII files.
+Highest Correlated pattern is Si, with Cij: 0.9677782813841311
+XRDV3_0006.xy_Top30.html
+Sucessfuly read datafile /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0006/XRDV3_0006_preprocessed.csv
+Refining 3 highest correlated patterns and determining main phase (n=0)...
+Phase detected Si_OQMD_4062615.cif with rwp 20.66737234815544
+Removing 1 patterns that maximum intensity dropped below 10%.
+Phase detected SiC_COD_1011053.cif
+Removing 3 patterns that maximum intensity dropped below 10%.
+Phase detected C_COD_1535012.cif
+/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0006/XRDV3_0006All_N_Runs.html
+0
+455
+1989
+0
+455
+1989
+Filtering combinations..
+Initial # of combs: 28
+Final # of combs: 19, # removed: 9
+Removed 0 repeated combinations.
+Phase: Si-Fd-3m_SiC-P6_3mc, Rwp: 15.290945895166482
+Phase: Si-Fd-3m_SiC-R3m, Rwp: 16.11330590206979
+Phase: Si-Fd-3m_SiC-P6_3mc_SiC-R3m, Rwp: 12.795754030172082
+Phase: Si-Fd-3m_SiC-P6_3mc_SiC-F-43m, Rwp: 9.077149720063128
+Phase: Si-Fd-3m_SiC-R3m_C-P4_2-mmc, Rwp: 16.276338874858435
+Phase: Si-Fd-3m_SiC-F-43m_C-Cmcm, Rwp: 12.119714537438538
+Phase: Si-Fd-3m_Si-Pnma_SiC-P6_3mc, Rwp: 15.45983556072905
+Phase: Si-Fd-3m_Si-Pnma_SiC-R3m, Rwp: 999999
+Phase: Si-Fd-3m_SiC-P6_3mc_C-P4_2-mmc, Rwp: 15.505186774254682
+Phase: Si-Fd-3m_SiC-R3m_SiC-F-43m, Rwp: 11.691676417632534
+Phase: Si-Fd-3m_SiC-F-43m_C-Pnnm, Rwp: 11.93386280305498
+Phase: Si-Fd-3m_SiC-F-43m_C-P4_2-mmc, Rwp: 11.928241004002317
+Phase: Si-Fd-3m_SiC-F-43m, Rwp: 11.811894280502115
+Phase: Si-Fd-3m_Si-Pnma_Si-Fm-3m, Rwp: 999999
+Phase: Si-Fd-3m_Si-Fm-3m_SiC-R3m, Rwp: 999999
+Phase: Si-Fd-3m_Si-Fm-3m_SiC-F-43m, Rwp: 999999
+Phase: Si-Fd-3m_SiC-R3m_C-Cmcm, Rwp: 16.40522436536153
+Phase: Si-Fd-3m_SiC-R3m_C-Pnnm, Rwp: 16.278844230579192
+Analysis complete
+Best combination: Si_OQMD_4062615.cif_SiC_COD_1011053.cif_SiC_OQMD_5569981.cif, Rwp: 9.077149720063128%
+Returning data to original format xy
+XRDV3_0006: 33 candidates -> 3 phases, Rwp=9.077%, 20.8 s

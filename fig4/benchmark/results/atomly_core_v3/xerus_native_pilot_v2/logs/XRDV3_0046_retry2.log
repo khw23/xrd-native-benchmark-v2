@@ -1,0 +1,46 @@
+/home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/engine/gsas2utils.py:31: UserWarning: Importing GSASIIscriptable as a top level module is deprecated, please import it as a sub-module of GSASII
+  import GSASIIscriptable as G2sc  # Ignore Warning
+GSAS-II binaries co-located with GSAS-II: /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/xerus-env/lib/python3.12/site-packages/GSASII
+5 values read from /home/khw/.GSASII/config.ini
+Sucessfuly read datafile /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/preprocessed_inputs/XRDV3_0046.xy
+Standarizing intensity to [0,1]..
+Exported new datafile at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0046/XRDV3_0046_preprocessed.csv
+Removing background using polynomial degree: 8
+Using preprocessed data /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0046/XRDV3_0046_preprocessed.csv. New datafmt is: csv
+Sucessfuly connected to the database
+Checking the following combination:Ag
+No matching system type Ag found in the database
+Sucessfuly connected to the database
+No matching system type Ag found in the database
+Retrieving SummaryDoc documents:   0%|          | 0/3 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 3/3 [00:00<00:00, 174762.67it/s]
+Writing /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0046_Ag_MP/Ag_MP_mp-124.cif
+Writing /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0046_Ag_MP/Ag_MP_mp-8566.cif
+Writing /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0046_Ag_MP/Ag_MP_mp-10597.cif
+I am querying the following combination from COD: Ag
+http://www.crystallography.net/cod/result?el1=Ag&strictmin=1&strictmax=1&maxv=10000&format=urls
+  0%|          | 0/36 [00:00<?, ?it/s] 78%|███████▊  | 28/36 [00:00<00:00, 272.08it/s]100%|██████████| 36/36 [00:00<00:00, 281.89it/s]
+Querying OQMD through OPTIMADE....
+XRDV3_0046: ERROR after 19.2 s: HTTPSConnectionPool(host='oqmd.org', port=443): Max retries exceeded with url: /optimade/v1/structures?filter=elements%20HAS%20ONLY%20%22Ag%22%20AND%20_oqmd_stability%3C0.05&response_fields=cartesian_site_positions,species,elements,nelements,species_at_sites,lattice_vectors,last_modified,elements_ratios,chemical_formula_descriptive,chemical_formula_reduced,chemical_formula_anonymous,nperiodic_dimensions,nsites,structure_features,dimension_types&page_limit=10 (Caused by ResponseError('too many 502 error responses'))
+	Command being timed: "xerus-env/bin/python fig4/benchmark/prototypes/run_xerus_native_v3.py --sample-id XRDV3_0046 --n-jobs 4 --result-root fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2 --resume --retry-failures"
+	User time (seconds): 5.22
+	System time (seconds): 0.23
+	Percent of CPU this job got: 26%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:20.73
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 378496
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 81825
+	Voluntary context switches: 463
+	Involuntary context switches: 332
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 672
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

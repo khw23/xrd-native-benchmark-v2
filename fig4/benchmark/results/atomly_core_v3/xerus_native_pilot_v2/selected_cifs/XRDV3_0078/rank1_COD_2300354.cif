@@ -1,0 +1,187 @@
+#------------------------------------------------------------------------------
+#$Date: 2016-02-11 00:55:37 +0200 (Thu, 11 Feb 2016) $
+#$Revision: 176342 $
+#$URL: file:///home/coder/svn-repositories/_RELOADED_COD/cod-reloaded/cif/2/30/03/2300354.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/. The original data for this entry
+# were provided by IUCr Journals, http://journals.iucr.org/.
+#
+# The file may be used within the scientific community so long as
+# proper attribution is given to the journal article from which the
+# data were obtained.
+#
+data_2300354
+loop_
+_publ_author_name
+'Jensen, Kirsten'
+'Christensen, Mogens'
+'Tyrsted, Christoffer'
+'Brummerstedt Iversen, Bo'
+_publ_section_title
+;
+ Real-time synchrotron powder X-ray diffraction study of the antisite
+ defect formation during sub- and supercritical synthesis of LiFePO~4~
+ and LiFe~1{-~<i>x</i>}Mn~<i>x~</i>PO~4~ nanoparticles
+;
+_journal_coeditor_code           KO5132
+_journal_issue                   2
+_journal_name_full               'Journal of Applied Crystallography'
+_journal_page_first              287
+_journal_page_last               294
+_journal_paper_doi               10.1107/S0021889811006522
+_journal_volume                  44
+_journal_year                    2011
+_chemical_formula_sum            'Fe0.5 Li Mn0.5 O4 P'
+_chemical_name_systematic        ' ?'
+_space_group_IT_number           62
+_symmetry_cell_setting           orthorhombic
+_symmetry_space_group_name_Hall  '-P 2ac 2n'
+_symmetry_space_group_name_H-M   'P n m a'
+_cell_angle_alpha                90.00000
+_cell_angle_beta                 90.00000
+_cell_angle_gamma                90.00000
+_cell_formula_units_Z            4
+_cell_length_a                   10.4072(3)
+_cell_length_b                   6.06188(14)
+_cell_length_c                   4.73357(13)
+_cell_measurement_pressure       2.5E4
+_cell_measurement_temperature    618
+_cell_volume                     298.628(14)
+_computing_structure_refinement  FULLPROF
+_diffrn_ambient_pressure         2.5E4
+_diffrn_ambient_temperature      618
+_diffrn_radiation_wavelength     0.94449
+_pd_block_diffractogram_id       LiFe050Mn050PO4345
+_pd_instr_location               ' ?'
+_pd_meas_2theta_range_inc        0.037384
+_pd_meas_2theta_range_max        43.97871
+_pd_meas_2theta_range_min        3.45480
+_pd_meas_number_of_points        1086
+_pd_proc_2theta_range_inc        0.037384
+_pd_proc_2theta_range_max        43.9655
+_pd_proc_2theta_range_min        3.4416
+_pd_proc_ls_pref_orient_corr     ' ?'
+_pd_proc_ls_prof_R_factor        0.4143
+_pd_proc_ls_prof_wR_expected     0.3334
+_pd_proc_ls_prof_wR_factor       0.6095
+_pd_proc_wavelength              0.944490
+_pd_spec_mounting                ' ?'
+_refine_ls_number_parameters     48
+_refine_ls_number_reflns         175
+_refine_ls_number_restraints     0
+_cod_data_source_file            ko5132.cif
+_cod_data_source_block           LiFe050Mn050PO4345
+_cod_depositor_comments
+;
+Luca Lutterotti, 10/5/2013
+
+Problem with occupancy exceeding 1.
+Occupancy corrected using following rules:
+- Fe/Mn and Li relatives occupancies as refined by authors
+- Fe/Mn ratio fixed to nominal composition: 0.75/0.25, 0.5/0.5, 0.25/0.75
+- O and P occupancies = 1
+Everything turn out correct this way.
+
+#----------------------------------------------------------------------
+
+ The original ko5132.cif from the IUCr web-site was updated according
+ to the message received from the authors:
+
+ From:  Bo Brummerstedt Iversen <bo@xxxxxxxxxxxxxxxxx>
+ To:    Saulius Gra\<ulis <grazulis@xxxxxxxxxxxxxxx>
+ Subject:        Re: Supplementary data for your paper ko5132.cif
+ Date:           Thu, 12 May 2011 10:27:02 +0200 (11:27 EEST)
+
+ Dear Saulius,
+
+ Thanks for your mail
+
+ 1) /.../ The compositions are LiFePO4, LiFe0.75Mn0.25PO4,
+ LiFe0.50Mn0.50PO4, and LiFe0.25Mn0.50PO4
+
+ The occupancy of the Fe in the second block should therefore be
+ changed to 0.7465(17), while that of manganese should be 0.25096. We
+ are sorry about this confusion.
+
+ 2) Yes, the bruttoformula should be the data header, and the Z value 4
+
+ 3) Yes, the data were measured at 345 degrees celcius.
+
+ 4) Yes, the pressure during the measurement was 250 bar.
+ /.../
+
+ Best regards,
+ Bo
+
+ Saulius Gra\<zulis
+ 2011.05.17
+
+#----------------------------------------------------------------------
+
+The following automatic conversions were performed:
+'_symmetry_cell_setting' value 'Orthorhombic' changed to 'orthorhombic'
+according to '/home/saulius/struct/CIF-dictionaries/cif_core.dic'
+dictionary named 'cif_core.dic' version 2.4.1 from 2010-06-29.
+
+Automatic conversion script
+Id: cif_fix_enum 1555 2011-01-17 13:19:09Z saulius 
+;
+_cod_original_cell_volume        298.629(14)
+_cod_original_formula_sum        'Li Fe0.50 Mn0.50 P O4'
+_cod_database_code               2300354
+loop_
+_symmetry_equiv_pos_as_xyz
+x,y,z
+x+1/2,-y+1/2,-z+1/2
+-x,y+1/2,-z
+-x+1/2,-y,z+1/2
+-x,-y,-z
+-x+1/2,y+1/2,z+1/2
+x,-y+1/2,z
+x+1/2,y,-z+1/2
+loop_
+_atom_site_type_symbol
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+_atom_site_adp_type
+_atom_site_occupancy
+Li Li1 0.00000 0.00000 0.00000 0.00000 Uiso 0.996(3)
+Fe Fe1 0.2828(2) 0.25000 0.9705(7) 0.00000 Uiso 0.498
+Mn Mn1 0.2828(2) 0.25000 0.9705(7) 0.00000 Uiso 0.498
+P P1 0.0952(6) 0.25000 0.4169(11) 0.00000 Uiso 1.0
+O O1 0.0939(13) 0.25000 0.731(2) 0.00000 Uiso 1.0
+O O2 0.4495(15) 0.25000 0.2062(14) 0.00000 Uiso 1.0
+O O3 0.1604(8) 0.0537(14) 0.2778(12) 0.00000 Uiso 1.0
+Fe Fe2 0.00000 0.00000 0.00000 0.00000 Uiso 0.002
+Mn Mn2 0.00000 0.00000 0.00000 0.00000 Uiso 0.002
+Li Li2 0.2828(2) 0.25000 0.9705(7) 0.00000 Uiso 0.004
+loop_
+_atom_type_symbol
+_atom_type_scat_dispersion_real
+_atom_type_scat_dispersion_imag
+_atom_type_scat_source
+Li 0.00032 0.00013
+;International Tables for Crystallography Vol. C (1991)
+ Tables 6.1.1.4 and 6.1.1.5
+;
+Fe 0.28930 1.55416
+;International Tables for Crystallography Vol. C (1991)
+ Tables 6.1.1.4 and 6.1.1.5
+;
+Mn 0.29500 0.72900
+;International Tables for Crystallography Vol. C (1991)
+ Tables 6.1.1.4 and 6.1.1.5
+;
+P 0.17633 0.19009
+;International Tables for Crystallography Vol. C (1991)
+ Tables 6.1.1.4 and 6.1.1.5
+;
+O 0.02351 0.01325
+;International Tables for Crystallography Vol. C (1991)
+ Tables 6.1.1.4 and 6.1.1.5
+;

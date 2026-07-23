@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "created_or_updated_at_utc": "2026-07-21T05:18:40.820158+00:00",
+  "blind_package": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3.zip",
+  "blind_package_sha256": "dde24eb5b1553f005c5da99a4bd2adf242ba6360ced0f8e4fed42238835e6243",
+  "selected_sample_ids": [
+    "XRDV3_0046"
+  ],
+  "requested_system_count": 7,
+  "complete_system_count": 7,
+  "failed_system_count": 0,
+  "complete": true,
+  "systems": [
+    {
+      "system": "Ag",
+      "entry_count": 50,
+      "manifest": "systems/Ag/manifest.json",
+      "manifest_sha256": "90dabfab6ca2cafd03f78e5d39e86791c90ad879772a1f1ba41a10e2c9462b64"
+    },
+    {
+      "system": "Ag-Br",
+      "entry_count": 22,
+      "manifest": "systems/Ag-Br/manifest.json",
+      "manifest_sha256": "8018dc54f17a087bd77358b4cc8f3c356b88b75c110ada60178c2335099db08e"
+    },
+    {
+      "system": "Ag-Br-Cl",
+      "entry_count": 12,
+      "manifest": "systems/Ag-Br-Cl/manifest.json",
+      "manifest_sha256": "b47ccdf3a18f30b5f1b9086ae2e785f383e8b8a1b768f97eb056c894c60b0683"
+    },
+    {
+      "system": "Ag-Cl",
+      "entry_count": 37,
+      "manifest": "systems/Ag-Cl/manifest.json",
+      "manifest_sha256": "24ff756bcbbe4bac3e8a29287f826019614a379659ed0dd89e7f8556d70c6bc9"
+    },
+    {
+      "system": "Br",
+      "entry_count": 8,
+      "manifest": "systems/Br/manifest.json",
+      "manifest_sha256": "93586f1136dd142d34b41e1fd3d21ea6eaf216ede51cfd8d3ddbfb419a19b966"
+    },
+    {
+      "system": "Br-Cl",
+      "entry_count": 9,
+      "manifest": "systems/Br-Cl/manifest.json",
+      "manifest_sha256": "d35e98510b9a8cf55466ad0da38f35153072b1297d7689aedd743cf0e01665ab"
+    },
+    {
+      "system": "Cl",
+      "entry_count": 12,
+      "manifest": "systems/Cl/manifest.json",
+      "manifest_sha256": "1ff3b950085f44a919b33a341660b5f5be876a47036918b2122f67c1bb02bf49"
+    }
+  ],
+  "failures": []
+}

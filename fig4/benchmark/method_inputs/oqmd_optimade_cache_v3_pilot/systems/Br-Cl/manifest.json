@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "provider": "OQMD OPTIMADE",
+  "provider_base_url": "https://oqmd.org/optimade/v1/structures",
+  "protocol": "elements HAS ONLY <system> AND _oqmd_stability<0.05",
+  "system": "Br-Cl",
+  "elements": [
+    "Br",
+    "Cl"
+  ],
+  "page_limit": 10,
+  "complete": true,
+  "completed_at_utc": "2026-07-21T05:04:38.735154+00:00",
+  "entry_count": 9,
+  "database_ids": [
+    "5784537",
+    "5842410",
+    "6220519",
+    "6358755",
+    "6362070",
+    "6363548",
+    "6364182",
+    "6389281",
+    "6396070"
+  ],
+  "pages": [
+    {
+      "file": "pages/page_0000.json",
+      "request_url": "https://oqmd.org/optimade/v1/structures?filter=elements+HAS+ONLY+%22Br%22%2C%22Cl%22+AND+_oqmd_stability%3C0.05&response_fields=cartesian_site_positions%2Cspecies%2Celements%2Cnelements%2Cspecies_at_sites%2Clattice_vectors%2Clast_modified%2Celements_ratios%2Cchemical_formula_descriptive%2Cchemical_formula_reduced%2Cchemical_formula_anonymous%2Cnperiodic_dimensions%2Cnsites%2Cstructure_features%2Cdimension_types&page_limit=10",
+      "sha256": "4c05c01f3b788b5da1bf2cd8e383b99bf3b15267ab42c19c73cb2f5831cbb6a8",
+      "entry_count": 9,
+      "request_attempts": 1,
+      "server_timestamp": "2026-07-21T05:04:38Z"
+    }
+  ]
+}

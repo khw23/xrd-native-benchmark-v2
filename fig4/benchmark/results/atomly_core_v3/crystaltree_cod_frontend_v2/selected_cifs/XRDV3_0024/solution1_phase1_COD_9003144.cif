@@ -1,0 +1,249 @@
+# generated using pymatgen
+data_9003144
+loop_
+ _publ_author_name
+  'Walker, D.'
+  'Verma, P. K.'
+  'Cranswick, L. M. D.'
+  'Jones, R. L.'
+  'Clark, S. M.'
+  'Buhre, S.'
+_publ_section_title
+;
+Halite-sylvite thermoelasticity  Sample: b&w, T = 23 C, P = 0.0 kbar,
+cell volume = 236.48 ang**3
+;
+_journal_name_full   'American Mineralogist'
+_journal_page_first   204
+_journal_page_last   210
+_journal_volume   89
+_journal_year   2004
+_chemical_formula_structural   (K.8Na.2)Cl
+_chemical_formula_sum   'Cl K0.8 Na0.2'
+_space_group_IT_number   225
+_symmetry_space_group_name_Hall   '-F 4 2 3'
+_symmetry_space_group_name_H-M   'F m -3 m'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   90
+_cell_length_a   6.1839
+_cell_length_b   6.1839
+_cell_length_c   6.1839
+_cell_volume   236.476
+_cell_formula_units_Z   4
+_database_code_amcsd   0003233
+_diffrn_ambient_pressure   0
+_diffrn_ambient_temperature   296.15
+_exptl_crystal_density_diffrn   2.004
+_cod_original_sg_symbol_H-M   'F m 3 m'
+_cod_original_formula_sum   '(K.8 Na.2) Cl'
+_cod_database_code   9003144
+_amcsd_formula_title   (K.8Na.2)Cl
+loop_
+ _space_group_symop_operation_xyz
+  x,y,z
+  x,1/2+y,1/2+z
+  1/2+x,y,1/2+z
+  1/2+x,1/2+y,z
+  z,-x,y
+  z,1/2-x,1/2+y
+  1/2+z,-x,1/2+y
+  1/2+z,1/2-x,y
+  -y,z,-x
+  -y,1/2+z,1/2-x
+  1/2-y,z,1/2-x
+  1/2-y,1/2+z,-x
+  x,-y,z
+  x,1/2-y,1/2+z
+  1/2+x,-y,1/2+z
+  1/2+x,1/2-y,z
+  -z,x,-y
+  -z,1/2+x,1/2-y
+  1/2-z,x,1/2-y
+  1/2-z,1/2+x,-y
+  y,-z,x
+  y,1/2-z,1/2+x
+  1/2+y,-z,1/2+x
+  1/2+y,1/2-z,x
+  -x,y,-z
+  -x,1/2+y,1/2-z
+  1/2-x,y,1/2-z
+  1/2-x,1/2+y,-z
+  x,-z,-y
+  x,1/2-z,1/2-y
+  1/2+x,-z,1/2-y
+  1/2+x,1/2-z,-y
+  -z,y,x
+  -z,1/2+y,1/2+x
+  1/2-z,y,1/2+x
+  1/2-z,1/2+y,x
+  y,-x,-z
+  y,1/2-x,1/2-z
+  1/2+y,-x,1/2-z
+  1/2+y,1/2-x,-z
+  -x,z,y
+  -x,1/2+z,1/2+y
+  1/2-x,z,1/2+y
+  1/2-x,1/2+z,y
+  z,-y,-x
+  z,1/2-y,1/2-x
+  1/2+z,-y,1/2-x
+  1/2+z,1/2-y,-x
+  -y,x,z
+  -y,1/2+x,1/2+z
+  1/2-y,x,1/2+z
+  1/2-y,1/2+x,z
+  x,z,y
+  x,1/2+z,1/2+y
+  1/2+x,z,1/2+y
+  1/2+x,1/2+z,y
+  -z,-y,-x
+  -z,1/2-y,1/2-x
+  1/2-z,-y,1/2-x
+  1/2-z,1/2-y,-x
+  y,x,z
+  y,1/2+x,1/2+z
+  1/2+y,x,1/2+z
+  1/2+y,1/2+x,z
+  -x,-z,-y
+  -x,1/2-z,1/2-y
+  1/2-x,-z,1/2-y
+  1/2-x,1/2-z,-y
+  z,y,x
+  z,1/2+y,1/2+x
+  1/2+z,y,1/2+x
+  1/2+z,1/2+y,x
+  -y,-x,-z
+  -y,1/2-x,1/2-z
+  1/2-y,-x,1/2-z
+  1/2-y,1/2-x,-z
+  z,x,-y
+  z,1/2+x,1/2-y
+  1/2+z,x,1/2-y
+  1/2+z,1/2+x,-y
+  -y,-z,x
+  -y,1/2-z,1/2+x
+  1/2-y,-z,1/2+x
+  1/2-y,1/2-z,x
+  x,y,-z
+  x,1/2+y,1/2-z
+  1/2+x,y,1/2-z
+  1/2+x,1/2+y,-z
+  -z,-x,y
+  -z,1/2-x,1/2+y
+  1/2-z,-x,1/2+y
+  1/2-z,1/2-x,y
+  y,z,-x
+  y,1/2+z,1/2-x
+  1/2+y,z,1/2-x
+  1/2+y,1/2+z,-x
+  -x,-y,z
+  -x,1/2-y,1/2+z
+  1/2-x,-y,1/2+z
+  1/2-x,1/2-y,z
+  -z,x,y
+  -z,1/2+x,1/2+y
+  1/2-z,x,1/2+y
+  1/2-z,1/2+x,y
+  y,-z,-x
+  y,1/2-z,1/2-x
+  1/2+y,-z,1/2-x
+  1/2+y,1/2-z,-x
+  -x,y,z
+  -x,1/2+y,1/2+z
+  1/2-x,y,1/2+z
+  1/2-x,1/2+y,z
+  z,-x,-y
+  z,1/2-x,1/2-y
+  1/2+z,-x,1/2-y
+  1/2+z,1/2-x,-y
+  -y,z,x
+  -y,1/2+z,1/2+x
+  1/2-y,z,1/2+x
+  1/2-y,1/2+z,x
+  x,-y,-z
+  x,1/2-y,1/2-z
+  1/2+x,-y,1/2-z
+  1/2+x,1/2-y,-z
+  -x,z,-y
+  -x,1/2+z,1/2-y
+  1/2-x,z,1/2-y
+  1/2-x,1/2+z,-y
+  z,-y,x
+  z,1/2-y,1/2+x
+  1/2+z,-y,1/2+x
+  1/2+z,1/2-y,x
+  -y,x,-z
+  -y,1/2+x,1/2-z
+  1/2-y,x,1/2-z
+  1/2-y,1/2+x,-z
+  x,-z,y
+  x,1/2-z,1/2+y
+  1/2+x,-z,1/2+y
+  1/2+x,1/2-z,y
+  -z,y,-x
+  -z,1/2+y,1/2-x
+  1/2-z,y,1/2-x
+  1/2-z,1/2+y,-x
+  y,-x,z
+  y,1/2-x,1/2+z
+  1/2+y,-x,1/2+z
+  1/2+y,1/2-x,z
+  -x,-z,y
+  -x,1/2-z,1/2+y
+  1/2-x,-z,1/2+y
+  1/2-x,1/2-z,y
+  z,y,-x
+  z,1/2+y,1/2-x
+  1/2+z,y,1/2-x
+  1/2+z,1/2+y,-x
+  -y,-x,z
+  -y,1/2-x,1/2+z
+  1/2-y,-x,1/2+z
+  1/2-y,1/2-x,z
+  x,z,-y
+  x,1/2+z,1/2-y
+  1/2+x,z,1/2-y
+  1/2+x,1/2+z,-y
+  -z,-y,x
+  -z,1/2-y,1/2+x
+  1/2-z,-y,1/2+x
+  1/2-z,1/2-y,x
+  y,x,-z
+  y,1/2+x,1/2-z
+  1/2+y,x,1/2-z
+  1/2+y,1/2+x,-z
+  -z,-x,-y
+  -z,1/2-x,1/2-y
+  1/2-z,-x,1/2-y
+  1/2-z,1/2-x,-y
+  y,z,x
+  y,1/2+z,1/2+x
+  1/2+y,z,1/2+x
+  1/2+y,1/2+z,x
+  -x,-y,-z
+  -x,1/2-y,1/2-z
+  1/2-x,-y,1/2-z
+  1/2-x,1/2-y,-z
+  z,x,y
+  z,1/2+x,1/2+y
+  1/2+z,x,1/2+y
+  1/2+z,1/2+x,y
+  -y,-z,-x
+  -y,1/2-z,1/2-x
+  1/2-y,-z,1/2-x
+  1/2-y,1/2-z,-x
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  K  0.00000  0.00000  0.00000  0.80000
+  Na  0.00000  0.00000  0.00000  0.20000
+  Cl  0.50000  0.50000  0.50000  1.00000
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  AMCSD  0003233

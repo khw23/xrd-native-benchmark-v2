@@ -1,0 +1,63 @@
+# generated using pymatgen
+data_9005834
+loop_
+ _publ_author_name
+  'Kudoh, Y.'
+  'Takeda, H.'
+  'Arashi, H.'
+_publ_section_title
+;
+In situ determination of crystal structure for high pressure  phase of
+ZrO2 using a diamond anvil and single crystal X-ray  diffraction
+method  Sample: P = 39 kbar, post baddeleyite structure
+;
+_journal_name_full   'Physics and Chemistry of Minerals'
+_journal_page_first   233
+_journal_page_last   237
+_journal_paper_doi   10.1007/BF00308274
+_journal_volume   13
+_journal_year   1986
+_chemical_formula_sum   'O2 Zr'
+_chemical_name_mineral   Baddeleyite
+_space_group_IT_number   57
+_symmetry_space_group_name_Hall   '-P 2c 2b'
+_symmetry_space_group_name_H-M   'P b c m'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   90
+_cell_length_a   5.005
+_cell_length_b   5.235
+_cell_length_c   5.051
+_cell_formula_units_Z   4
+_cell_volume   132.342
+_database_code_amcsd   0007416
+_diffrn_ambient_pressure   3.9e+06
+_exptl_crystal_density_diffrn   6.184
+_cod_original_formula_sum   'Zr O2'
+_cod_database_code   9005834
+loop_
+ _space_group_symop_operation_xyz
+  x,y,z
+  x,1/2-y,1/2+z
+  -x,1/2+y,1/2-z
+  -x,1/2+y,z
+  x,1/2-y,-z
+  x,y,1/2-z
+  -x,-y,1/2+z
+  -x,-y,-z
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ _atom_site_U_iso_or_equiv
+  Zr  0.26830  0.03340  0.25000  1.00000  0.00595
+  O1  0.08220  0.37500  0.12920  0.50000  0.00203
+  O2  0.45640  0.75000  0.50000  1.00000  0.00063
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  ChemSpider  4955305
+  2  AMCSD  0007416

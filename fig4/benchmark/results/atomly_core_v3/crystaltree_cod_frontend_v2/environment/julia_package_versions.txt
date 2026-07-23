@@ -1,0 +1,21 @@
+144:[[deps.CrystalShift]]
+145-deps = ["CovarianceFunctions", "FastPow", "ForwardDiff", "LazyInverses", "LinearAlgebra", "NPZ", "OptimizationAlgorithms", "PrecompileTools", "Printf", "ProgressBars", "Random", "SpecialFunctions", "StatsBase", "Test"]
+146-git-tree-sha1 = "b28d8cbd1114b8ac6057af9eb12d7f25f6d9982b"
+147-repo-rev = "37155e71c166f952dbdba2607604e36d13feb8ef"
+148-repo-url = "https://github.com/MingChiangChang/CrystalShift.jl"
+149-uuid = "fb120844-f04e-4a6b-a6eb-278194263097"
+150-version = "0.1.0"
+151-
+152:[[deps.CrystalTree]]
+153-deps = ["Combinatorics", "CovarianceFunctions", "CrystalShift", "Einsum", "ForwardDiff", "LazyInverses", "LinearAlgebra", "LogExpFunctions", "OptimizationAlgorithms", "ProgressBars", "StatsBase", "Test"]
+154-git-tree-sha1 = "a98a80e94920059a80b6890dec677f90014851b5"
+155-repo-rev = "cfe9c7d48801de5c4f8e25b77e528ec408318119"
+156-repo-url = "https://github.com/MingChiangChang/CrystalTree.jl"
+157-uuid = "9c8cff83-2ad6-4961-8214-2a9086396538"
+158-version = "0.1.0"
+159-
+160-[[deps.DSP]]
+161-deps = ["Compat", "FFTW", "IterTools", "LinearAlgebra", "Polynomials", "Random", "Reexport", "SpecialFunctions", "Statistics"]
+162-git-tree-sha1 = "0df00546373af8eee1598fb4b2ba480b1ebe895c"
+163-uuid = "717857b8-e6f2-59f4-9121-6e50c889abd2"
+164-version = "0.7.10"

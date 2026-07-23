@@ -23,6 +23,23 @@ BLIND_ROOT = ROOT / "fig4/benchmark/datasets/atomly_core_v3/native_blind_package
 RESULT_ROOT = ROOT / "fig4/benchmark/results/atomly_core_v3/xerus_native"
 PROFILE = BLIND_ROOT / "instrument_metadata/GSASII_reference_profile.instprm"
 METHOD_NAME = "XERUS 1.1b native database workflow"
+PREDICTION_COLUMNS = [
+    "sample_id",
+    "method",
+    "solution_rank",
+    "phase_rank",
+    "predicted_formula",
+    "predicted_space_group_symbol",
+    "predicted_space_group_number",
+    "predicted_database",
+    "predicted_database_id",
+    "predicted_weight_fraction",
+    "confidence_or_score",
+    "runtime_seconds",
+    "status_or_note",
+    "predicted_cif_path",
+    "predicted_cif_sha256",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -30,8 +47,26 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sample-id", action="append", default=[])
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--n-jobs", type=int, default=8)
+    parser.add_argument("--result-root", type=Path, default=RESULT_ROOT)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--retry-failures", action="store_true")
+    parser.add_argument(
+        "--prepare-candidates-only",
+        action="store_true",
+        help=(
+            "Populate XERUS's native MongoDB and save the candidate manifest, "
+            "but do not simulate, correlate, or refine the pattern."
+        ),
+    )
+    parser.add_argument(
+        "--oqmd-cache-root",
+        type=Path,
+        default=None,
+        help=(
+            "Use a complete checksummed local OQMD OPTIMADE cache instead of "
+            "live OQMD requests."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -62,22 +97,260 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def save_state(predictions: list[dict], records: list[dict]) -> None:
-    pd.DataFrame(predictions).to_csv(RESULT_ROOT / "predictions.csv", index=False)
-    (RESULT_ROOT / "run_records.json").write_text(
+def guarded_refine_comb(comb: dict, data: str, work_folder: str) -> dict:
+    """Keep one out-of-range phase combination from aborting the whole sample."""
+    from Xerus.engine.gsas2riet import refine_comb
+
+    try:
+        return refine_comb(comb, data, work_folder)
+    except Exception as error:
+        if (
+            type(error).__name__ != "G2Exception"
+            or "no reflections in data range" not in str(error)
+        ):
+            raise
+        phases = list(comb.get("comb", []))
+        print(
+            "XERUS_COMBINATION_REFINEMENT_FAILED "
+            + json.dumps(
+                {
+                    "sample_id": Path(work_folder).name,
+                    "database_ids": [str(phase.get("id", "")) for phase in phases],
+                    "error_type": type(error).__name__,
+                    "error": str(error),
+                    "assigned_rwp": 999999.0,
+                },
+                sort_keys=True,
+            ),
+            flush=True,
+        )
+        return {"rwp": 999999.0, "wt": [0.0] * len(phases)}
+
+
+def guarded_make_plot_step(
+    runs_info, topn, sample_name: str, outfolder: str, solver: str = "box"
+):
+    """Skip only an empty filtered diagnostic plot that XERUS does not consume."""
+    if str(sample_name).endswith("_filter"):
+        invalid = [
+            index
+            for index, frame in enumerate(topn)
+            if frame.empty
+            or "simulated_files" not in frame.columns
+            or "simulated_reflects" not in frame.columns
+        ]
+        if invalid:
+            print(
+                "XERUS_FILTER_DIAGNOSTIC_PLOT_SKIPPED "
+                + json.dumps(
+                    {
+                        "sample_id": str(sample_name).removesuffix("_filter"),
+                        "invalid_filtered_runs": invalid,
+                    },
+                    sort_keys=True,
+                ),
+                flush=True,
+            )
+            return []
+
+    from Xerus.similarity.visualization import make_plot_step
+
+    return make_plot_step(runs_info, topn, sample_name, outfolder, solver=solver)
+
+
+def install_xerus_runtime_guards(xerus_module) -> None:
+    """Install narrow guards around two upstream XERUS 1.1b failure modes."""
+    xerus_module.refine_comb = guarded_refine_comb
+    xerus_module.make_plot_step = guarded_make_plot_step
+
+
+def repository_path(value: object) -> str:
+    path = Path(str(value))
+    absolute = path if path.is_absolute() else ROOT / path
+    try:
+        return str(absolute.absolute().relative_to(ROOT.absolute()))
+    except ValueError:
+        pass
+    path = path.resolve()
+    try:
+        return str(path.relative_to(ROOT.resolve()))
+    except ValueError:
+        return str(path)
+
+
+def prepare_xerus_xy(source: Path, sample_id: str, result_root: Path) -> Path:
+    """Create the headerless two-column XY input required by XERUS 1.1b."""
+    adapted_root = result_root / "preprocessed_inputs"
+    adapted_root.mkdir(parents=True, exist_ok=True)
+    target = adapted_root / f"{sample_id}.xy"
+    data = pd.read_csv(
+        source,
+        sep=r"\s+",
+        comment="#",
+        header=None,
+        names=["theta", "intensity"],
+        dtype={"theta": float, "intensity": float},
+    )
+    if len(data) < 2 or data.isna().any().any():
+        raise ValueError(f"Invalid numeric XY input: {source}")
+    if not data["theta"].is_monotonic_increasing:
+        raise ValueError(f"Non-monotonic two-theta values: {source}")
+    data.to_csv(target, sep=" ", header=False, index=False)
+    return target
+
+
+def save_state(
+    result_root: Path, predictions: list[dict], records: list[dict]
+) -> None:
+    pd.DataFrame(predictions, columns=PREDICTION_COLUMNS).to_csv(
+        result_root / "predictions.csv", index=False
+    )
+    (result_root / "run_records.json").write_text(
         json.dumps(records, indent=2) + "\n", encoding="utf-8"
     )
 
 
+def save_candidate_snapshot(
+    xray, sample_id: str, result_root: Path
+) -> tuple[Path, pd.DataFrame]:
+    """Save the provider/ID snapshot actually exposed to XERUS for one sample."""
+    snapshot_root = result_root / "candidate_manifests"
+    snapshot_root.mkdir(parents=True, exist_ok=True)
+    source = getattr(xray, "cif_all", None)
+    if not isinstance(source, pd.DataFrame):
+        source = xray.cif_info
+    snapshot = source.copy()
+    if "full_path" in snapshot:
+        snapshot["full_path"] = snapshot["full_path"].map(repository_path)
+    target = snapshot_root / f"{sample_id}.csv"
+    snapshot.to_csv(target, index=False)
+    return target, snapshot
+
+
+def remove_incomplete_provider_dirs(xerus_module, sample_id: str) -> list[str]:
+    """Remove non-transactional provider downloads left by failed attempts."""
+    query_root = Path(xerus_module.__file__).resolve().parent / "queriers"
+    removed = []
+    for path in sorted(query_root.glob(f"{sample_id}_*")):
+        if path.is_dir():
+            removed.append(path.name)
+            shutil.rmtree(path)
+    return removed
+
+
+def install_oqmd_cache(cache_root: Path) -> dict:
+    """Route only OQMD OptimadeQuery calls through frozen raw OPTIMADE pages."""
+    from optimade.adapters import Structure
+    from Xerus.queriers.optimade import OptimadeQuery
+
+    cache_root = cache_root.resolve()
+    cache_manifest_path = cache_root / "cache_manifest.json"
+    if not cache_manifest_path.exists():
+        raise FileNotFoundError(f"Missing OQMD cache manifest: {cache_manifest_path}")
+    cache_manifest = json.loads(cache_manifest_path.read_text(encoding="utf-8"))
+    if cache_manifest.get("complete") is not True:
+        raise RuntimeError(f"OQMD cache is not complete: {cache_manifest_path}")
+    system_index = {}
+    for item in cache_manifest.get("systems", []):
+        system = item.get("system")
+        manifest_path = cache_root / str(item.get("manifest", ""))
+        if not system or not manifest_path.exists():
+            raise RuntimeError(f"Invalid OQMD cache system entry: {item}")
+        if sha256(manifest_path) != item.get("manifest_sha256"):
+            raise RuntimeError(f"Frozen OQMD manifest checksum failed: {manifest_path}")
+        system_index[system] = item
+    if len(system_index) != int(cache_manifest.get("complete_system_count", -1)):
+        raise RuntimeError("Frozen OQMD cache system count mismatch")
+    original_query = OptimadeQuery.query
+
+    def cached_query(self, query_url=None):
+        if "oqmd.org" not in self.base_url.lower():
+            return original_query(self, query_url)
+        system = "-".join(sorted(self.elements))
+        if system not in system_index:
+            raise FileNotFoundError(
+                f"Frozen OQMD cache does not contain required system {system}"
+            )
+        system_root = cache_root / "systems" / system
+        manifest_path = system_root / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if manifest.get("complete") is not True:
+            raise RuntimeError(f"Frozen OQMD cache is incomplete for {system}")
+        if sorted(manifest.get("elements", [])) != sorted(self.elements):
+            raise RuntimeError(f"Frozen OQMD element mismatch for {system}")
+
+        written = 0
+        seen_ids = set()
+        for page in manifest.get("pages", []):
+            page_path = system_root / page["file"]
+            if not page_path.exists() or sha256(page_path) != page["sha256"]:
+                raise RuntimeError(f"Frozen OQMD page checksum failed: {page_path}")
+            data = json.loads(page_path.read_text(encoding="utf-8"))
+            meta = data["meta"]
+            for entry in data["data"]:
+                entry_id = str(entry["id"])
+                if entry_id in seen_ids:
+                    raise RuntimeError(f"Duplicate OQMD ID {entry_id} in {system}")
+                seen_ids.add(entry_id)
+                try:
+                    structure = Structure(entry)
+                    suffix = self.make_suffix(
+                        entry=structure.entry.dict(), meta=meta
+                    )
+                    pymatgen_structure = structure.convert("pymatgen")
+                    formula = pymatgen_structure.composition.reduced_formula
+                    filename = f"{formula}_{suffix}"
+                    target = self.folder_path / filename
+                    pymatgen_structure.to(
+                        fmt="cif", filename=target, symprec=self.symprec
+                    )
+                    written += 1
+                except (ValueError, TypeError):
+                    print(f"Failed to convert cached OQMD entry {entry_id}")
+        if len(seen_ids) != int(manifest.get("entry_count", -1)):
+            raise RuntimeError(f"Frozen OQMD entry count mismatch for {system}")
+        if len(seen_ids) != int(system_index[system].get("entry_count", -1)):
+            raise RuntimeError(f"Frozen OQMD top-level count mismatch for {system}")
+        print(
+            f"Loaded frozen OQMD cache for {system}: "
+            f"{len(seen_ids)} entries, {written} CIFs written"
+        )
+
+    OptimadeQuery.query = cached_query
+    return {
+        "cache_root": repository_path(cache_root),
+        "cache_manifest": repository_path(cache_manifest_path),
+        "cache_manifest_sha256": sha256(cache_manifest_path),
+        "cache_complete": cache_manifest.get("complete"),
+        "cache_system_count": cache_manifest.get("complete_system_count"),
+    }
+
+
 def main() -> None:
     args = parse_args()
+    result_root = args.result_root.resolve()
     if not PROFILE.exists():
         raise FileNotFoundError("Run unpack_and_verify_v3.py first")
+
+    # XERUS 1.1b launches its CIF validator as `python tcif.py`. Keep that
+    # subprocess in the same isolated environment as this runner.
+    interpreter_bin = str(Path(sys.executable).absolute().parent)
+    os.environ["PATH"] = os.pathsep.join(
+        [interpreter_bin, os.environ.get("PATH", "")]
+    )
 
     # Import after the caller has set PYTHONPATH/GSASII_ROOT and patched XERUS.
     import Xerus
     from Xerus import XRay
     from Xerus.settings.settings import INSTR_PARAMS as XERUS_PROFILE
+
+    install_xerus_runtime_guards(Xerus)
+    oqmd_cache = (
+        install_oqmd_cache(args.oqmd_cache_root)
+        if args.oqmd_cache_root is not None
+        else None
+    )
+    oqmd_source = "frozen_local_optimade_cache" if oqmd_cache else "live_optimade"
 
     configured_profile = Path(XERUS_PROFILE)
     if not configured_profile.exists() or sha256(configured_profile) != sha256(PROFILE):
@@ -85,6 +358,17 @@ def main() -> None:
             "XERUS config.conf must point to a byte-identical copy of "
             "instrument_metadata/GSASII_reference_profile.instprm before import"
         )
+    logical_profile = (
+        ROOT
+        / "fig4/benchmark/third_party/Xerus/Xerus/inc"
+        / configured_profile.name
+    )
+    configured_profile_record = (
+        logical_profile
+        if logical_profile.exists()
+        and sha256(logical_profile) == sha256(configured_profile)
+        else configured_profile
+    )
 
     samples = pd.read_csv(BLIND_ROOT / "sample_manifest.csv")
     if args.sample_id:
@@ -94,9 +378,14 @@ def main() -> None:
     if samples.empty:
         raise SystemExit("No samples selected")
 
-    RESULT_ROOT.mkdir(parents=True, exist_ok=True)
-    prediction_path = RESULT_ROOT / "predictions.csv"
-    record_path = RESULT_ROOT / "run_records.json"
+    result_root.mkdir(parents=True, exist_ok=True)
+    prediction_path = result_root / "predictions.csv"
+    record_path = result_root / "run_records.json"
+    if not args.resume and (prediction_path.exists() or record_path.exists()):
+        raise FileExistsError(
+            f"Result files already exist in {result_root}. Use --resume or choose "
+            "a new --result-root; existing results will not be overwritten."
+        )
     predictions = (
         pd.read_csv(prediction_path).to_dict("records")
         if args.resume and prediction_path.exists()
@@ -111,6 +400,10 @@ def main() -> None:
         row["sample_id"]: row.get("status")
         for row in records
         if row.get("status") == "ok"
+        or (
+            args.prepare_candidates_only
+            and row.get("status") == "candidates_ready"
+        )
         or (row.get("status") == "error" and not args.retry_failures)
     }
 
@@ -119,17 +412,31 @@ def main() -> None:
             print(f"{sample.sample_id}: recorded {recorded[sample.sample_id]}; skipped")
             continue
         predictions = [row for row in predictions if row.get("sample_id") != sample.sample_id]
-        records = [row for row in records if row.get("sample_id") != sample.sample_id]
-        work = RESULT_ROOT / "work" / sample.sample_id
+        attempt = (
+            sum(row.get("sample_id") == sample.sample_id for row in records) + 1
+        )
+        work = result_root / "work" / sample.sample_id
         work.mkdir(parents=True, exist_ok=True)
         elements = str(sample.sample_elements).split(";")
+        source_pattern = BLIND_ROOT / "patterns" / sample.pattern_filename
+        source_pattern_sha256 = sha256(source_pattern)
         started = time.perf_counter()
+        removed_provider_dirs = []
         try:
+            if args.prepare_candidates_only:
+                removed_provider_dirs = remove_incomplete_provider_dirs(
+                    Xerus, sample.sample_id
+                )
+            xerus_pattern = prepare_xerus_xy(
+                source_pattern, sample.sample_id, result_root
+            )
+            if sha256(source_pattern) != source_pattern_sha256:
+                raise RuntimeError("Original XRD changed while preparing XERUS input")
             xray = XRay(
                 name=sample.sample_id,
                 working_folder=str(work),
                 elements=elements,
-                exp_data_file=str(BLIND_ROOT / "patterns" / sample.pattern_filename),
+                exp_data_file=str(xerus_pattern),
                 data_fmt="xy",
                 maxsys=len(elements),
                 max_oxy=len(elements),
@@ -139,6 +446,46 @@ def main() -> None:
                 use_preprocessed=True,
             )
             xray.instr_params = str(PROFILE)
+            if args.prepare_candidates_only:
+                xray.get_cifs(ignore_provider=["AFLOW"])
+                if xray.cif_info is None or xray.cif_info.empty:
+                    raise RuntimeError("XERUS native providers returned no usable candidates")
+                candidate_manifest, candidate_snapshot = save_candidate_snapshot(
+                    xray, sample.sample_id, result_root
+                )
+                elapsed = time.perf_counter() - started
+                records.append(
+                    {
+                        "sample_id": sample.sample_id,
+                        "attempt": attempt,
+                        "status": "candidates_ready",
+                        "runtime_seconds": elapsed,
+                        "sample_elements": elements,
+                        "source_pattern": str(source_pattern.relative_to(ROOT)),
+                        "source_pattern_sha256": source_pattern_sha256,
+                        "xerus_input": str(xerus_pattern.relative_to(ROOT)),
+                        "xerus_input_sha256": sha256(xerus_pattern),
+                        "candidate_database": (
+                            "XERUS native MP/COD/OQMD/ODBX cache; AFLOW ignored"
+                        ),
+                        "oqmd_source": oqmd_source,
+                        "oqmd_cache_manifest_sha256": (
+                            oqmd_cache["cache_manifest_sha256"] if oqmd_cache else None
+                        ),
+                        "candidate_count": int(len(xray.cif_info)),
+                        "candidate_snapshot_count": int(len(candidate_snapshot)),
+                        "candidate_manifest": str(candidate_manifest.relative_to(ROOT)),
+                        "network_stage_only": True,
+                        "incomplete_provider_dirs_removed": removed_provider_dirs,
+                    }
+                )
+                print(
+                    f"{sample.sample_id}: candidate snapshot ready "
+                    f"({len(xray.cif_info)} usable candidates), {elapsed:.1f} s",
+                    flush=True,
+                )
+                save_state(result_root, predictions, records)
+                continue
             result = xray.analyze(
                 n_runs=3,
                 grabtop=3,
@@ -155,15 +502,8 @@ def main() -> None:
             )
             if result is None or result.empty:
                 raise RuntimeError("XERUS returned no phase hypothesis")
-            candidate_snapshot_root = RESULT_ROOT / "candidate_manifests"
-            candidate_snapshot_root.mkdir(parents=True, exist_ok=True)
-            candidate_snapshot = (
-                xray.cif_all.copy()
-                if isinstance(xray.cif_all, pd.DataFrame)
-                else xray.cif_info.copy()
-            )
-            candidate_snapshot.to_csv(
-                candidate_snapshot_root / f"{sample.sample_id}.csv", index=False
+            candidate_manifest, candidate_snapshot = save_candidate_snapshot(
+                xray, sample.sample_id, result_root
             )
             best = result.iloc[0]
             ids = [str(x) for x in as_list(best.get("id"))]
@@ -186,7 +526,7 @@ def main() -> None:
                 raise RuntimeError("XERUS returned no positive phase weight")
             weights = [value / total for value in positive]
             elapsed = time.perf_counter() - started
-            selected_root = RESULT_ROOT / "selected_cifs" / sample.sample_id
+            selected_root = result_root / "selected_cifs" / sample.sample_id
             selected_root.mkdir(parents=True, exist_ok=True)
             for rank, (db_id, provider, formula, weight) in enumerate(
                 zip(ids, providers, formulas, weights, strict=True), start=1
@@ -227,15 +567,25 @@ def main() -> None:
             records.append(
                 {
                     "sample_id": sample.sample_id,
+                    "attempt": attempt,
                     "status": "ok",
                     "runtime_seconds": elapsed,
                     "sample_elements": elements,
+                    "source_pattern": str(source_pattern.relative_to(ROOT)),
+                    "source_pattern_sha256": source_pattern_sha256,
+                    "xerus_input": str(xerus_pattern.relative_to(ROOT)),
+                    "xerus_input_sha256": sha256(xerus_pattern),
+                    "xerus_input_transform": "numeric parse; remove comment/header lines only",
                     "candidate_database": "XERUS native MP/COD/OQMD/ODBX cache; AFLOW ignored",
+                    "oqmd_source": oqmd_source,
+                    "oqmd_cache_manifest_sha256": (
+                        oqmd_cache["cache_manifest_sha256"] if oqmd_cache else None
+                    ),
                     "candidate_count_after_xerus_filter": int(len(xray.cif_info)),
                     "candidate_count_before_simulation": int(len(candidate_snapshot)),
                     "candidate_manifest": str(
                         (
-                            candidate_snapshot_root / f"{sample.sample_id}.csv"
+                            candidate_manifest
                         ).relative_to(ROOT)
                     ),
                     "max_phases": 3,
@@ -262,32 +612,57 @@ def main() -> None:
             records.append(
                 {
                     "sample_id": sample.sample_id,
+                    "attempt": attempt,
                     "status": "error",
                     "runtime_seconds": elapsed,
                     "sample_elements": elements,
+                    "source_pattern": str(source_pattern.relative_to(ROOT)),
+                    "source_pattern_sha256": source_pattern_sha256,
                     "error_type": type(error).__name__,
                     "error": str(error),
                     "traceback": traceback.format_exc(),
+                    "incomplete_provider_dirs_removed": removed_provider_dirs,
+                    "oqmd_source": oqmd_source,
+                    "oqmd_cache_manifest_sha256": (
+                        oqmd_cache["cache_manifest_sha256"] if oqmd_cache else None
+                    ),
                 }
             )
             print(f"{sample.sample_id}: ERROR after {elapsed:.1f} s: {error}", flush=True)
-        save_state(predictions, records)
+        save_state(result_root, predictions, records)
 
     environment = {
         "python": sys.version,
         "platform": platform.platform(),
         "machine": platform.machine(),
         "xerus_version": getattr(Xerus, "__version__", "unknown"),
-        "gsasii_root": os.environ.get("GSASII_ROOT"),
+        "gsasii_root": (
+            repository_path(os.environ["GSASII_ROOT"])
+            if os.environ.get("GSASII_ROOT")
+            else None
+        ),
         "instrument_profile": str(PROFILE.relative_to(ROOT)),
-        "xerus_configured_profile": str(configured_profile),
+        "xerus_configured_profile": repository_path(configured_profile_record),
+        "xerus_configured_profile_sha256": sha256(configured_profile),
         "n_runs": 3,
+        "n_jobs": args.n_jobs,
         "ignore_provider": ["AFLOW"],
         "maxsys": "number of disclosed sample elements",
         "max_oxy": "number of disclosed sample elements",
         "private_truth_used": False,
+        "prepare_candidates_only": args.prepare_candidates_only,
+        "oqmd_source": oqmd_source,
+        "oqmd_cache": oqmd_cache,
+        "runtime_guards": {
+            "combination_no_reflections": (
+                "assign Rwp=999999 to only the failing combination"
+            ),
+            "empty_filtered_diagnostic_plot": (
+                "skip the unused filtered plot when a filtered run is empty"
+            ),
+        },
     }
-    (RESULT_ROOT / "environment.json").write_text(
+    (result_root / "environment.json").write_text(
         json.dumps(environment, indent=2) + "\n", encoding="utf-8"
     )
 

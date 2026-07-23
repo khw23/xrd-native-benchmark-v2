@@ -1,0 +1,4 @@
+checked_at_utc=2026-07-20T08:42:59Z
+endpoint=https://oqmd.org/optimade/v1/structures?page_limit=1
+http_code=200
+total_seconds=21.021782

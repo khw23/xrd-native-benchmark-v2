@@ -1,0 +1,61 @@
+# generated using pymatgen
+data_9000086
+loop_
+ _publ_author_name
+  'Evans, H. T.'
+  'McKnight, E. T.'
+_publ_section_title   'New wurtzite polytypes from Joplin, Missouri'
+_journal_name_full   'American Mineralogist'
+_journal_page_first   1210
+_journal_page_last   1218
+_journal_volume   44
+_journal_year   1959
+_chemical_formula_sum   'S Zn'
+_chemical_name_mineral   Wurtzite-8H
+_space_group_IT_number   186
+_symmetry_space_group_name_Hall   'P 6c -2c'
+_symmetry_space_group_name_H-M   'P 63 m c'
+_cell_angle_alpha   90
+_cell_angle_beta   90
+_cell_angle_gamma   120
+_cell_length_a   3.82
+_cell_length_b   3.82
+_cell_length_c   24.96
+_cell_formula_units_Z   8
+_cell_volume   315.429
+_database_code_amcsd   0000089
+_exptl_crystal_density_diffrn   4.104
+_cod_original_formula_sum   'Zn S'
+_cod_database_code   9000086
+loop_
+ _space_group_symop_operation_xyz
+  x,y,z
+  -x,-x+y,1/2+z
+  x-y,x,1/2+z
+  -y,-x,z
+  -y,x-y,z
+  x-y,-y,1/2+z
+  -x,-y,1/2+z
+  x,x-y,z
+  -x+y,-x,z
+  y,x,1/2+z
+  y,-x+y,1/2+z
+  -x+y,y,z
+loop_
+ _atom_site_label
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+  Zn1  0.00000  0.00000  0.00000
+  Zn2  0.33333  0.66667  0.12500
+  Zn3  0.33333  0.66667  0.37500
+  Zn4  0.33333  0.66667  0.75000
+  S1  0.00000  0.00000  0.09380
+  S2  0.33333  0.66667  0.21880
+  S3  0.33333  0.66667  0.46880
+  S4  0.33333  0.66667  0.84380
+loop_
+ _cod_related_entry_id
+ _cod_related_entry_database
+ _cod_related_entry_code
+  1  AMCSD  0000089

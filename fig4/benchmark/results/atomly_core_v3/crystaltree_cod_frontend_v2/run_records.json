@@ -1,0 +1,3089 @@
+[
+  {
+    "attempt": 1,
+    "candidate_count": 12,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 128,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.564366792915024,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 37.94358515739441,
+    "sample_id": "XRDV3_0046",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 46,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 128,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.13218275947296407,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 50.43155097961426,
+    "sample_id": "XRDV3_0054",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 216,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 128,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.009029047603221499,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 293.9636890888214,
+    "sample_id": "XRDV3_0100",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 2,
+    "candidate_count": 12,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.6772429733645953,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 40.81284284591675,
+    "sample_id": "XRDV3_0046",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 2,
+    "candidate_count": 46,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.09546264559329105,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 26.829246044158936,
+    "sample_id": "XRDV3_0054",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 2,
+    "candidate_count": 216,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.006171281406113317,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 366.0688850879669,
+    "sample_id": "XRDV3_0100",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 395,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.02606079909357425,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 1036.6820311546326,
+    "sample_id": "XRDV3_0001",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 52,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.09293535088464652,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 72.28115487098694,
+    "sample_id": "XRDV3_0002",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 540,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.004447494569562204,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 509.49820590019226,
+    "sample_id": "XRDV3_0003",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 26,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.21694198223361622,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 6.419853925704956,
+    "sample_id": "XRDV3_0004",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 14,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.20771362951822456,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 3.8684849739074707,
+    "sample_id": "XRDV3_0005",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 39,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.23098487243502372,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 9.996117115020752,
+    "sample_id": "XRDV3_0006",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 188,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.003945018432510923,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 56.107062101364136,
+    "sample_id": "XRDV3_0007",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 55,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.11357834283178513,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 269.16851806640625,
+    "sample_id": "XRDV3_0008",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 80,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.0250507846098452,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 17.325422048568726,
+    "sample_id": "XRDV3_0009",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 395,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.0022864068936768534,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 422.5832622051239,
+    "sample_id": "XRDV3_0010",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 13,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.10023248042513991,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 3.0644640922546387,
+    "sample_id": "XRDV3_0011",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 19,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.3352216179806532,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 3.7269599437713623,
+    "sample_id": "XRDV3_0012",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 91,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.1154890899318602,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 123.352224111557,
+    "sample_id": "XRDV3_0013",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 20,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.9996493058809734,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 4.916469097137451,
+    "sample_id": "XRDV3_0014",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 208,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.026213507771815647,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 662.1572728157043,
+    "sample_id": "XRDV3_0015",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 75,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.07208624142495423,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 197.9260652065277,
+    "sample_id": "XRDV3_0016",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 9,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.28070465050932153,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 2.662846088409424,
+    "sample_id": "XRDV3_0017",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 5,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.9926012903806195,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 0.19841217994689941,
+    "sample_id": "XRDV3_0018",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 16,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.05937366627522267,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 3.8601770401000977,
+    "sample_id": "XRDV3_0019",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 33,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.03999091699178667,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 3.6063129901885986,
+    "sample_id": "XRDV3_0020",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 15,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.30168208041943223,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 1.3904829025268555,
+    "sample_id": "XRDV3_0021",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 196,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.0069004787792196366,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 39.861045122146606,
+    "sample_id": "XRDV3_0022",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 108,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.049489449927916034,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 104.65849900245667,
+    "sample_id": "XRDV3_0023",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 31,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.04899656624995625,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 6.0204479694366455,
+    "sample_id": "XRDV3_0024",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 11,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.20958274847310654,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 2.4796559810638428,
+    "sample_id": "XRDV3_0025",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 5,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.6199995353980461,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 0.17575597763061523,
+    "sample_id": "XRDV3_0026",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 32,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.10624493962139714,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 11.622499942779541,
+    "sample_id": "XRDV3_0027",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 16,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.18795012570138175,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 16.665337085723877,
+    "sample_id": "XRDV3_0028",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 92,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.03442565868735862,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 104.2539610862732,
+    "sample_id": "XRDV3_0029",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 24,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.19429284100229702,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 9.781131029129028,
+    "sample_id": "XRDV3_0030",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 52,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.04858144788399849,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 58.97817802429199,
+    "sample_id": "XRDV3_0031",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 209,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.16920776571589996,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 456.93999004364014,
+    "sample_id": "XRDV3_0032",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 58,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.030319216724963727,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 31.775569915771484,
+    "sample_id": "XRDV3_0033",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 89,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.007751996386266133,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 34.46232795715332,
+    "sample_id": "XRDV3_0034",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 72,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.027857077306583034,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 25.52542209625244,
+    "sample_id": "XRDV3_0035",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 13,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.31825234553508014,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 2.164849042892456,
+    "sample_id": "XRDV3_0036",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 8,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.3358842349114295,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 2.7722039222717285,
+    "sample_id": "XRDV3_0037",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 134,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.022923979030247274,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 464.5854949951172,
+    "sample_id": "XRDV3_0038",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 28,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.04771296516787664,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 20.780560970306396,
+    "sample_id": "XRDV3_0039",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 28,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.06281141618360501,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 27.074586868286133,
+    "sample_id": "XRDV3_0040",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 60,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.017311993385498204,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 23.754437923431396,
+    "sample_id": "XRDV3_0041",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 19,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.11323732798490038,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 4.9905900955200195,
+    "sample_id": "XRDV3_0042",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 17,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.4032288860697749,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 9.029671907424927,
+    "sample_id": "XRDV3_0043",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 134,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.05977215125158114,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 223.90084981918335,
+    "sample_id": "XRDV3_0044",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 17,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.21675174877004616,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 1.973675012588501,
+    "sample_id": "XRDV3_0045",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 18,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.19680968686179154,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 26.11299991607666,
+    "sample_id": "XRDV3_0047",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 59,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.04818399912965311,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 29.839380979537964,
+    "sample_id": "XRDV3_0048",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 25,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.07052368177917674,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 5.130640029907227,
+    "sample_id": "XRDV3_0049",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 190,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.06259272861822827,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 206.1019139289856,
+    "sample_id": "XRDV3_0050",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 234,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.06801268828086007,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 1131.9774460792542,
+    "sample_id": "XRDV3_0051",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 9,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.3957152065867021,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 16.378798007965088,
+    "sample_id": "XRDV3_0052",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 49,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.06245111826339168,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 23.390157222747803,
+    "sample_id": "XRDV3_0053",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 41,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.05955237973267992,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 68.86868214607239,
+    "sample_id": "XRDV3_0055",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 103,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.04164691434993918,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 99.44649386405945,
+    "sample_id": "XRDV3_0056",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 222,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.013381240309936464,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 141.22258496284485,
+    "sample_id": "XRDV3_0057",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 540,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.03245337497988087,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 971.2572219371796,
+    "sample_id": "XRDV3_0058",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 102,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.06753241933176704,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 240.96674299240112,
+    "sample_id": "XRDV3_0059",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 64,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.036870551712244244,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 114.5057761669159,
+    "sample_id": "XRDV3_0060",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 171,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.011292089642981368,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 82.54008293151855,
+    "sample_id": "XRDV3_0061",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 18,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.18136739481801328,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 20.988712072372437,
+    "sample_id": "XRDV3_0062",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 6,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.6701010092815718,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 12.868489980697632,
+    "sample_id": "XRDV3_0063",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 10,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.6599143917329827,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 11.415930032730103,
+    "sample_id": "XRDV3_0064",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 31,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.46990182928060065,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 46.101969957351685,
+    "sample_id": "XRDV3_0065",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 23,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.07162164521698285,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 4.884869813919067,
+    "sample_id": "XRDV3_0066",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 19,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.2931384938090955,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 11.625309944152832,
+    "sample_id": "XRDV3_0067",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 55,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.20319231153550704,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 215.6739981174469,
+    "sample_id": "XRDV3_0068",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 64,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.0983545025541177,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 97.26528096199036,
+    "sample_id": "XRDV3_0069",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 58,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.04039564932331423,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 55.54954504966736,
+    "sample_id": "XRDV3_0070",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 78,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.3324343650509745,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 400.0546510219574,
+    "sample_id": "XRDV3_0071",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 54,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.03784274425038448,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 40.61344885826111,
+    "sample_id": "XRDV3_0072",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 6,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.47680977887874154,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 2.54156494140625,
+    "sample_id": "XRDV3_0073",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 15,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.29307954977340045,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 21.692193031311035,
+    "sample_id": "XRDV3_0074",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 119,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.013571694574231881,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 85.80506896972656,
+    "sample_id": "XRDV3_0075",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 32,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.0504909577131315,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 4.132097959518433,
+    "sample_id": "XRDV3_0076",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 46,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.10975199265854811,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 14.291569948196411,
+    "sample_id": "XRDV3_0077",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 395,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.0032890676824503147,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 393.21385192871094,
+    "sample_id": "XRDV3_0078",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 39,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.15338894196464475,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 12.471956968307495,
+    "sample_id": "XRDV3_0079",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 44,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.031008232420166676,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 3.4165329933166504,
+    "sample_id": "XRDV3_0080",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 227,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.016044584960245523,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 360.93014192581177,
+    "sample_id": "XRDV3_0081",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 12,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.10549698192785463,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 1.332603931427002,
+    "sample_id": "XRDV3_0082",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 63,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.07692118588260773,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 112.4723961353302,
+    "sample_id": "XRDV3_0083",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 190,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.05583258786689553,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 90.40557909011841,
+    "sample_id": "XRDV3_0084",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 88,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.03417102244324272,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 35.22028708457947,
+    "sample_id": "XRDV3_0085",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 25,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.1401186446567842,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 5.950078964233398,
+    "sample_id": "XRDV3_0086",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 5,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.610101319232486,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 0.17042183876037598,
+    "sample_id": "XRDV3_0087",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 18,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.3473611107156756,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 106.59949612617493,
+    "sample_id": "XRDV3_0088",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 57,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.0547341445864716,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 62.56666803359985,
+    "sample_id": "XRDV3_0089",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 80,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.023771420973346984,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 66.68949794769287,
+    "sample_id": "XRDV3_0090",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 22,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.097254714776473,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 3.7529571056365967,
+    "sample_id": "XRDV3_0091",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 227,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.007417053973301515,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 465.60244607925415,
+    "sample_id": "XRDV3_0092",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 24,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.21577630729316147,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 5.832540035247803,
+    "sample_id": "XRDV3_0093",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 19,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.13868039820771708,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 3.5056629180908203,
+    "sample_id": "XRDV3_0094",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 50,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.18875317896027685,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 16.4483699798584,
+    "sample_id": "XRDV3_0095",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 24,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.24405831684039475,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 10.961078882217407,
+    "sample_id": "XRDV3_0096",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 61,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.067190141564542,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 2,
+    "runtime_seconds": 12.488031148910522,
+    "sample_id": "XRDV3_0097",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 17,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.19914748247772845,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 3,
+    "runtime_seconds": 4.441277980804443,
+    "sample_id": "XRDV3_0098",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  },
+  {
+    "attempt": 1,
+    "candidate_count": 629,
+    "candidate_expansion_count": 3,
+    "candidate_frontend": "Dara COD filtered index 2024",
+    "configuration_id": "simple_fixed_sigma_0p1_maxiter512",
+    "fraction_type": "activation_not_validated_as_weight_or_mole_fraction",
+    "julia_threads": 4,
+    "max_phases": 3,
+    "maxiter": 512,
+    "mean_theta": [
+      1.0,
+      0.5,
+      0.2
+    ],
+    "model_probability": 0.006669711851821024,
+    "model_probability_calibrated": false,
+    "phase_count_prior": "global upper bound only; per-sample truth hidden",
+    "predicted_phase_count": 1,
+    "runtime_seconds": 480.843789100647,
+    "sample_id": "XRDV3_0099",
+    "status": "ok",
+    "std_noise": 0.1,
+    "std_theta": [
+      0.05,
+      2.0,
+      1.0
+    ],
+    "tree_depth": 3
+  }
+]

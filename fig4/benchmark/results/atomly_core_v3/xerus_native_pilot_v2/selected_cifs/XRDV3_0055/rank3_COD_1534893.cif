@@ -1,0 +1,66 @@
+#------------------------------------------------------------------------------
+#$Date: 2025-10-31 18:24:25 +0200 (Fri, 31 Oct 2025) $
+#$Revision: 303120 $
+#$URL: file:///home/coder/svn-repositories/_RELOADED_COD/cod-reloaded/cif/1/53/48/1534893.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/
+#
+# All data on this site have been placed in the public domain by the
+# contributors.
+#
+data_1534893
+loop_
+_publ_author_name
+'Bayliss, P.'
+_publ_section_title
+;
+ Crystal chemistry and crystallography of some minerals within the pyrite
+ group
+;
+_journal_name_full               'American Mineralogist'
+_journal_page_first              1168
+_journal_page_last               1176
+_journal_volume                  74
+_journal_year                    1989
+_chemical_formula_sum            'Fe S2'
+_space_group_IT_number           29
+_symmetry_space_group_name_Hall  'P 2c -2ac'
+_symmetry_space_group_name_H-M   'P c a 21'
+_cell_angle_alpha                90
+_cell_angle_beta                 90
+_cell_angle_gamma                90
+_cell_formula_units_Z            4
+_cell_length_a                   5.417
+_cell_length_b                   5.417
+_cell_length_c                   5.417
+_cell_volume                     158.956
+_citation_journal_id_ASTM        AMMIAY
+_cod_data_source_file            Bayliss_AMMIAY_1989_1570.cif
+_cod_data_source_block           Fe1S2
+_cod_original_cell_volume        158.9558
+_cod_original_formula_sum        'Fe1 S2'
+_cod_database_code               1534893
+loop_
+_symmetry_equiv_pos_as_xyz
+x,y,z
+-x,-y,z+1/2
+-x+1/2,y,z+1/2
+x+1/2,-y,z
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+_atom_site_U_iso_or_equiv
+S2 S 0.615 0.615 0.615 1 0.0
+S1 S 0.385 0.635 0.385 1 0.0
+Fe1 Fe -0.0049 0.2581 0.0016 1 0.0
+loop_
+_cod_related_entry_id
+_cod_related_entry_database
+_cod_related_entry_code
+1 ROD 3500274
