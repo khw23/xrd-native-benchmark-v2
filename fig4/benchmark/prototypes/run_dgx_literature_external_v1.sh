@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT=$(cd "$(dirname "$0")/../../.." && pwd)
 cd "$ROOT"
 
-LOG_ROOT=fig4/benchmark/results/literature_external_v1/logs
+LOG_ROOT=fig4/benchmark/results/literature_external_v1/logs/dgx
 mkdir -p "$LOG_ROOT"
 rm -f "$LOG_ROOT/DGX_LITERATURE_EXTERNAL_COMPLETED" \
   "$LOG_ROOT/DGX_LITERATURE_EXTERNAL_FAILED"

@@ -1,121 +1,153 @@
-# DGX 后续任务：Literature-External-v1 的 CrystalTree 与 XERUS
+# DGX 任务：Literature-External-v1 的 CrystalTree 与 XERUS
 
-本文件是 78 条外部公开实验谱的后续任务说明。当前 Atomly-Core-100 XERUS 后台任务运行期间，
-不要执行本文件，也不要切换其工作分支。待用户确认 Atomly 任务已结束、外部准备分支已合并后，
-在同一个仓库中顺序运行下面两种方法；无需新 clone 或新 worktree。
+本文件给 DGX 上的 Codex 直接读取。固定工作分支为
+`run/literature-external-dgx-v1`，只回传 CrystalShift/CrystalTree 和 XERUS；Dara 由
+x86_64 Slurm 服务器在另一分支并行运行。
 
-## 1. 同步与公共边界检查
+可以根据 DGX 的实际仓库路径、已安装环境路径、MongoDB 容器名和可用的用户级后台管理器做
+必要适配，但不得改变候选规则、仪器 profile、CrystalTree 参数、XERUS `n_runs/n_jobs`、
+全局三相上限或结果目录。任何代码兼容修复必须与真值无关，先做公开输入 smoke，记录 diff
+和失败历史后再续跑。
+
+## 1. 切换分支并检查边界
 
 ```bash
 cd /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next
 git status --short --branch
-git switch main
-git pull --ff-only origin main
-python3 fig4/benchmark/prototypes/validate_literature_external_public_v1.py
+git fetch origin
+git switch run/literature-external-dgx-v1
+git pull --ff-only origin run/literature-external-dgx-v1
+git log -1 --oneline
 ```
 
-若实际路径不同，只替换 `cd`。工作区不干净或仍有 Atomly writer 时停止并报告，不使用
-`reset --hard` 或另建结果副本：
+若实际路径不同，只替换 `cd`。工作区不干净时先判断文件归属，不使用 `reset --hard`、
+`clean -fdx`，也不另建 clone、worktree 或带 `_v2/_v3` 的结果目录。
+
+确认没有旧 writer：
 
 ```bash
-pgrep -af 'run_xerus_native_v3.py|run_crystaltree_cod_v3.jl|run_xerus_full_background_v3.sh' || true
+pgrep -af 'run_dgx_literature_external_v1.sh|run_xerus_native_v3.py|run_crystaltree_cod_v3.jl' || true
 ```
 
-公开包只给 78 张谱、元素空间和采集元数据；不读取或复制 `private_scoring`，不提供逐样品相数、
-答案相或真值 CIF。
+若已有同一任务在运行，停止本轮操作并报告。公开 runner 只能读取盲谱、`sample_elements`、
+`dataset_family` 和采集元数据；不得读取或提交 `private_scoring`。
 
 ## 2. 解压并校验离线数据库
 
-```bash
-cd fig4/benchmark/method_inputs
-sha256sum -c ../server_transfer/literature_external_v1/cod_sparse_literature_external_v1_20260722.tar.gz.sha256
-sha256sum -c ../server_transfer/literature_external_v1/oqmd_optimade_cache_literature_external_v1_20260722.tar.gz.sha256
-tar -xzf ../server_transfer/literature_external_v1/cod_sparse_literature_external_v1_20260722.tar.gz
-tar -xzf ../server_transfer/literature_external_v1/oqmd_optimade_cache_literature_external_v1_20260722.tar.gz
-cd ../../..
+校验和必须在压缩包所在目录执行：
 
-python3 fig4/benchmark/prototypes/validate_literature_external_runtime_v1.py \
+```bash
+(cd fig4/benchmark/server_transfer/literature_external_v1 && \
+  sha256sum -c cod_sparse_literature_external_v1_20260722.tar.gz.sha256 && \
+  sha256sum -c oqmd_optimade_cache_literature_external_v1_20260722.tar.gz.sha256)
+
+mkdir -p fig4/benchmark/method_inputs
+tar -xzf \
+  fig4/benchmark/server_transfer/literature_external_v1/cod_sparse_literature_external_v1_20260722.tar.gz \
+  -C fig4/benchmark/method_inputs
+tar -xzf \
+  fig4/benchmark/server_transfer/literature_external_v1/oqmd_optimade_cache_literature_external_v1_20260722.tar.gz \
+  -C fig4/benchmark/method_inputs
+
+cod-env/bin/python fig4/benchmark/prototypes/validate_literature_external_public_v1.py
+cod-env/bin/python fig4/benchmark/prototypes/validate_literature_external_runtime_v1.py \
   --cod-root fig4/benchmark/method_inputs/cod_sparse_literature_external_v1 \
   --oqmd-root fig4/benchmark/method_inputs/oqmd_optimade_cache_literature_external_v1
 ```
 
-只在校验显示 COD 2,122/2,122、OQMD 46/46、`status=PASS` 时继续。
+只有 COD `2,122/2,122`、OQMD `46/46`、78 acquisitions、58 physical samples 和
+`status=PASS` 均满足时才继续。解压后的数据库不得提交。
 
-## 3. 共享 COD 前端与 CrystalShift 转换的前置检查
+## 3. 环境、profile 与 MongoDB 检查
 
-复用 Atomly 已验证的 `cod-env`、`crystalshift-python`、Julia 1.12.6 及源码提交，不重装环境。
-这里只检查，不在 Codex 前台执行 2,122 个 CIF 的转换：
+复用 Atomly-Core 已通过的环境和源码，不重装：
 
 ```bash
 test -x cod-env/bin/python
 test -x crystalshift-python/bin/python
+test -x xerus-env/bin/python
 test -f fig4/benchmark/third_party/CrystalShift.jl/src/cif_to_input_file.py
+test -f fig4/benchmark/third_party/Xerus/Xerus/inc/RigakuSi.instprm
 julia +1.12.6 --version
 ```
 
-后台脚本会先生成 46 个元素空间，再对全部 2,122 个 CIF 给出转换状态；失败不能静默删除。若出现统一的
-解析问题，只能按 Atomly 已采用的真值无关 normalization 规则修复并记录，不能查看答案后筛候选。
-还必须生成 78 行 `pattern_preprocessing_manifest.csv`；所有谱在背景扣除前统一裁剪到候选模型的
-`q=7–58 nm^-1`，原始与输出范围、点数和 SHA-256 均须保留。
-
-## 4. 提交一个脱离 Codex 的顺序后台任务
-
-把 XERUS 的 `config.conf` 中仅 `gsas2.instr_params` 改回源码自带的
-`Xerus/inc/RigakuSi.instprm`；不要覆盖 MongoDB 配置或 DGX 本地 Materials Project key：
+XERUS 的本机 `config.conf` 保留已有 MongoDB 凭证和 Materials Project key，只把
+`gsas2.instr_params` 固定为源码自带 profile：
 
 ```bash
 CONFIG=fig4/benchmark/third_party/Xerus/Xerus/settings/config.conf
 sed -i '/^\[gsas2\]/,/^\[/ s#^instr_params *=.*#instr_params = inc/RigakuSi.instprm#' "$CONFIG"
 grep -A3 '^\[gsas2\]' "$CONFIG"
-```
 
-预期只显示 `instr_params = inc/RigakuSi.instprm`；runner 还会做字节级 profile 哈希检查。继续
-复用 Atomly pilot 的容器，不新建数据库实例：
-
-```bash
 docker start xerus-mongo-oqmd-pilot >/dev/null 2>&1 || true
-docker ps --filter name=xerus-mongo-oqmd-pilot
+docker inspect -f '{{.State.Running}}' xerus-mongo-oqmd-pilot
 ```
 
-本地 OQMD cache 只替代不稳定的 OQMD OPTIMADE 网络调用；XERUS 仍按其原生流程访问
-MP/COD/ODBX。2,122-CIF sparse COD 包只服务 Dara 与 CrystalShift/CrystalTree，不注入 XERUS，
-避免把三种方法强行改成同一候选库。然后启动：
+若 DGX 当前容器名不同，可以使用已通过 Atomly-Core 的同一 XERUS MongoDB 实例并相应修改
+本机未跟踪配置；不得把密码、API key 或 MongoDB volume 推到 GitHub。
+
+## 4. 用用户级服务提交一次后台任务
+
+不要让 Codex 前台持续等待，也不要使用 `nohup`。优先用 DGX 已验证的用户级 systemd 服务：
 
 ```bash
-mkdir -p fig4/benchmark/results/literature_external_v1/logs
-nohup bash fig4/benchmark/prototypes/run_dgx_literature_external_v1.sh \
-  > fig4/benchmark/results/literature_external_v1/logs/dgx_external_launcher.log \
-  2>&1 < /dev/null &
-echo $! > fig4/benchmark/results/literature_external_v1/logs/dgx_external_launcher.pid
+mkdir -p fig4/benchmark/results/literature_external_v1/logs/dgx
+rm -f \
+  fig4/benchmark/results/literature_external_v1/logs/dgx/DGX_LITERATURE_EXTERNAL_COMPLETED \
+  fig4/benchmark/results/literature_external_v1/logs/dgx/DGX_LITERATURE_EXTERNAL_FAILED
+
+systemd-run --user \
+  --unit=xrd-litv1-dgx \
+  --collect \
+  --property="WorkingDirectory=$PWD" \
+  /usr/bin/bash -lc \
+  'exec bash fig4/benchmark/prototypes/run_dgx_literature_external_v1.sh >> fig4/benchmark/results/literature_external_v1/logs/dgx/launcher.log 2>&1'
 ```
 
-Codex 只做一次启动检查后结束，不持续等待：
+启动后只检查一次：
 
 ```bash
-sleep 30
-PID=$(cat fig4/benchmark/results/literature_external_v1/logs/dgx_external_launcher.pid)
-ps -fp "$PID"
-tail -n 80 fig4/benchmark/results/literature_external_v1/logs/dgx_external_launcher.log
+systemctl --user status xrd-litv1-dgx --no-pager
+tail -n 100 fig4/benchmark/results/literature_external_v1/logs/dgx/launcher.log
 ```
 
-脚本顺序执行 COD 候选准备、CrystalShift 转换、冻结的 CrystalTree
-`simple_fixed_sigma_0p1_maxiter512`，再先为 78 条谱完成 XERUS
-原生候选准备，最后执行 `RigakuSi.instprm`、完整离线 OQMD、`n_jobs=4` baseline。它不会运行三档 smoke，也不会读取
-私有答案或按结果调参。成功标志为 `logs/DGX_LITERATURE_EXTERNAL_COMPLETED`；失败标志为
-`logs/DGX_LITERATURE_EXTERNAL_FAILED`。
+如果该 DGX 没有可用的 user systemd manager，Codex 可以改用该机已有且可脱离会话的用户级
+任务管理器（例如 `tmux`），但仍只启动同一个脚本、一个 writer，并把 stdout/stderr 追加到
+上述固定日志；不要退回前台长时间轮询或 `nohup`。
 
-## 5. 回传规则
+后台脚本顺序执行：
 
-保留两个结果目录的 `predictions.csv`、`run_records.json`、候选 manifest、环境/profile 信息、
-最终入选 CIF 和必要日志。不要提交解压后的 COD/OQMD、MongoDB、完整候选 CIF、API key 或
-`private_scoring`。78 条可以一次运行，但最终仍按四个 `dataset_family` 分开报告，失败/timeout
-保留在各家族分母中。
+1. 校验公开输入和两个离线数据库；
+2. 准备 46 个 COD 元素空间并转换全部 2,122 个 CIF；
+3. 运行冻结的 CrystalTree `simple_fixed_sigma_0p1_maxiter512`；
+4. 用完整离线 OQMD 加 XERUS 原生 MP/COD/ODBX 流程准备 78 条候选；
+5. 用 `RigakuSi.instprm`、`n_runs=3`、`n_jobs=4` 和全局最多三相完成 XERUS。
 
-回传前分别运行：
+脚本带 `--resume --retry-failures`，中断后重复提交同一脚本续跑。成功标志为
+`logs/dgx/DGX_LITERATURE_EXTERNAL_COMPLETED`，失败标志为
+`logs/dgx/DGX_LITERATURE_EXTERNAL_FAILED`。
+
+## 5. 完成、校验与回传
 
 ```bash
-python3 fig4/benchmark/prototypes/validate_literature_external_results_v1.py \
+cod-env/bin/python fig4/benchmark/prototypes/validate_literature_external_results_v1.py \
   --result-root fig4/benchmark/results/literature_external_v1/crystaltree_cod_frontend
-python3 fig4/benchmark/prototypes/validate_literature_external_results_v1.py \
+cod-env/bin/python fig4/benchmark/prototypes/validate_literature_external_results_v1.py \
   --result-root fig4/benchmark/results/literature_external_v1/xerus_native_default_profile
 ```
+
+两种方法都应有 78 个最新状态；失败和 timeout 必须保留，不能查看答案后调参。更新
+`fig4/benchmark/results/literature_external_v1/DGX_RUN_STATUS.md`，只提交以下路径：
+
+```bash
+git add \
+  fig4/benchmark/results/literature_external_v1/crystaltree_cod_frontend \
+  fig4/benchmark/results/literature_external_v1/xerus_native_default_profile \
+  fig4/benchmark/results/literature_external_v1/logs/dgx \
+  fig4/benchmark/results/literature_external_v1/DGX_RUN_STATUS.md
+git commit -m "Record Literature-External-v1 DGX results"
+git push origin run/literature-external-dgx-v1
+```
+
+若产生了必要的真值无关兼容修复，先说明原因和验证，再显式加入相应 runner 文件。不要
+`git add -A`，不要提交展开 cache、全部候选 CIF、环境目录、MongoDB、密钥或私有答案。
