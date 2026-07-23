@@ -97,6 +97,73 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def guarded_refine_comb(comb: dict, data: str, work_folder: str) -> dict:
+    """Keep one out-of-range phase combination from aborting the whole sample."""
+    from Xerus.engine.gsas2riet import refine_comb
+
+    try:
+        return refine_comb(comb, data, work_folder)
+    except Exception as error:
+        if (
+            type(error).__name__ != "G2Exception"
+            or "no reflections in data range" not in str(error)
+        ):
+            raise
+        phases = list(comb.get("comb", []))
+        print(
+            "XERUS_COMBINATION_REFINEMENT_FAILED "
+            + json.dumps(
+                {
+                    "sample_id": Path(work_folder).name,
+                    "database_ids": [str(phase.get("id", "")) for phase in phases],
+                    "error_type": type(error).__name__,
+                    "error": str(error),
+                    "assigned_rwp": 999999.0,
+                },
+                sort_keys=True,
+            ),
+            flush=True,
+        )
+        return {"rwp": 999999.0, "wt": [0.0] * len(phases)}
+
+
+def guarded_make_plot_step(
+    runs_info, topn, sample_name: str, outfolder: str, solver: str = "box"
+):
+    """Skip only an empty filtered diagnostic plot that XERUS does not consume."""
+    if str(sample_name).endswith("_filter"):
+        invalid = [
+            index
+            for index, frame in enumerate(topn)
+            if frame.empty
+            or "simulated_files" not in frame.columns
+            or "simulated_reflects" not in frame.columns
+        ]
+        if invalid:
+            print(
+                "XERUS_FILTER_DIAGNOSTIC_PLOT_SKIPPED "
+                + json.dumps(
+                    {
+                        "sample_id": str(sample_name).removesuffix("_filter"),
+                        "invalid_filtered_runs": invalid,
+                    },
+                    sort_keys=True,
+                ),
+                flush=True,
+            )
+            return []
+
+    from Xerus.similarity.visualization import make_plot_step
+
+    return make_plot_step(runs_info, topn, sample_name, outfolder, solver=solver)
+
+
+def install_xerus_runtime_guards(xerus_module) -> None:
+    """Install narrow guards around two upstream XERUS 1.1b failure modes."""
+    xerus_module.refine_comb = guarded_refine_comb
+    xerus_module.make_plot_step = guarded_make_plot_step
+
+
 def repository_path(value: object) -> str:
     path = Path(str(value))
     absolute = path if path.is_absolute() else ROOT / path
@@ -277,6 +344,7 @@ def main() -> None:
     from Xerus import XRay
     from Xerus.settings.settings import INSTR_PARAMS as XERUS_PROFILE
 
+    install_xerus_runtime_guards(Xerus)
     oqmd_cache = (
         install_oqmd_cache(args.oqmd_cache_root)
         if args.oqmd_cache_root is not None
@@ -585,6 +653,14 @@ def main() -> None:
         "prepare_candidates_only": args.prepare_candidates_only,
         "oqmd_source": oqmd_source,
         "oqmd_cache": oqmd_cache,
+        "runtime_guards": {
+            "combination_no_reflections": (
+                "assign Rwp=999999 to only the failing combination"
+            ),
+            "empty_filtered_diagnostic_plot": (
+                "skip the unused filtered plot when a filtered run is empty"
+            ),
+        },
     }
     (result_root / "environment.json").write_text(
         json.dumps(environment, indent=2) + "\n", encoding="utf-8"

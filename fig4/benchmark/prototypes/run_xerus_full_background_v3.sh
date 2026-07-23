@@ -52,7 +52,7 @@ env -u PYTHONPATH \
   --prepare-candidates-only --resume --retry-failures --n-jobs 4 \
   --oqmd-cache-root "$CACHE_ROOT" \
   --result-root "$RESULT_ROOT" \
-  2>&1 | tee "$LOG_ROOT/full_candidate_preparation.log"
+  2>&1 | tee -a "$LOG_ROOT/full_candidate_preparation.log"
 
 python3 - "$RESULT_ROOT/run_records.json" <<'PY'
 import json
@@ -65,9 +65,25 @@ latest = {}
 for row in records:
     latest[row['sample_id']] = row
 statuses = Counter(row.get('status') for row in latest.values())
+prepared = {
+    row['sample_id']
+    for row in records
+    if row.get('status') in {'candidates_ready', 'ok'}
+}
+result_root = Path(sys.argv[1]).parent
+missing_manifests = sorted(
+    sample_id
+    for sample_id in prepared
+    if not (result_root / 'candidate_manifests' / f'{sample_id}.csv').is_file()
+)
 assert len(latest) == 100, (len(latest), statuses)
-assert set(statuses) <= {'candidates_ready', 'ok'}, statuses
-print('XERUS_CANDIDATE_PREPARATION_OK', dict(statuses), flush=True)
+assert len(prepared) == 100, (len(prepared), statuses)
+assert not missing_manifests, missing_manifests
+print(
+    'XERUS_CANDIDATE_PREPARATION_OK',
+    {'prepared_history': len(prepared), 'latest_statuses': dict(statuses)},
+    flush=True,
+)
 PY
 
 echo "XERUS_STAGE=formal_analysis"
@@ -78,7 +94,7 @@ env -u PYTHONPATH \
   --resume --retry-failures --n-jobs 4 \
   --oqmd-cache-root "$CACHE_ROOT" \
   --result-root "$RESULT_ROOT" \
-  2>&1 | tee "$LOG_ROOT/full_formal_analysis.log"
+  2>&1 | tee -a "$LOG_ROOT/full_formal_analysis.log"
 
 python3 - "$RESULT_ROOT/run_records.json" "$RESULT_ROOT/predictions.csv" <<'PY'
 import csv
