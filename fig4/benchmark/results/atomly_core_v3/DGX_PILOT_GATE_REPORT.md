@@ -1,14 +1,13 @@
-# DGX CrystalTree full run and XERUS frozen-cache pilot report
+# DGX CrystalTree and XERUS full-run report
 
 ## Scope and blind protocol
 
 This run used only the public blind XRD patterns, `sample_elements`, disclosed
 instrument metadata, and public database candidates. Every sample retained the
 same global upper bound of three phases. No private truth, per-sample phase count,
-accuracy calculation, or manual candidate pruning was used. The Dara and XERUS
-100-sample full runs were not started. The authorized
-CrystalTree 100-sample run was completed with the fixed configuration described
-below.
+accuracy calculation, or manual candidate pruning was used. The Dara 100-sample
+full run was not started. The authorized CrystalTree and XERUS 100-sample runs
+were completed with the fixed configurations described below.
 
 The branch and existing result roots were reused. The task document referenced
 `AGENTS.md` and `fig4/benchmark/benchmark_plan.md`, but neither file exists in the
@@ -164,17 +163,60 @@ Rwp 7.0242%. The returned prediction contains two phases:
 
 Both selected CIF paths exist, their hashes verify, and the reported weights sum
 to one. This is a blind prediction, not an accuracy result. The formal log has no
-provider-network query marker. XRDV3_0054 and XRDV3_0100 were not retried because
-the updated task authorized only XRDV3_0046; their earlier provider-failure rows
-remain in `predictions.csv` and `runtime_failures.csv`. The provider failures,
-import failure, missing-interpreter failure, interrupted duplicate diagnostic,
-cache repair, and health check remain classified in the result logs. No XERUS
-full run was started.
+provider-network query marker. The provider failures, import failure,
+missing-interpreter failure, interrupted duplicate diagnostic, cache repair, and
+health check remain classified in the result logs and append-only records. The
+later full run supersedes this pilot as the current prediction set.
+
+## XERUS 100-sample full run: passed
+
+The full run used the tracked archive with SHA-256
+`77797b9d064fe8812d57ccf67f5cd17a3541c079b8d4809c71e4215b986e4fb8`.
+After extraction, all 470 system manifests, 478 OPTIMADE pages, and 5,315
+globally unique OQMD IDs passed manifest/page hashes, provider checks, element
+checks, and uniqueness checks. The blind package was reverified as 100 samples,
+84 disclosed element systems, and no CIF, truth, phase-pool, or Atomly-COD map.
+
+Candidate preparation completed for all 100 samples with the fixed native
+MP/COD/OQMD/ODBX flow and AFLOW ignored. It took 7,531.3 summed sample seconds.
+The 100 candidate manifests contain 46,947 unique within-sample `(provider, id)`
+rows: 23,663 COD, 18,440 OQMD, 4,612 MP, and 232 ODBX. Per-sample candidate
+counts range from 95 to 2,330 with a median of 356.5. Every manifest path existed
+at validation time. All full-run logs use `frozen_local_optimade_cache` for OQMD
+and contain no `oqmd.org` request or OQMD connection-pool error.
+
+The first formal pass completed 79 samples and retained 21 sample-level errors:
+20 GSAS-II `G2Exception` failures where one candidate combination had no
+reflections in the measured range, plus one XERUS auxiliary filtered-plot
+`AttributeError`. The first detached process stopped at the required 100/100
+gate after 4:00:12 wall time. These failures remain in `run_records.json`,
+`runtime_failures.csv`, and the original appended logs.
+
+The recovery patch assigns XERUS's existing invalid-fit sentinel
+`Rwp=999999` only to the exact failing no-reflection combination; unrelated
+exceptions still propagate. It also skips only an empty filtered diagnostic
+plot, which is not consumed because the run uses `combine_filter=False`. The
+candidate-history resume gate was corrected and stage logs changed to append
+mode. No candidate was manually removed, and `n_runs=3`, `n_jobs=4`, the
+instrument profile, solver settings, and global three-phase upper bound were
+unchanged. Repair smokes for XRDV3_0006 and XRDV3_0077 passed before the
+remaining failures were retried. The detached recovery took 16:24 wall time.
+
+The final latest-state gate passed with 100/100 `status=ok`. Current outputs
+contain 286 phase rows: two samples returned one phase, ten returned two, and 88
+returned three. These are predictions, not hidden phase-count comparisons.
+Summed current formal runtime is 7,018.0 seconds; per-sample runtime ranges from
+7.9 to 376.8 seconds with a median of 44.0 seconds. All current prediction keys
+are unique, per-sample reported weights sum to one, all 286 selected CIF paths
+and embedded SHA-256 values verify, and the regenerated 286-entry selected-CIF
+checksum manifest passes. The append-only audit contains 228 records: 100
+candidate-ready records, 100 successful records, and 28 retained historical
+errors including the earlier pilot failures.
 
 ## Decision
 
 The 512 compatibility gate, public paper-fixture sensitivity gate, and
-CrystalTree 100-sample blind run passed. The frozen-cache XERUS XRDV3_0046
-candidate and formal pilots also passed. The task's decision gate is satisfied,
-and execution stops here without starting the XERUS full run. No private
-benchmark accuracy was computed or inferred.
+CrystalTree 100-sample blind run passed. The frozen-cache XERUS candidate stage
+and final 100-sample run also passed after the recorded recovery. The task's
+latest-state decision gate is satisfied. No private benchmark accuracy was
+computed or inferred.

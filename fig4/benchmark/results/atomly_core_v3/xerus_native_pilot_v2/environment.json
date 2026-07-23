@@ -3,7 +3,7 @@
   "platform": "Linux-6.17.0-1008-nvidia-aarch64-with-glibc2.39",
   "machine": "aarch64",
   "xerus_version": "1.1b",
-  "gsasii_root": "xerus-env/lib/python3.12/site-packages/GSASII",
+  "gsasii_root": "xerus-env/lib/python3.12/site-packages",
   "instrument_profile": "fig4/benchmark/datasets/atomly_core_v3/native_blind_package_v3/instrument_metadata/GSASII_reference_profile.instprm",
   "xerus_configured_profile": "fig4/benchmark/third_party/Xerus/Xerus/inc/benchmark_v3_reference.instprm",
   "xerus_configured_profile_sha256": "679a88e42c1077e9f50718346b81b33e414e0e5850e504034e57476fd7cea971",
@@ -18,10 +18,14 @@
   "prepare_candidates_only": false,
   "oqmd_source": "frozen_local_optimade_cache",
   "oqmd_cache": {
-    "cache_root": "fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot",
-    "cache_manifest": "fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_pilot/cache_manifest.json",
-    "cache_manifest_sha256": "d0a3ac2c04547bd7f49ac6fff75a2a4320148c7b3879b114b9b3ffe1c23c0f5e",
+    "cache_root": "fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_full",
+    "cache_manifest": "fig4/benchmark/method_inputs/oqmd_optimade_cache_v3_full/cache_manifest.json",
+    "cache_manifest_sha256": "54faf574e52f4ba5ea2ddd546e5d5f6149accd3630e820e15827caabddc4ed0e",
     "cache_complete": true,
-    "cache_system_count": 7
+    "cache_system_count": 470
+  },
+  "runtime_guards": {
+    "combination_no_reflections": "assign Rwp=999999 to only the failing combination",
+    "empty_filtered_diagnostic_plot": "skip the unused filtered plot when a filtered run is empty"
   }
 }

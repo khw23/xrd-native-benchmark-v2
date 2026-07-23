@@ -1,0 +1,111 @@
+#------------------------------------------------------------------------------
+#$Date: 2024-04-18 18:56:43 +0300 (Thu, 18 Apr 2024) $
+#$Revision: 291269 $
+#$URL: file:///home/coder/svn-repositories/_RELOADED_COD/cod-reloaded/cif/9/00/09/9000975.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/. The original data for this entry
+# were provided the American Mineralogist Crystal Structure Database,
+# http://rruff.geo.arizona.edu/AMS/amcsd.php
+#
+# The file may be used within the scientific community so long as
+# proper attribution is given to the journal article from which the
+# data were obtained.
+#
+data_9000975
+loop_
+_publ_author_name
+'Markgraf, S. A.'
+'Reeder, R. J.'
+_publ_section_title
+;
+ High-temperature structure refinements of calcite and magnesite
+ Sample: T = 500 C
+;
+_journal_name_full               'American Mineralogist'
+_journal_page_first              590
+_journal_page_last               600
+_journal_volume                  70
+_journal_year                    1985
+_chemical_formula_sum            'C Mg O3'
+_chemical_name_mineral           Magnesite
+_space_group_IT_number           167
+_symmetry_space_group_name_Hall  '-R 3 2"c'
+_symmetry_space_group_name_H-M   'R -3 c :H'
+_cell_angle_alpha                90
+_cell_angle_beta                 90
+_cell_angle_gamma                120
+_cell_length_a                   4.650
+_cell_length_b                   4.650
+_cell_length_c                   15.186
+_cell_formula_units_Z            6
+_cell_volume                     284.367
+_database_code_amcsd             0000994
+_diffrn_ambient_temperature      773.15
+_exptl_crystal_density_diffrn    2.954
+_cod_original_sg_symbol_H-M      'R -3 c'
+_cod_original_formula_sum        'Mg C O3'
+_cod_database_code               9000975
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+2/3+x,1/3+y,1/3+z
+1/3+x,2/3+y,2/3+z
+x,x-y,1/2+z
+2/3+x,1/3+x-y,5/6+z
+1/3+x,2/3+x-y,1/6+z
+y,x,1/2-z
+2/3+y,1/3+x,5/6-z
+1/3+y,2/3+x,1/6-z
+-x+y,y,1/2+z
+2/3-x+y,1/3+y,5/6+z
+1/3-x+y,2/3+y,1/6+z
+-x,-x+y,1/2-z
+2/3-x,1/3-x+y,5/6-z
+1/3-x,2/3-x+y,1/6-z
+-y,-x,1/2+z
+2/3-y,1/3-x,5/6+z
+1/3-y,2/3-x,1/6+z
+x-y,-y,1/2-z
+2/3+x-y,1/3-y,5/6-z
+1/3+x-y,2/3-y,1/6-z
+y,-x+y,-z
+2/3+y,1/3-x+y,1/3-z
+1/3+y,2/3-x+y,2/3-z
+-x+y,-x,z
+2/3-x+y,1/3-x,1/3+z
+1/3-x+y,2/3-x,2/3+z
+-x,-y,-z
+2/3-x,1/3-y,1/3-z
+1/3-x,2/3-y,2/3-z
+-y,x-y,z
+2/3-y,1/3+x-y,1/3+z
+1/3-y,2/3+x-y,2/3+z
+x-y,x,-z
+2/3+x-y,1/3+x,1/3-z
+1/3+x-y,2/3+x,2/3-z
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_12
+_atom_site_aniso_U_13
+_atom_site_aniso_U_23
+Mg 0.01298 0.01298 0.01799 0.00649 0.00000 0.00000
+C 0.01117 0.01117 0.01379 0.00559 0.00000 0.00000
+O 0.01134 0.01660 0.02360 0.00830 -0.00124 -0.00248
+loop_
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Mg 0.00000 0.00000 0.00000
+C 0.00000 0.00000 0.25000
+O 0.27640 0.00000 0.25000
+loop_
+_cod_related_entry_id
+_cod_related_entry_database
+_cod_related_entry_code
+1 AMCSD 0000994

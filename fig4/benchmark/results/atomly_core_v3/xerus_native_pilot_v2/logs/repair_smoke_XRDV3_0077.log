@@ -1,0 +1,156 @@
+/home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/engine/gsas2utils.py:31: UserWarning: Importing GSASIIscriptable as a top level module is deprecated, please import it as a sub-module of GSASII
+  import GSASIIscriptable as G2sc  # Ignore Warning
+GSAS-II binaries co-located with GSAS-II: /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/xerus-env/lib/python3.12/site-packages/GSASII
+5 values read from /home/khw/.GSASII/config.ini
+Sucessfuly read datafile /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/preprocessed_inputs/XRDV3_0077.xy
+Standarizing intensity to [0,1]..
+Exported new datafile at /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0077/XRDV3_0077_preprocessed.csv
+Removing background using polynomial degree: 8
+Using preprocessed data /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0077/XRDV3_0077_preprocessed.csv. New datafmt is: csv
+Sucessfuly connected to the database
+Checking the following combination:C
+Checking the following combination:Si
+Checking the following combination:W
+Checking the following combination:Si-C
+Checking the following combination:W-C
+Checking the following combination:Si-W
+Checking the following combination:Si-W-C
+No matching system type Si-W-C found in the database
+Sucessfuly connected to the database
+No matching system type Si-W-C found in the database
+I am querying the following combination from COD: Si-W-C
+http://www.crystallography.net/cod/result?el1=Si&el2=W&el3=C&strictmin=1&strictmax=3&maxv=10000&format=urls
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+Querying OQMD through OPTIMADE....
+Loaded frozen OQMD cache for C-Si-W: 0 entries, 0 CIFs written
+Querying odbx through OPTIMADE
+Saving Si_ODBX_camd-camd_44849.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si_ODBX_camd-camd_44849.cif...
+Saving C_ODBX_camd-oqmd_589493.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/C_ODBX_camd-oqmd_589493.cif...
+Saving Si_ODBX_camd-camd_80147.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si_ODBX_camd-camd_80147.cif...
+Saving Si_ODBX_camd-camd_40283.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si_ODBX_camd-camd_40283.cif...
+Saving Si_ODBX_camd-camd_42106.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si_ODBX_camd-camd_42106.cif...
+Saving SiC_ODBX_camd-oqmd_3069.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_3069.cif...
+Saving WC_ODBX_camd-oqmd_3084.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/WC_ODBX_camd-oqmd_3084.cif...
+Saving SiC_ODBX_camd-oqmd_4460.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_4460.cif...
+Saving SiC_ODBX_camd-oqmd_4566.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_4566.cif...
+Saving SiC_ODBX_camd-oqmd_4580.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_4580.cif...
+Saving SiC_ODBX_camd-oqmd_4673.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_4673.cif...
+Saving SiC_ODBX_camd-oqmd_4674.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_4674.cif...
+Saving Si2W_ODBX_camd-oqmd_5147.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si2W_ODBX_camd-oqmd_5147.cif...
+Saving SiC_ODBX_camd-oqmd_5366.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_5366.cif...
+Saving SiC_ODBX_camd-oqmd_5490.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_5490.cif...
+Saving Si_ODBX_camd-oqmd_5714.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si_ODBX_camd-oqmd_5714.cif...
+Saving Si_ODBX_camd-oqmd_5764.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si_ODBX_camd-oqmd_5764.cif...
+Saving SiC_ODBX_camd-oqmd_6952.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_6952.cif...
+Saving SiC_ODBX_camd-oqmd_7786.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_7786.cif...
+Saving SiC_ODBX_camd-oqmd_7888.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_7888.cif...
+Saving SiC_ODBX_camd-oqmd_7889.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_7889.cif...
+Saving SiC_ODBX_camd-oqmd_7890.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_7890.cif...
+Saving SiC_ODBX_camd-oqmd_8212.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_8212.cif...
+Saving SiC_ODBX_camd-oqmd_8434.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_8434.cif...
+Saving Si3W5_ODBX_camd-oqmd_13170.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si3W5_ODBX_camd-oqmd_13170.cif...
+Saving SiC_ODBX_camd-oqmd_18548.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_18548.cif...
+Saving Si_ODBX_camd-oqmd_22507.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si_ODBX_camd-oqmd_22507.cif...
+Saving SiC_ODBX_camd-oqmd_47730.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_47730.cif...
+Saving SiC_ODBX_camd-oqmd_47732.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_47732.cif...
+Saving C_ODBX_camd-oqmd_589491.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/C_ODBX_camd-oqmd_589491.cif...
+Saving C_ODBX_camd-oqmd_589492.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/C_ODBX_camd-oqmd_589492.cif...
+Saving C_ODBX_camd-oqmd_589682.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/C_ODBX_camd-oqmd_589682.cif...
+Saving C_ODBX_camd-oqmd_610551.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/C_ODBX_camd-oqmd_610551.cif...
+Saving W_ODBX_camd-oqmd_676232.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/W_ODBX_camd-oqmd_676232.cif...
+Saving C_ODBX_camd-oqmd_683819.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/C_ODBX_camd-oqmd_683819.cif...
+Saving C_ODBX_camd-oqmd_683820.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/C_ODBX_camd-oqmd_683820.cif...
+Saving Si_ODBX_camd-camd_40886.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/Si_ODBX_camd-camd_40886.cif...
+Saving SiC_ODBX_camd-oqmd_7787.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_7787.cif...
+/home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/engine/gsas2utils.py:31: UserWarning: Importing GSASIIscriptable as a top level module is deprecated, please import it as a sub-module of GSASII
+  import GSASIIscriptable as G2sc  # Ignore Warning
+GSAS-II binaries co-located with GSAS-II: /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/xerus-env/lib/python3.12/site-packages/GSASII
+5 values read from /home/khw/.GSASII/config.ini
+0it [00:00, ?it/s]6it [00:00, 58.33it/s]13it [00:00, 64.18it/s]20it [00:00, 59.34it/s]27it [00:00, 62.99it/s]35it [00:00, 67.05it/s]40it [00:00, 65.74it/s]
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si_ODBX_camd-camd_40283.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_47730.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/C_ODBX_camd-oqmd_683819.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_7889.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si_ODBX_camd-camd_42106.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_3069.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/C_ODBX_camd-oqmd_589493.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_18548.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_4674.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/W_ODBX_camd-oqmd_676232.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_7888.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si_ODBX_camd-oqmd_5764.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_8212.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_4673.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_8434.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_7786.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_4566.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_7787.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/C_ODBX_camd-oqmd_683820.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/C_ODBX_camd-oqmd_589491.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_5490.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si2W_ODBX_camd-oqmd_5147.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_6952.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_47732.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_5366.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/C_ODBX_camd-oqmd_589492.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_4580.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_7890.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/C_ODBX_camd-oqmd_610551.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si_ODBX_camd-camd_44849.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si3W5_ODBX_camd-oqmd_13170.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si_ODBX_camd-oqmd_5714.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/C_ODBX_camd-oqmd_590101.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/WC_ODBX_camd-oqmd_3084.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si_ODBX_camd-camd_40886.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_4460.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si_ODBX_camd-oqmd_22507.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/Si_ODBX_camd-camd_80147.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/C_ODBX_camd-oqmd_589682.cif in GSASII
+We are going to try to run /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs/SiC_ODBX_camd-oqmd_20901.cif in GSASII
+Saving SiC_ODBX_camd-oqmd_20901.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/SiC_ODBX_camd-oqmd_20901.cif...
+Saving C_ODBX_camd-oqmd_590101.cif... to /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_odbx_misc/C_ODBX_camd-oqmd_590101.cif...
+Finished downloading CIFs.
+Testing, uploading and deleting cifs...
+python /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/tcif.py /home/khw/projects/xrd/xrd-native-benchmark-v2-method-smokes/fig4/benchmark/third_party/Xerus/Xerus/queriers/XRDV3_0077_Si-W-C_cifs
+Uploading database with cifs..
+40
+Deleting..
+C
+Si
+W
+Si-C
+W-C
+Si-W
+Si-W-C
+Modified Query for given 3 to : ['C', 'Si', 'W', 'Si-C', 'W-C', 'Si-W', 'Si-W-C']
+Simulating 343 patterns
+Done. Cleaning up GSASII files.
+Highest Correlated pattern is WC, with Cij: 0.984339967752428
+XRDV3_0077.xy_Top30.html
+Sucessfuly read datafile /home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0077/XRDV3_0077_preprocessed.csv
+Refining 3 highest correlated patterns and determining main phase (n=0)...
+Phase detected WC_OQMD_5574050.cif with rwp 9.643510119848814
+Removing 0 patterns that maximum intensity dropped below 10%.
+Phase detected SiC_MP_mp-1200168.cif
+Removing 42 patterns that maximum intensity dropped below 10%.
+Phase detected C_COD_1535012.cif
+/home/khw/projects/xrd/xrd-native-benchmark-v2-dgx-next/fig4/benchmark/results/atomly_core_v3/xerus_native_pilot_v2/work/XRDV3_0077/XRDV3_0077All_N_Runs.html
+0
+585
+3990
+XERUS_FILTER_DIAGNOSTIC_PLOT_SKIPPED {"invalid_filtered_runs": [2], "sample_id": "XRDV3_0077"}
+Filtering combinations..
+Initial # of combs: 15
+Final # of combs: 13, # removed: 2
+Removed 7 repeated combinations.
+Phase: WC-P-6m2_SiC-P6_3mc, Rwp: 9.422050819899898
+Phase: WC-P-6m2_SiC-P6_3mc_SiC-R3m, Rwp: 9.319616198582537
+Phase: WC-P-6m2_SiC-R3m_SiC-P6_3mc, Rwp: 9.319616198582535
+Phase: WC-P-6m2_SiC-R3m_C-Cmcm, Rwp: 10.091545888222432
+Phase: WC-P-6m2_SiC-F-43m, Rwp: 9.508443404007275
+Phase: WC-P-6m2_SiC-R3m_SiC-F-43m, Rwp: 999999
+Phase: WC-P-6m2_SiC-F-43m_C-Cmcm, Rwp: 9.624587251131267
+Analysis complete
+Best combination: WC_OQMD_5574050.cif_SiC_MP_mp-1200168.cif, Rwp: 9.255810412462367%
+Returning data to original format xy
+XRDV3_0077: 45 candidates -> 2 phases, Rwp=9.256%, 40.0 s

@@ -9,3 +9,24 @@ XRDV3_0046,freeze_startup,environment_path_failure,GSAS-II,0.327,ImportError,GSA
 XRDV3_0046,4,candidate_validation_failure,local_subprocess,109.362,FileNotFoundError,hard-coded python command was unavailable in the non-interactive PATH
 XRDV3_0046,freeze_retry,cache_integrity_failure,local_cache,n/a,manual_interruption,repeated filename prefixes from incomplete provider directories detected before a valid freeze
 XRDV3_0046,5,provider_failure,OQMD,286.793,RetryError,Br-Cl request timed out and then returned HTTP 502 after configured retries
+XRDV3_0006,2,calculation_failure,GSAS-II,20.438,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0007,2,calculation_failure,GSAS-II,68.848,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0011,2,calculation_failure,GSAS-II,19.021,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0019,2,calculation_failure,GSAS-II,28.931,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0021,2,calculation_failure,GSAS-II,10.585,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0024,2,calculation_failure,GSAS-II,45.070,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0026,2,calculation_failure,GSAS-II,14.687,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0028,2,calculation_failure,GSAS-II,21.211,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0029,2,calculation_failure,GSAS-II,67.247,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0031,2,calculation_failure,GSAS-II,45.583,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0036,2,calculation_failure,GSAS-II,16.715,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0043,2,calculation_failure,GSAS-II,19.780,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0047,2,calculation_failure,GSAS-II,17.394,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0058,2,calculation_failure,GSAS-II,357.924,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0061,2,calculation_failure,GSAS-II,35.154,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0064,2,calculation_failure,GSAS-II,62.383,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0068,2,calculation_failure,GSAS-II,79.606,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0072,2,calculation_failure,GSAS-II,37.585,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0076,2,calculation_failure,GSAS-II,14.974,G2Exception,combination refinement aborted: no reflections in data range
+XRDV3_0077,2,postprocessing_failure,XERUS visualization,26.273,AttributeError,empty filtered diagnostic plot accessed missing simulated_files
+XRDV3_0087,2,calculation_failure,GSAS-II,13.760,G2Exception,combination refinement aborted: no reflections in data range
