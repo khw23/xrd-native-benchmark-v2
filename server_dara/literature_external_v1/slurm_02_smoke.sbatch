@@ -4,8 +4,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
-#SBATCH --output=dara_lit_smoke_%j.out
-#SBATCH --error=dara_lit_smoke_%j.err
+#SBATCH --output=fig4/benchmark/results/literature_external_v1/logs/server/dara_lit_smoke_%j.out
+#SBATCH --error=fig4/benchmark/results/literature_external_v1/logs/server/dara_lit_smoke_%j.err
 
 set -euo pipefail
 ulimit -s unlimited
@@ -17,8 +17,10 @@ set +u
 eval "$(conda shell.bash hook)"
 conda activate "${CONDA_ENV_NAME:-xrd-dara-v3}"
 set -u
+unset LD_LIBRARY_PATH LD_PRELOAD
 
 export RAY_CPUS="${RAY_CPUS:-2}"
 export BGMN_THREADS="${BGMN_THREADS:-8}"
 test "$((RAY_CPUS * BGMN_THREADS))" -le "${SLURM_CPUS_PER_TASK:?}"
+bash server_dara/literature_external_v1/00_preflight.sh
 bash server_dara/literature_external_v1/02_smoke.sh

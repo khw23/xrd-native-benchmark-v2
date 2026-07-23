@@ -21,18 +21,23 @@ failures = sorted(key for key, row in latest.items() if row.get("status") != "ok
 print({"samples": len(latest), "ok": len(latest) - len(failures), "failures": failures})
 PY
 
-tar -czf "$ARCHIVE" \
-  "$RESULT_ROOT/predictions.csv" \
-  "$RESULT_ROOT/run_records.json" \
-  "$RESULT_ROOT/environment.json" \
-  "$RESULT_ROOT/failure_history.jsonl" \
-  "$RESULT_ROOT/selected_cifs" \
-  "$RESULT_ROOT/logs" 2>/dev/null || \
-tar -czf "$ARCHIVE" \
-  "$RESULT_ROOT/predictions.csv" \
-  "$RESULT_ROOT/run_records.json" \
-  "$RESULT_ROOT/environment.json" \
+paths=(
+  "$RESULT_ROOT/predictions.csv"
+  "$RESULT_ROOT/run_records.json"
+  "$RESULT_ROOT/environment.json"
   "$RESULT_ROOT/selected_cifs"
+)
+for optional in \
+  "$RESULT_ROOT/failure_history.jsonl" \
+  "$RESULT_ROOT/logs" \
+  "fig4/benchmark/results/literature_external_v1/logs/server" \
+  "fig4/benchmark/results/literature_external_v1/SERVER_DARA_RUN_STATUS.md"; do
+  if [ -e "$optional" ]; then
+    paths+=("$optional")
+  fi
+done
+
+tar -czf "$ARCHIVE" "${paths[@]}"
 
 sha256sum "$ARCHIVE" > "$ARCHIVE.sha256"
 echo "DARA_LITERATURE_EXTERNAL_PACKAGE_READY $ARCHIVE"

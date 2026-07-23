@@ -4,8 +4,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
-#SBATCH --output=dara_lit_prepare_%j.out
-#SBATCH --error=dara_lit_prepare_%j.err
+#SBATCH --output=fig4/benchmark/results/literature_external_v1/logs/server/dara_lit_prepare_%j.out
+#SBATCH --error=fig4/benchmark/results/literature_external_v1/logs/server/dara_lit_prepare_%j.err
 
 set -euo pipefail
 ulimit -s unlimited
@@ -17,5 +17,7 @@ set +u
 eval "$(conda shell.bash hook)"
 conda activate "${CONDA_ENV_NAME:-xrd-dara-v3}"
 set -u
+unset LD_LIBRARY_PATH LD_PRELOAD
 
+bash server_dara/literature_external_v1/00_preflight.sh
 bash server_dara/literature_external_v1/01_prepare_candidates.sh

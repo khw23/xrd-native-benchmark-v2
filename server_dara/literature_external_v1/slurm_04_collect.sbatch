@@ -4,8 +4,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
-#SBATCH --output=dara_lit_collect_%j.out
-#SBATCH --error=dara_lit_collect_%j.err
+#SBATCH --output=fig4/benchmark/results/literature_external_v1/logs/server/dara_lit_collect_%j.out
+#SBATCH --error=fig4/benchmark/results/literature_external_v1/logs/server/dara_lit_collect_%j.err
 
 set -euo pipefail
 module purge
