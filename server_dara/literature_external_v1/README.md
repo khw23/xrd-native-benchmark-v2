@@ -98,7 +98,19 @@ tail -n 100 \
 ```
 
 `.out` 必须出现 `DARA_LITV1_PREFLIGHT_PASS`、公开包 PASS、COD 2,122 和 46 个完整元素空间；
-`State=COMPLETED`、`ExitCode=0:0`。`.err` 为空或仅有非致命 warning。
+末尾还必须出现：
+
+```text
+COD_CANDIDATE_PREPARATION_SUMMARY 46/46 systems successful
+COD_CANDIDATE_PREPARATION_OK
+```
+
+同时要求 `State=COMPLETED`、`ExitCode=0:0`。`.err` 为空或仅有非致命 warning。
+
+若旧日志出现 `Local copy of database not found` 并尝试访问
+`www.crystallography.net`，说明运行的是修复前的相对路径版本。更新本分支后直接重新提交
+`slurm_01_prepare.sbatch`；`--resume` 会重试没有 `_SUCCESS.json` 的 46 个失败元素空间，不需要
+删除旧输出或重新解压 COD。
 
 ## 5. 三 profile smoke
 
