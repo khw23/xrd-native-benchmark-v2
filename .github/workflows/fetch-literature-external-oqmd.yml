@@ -2,9 +2,6 @@ name: Fetch Literature-External OQMD cache
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - prep/literature-external-v1
 
 permissions:
   contents: read
