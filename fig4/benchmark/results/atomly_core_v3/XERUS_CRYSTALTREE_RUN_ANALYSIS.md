@@ -49,6 +49,11 @@ benchmark 准确率。
 - 286 个入选 CIF 全部存在，输出内 SHA-256 和汇总校验文件均通过；
 - 每个样品报告的 XERUS 质量分数之和为 1。
 
+完整后台控制台输出保留为
+`xerus_native_pilot_v2/logs/full_background_launcher.log.gz`。该文件由原始
+12,634,157-byte 日志无损压缩得到；解压后 SHA-256 为
+`6639afcc853c502fcaf6d709e3774ada5e0c40327ba12e7ef306f6eb07c6ccb9`。
+
 首轮 21 个样品级错误保留在 append-only 审计中：20 个组合精修的
 `no reflections in data range`，以及 1 个不参与最终结果的空诊断图错误。恢复补丁只把这一种
 无反射组合赋予 XERUS 已有的无效拟合哨兵值，并跳过空诊断图；候选、`n_runs=3`、`n_jobs=4`、
